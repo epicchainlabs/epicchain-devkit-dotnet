@@ -1,13 +1,13 @@
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Coverage.Formats;
-using Neo.VM;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Coverage.Formats;
+using Chain.VM;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     [DebuggerDisplay("{Name}")]
     public class CoveredContract : CoverageBase

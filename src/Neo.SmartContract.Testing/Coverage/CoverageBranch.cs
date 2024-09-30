@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     /// <summary>
     /// Constructor

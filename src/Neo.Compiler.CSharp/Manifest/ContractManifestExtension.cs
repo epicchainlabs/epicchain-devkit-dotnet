@@ -14,11 +14,11 @@
 extern alias scfx;
 using System;
 using System.Linq;
-using Neo.SmartContract.Manifest;
-using scfx::Neo.SmartContract.Framework;
-using ContractParameterType = Neo.SmartContract.ContractParameterType;
+using Chain.SmartContract.Manifest;
+using scfx::Chain.SmartContract.Framework;
+using ContractParameterType = Chain.SmartContract.ContractParameterType;
 
-namespace Neo.Compiler
+namespace Chain.Compiler
 {
     internal static class ContractManifestExtensions
     {

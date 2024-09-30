@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     public partial class NeoDebugInfo
     {

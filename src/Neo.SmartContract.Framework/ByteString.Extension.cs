@@ -9,8 +9,8 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework.Native;
-namespace Neo.SmartContract.Framework;
+using Chain.SmartContract.Framework.Native;
+namespace Chain.SmartContract.Framework;
 
 public static class ByteStringExtension
 {

@@ -1,21 +1,21 @@
-using Neo.SmartContract;
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Native;
+using Chain.SmartContract.Framework.Services;
 
 using System;
 using System.ComponentModel;
 
-namespace Neo.SmartContract.Template
+namespace Chain.SmartContract.Template
 {
     [DisplayName(nameof(Ownable))]
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Neo.SmartContract.Template/templates/neocontractowner/Ownable.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Chain.SmartContract.Template/templates/neocontractowner/Ownable.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
-    public class Ownable : Neo.SmartContract.Framework.SmartContract
+    public class Ownable : Chain.SmartContract.Framework.SmartContract
     {
         #region Owner
 

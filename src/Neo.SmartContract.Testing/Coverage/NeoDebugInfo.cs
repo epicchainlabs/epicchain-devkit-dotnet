@@ -1,4 +1,4 @@
-using Neo.Json;
+using Chain.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -7,7 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     public partial class NeoDebugInfo(UInt160 hash, string documentRoot, IReadOnlyList<string> documents, IReadOnlyList<NeoDebugInfo.Method> methods)
     {

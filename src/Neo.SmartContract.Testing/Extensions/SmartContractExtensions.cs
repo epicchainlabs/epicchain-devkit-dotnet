@@ -1,8 +1,8 @@
-using Neo.SmartContract.Testing.Coverage;
+using Chain.SmartContract.Testing.Coverage;
 using System;
 using System.Linq.Expressions;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     public static class SmartContractExtensions
     {

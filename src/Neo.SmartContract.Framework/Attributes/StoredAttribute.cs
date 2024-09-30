@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.SmartContract.Framework is free software distributed under the MIT
+// The Chain.SmartContract.Framework is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -12,7 +12,7 @@ using System;
 
 #pragma warning disable IDE0060
 
-namespace Neo.SmartContract.Framework.Attributes
+namespace Chain.SmartContract.Framework.Attributes
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public class StoredAttribute : Attribute

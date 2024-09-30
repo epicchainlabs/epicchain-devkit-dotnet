@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyTitle>Neo.SmartContract.Framework</AssemblyTitle>
-    <AssemblyName>Neo.SmartContract.Framework</AssemblyName>
-    <PackageId>Neo.SmartContract.Framework</PackageId>
-    <Description>Neo.SmartContract.Framework</Description>
+    <AssemblyTitle>Chain.SmartContract.Framework</AssemblyTitle>
+    <AssemblyName>Chain.SmartContract.Framework</AssemblyName>
+    <PackageId>Chain.SmartContract.Framework</PackageId>
+    <Description>Chain.SmartContract.Framework</Description>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>

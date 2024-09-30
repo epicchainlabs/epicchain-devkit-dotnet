@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_GoTo : SmartContract.Framework.SmartContract
     {

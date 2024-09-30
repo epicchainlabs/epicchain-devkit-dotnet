@@ -9,14 +9,14 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.Json;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.VM;
+using Chain.Json;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.VM;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     public static class Peephole
     {

@@ -1,4 +1,4 @@
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public sealed class Contract_Params : SmartContract.Framework.SmartContract
     {

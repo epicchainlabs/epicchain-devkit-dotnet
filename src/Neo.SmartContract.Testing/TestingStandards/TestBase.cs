@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Coverage;
+using Chain.IO;
+using Chain.Network.P2P.Payloads;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Coverage;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Neo.SmartContract.Testing.TestingStandards;
+namespace Chain.SmartContract.Testing.TestingStandards;
 
 public class TestBase<T> where T : SmartContract, IContractInfo
 {

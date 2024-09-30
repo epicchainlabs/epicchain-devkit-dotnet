@@ -1,9 +1,9 @@
-using Neo.Cryptography.ECC;
-using Neo.SmartContract.Native;
+using Chain.Cryptography.ECC;
+using Chain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.Native;
+namespace Chain.SmartContract.Testing.Native;
 
 public abstract class RoleManagement : SmartContract
 {

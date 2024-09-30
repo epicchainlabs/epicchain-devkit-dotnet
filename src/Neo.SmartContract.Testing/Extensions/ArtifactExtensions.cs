@@ -1,13 +1,13 @@
-using Neo.IO;
-using Neo.SmartContract.Manifest;
+using Chain.IO;
+using Chain.SmartContract.Manifest;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Neo.SmartContract.Testing.TestingStandards;
+using Chain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.SmartContract.Testing.Extensions
+namespace Chain.SmartContract.Testing.Extensions
 {
     public static class ArtifactExtensions
     {
@@ -55,13 +55,13 @@ namespace Neo.SmartContract.Testing.Extensions
             if (manifest.IsOwnable()) inheritance.Add(typeof(IOwnable));
             if (manifest.IsVerificable()) inheritance.Add(typeof(IVerificable));
 
-            sourceCode.WriteLine("using Neo.Cryptography.ECC;");
+            sourceCode.WriteLine("using Chain.Cryptography.ECC;");
             sourceCode.WriteLine("using System;");
             sourceCode.WriteLine("using System.Collections.Generic;");
             sourceCode.WriteLine("using System.ComponentModel;");
             sourceCode.WriteLine("using System.Numerics;");
             sourceCode.WriteLine("");
-            sourceCode.WriteLine("namespace Neo.SmartContract.Testing;");
+            sourceCode.WriteLine("namespace Chain.SmartContract.Testing;");
             sourceCode.WriteLine("");
             sourceCode.WriteLine($"public abstract class {name}({typeof(SmartContractInitialize).FullName} initialize) : " + FormatInheritance(inheritance, "initialize") + ", IContractInfo");
             sourceCode.WriteLine("{");
@@ -87,7 +87,7 @@ namespace Neo.SmartContract.Testing.Extensions
                     sourceCode.WriteLine($"    /// Optimization: {optimization}");
                     sourceCode.WriteLine($"    /// </summary>");
                 }
-                sourceCode.WriteLine($"    public static {typeof(NefFile).FullName} Nef => Neo.IO.Helper.AsSerializable<{typeof(NefFile).FullName}>(Convert.FromBase64String(@\"{value}\"));");
+                sourceCode.WriteLine($"    public static {typeof(NefFile).FullName} Nef => Chain.IO.Helper.AsSerializable<{typeof(NefFile).FullName}>(Convert.FromBase64String(@\"{value}\"));");
                 sourceCode.WriteLine();
             }
 

@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.TestContracts;
+namespace EpicChain.Compiler.CSharp.TestContracts;
 
 public class Contract_Integer : SmartContract.Framework.SmartContract
 {

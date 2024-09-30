@@ -1,18 +1,18 @@
 // Copyright (C) 2015-2022 The Neo Project.
-// 
-// The Neo.SmartContract.Framework is free software distributed under the MIT 
-// software license, see the accompanying file LICENSE in the main directory 
-// of the project or http://www.opensource.org/licenses/mit-license.php 
+//
+// The Chain.SmartContract.Framework is free software distributed under the MIT
+// software license, see the accompanying file LICENSE in the main directory
+// of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
-// 
+//
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
 using System;
 using System.Runtime.CompilerServices;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework.Services;
 
-namespace Neo.SmartContract.Framework.Attributes
+namespace Chain.SmartContract.Framework.Attributes
 {
     /// <summary>
     /// Global no Reentrancy protection. This no reentrant attribute by default take as a key the method name

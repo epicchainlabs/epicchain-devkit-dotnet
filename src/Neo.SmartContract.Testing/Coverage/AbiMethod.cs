@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     [DebuggerDisplay("{Name},{PCount}")]
     public class AbiMethod : IEquatable<AbiMethod>

@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.Linq
+namespace Chain.SmartContract.Framework.Linq
 {
     public static class LinqExtensions
     {

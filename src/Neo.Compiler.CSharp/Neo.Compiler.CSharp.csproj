@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyTitle>Neo.Compiler.CSharp</AssemblyTitle>
+    <AssemblyTitle>Chain.Compiler.CSharp</AssemblyTitle>
     <AssemblyName>nccs</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Neo.Compiler.CSharp</PackageId>
+    <PackageId>Chain.Compiler.CSharp</PackageId>
     <PackAsTool>true</PackAsTool>
-    <RootNamespace>Neo.Compiler</RootNamespace>
+    <RootNamespace>Chain.Compiler</RootNamespace>
     <Nullable>enable</Nullable>
     <PackageTags>NEO;Blockchain;Smart Contract;Compiler</PackageTags>
     <Company>The Neo Project</Company>
-    <Product>Neo.Compiler.CSharp</Product>
-    <Description>Neo.Compiler.CSharp</Description>
+    <Product>Chain.Compiler.CSharp</Product>
+    <Description>Chain.Compiler.CSharp</Description>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -24,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\neo\src\Neo.Extensions\Neo.Extensions.csproj" />
-    <ProjectReference Include="..\..\neo\src\Neo\Neo.csproj" />
-    <ProjectReference Include="..\Neo.SmartContract.Framework\Neo.SmartContract.Framework.csproj">
+    <ProjectReference Include="..\..\neo\src\Chain.Extens\EpicChain.Extensions.csproj" />
+    <ProjectReference Include="..\..\neo\src\Neo\Chain.csproj" />
+    <ProjectReference Include="..\Chain.SmartContract.Framk\EpicChain.SmartContract.Framework.csproj">
       <Aliases>scfx</Aliases>
     </ProjectReference>
-    <ProjectReference Include="..\Neo.SmartContract.Testing\Neo.SmartContract.Testing.csproj" />
+    <ProjectReference Include="..\Chain.SmartContract.Teg\EpicChain.SmartContract.Testing.csproj" />
   </ItemGroup>
 
 </Project>

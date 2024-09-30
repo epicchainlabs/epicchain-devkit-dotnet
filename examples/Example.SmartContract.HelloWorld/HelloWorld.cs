@@ -9,8 +9,8 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
 
 using System.ComponentModel;
 
@@ -18,7 +18,7 @@ namespace HelloWorld;
 
 [DisplayName("SampleHelloWorld")]
 [ContractDescription("A simple `hello world` contract")]
-[ContractEmail("dev@neo.org")]
+[ContractEmail("dev@Chain.org")]
 [ContractVersion("0.0.1")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 [ContractPermission(Permission.Any, Method.Any)]

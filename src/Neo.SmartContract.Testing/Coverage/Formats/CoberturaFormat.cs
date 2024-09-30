@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 
-namespace Neo.SmartContract.Testing.Coverage.Formats
+namespace Chain.SmartContract.Testing.Coverage.Formats
 {
     public partial class CoberturaFormat : CoverageFormatBase
     {

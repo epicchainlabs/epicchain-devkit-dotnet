@@ -1,11 +1,11 @@
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using Chain.IO;
+using Chain.Network.P2P.Payloads;
+using Chain.SmartContract.Native;
+using Chain.VM;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.Native;
+namespace Chain.SmartContract.Testing.Native;
 
 public abstract class Ledger : SmartContract
 {

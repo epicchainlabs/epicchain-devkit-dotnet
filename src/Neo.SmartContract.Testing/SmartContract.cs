@@ -1,7 +1,7 @@
-using Neo.SmartContract.Testing.Extensions;
-using Neo.SmartContract.Testing.Storage;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.SmartContract.Testing.Extensions;
+using Chain.SmartContract.Testing.Storage;
+using Chain.VM;
+using Chain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     public class SmartContract : IDisposable
     {

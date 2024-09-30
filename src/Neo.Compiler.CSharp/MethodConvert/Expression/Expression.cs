@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,16 +11,16 @@
 extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.SmartContract.Native;
-using Neo.VM;
-using Neo.VM.Types;
-using Neo.Wallets;
+using Chain.Cryptography.ECC;
+using Chain.IO;
+using Chain.SmartContract.Native;
+using Chain.VM;
+using Chain.VM.Types;
+using Chain.Wallets;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler;
+namespace Chain.Compiler;
 
 internal partial class MethodConvert
 {
@@ -228,10 +228,10 @@ internal partial class MethodConvert
         string fullName = typeSymbol.ToDisplayString();
         return fullName switch
         {
-            "Neo.SmartContract.Framework.UInt160" => ConvertToUInt160((string)value!),
-            "Neo.SmartContract.Framework.UInt256" => ConvertToUInt256((string)value!, syntax),
-            "Neo.SmartContract.Framework.ECPoint" => ConvertToECPoint((string)value!),
-            "Neo.SmartContract.Framework.ByteArray" => ((string)value!).HexToBytes(true),
+            "Chain.SmartContract.Framework.UInt160" => ConvertToUInt160((string)value!),
+            "Chain.SmartContract.Framework.UInt256" => ConvertToUInt256((string)value!, syntax),
+            "Chain.SmartContract.Framework.ECPoint" => ConvertToECPoint((string)value!),
+            "Chain.SmartContract.Framework.ByteArray" => ((string)value!).HexToBytes(true),
             _ => value
         };
     }
@@ -316,7 +316,7 @@ internal partial class MethodConvert
     /// <param name="expression">The expression to be converted to a string.</param>
     /// <remarks>
     /// For integer types and BigInteger type, call the itoa method of NativeContract.StdLib.Hash for conversion.
-    /// For string type and specific types in Neo.SmartContract.Framework, directly perform expression conversion.
+    /// For string type and specific types in Chain.SmartContract.Framework, directly perform expression conversion.
     /// </remarks>
     /// <exception cref="CompilationException">For unsupported types, throw a compilation exception.</exception>
     private void ConvertObjectToString(SemanticModel model, ExpressionSyntax expression)
@@ -341,10 +341,10 @@ internal partial class MethodConvert
                 ChangeType(StackItemType.ByteString);
                 break;
             case "string":
-            case "Neo.SmartContract.Framework.ECPoint":
-            case "Neo.SmartContract.Framework.ByteString":
-            case "Neo.SmartContract.Framework.UInt160":
-            case "Neo.SmartContract.Framework.UInt256":
+            case "Chain.SmartContract.Framework.ECPoint":
+            case "Chain.SmartContract.Framework.ByteString":
+            case "Chain.SmartContract.Framework.UInt160":
+            case "Chain.SmartContract.Framework.UInt256":
                 ConvertExpression(model, expression);
                 break;
             case "bool":

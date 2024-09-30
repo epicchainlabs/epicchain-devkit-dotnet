@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Neo.SmartContract.Analyzer
+namespace Chain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class DecimalUsageAnalyzer : DiagnosticAnalyzer

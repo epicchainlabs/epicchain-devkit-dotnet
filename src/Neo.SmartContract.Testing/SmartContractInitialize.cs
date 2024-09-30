@@ -1,4 +1,4 @@
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     public class SmartContractInitialize
     {

@@ -1,8 +1,8 @@
-using Neo.SmartContract.Manifest;
+using Chain.SmartContract.Manifest;
 using System;
 using System.Linq;
 
-namespace Neo.SmartContract.Testing.Extensions
+namespace Chain.SmartContract.Testing.Extensions
 {
     public static class StandardExtensions
     {

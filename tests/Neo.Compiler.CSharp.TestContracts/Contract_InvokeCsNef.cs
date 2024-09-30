@@ -1,4 +1,4 @@
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_InvokeCsNef : SmartContract.Framework.SmartContract
     {

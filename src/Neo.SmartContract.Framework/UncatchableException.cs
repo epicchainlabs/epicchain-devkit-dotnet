@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Neo.SmartContract.Framework
+namespace Chain.SmartContract.Framework
 {
     /// <summary>
     /// Represents an exception that cannot be caught in the contract.

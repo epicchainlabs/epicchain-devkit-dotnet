@@ -1,12 +1,12 @@
-using Neo.Cryptography;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using Chain.Cryptography;
+using Chain.Network.P2P.Payloads;
+using Chain.Persistence;
+using Chain.SmartContract.Native;
+using Chain.VM;
 using System;
 using System.Linq;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     public class PersistingBlock
     {

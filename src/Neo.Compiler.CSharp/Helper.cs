@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,10 +11,10 @@
 extern alias scfx;
 
 using Microsoft.CodeAnalysis;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.VM;
+using Chain.VM.Types;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler
+namespace Chain.Compiler
 {
     static class Helper
     {
@@ -85,20 +85,20 @@ namespace Neo.Compiler
                 case "string": return ContractParameterType.String;
                 case "byte[]": return ContractParameterType.ByteArray;
                 case "object": return ContractParameterType.Any;
-                case "Neo.Cryptography.ECC.ECPoint": // Old Neo.SmartContract.Framework
-                case "Neo.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
-                case "Neo.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
-                case "Neo.UInt160": // Old Neo.SmartContract.Framework
-                case "Neo.SmartContract.Framework.UInt160": return ContractParameterType.Hash160;
-                case "Neo.UInt256": // Old Neo.SmartContract.Framework
-                case "Neo.SmartContract.Framework.UInt256": return ContractParameterType.Hash256;
+                case "Chain.Cryptography.ECC.ECPoint": /d EpicChain.SmartContract.Framework
+                case "Chain.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
+                case "Chain.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
+                case "Chain.UInt160": /d EpicChain.SmartContract.Framework
+                case "Chain.SmartContract.Framework.UInt160": return ContractParameterType.Hash160;
+                case "Chain.UInt256": /d EpicChain.SmartContract.Framework
+                case "Chain.SmartContract.Framework.UInt256": return ContractParameterType.Hash256;
                 case "System.Numerics.BigInteger": return ContractParameterType.Integer;
             }
             if (type.Name == "Map") return ContractParameterType.Map;
             if (type.Name == "List") return ContractParameterType.Array;
             if (type.TypeKind == TypeKind.Enum) return ContractParameterType.Integer;
             if (type is IArrayTypeSymbol) return ContractParameterType.Array;
-            if (type.AllInterfaces.Any(p => p.Name == nameof(scfx::Neo.SmartContract.Framework.IApiInterface)))
+            if (type.AllInterfaces.Any(p => p.Name == nameof(scfx::Chain.SmartContract.Framework.IApiInterface)))
                 return ContractParameterType.InteropInterface;
             if (type.IsValueType) return ContractParameterType.Array;
             return ContractParameterType.Any;
@@ -136,7 +136,7 @@ namespace Neo.Compiler
                 "bool" => StackItemType.Boolean,
                 "byte[]" => StackItemType.Buffer,
                 "string" => StackItemType.ByteString,
-                "Neo.SmartContract.Framework.ByteString" => StackItemType.ByteString,
+                "Chain.SmartContract.Framework.ByteString" => StackItemType.ByteString,
                 "System.Numerics.BigInteger" => StackItemType.Integer,
                 _ => throw new CompilationException(type, DiagnosticId.SyntaxNotSupported, $"Unsupported pattern type: {type}")
             };

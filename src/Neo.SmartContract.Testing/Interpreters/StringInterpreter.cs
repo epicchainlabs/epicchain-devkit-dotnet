@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace Neo.SmartContract.Testing.Interpreters
+namespace Chain.SmartContract.Testing.Interpreters
 {
     public class StringInterpreter : IStringInterpreter
     {

@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Coverage.Formats;
+using Chain.SmartContract.Testing.Coverage;
+using Chain.SmartContract.Testing.Coverage.Formats;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing.TestingStandards
+namespace Chain.SmartContract.Testing.TestingStandards
 {
     public abstract class TestCleanupBase
     {

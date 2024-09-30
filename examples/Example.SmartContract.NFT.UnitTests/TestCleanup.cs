@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Compiler;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Extensions;
+using Chain.Compiler;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Extensions;
 
 namespace Example.SmartContract.NFT.UnitTests
 {

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Neo.SmartContract.Framework;
+namespace Chain.SmartContract.Framework;
 
 /// <summary>
 /// Sets the permission for the developing contract to call a method of another contract.

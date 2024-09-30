@@ -9,7 +9,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-namespace Neo.SmartContract.Framework.Native
+namespace Chain.SmartContract.Framework.Native
 {
     /// <summary>
     /// Represents the type of a <see cref="TransactionAttribute"/>.

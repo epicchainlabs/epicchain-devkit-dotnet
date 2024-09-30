@@ -1,5 +1,5 @@
-using Neo.SmartContract.Framework;
-namespace Neo.Compiler.CSharp.TestContracts
+using Chain.SmartContract.Framework;
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_Logical : SmartContract.Framework.SmartContract
     {

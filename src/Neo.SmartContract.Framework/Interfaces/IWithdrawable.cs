@@ -11,7 +11,7 @@
 
 #nullable enable
 
-namespace Neo.SmartContract.Framework.Interfaces;
+namespace Chain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of method that indicate a contract can be withdrawn.

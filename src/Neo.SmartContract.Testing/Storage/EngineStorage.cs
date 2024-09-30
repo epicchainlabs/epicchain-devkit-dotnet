@@ -1,10 +1,10 @@
-using Neo.Json;
-using Neo.Persistence;
+using Chain.Json;
+using Chain.Persistence;
 using System;
 using System.Buffers.Binary;
 using System.Linq;
 
-namespace Neo.SmartContract.Testing.Storage
+namespace Chain.SmartContract.Testing.Storage
 {
     /// <summary>
     /// TestStorage centralizes the storage management of our TestEngine
@@ -12,7 +12,7 @@ namespace Neo.SmartContract.Testing.Storage
     public class EngineStorage
     {
         // Key to check if native contracts are initialized, by default: ContractManagement.Prefix_NextAvailableId
-        private static readonly StorageKey _initKey = new() { Id = Neo.SmartContract.Native.NativeContract.ContractManagement.Id, Key = new byte[] { 15 } };
+        private static readonly StorageKey _initKey = new() { Id = Chain.SmartContract.Native.NativeContract.ContractManagement.Id, Key = new byte[] { 15 } };
 
         /// <summary>
         /// Store

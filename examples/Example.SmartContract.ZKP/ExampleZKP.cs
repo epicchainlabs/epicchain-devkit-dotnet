@@ -9,9 +9,9 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Native;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Native;
 using System;
 using System.ComponentModel;
 

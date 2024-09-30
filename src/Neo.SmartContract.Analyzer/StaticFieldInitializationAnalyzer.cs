@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Neo.SmartContract.Analyzer
+namespace Chain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class StaticFieldInitializationAnalyzer : DiagnosticAnalyzer

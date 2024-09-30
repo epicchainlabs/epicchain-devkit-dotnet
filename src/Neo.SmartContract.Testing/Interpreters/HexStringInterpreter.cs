@@ -1,8 +1,8 @@
-using Neo.Extensions;
+using Chain.Extensions;
 using System;
 using System.Text.RegularExpressions;
 
-namespace Neo.SmartContract.Testing.Interpreters
+namespace Chain.SmartContract.Testing.Interpreters
 {
     public class HexStringInterpreter : IStringInterpreter
     {

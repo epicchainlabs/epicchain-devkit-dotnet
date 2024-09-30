@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -13,12 +13,12 @@ extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.SmartContract;
-using Neo.VM;
+using Chain.SmartContract;
+using Chain.VM;
 using System;
 using System.Linq;
 
-namespace Neo.Compiler;
+namespace Chain.Compiler;
 
 internal partial class MethodConvert
 {

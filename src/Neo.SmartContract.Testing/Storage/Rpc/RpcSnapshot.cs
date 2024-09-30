@@ -1,8 +1,8 @@
-using Neo.Persistence;
+using Chain.Persistence;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.SmartContract.Testing.Storage.Rpc;
+namespace Chain.SmartContract.Testing.Storage.Rpc;
 
 internal class RpcSnapshot : ISnapshot
 {

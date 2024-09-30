@@ -1,12 +1,12 @@
-using Neo.VM;
+using Chain.VM;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using static Neo.Optimizer.OpCodeTypes;
-using static Neo.Optimizer.Optimizer;
+using static Chain.Optimizer.OpCodeTypes;
+using static Chain.Optimizer.Optimizer;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     static class OptimizedScriptBuilder
     {

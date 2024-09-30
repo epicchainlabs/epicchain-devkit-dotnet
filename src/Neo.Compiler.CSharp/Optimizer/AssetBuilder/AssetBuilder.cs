@@ -1,10 +1,10 @@
-using Neo.Json;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.VM;
+using Chain.Json;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.VM;
 using System.Collections.Generic;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     public static class AssetBuilder
     {

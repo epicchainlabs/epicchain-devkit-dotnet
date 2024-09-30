@@ -1,9 +1,9 @@
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Services;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_Foreach : SmartContract.Framework.SmartContract
     {

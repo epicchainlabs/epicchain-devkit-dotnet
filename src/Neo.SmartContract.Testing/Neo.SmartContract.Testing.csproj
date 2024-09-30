@@ -2,12 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <Title>Neo.SmartContract.Testing</Title>
+        <Title>Chain.SmartContract.Testing</Title>
         <LangVersion>latest</LangVersion>
-        <AssemblyTitle>Neo.SmartContract.Testing</AssemblyTitle>
-        <AssemblyName>Neo.SmartContract.Testing</AssemblyName>
-        <RootNamespace>Neo.SmartContract.Testing</RootNamespace>
-        <PackageId>Neo.SmartContract.Testing</PackageId>
+        <AssemblyTitle>Chain.SmartContract.Testing</AssemblyTitle>
+        <AssemblyName>Chain.SmartContract.Testing</AssemblyName>
+        <RootNamespace>Chain.SmartContract.Testing</RootNamespace>
+        <PackageId>Chain.SmartContract.Testing</PackageId>
         <PackageTags>NEO;Blockchain;Smart Contract</PackageTags>
         <Description>TestEngine for NEO smart contract testing.</Description>
         <IncludeContentInPack>true</IncludeContentInPack>
@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\neo\src\Neo\Neo.csproj" />
+      <ProjectReference Include="..\..\neo\src\Neo\Chain.csproj" />
     </ItemGroup>
 
 </Project>

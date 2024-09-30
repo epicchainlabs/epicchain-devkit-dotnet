@@ -1,18 +1,18 @@
 using Moq;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Native;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.Extensions;
-using Neo.SmartContract.Testing.Interpreters;
-using Neo.SmartContract.Testing.Native;
-using Neo.SmartContract.Testing.Storage;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.Cryptography.ECC;
+using Chain.IO;
+using Chain.Network.P2P.Payloads;
+using Chain.Persistence;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Native;
+using Chain.SmartContract.Testing.Coverage;
+using Chain.SmartContract.Testing.Exceptions;
+using Chain.SmartContract.Testing.Extensions;
+using Chain.SmartContract.Testing.Interpreters;
+using Chain.SmartContract.Testing.Native;
+using Chain.SmartContract.Testing.Storage;
+using Chain.VM;
+using Chain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     public class TestEngine
     {
@@ -115,7 +115,7 @@ namespace Neo.SmartContract.Testing
                     return validatorsScript.ToScriptHash();
                 }
 
-                var validators = NativeContract.NEO.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
+                var validators = NativeContract.Chain.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
                 return Contract.GetBFTAddress(validators);
             }
         }
@@ -135,7 +135,7 @@ namespace Neo.SmartContract.Testing
                     return committeeScript.ToScriptHash();
                 }
 
-                return NativeContract.NEO.GetCommitteeAddress(Storage.Snapshot);
+                return NativeContract.Chain.GetCommitteeAddress(Storage.Snapshot);
             }
         }
 

@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework;
+using Chain.SmartContract.Framework;
 using System;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_Abort : SmartContract.Framework.SmartContract
     {

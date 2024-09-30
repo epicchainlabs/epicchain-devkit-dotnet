@@ -9,17 +9,17 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.VM;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.VM;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using static Neo.Optimizer.JumpTarget;
-using static Neo.Optimizer.OpCodeTypes;
+using static Chain.Optimizer.JumpTarget;
+using static Chain.Optimizer.OpCodeTypes;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     public enum TryStackType
     {

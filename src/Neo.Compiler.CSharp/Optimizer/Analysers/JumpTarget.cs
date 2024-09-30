@@ -9,15 +9,15 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract;
-using Neo.VM;
+using Chain.SmartContract;
+using Chain.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Neo.Optimizer.OpCodeTypes;
-using static Neo.VM.OpCode;
+using static Chain.Optimizer.OpCodeTypes;
+using static Chain.VM.OpCode;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     static class JumpTarget
     {

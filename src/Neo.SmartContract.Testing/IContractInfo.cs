@@ -1,6 +1,6 @@
-using Neo.SmartContract.Manifest;
+using Chain.SmartContract.Manifest;
 
-namespace Neo.SmartContract.Testing;
+namespace Chain.SmartContract.Testing;
 
 public interface IContractInfo
 {

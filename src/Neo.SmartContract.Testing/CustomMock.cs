@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     internal class CustomMock
     {

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 
-namespace Neo.SmartContract.Analyzer
+namespace Chain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class KeywordUsageAnalyzer : DiagnosticAnalyzer

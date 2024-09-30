@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Neo.SmartContract.Testing.Coverage.Formats
+namespace Chain.SmartContract.Testing.Coverage.Formats
 {
     public partial class IntructionHtmlFormat : CoverageFormatBase
     {

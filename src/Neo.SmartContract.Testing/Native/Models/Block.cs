@@ -1,6 +1,6 @@
-using Neo.SmartContract.Testing.Attributes;
+using Chain.SmartContract.Testing.Attributes;
 
-namespace Neo.SmartContract.Testing.Native.Models
+namespace Chain.SmartContract.Testing.Native.Models
 {
     public class Block
     {

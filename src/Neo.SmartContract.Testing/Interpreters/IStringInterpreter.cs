@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo.SmartContract.Testing.Interpreters
+namespace Chain.SmartContract.Testing.Interpreters
 {
     public interface IStringInterpreter
     {

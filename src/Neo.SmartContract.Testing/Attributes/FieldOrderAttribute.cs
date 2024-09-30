@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo.SmartContract.Testing.Attributes;
+namespace Chain.SmartContract.Testing.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public sealed class FieldOrderAttribute : Attribute

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     class StrategyAttribute : Attribute

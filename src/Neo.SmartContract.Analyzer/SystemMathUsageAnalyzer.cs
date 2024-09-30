@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Neo.SmartContract.Analyzer
+namespace Chain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class SystemMathUsageAnalyzer : DiagnosticAnalyzer

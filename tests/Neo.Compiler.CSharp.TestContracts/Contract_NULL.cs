@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Services;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_NULL : SmartContract.Framework.SmartContract
     {

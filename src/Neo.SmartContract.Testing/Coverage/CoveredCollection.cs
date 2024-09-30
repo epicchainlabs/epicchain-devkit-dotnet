@@ -1,8 +1,8 @@
-using Neo.SmartContract.Testing.Coverage.Formats;
+using Chain.SmartContract.Testing.Coverage.Formats;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     public class CoveredCollection : CoverageBase
     {

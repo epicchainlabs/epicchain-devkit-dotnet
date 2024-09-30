@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
 
-namespace Neo.Compiler.CSharp.TestContracts;
+namespace Chain.Compiler.CSharp.TestContracts;
 
 [ContractPermission(Permission.Any, "c")]
 [ContractPermission("0x01ff00ff00ff00ff00ff00ff00ff00ff00ff00a4", "a", "b")]

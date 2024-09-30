@@ -1,10 +1,10 @@
-using Neo.Json;
-using Neo.VM;
+using Chain.Json;
+using Chain.VM;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     static class DebugInfoBuilder
     {

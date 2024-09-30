@@ -1,10 +1,10 @@
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework.Native;
+using Chain.SmartContract.Framework.Services;
 using System;
 using System.Numerics;
-using Neo.SmartContract.Framework;
+using Chain.SmartContract.Framework;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public struct IntInit
     {

@@ -1,7 +1,7 @@
-using Neo.SmartContract.Native;
+using Chain.SmartContract.Native;
 using System.ComponentModel;
 
-namespace Neo.SmartContract.Testing.Native;
+namespace Chain.SmartContract.Testing.Native;
 
 public abstract class CryptoLib : SmartContract
 {

@@ -9,16 +9,16 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Services;
 using System;
 using System.ComponentModel;
 
 namespace Inscription
 {
     [DisplayName("SampleInscription")]
-    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractAuthor("core-dev", "dev@Chain.org")]
     [ContractDescription("A sample inscription contract.")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
@@ -26,7 +26,7 @@ namespace Inscription
     public class SampleInscription : SmartContract
     {
         /// <summary>
-        /// Neo.SmartContract.Examples.Event for logging inscriptions
+        /// Chain.SmartContract.Examples.Event for logging inscriptions
         /// </summary>
         [DisplayName("InscriptionAdded")]
         public static event Action<UInt160, string> InscriptionAdded;

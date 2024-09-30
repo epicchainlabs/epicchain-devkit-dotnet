@@ -1,16 +1,16 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.IO;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.InvalidTypes;
-using Neo.VM.Types;
+using Chain.IO;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Coverage;
+using Chain.SmartContract.Testing.Exceptions;
+using Chain.SmartContract.Testing.InvalidTypes;
+using Chain.VM.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.TestingStandards;
+namespace Chain.SmartContract.Testing.TestingStandards;
 
 public class Nep17Tests<T> : TestBase<T>
     where T : SmartContract, INep17Standard, IContractInfo

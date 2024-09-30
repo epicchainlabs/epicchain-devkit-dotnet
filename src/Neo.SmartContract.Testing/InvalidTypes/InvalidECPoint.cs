@@ -1,6 +1,6 @@
-using Neo.Cryptography.ECC;
+using Chain.Cryptography.ECC;
 
-namespace Neo.SmartContract.Testing.InvalidTypes
+namespace Chain.SmartContract.Testing.InvalidTypes
 {
     public class InvalidECPoint
     {

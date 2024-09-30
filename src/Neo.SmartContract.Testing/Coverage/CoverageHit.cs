@@ -1,11 +1,11 @@
-using Neo.VM;
+using Chain.VM;
 using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using Neo.Extensions;
-using Neo.SmartContract.Testing.Interpreters;
+using Chain.Extensions;
+using Chain.SmartContract.Testing.Interpreters;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     /// <summary>
     /// Constructor

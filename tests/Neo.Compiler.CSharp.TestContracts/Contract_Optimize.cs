@@ -1,4 +1,4 @@
-namespace Neo.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Optimize : SmartContract.Framework.SmartContract
     {

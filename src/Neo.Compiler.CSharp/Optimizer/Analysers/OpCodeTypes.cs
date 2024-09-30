@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.VM;
+using Chain.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Neo.VM.OpCode;
+using static Chain.VM.OpCode;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     static class OpCodeTypes
     {

@@ -1,8 +1,8 @@
-using Neo.SmartContract.Native;
+using Chain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.Native;
+namespace Chain.SmartContract.Testing.Native;
 
 public abstract class Policy : SmartContract
 {

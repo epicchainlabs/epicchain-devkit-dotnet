@@ -1,12 +1,12 @@
-using Neo.Json;
-using Neo.Optimizer;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
+using Chain.Json;
+using Chain.Optimizer;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.Compiler.SecurityAnalyzer
+namespace Chain.Compiler.SecurityAnalyzer
 {
     /// <summary>
     /// Re-entrancy can happen when you call untrusted external code
@@ -59,7 +59,7 @@ namespace Neo.Compiler.SecurityAnalyzer
         /// <summary>
         /// This method finds all cases where your contract A first call another contract B,
         /// and then you write to your storage (storage of A).
-        /// 
+        ///
         /// This DOES NOT prevent cross-contract re-entrancy, where
         /// your contract A calls an untrusted contract B,
         /// then B calls another contract C, changing the storage of C,
@@ -85,7 +85,7 @@ namespace Neo.Compiler.SecurityAnalyzer
             foreach (BasicBlock b in basicBlocks)
             {
                 int addr = b.startAddr;
-                foreach (Neo.VM.Instruction instruction in b.instructions)
+                foreach (Chain.VM.Instruction instruction in b.instructions)
                 {
                     if (instruction.OpCode == VM.OpCode.SYSCALL)
                     {

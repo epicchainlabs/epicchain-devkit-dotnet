@@ -9,7 +9,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-namespace Neo.SmartContract.Framework.Services
+namespace Chain.SmartContract.Framework.Services
 {
     public struct ContractAbi
     {

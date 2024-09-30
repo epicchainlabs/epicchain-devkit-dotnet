@@ -1,4 +1,4 @@
-namespace Neo.SmartContract.Testing.InvalidTypes
+namespace Chain.SmartContract.Testing.InvalidTypes
 {
     public class InvalidUInt160
     {

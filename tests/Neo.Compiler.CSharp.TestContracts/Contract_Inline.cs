@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
-using Neo.SmartContract.Framework;
+using Chain.SmartContract.Framework;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_Inline : SmartContract.Framework.SmartContract
     {

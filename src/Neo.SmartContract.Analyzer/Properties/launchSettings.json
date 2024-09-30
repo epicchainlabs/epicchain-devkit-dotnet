@@ -3,7 +3,7 @@
   "profiles": {
     "DebugRoslynAnalyzers": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "../Neo.SmartContract.Analyzer.Sample/Neo.SmartContract.Analyzer.Sample.csproj"
+      "targetProject": "../Chain.SmartContract.Analyzer.Se/EpicChain.SmartContract.Analyzer.Sample.csproj"
     }
   }
 }

@@ -1,7 +1,7 @@
 using Palmmedia.ReportGenerator.Core;
 using System.IO;
 
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     public class CoverageReporting
     {

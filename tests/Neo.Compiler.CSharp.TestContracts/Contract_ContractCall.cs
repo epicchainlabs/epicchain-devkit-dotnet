@@ -1,6 +1,6 @@
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Attributes;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     [Contract("0e26a6a9b6f37a54d5666aaa2efb71dc75abfdfa")]
     public class Contract_Call

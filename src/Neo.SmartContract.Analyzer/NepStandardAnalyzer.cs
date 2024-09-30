@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
-using Neo.SmartContract.Framework;
+using Chain.SmartContract.Framework;
 
-namespace Neo.SmartContract.Analyzer
+namespace Chain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class SupportedStandardsAnalyzer : DiagnosticAnalyzer

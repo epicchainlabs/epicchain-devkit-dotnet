@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     [SupportedStandards(NepStandard.Nep11)]
     public class Contract_NEP11 : Nep11Token<TokenState>

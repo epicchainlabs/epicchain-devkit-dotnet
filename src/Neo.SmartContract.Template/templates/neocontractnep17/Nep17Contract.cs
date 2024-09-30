@@ -1,22 +1,22 @@
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Native;
+using Chain.SmartContract.Framework.Services;
 
 using System;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.SmartContract.Template
+namespace Chain.SmartContract.Template
 {
     [DisplayName(nameof(Nep17Contract))]
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Neo.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Chain.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(NepStandard.Nep17)]
-    public class Nep17Contract : Neo.SmartContract.Framework.Nep17Token
+    public class Nep17Contract : Chain.SmartContract.Framework.Nep17Token
     {
         #region Owner
 

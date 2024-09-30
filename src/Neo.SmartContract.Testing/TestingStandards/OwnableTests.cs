@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.InvalidTypes;
+using Chain.IO;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Coverage;
+using Chain.SmartContract.Testing.Exceptions;
+using Chain.SmartContract.Testing.InvalidTypes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Neo.SmartContract.Testing.TestingStandards;
+namespace Chain.SmartContract.Testing.TestingStandards;
 
 public class OwnableTests<T> : TestBase<T>
     where T : SmartContract, IOwnable, IContractInfo

@@ -13,7 +13,7 @@
 
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.Interfaces;
+namespace Chain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of method that indicate a contract receives NEP-17 Payment

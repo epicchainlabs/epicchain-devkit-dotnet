@@ -1,21 +1,21 @@
-using Neo.Cryptography.ECC;
+using Chain.Cryptography.ECC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing;
+namespace Chain.SmartContract.Testing;
 
-public abstract class SampleEvent : Neo.SmartContract.Testing.SmartContract, IContractInfo
+public abstract class SampleEvent : Chain.SmartContract.Testing.SmartContract, IContractInfo
 {
     #region Compiled data
 
-    public static Neo.SmartContract.Manifest.ContractManifest Manifest => Neo.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""SampleEvent"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""main"",""parameters"":[],""returntype"":""Boolean"",""offset"":0,""safe"":false}],""events"":[{""name"":""new_event_name"",""parameters"":[{""name"":""arg1"",""type"":""ByteArray""},{""name"":""arg2"",""type"":""String""},{""name"":""arg3"",""type"":""Integer""}]},{""name"":""event2"",""parameters"":[{""name"":""arg1"",""type"":""ByteArray""},{""name"":""arg2"",""type"":""Integer""}]}]},""permissions"":[{""contract"":""*"",""methods"":""*""}],""trusts"":[],""extra"":{""Author"":""code-dev"",""Description"":""A sample contract that demonstrates how to use Events"",""Version"":""0.0.1"",""Sourcecode"":""https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/"",""nef"":{""optimization"":""All""}}}");
+    public static Chain.SmartContract.Manifest.ContractManifest Manife> EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""SampleEvent"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""main"",""parameters"":[],""returntype"":""Boolean"",""offset"":0,""safe"":false}],""events"":[{""name"":""new_event_name"",""parameters"":[{""name"":""arg1"",""type"":""ByteArray""},{""name"":""arg2"",""type"":""String""},{""name"":""arg3"",""type"":""Integer""}]},{""name"":""event2"",""parameters"":[{""name"":""arg1"",""type"":""ByteArray""},{""name"":""arg2"",""type"":""Integer""}]}]},""permissions"":[{""contract"":""*"",""methods"":""*""}],""trusts"":[],""extra"":{""Author"":""code-dev"",""Description"":""A sample contract that demonstrates how to use Events"",""Version"":""0.0.1"",""Sourcecode"":""https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/"",""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"
     /// </summary>
-    public static Neo.SmartContract.NefFile Nef => Neo.IO.Helper.AsSerializable<Neo.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERXAQAMAwECA9swcMJKaM9KDAJvac9KGs8MDm5ld19ldmVudF9uYW1lQZUBb2HCSmjPSgAyzwwGZXZlbnQyQZUBb2EJQAYoij8="));
+    public static Chain.SmartContract.NefFile N> EpicChain.IO.Helper.AsSlizable<EpicChain.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERXAQAMAwECA9swcMJKaM9KDAJvac9KGs8MDm5ld19ldmVudF9uYW1lQZUBb2HCSmjPSgAyzwwGZXZlbnQyQZUBb2EJQAYoij8="));
 
     #endregion
 
@@ -45,7 +45,7 @@ public abstract class SampleEvent : Neo.SmartContract.Testing.SmartContract, ICo
 
     #region Constructor for internal use only
 
-    protected SampleEvent(Neo.SmartContract.Testing.SmartContractInitialize initialize) : base(initialize) { }
+    protected SampleEvent(Chain.SmartContract.Testing.SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

@@ -1,6 +1,6 @@
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework.Services;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_OnDeployment2 : SmartContract.Framework.SmartContract
     {

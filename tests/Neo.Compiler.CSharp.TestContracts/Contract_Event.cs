@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Event : SmartContract.Framework.SmartContract
     {

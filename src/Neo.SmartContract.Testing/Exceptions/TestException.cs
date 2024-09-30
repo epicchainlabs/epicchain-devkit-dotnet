@@ -1,7 +1,7 @@
-using Neo.VM;
+using Chain.VM;
 using System;
 
-namespace Neo.SmartContract.Testing.Exceptions
+namespace Chain.SmartContract.Testing.Exceptions
 {
     public class TestException : Exception
     {

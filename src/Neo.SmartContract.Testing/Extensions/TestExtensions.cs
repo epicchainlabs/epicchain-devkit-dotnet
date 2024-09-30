@@ -1,7 +1,7 @@
-using Neo.Cryptography.ECC;
-using Neo.SmartContract.Testing.Attributes;
-using Neo.SmartContract.Testing.Interpreters;
-using Neo.VM.Types;
+using Chain.Cryptography.ECC;
+using Chain.SmartContract.Testing.Attributes;
+using Chain.SmartContract.Testing.Interpreters;
+using Chain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing.Extensions
+namespace Chain.SmartContract.Testing.Extensions
 {
     public static class TestExtensions
     {

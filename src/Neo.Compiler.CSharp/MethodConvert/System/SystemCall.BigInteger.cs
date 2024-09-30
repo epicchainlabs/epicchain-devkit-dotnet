@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -13,10 +13,10 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using Chain.SmartContract.Native;
+using Chain.VM;
 
-namespace Neo.Compiler;
+namespace Chain.Compiler;
 
 internal partial class MethodConvert
 {
@@ -454,7 +454,7 @@ internal partial class MethodConvert
         methodConvert.AddInstruction(OpCode.PUSH0); // 5 5 0
         methodConvert.Jump(OpCode.JMPEQ, endMethod); // 0  // return 0 when input is 0
         methodConvert.AddInstruction(OpCode.PUSH0);// 5 0
-        //input = 5 > 0; result = 0; 
+        //input = 5 > 0; result = 0;
         //do
         //  result += 1
         //while (input >> result) > 0

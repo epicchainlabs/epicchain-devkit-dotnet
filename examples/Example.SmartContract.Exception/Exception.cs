@@ -9,14 +9,14 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework;
+using Chain.SmartContract.Framework.Attributes;
 using System.ComponentModel;
 
 namespace Exception
 {
     [DisplayName("SampleException")]
-    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractAuthor("core-dev", "dev@Chain.org")]
     [ContractDescription("A sample contract to demonstrate how to handle exception")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

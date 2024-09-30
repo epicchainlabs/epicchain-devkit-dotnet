@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -9,9 +9,9 @@
 // modifications are permitted.
 
 using Microsoft.CodeAnalysis;
-using Neo.SmartContract;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.SmartContract;
+using Chain.VM;
+using Chain.VM.Types;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -19,9 +19,9 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
-using Neo.Extensions;
+using Chain.Extensions;
 
-namespace Neo.Compiler
+namespace Chain.Compiler
 {
     [DebuggerDisplay("{OpCode}")]
     class Instruction

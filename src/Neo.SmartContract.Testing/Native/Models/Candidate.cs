@@ -1,8 +1,8 @@
-using Neo.Cryptography.ECC;
-using Neo.SmartContract.Testing.Attributes;
+using Chain.Cryptography.ECC;
+using Chain.SmartContract.Testing.Attributes;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.Native.Models
+namespace Chain.SmartContract.Testing.Native.Models
 {
     public class Candidate
     {

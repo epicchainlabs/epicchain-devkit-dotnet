@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework.Native;
+using Chain.SmartContract.Framework.Services;
 
-namespace Neo.SmartContract.Framework.Interfaces;
+namespace Chain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of oracle callback method

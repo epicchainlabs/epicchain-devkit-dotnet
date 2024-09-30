@@ -1,9 +1,9 @@
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using Chain.Network.P2P.Payloads;
+using Chain.Persistence;
 using System;
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing.Native
+namespace Chain.SmartContract.Testing.Native
 {
     /// <summary>
     /// NativeContracts makes it easier to access native contracts
@@ -65,15 +65,15 @@ namespace Neo.SmartContract.Testing.Native
         {
             _engine = engine;
 
-            ContractManagement = _engine.FromHash<ContractManagement>(Neo.SmartContract.Native.NativeContract.ContractManagement.Hash, Neo.SmartContract.Native.NativeContract.ContractManagement.Id);
-            CryptoLib = _engine.FromHash<CryptoLib>(Neo.SmartContract.Native.NativeContract.CryptoLib.Hash, Neo.SmartContract.Native.NativeContract.CryptoLib.Id);
-            GAS = _engine.FromHash<GAS>(Neo.SmartContract.Native.NativeContract.GAS.Hash, Neo.SmartContract.Native.NativeContract.GAS.Id);
-            NEO = _engine.FromHash<NEO>(Neo.SmartContract.Native.NativeContract.NEO.Hash, Neo.SmartContract.Native.NativeContract.NEO.Id);
-            Ledger = _engine.FromHash<Ledger>(Neo.SmartContract.Native.NativeContract.Ledger.Hash, Neo.SmartContract.Native.NativeContract.Ledger.Id);
-            Oracle = _engine.FromHash<Oracle>(Neo.SmartContract.Native.NativeContract.Oracle.Hash, Neo.SmartContract.Native.NativeContract.Oracle.Id);
-            Policy = _engine.FromHash<Policy>(Neo.SmartContract.Native.NativeContract.Policy.Hash, Neo.SmartContract.Native.NativeContract.Policy.Id);
-            RoleManagement = _engine.FromHash<RoleManagement>(Neo.SmartContract.Native.NativeContract.RoleManagement.Hash, Neo.SmartContract.Native.NativeContract.RoleManagement.Id);
-            StdLib = _engine.FromHash<StdLib>(Neo.SmartContract.Native.NativeContract.StdLib.Hash, Neo.SmartContract.Native.NativeContract.StdLib.Id);
+            ContractManagement = _engine.FromHash<ContractManagement>(Chain.SmartContract.Native.NativeContract.ContractManagement., EpicChain.SmartContract.Native.NativeContract.ContractManagement.Id);
+            CryptoLib = _engine.FromHash<CryptoLib>(Chain.SmartContract.Native.NativeContract.CryptoLib., EpicChain.SmartContract.Native.NativeContract.CryptoLib.Id);
+            GAS = _engine.FromHash<GAS>(Chain.SmartContract.Native.NativeContract.GAS., EpicChain.SmartContract.Native.NativeContract.GAS.Id);
+            NEO = _engine.FromHash<NEO>(Chain.SmartContract.Native.NativeCont.Epicn.Hash, EpicChain.SmartContract.NatiativeContract.EpicChain.Id);
+            Ledger = _engine.FromHash<Ledger>(Chain.SmartContract.Native.NativeContract.Ledger., EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
+            Oracle = _engine.FromHash<Oracle>(Chain.SmartContract.Native.NativeContract.Oracle., EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
+            Policy = _engine.FromHash<Policy>(Chain.SmartContract.Native.NativeContract.Policy., EpicChain.SmartContract.Native.NativeContract.Policy.Id);
+            RoleManagement = _engine.FromHash<RoleManagement>(Chain.SmartContract.Native.NativeContract.RoleManagement., EpicChain.SmartContract.Native.NativeContract.RoleManagement.Id);
+            StdLib = _engine.FromHash<StdLib>(Chain.SmartContract.Native.NativeContract.StdLib., EpicChain.SmartContract.Native.NativeContract.StdLib.Id);
         }
 
         /// <summary>
@@ -94,12 +94,12 @@ namespace Neo.SmartContract.Testing.Native
 
             // Process native contracts
 
-            foreach (var native in new Neo.SmartContract.Native.NativeContract[]
+            foreach (var native in new Chain.SmartContract.Native.NativeContract[]
                 {
-                    Neo.SmartContract.Native.NativeContract.ContractManagement,
-                    Neo.SmartContract.Native.NativeContract.Ledger,
-                    Neo.SmartContract.Native.NativeContract.NEO,
-                    Neo.SmartContract.Native.NativeContract.GAS
+                    Chain.SmartContract.Native.NativeContract.ContractManagement,
+                    Chain.SmartContract.Native.NativeContract.Ledger,
+                    Chain.SmartContract.Native.NativeContract.NEO,
+                    Chain.SmartContract.Native.NativeContract.GAS
                 }
             )
             {

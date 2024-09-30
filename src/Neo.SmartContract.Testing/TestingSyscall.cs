@@ -1,10 +1,10 @@
-using Neo.Cryptography;
+using Chain.Cryptography;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     internal class TestingSyscall
     {
@@ -13,7 +13,7 @@ namespace Neo.SmartContract.Testing
         /// <summary>
         /// Syscall Name
         /// </summary>
-        public const string Name = $"Neo.SmartContract.Testing.Invoke";
+        public const string Name = $"Chain.SmartContract.Testing.Invoke";
 
         /// <summary>
         /// Syscall hash

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Neo.SmartContract.Framework;
+namespace Chain.SmartContract.Framework;
 
 public static class Method
 {

@@ -1,20 +1,20 @@
 // Copyright (C) 2015-2024 The Neo Project.
-// 
-// The Neo.SmartContract.Framework is free software distributed under the MIT 
-// software license, see the accompanying file LICENSE in the main directory 
-// of the project or http://www.opensource.org/licenses/mit-license.php 
+//
+// The Chain.SmartContract.Framework is free software distributed under the MIT
+// software license, see the accompanying file LICENSE in the main directory
+// of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
-// 
+//
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
 #pragma warning disable CS0626
 
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
+using Chain.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Services;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.Native
+namespace Chain.SmartContract.Framework.Native
 {
     [Contract("0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5")]
     public class NEO

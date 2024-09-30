@@ -9,16 +9,16 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.Compiler;
-using Neo.Json;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.VM;
+using Chain.Compiler;
+using Chain.Json;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.VM;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Neo.Optimizer
+namespace Chain.Optimizer
 {
     public static class Optimizer
     {

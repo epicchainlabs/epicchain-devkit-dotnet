@@ -1,6 +1,6 @@
 using Neo;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.TestingStandards;
+using Chain.SmartContract.Testing;
+using Chain.SmartContract.Testing.TestingStandards;
 
 namespace Example.SmartContract.Inscription.UnitTests
 {

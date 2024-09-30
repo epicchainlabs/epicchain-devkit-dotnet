@@ -1,8 +1,8 @@
 using System.Numerics;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.VM;
+using Chain.VM.Types;
 
-namespace Neo.Compiler;
+namespace Chain.Compiler;
 
 partial class MethodConvert
 {

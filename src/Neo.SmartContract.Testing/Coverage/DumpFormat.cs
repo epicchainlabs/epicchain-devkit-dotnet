@@ -1,4 +1,4 @@
-namespace Neo.SmartContract.Testing.Coverage
+namespace Chain.SmartContract.Testing.Coverage
 {
     public enum DumpFormat : byte
     {

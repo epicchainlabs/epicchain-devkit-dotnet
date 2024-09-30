@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Neo.SmartContract.Framework.Attributes
+namespace Chain.SmartContract.Framework.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class ContractAuthorAttribute : ManifestExtraAttribute

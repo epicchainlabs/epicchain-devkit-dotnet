@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -13,7 +13,7 @@ using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq.Expressions;
-using Neo.VM;
+using Chain.VM;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 using Array = System.Array;
 using Akka.Util.Internal;
 
-namespace Neo.Compiler;
+namespace Chain.Compiler;
 
 internal partial class MethodConvert
 {
@@ -258,7 +258,7 @@ internal partial class MethodConvert
         //If the method belongs to a delegate and the method name is "Invoke",
         //calls the PrepareArgumentsForMethod method with CallingConvention.Cdecl convention and changes the return type to integer.
         //Example: Func<int, int, int>(privateSum).Invoke(a, b);
-        //see ~/tests/Neo.Compiler.CSharp.TestContracts/Contract_Delegate.cs
+        //see ~/tests/Chain.Compiler.CSharp.TestContracts/Contract_Delegate.cs
         if (symbol.ContainingType.TypeKind == TypeKind.Delegate && symbol.Name == "Invoke")
         {
             if (arguments is not null)

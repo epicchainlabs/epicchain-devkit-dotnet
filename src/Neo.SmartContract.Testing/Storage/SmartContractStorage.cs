@@ -1,9 +1,9 @@
-using Neo.Json;
+using Chain.Json;
 using System;
 using System.Buffers.Binary;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.Storage
+namespace Chain.SmartContract.Testing.Storage
 {
     public class SmartContractStorage
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Neo.SmartContract.Testing.TestingStandards;
+namespace Chain.SmartContract.Testing.TestingStandards;
 
 public interface IVerificable
 {

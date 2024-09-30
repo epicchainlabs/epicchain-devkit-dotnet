@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Neo.Compiler.CSharp is free software distributed under the MIT
+// The Chain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,13 +11,13 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
-using Neo.Compiler.SecurityAnalyzer;
-using Neo.IO;
-using Neo.Json;
-using Neo.Optimizer;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Extensions;
+using Chain.Compiler.SecurityAnalyzer;
+using Chain.IO;
+using Chain.Json;
+using Chain.Optimizer;
+using Chain.SmartContract;
+using Chain.SmartContract.Manifest;
+using Chain.SmartContract.Testing.Extensions;
 using System;
 using System.Collections.Generic;
 using System.CommandLine;
@@ -29,7 +29,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 
-namespace Neo.Compiler
+namespace Chain.Compiler
 {
     public class Program
     {
@@ -116,7 +116,7 @@ namespace Neo.Compiler
                         debugInfo = (JObject?)JObject.Parse(DumpNef.UnzipDebugInfo(File.ReadAllBytes(debugInfoPath)));
                     else
                         debugInfo = null;
-                    (nef, manifest, debugInfo) = Neo.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo, optimizationType: options.Optimize);
+                    (nef, manifest, debugInfo) = Chain.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo, optimizationType: options.Optimize);
                     File.WriteAllBytes(Path.Combine(directory, filename + ".optimized.nef"), nef.ToArray());
                     File.WriteAllBytes(Path.Combine(directory, filename + ".optimized.manifest.json"), manifest.ToJson().ToByteArray(true));
                     if (options.Assembly)

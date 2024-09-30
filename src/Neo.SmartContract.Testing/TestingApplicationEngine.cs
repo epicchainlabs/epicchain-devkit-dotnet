@@ -1,14 +1,14 @@
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract.Native;
-using Neo.SmartContract.Testing.Extensions;
-using Neo.SmartContract.Testing.Storage;
-using Neo.VM;
-using Neo.VM.Types;
+using Chain.Network.P2P.Payloads;
+using Chain.Persistence;
+using Chain.SmartContract.Native;
+using Chain.SmartContract.Testing.Extensions;
+using Chain.SmartContract.Testing.Storage;
+using Chain.VM;
+using Chain.VM.Types;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.SmartContract.Testing
+namespace Chain.SmartContract.Testing
 {
     /// <summary>
     /// TestingApplicationEngine is responsible for redirecting System.Contract.Call syscalls to their corresponding mock if necessary

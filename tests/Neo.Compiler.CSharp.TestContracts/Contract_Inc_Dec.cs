@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Inc_Dec : SmartContract.Framework.SmartContract
     {

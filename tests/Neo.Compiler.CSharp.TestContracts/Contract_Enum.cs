@@ -1,8 +1,8 @@
-using Neo.SmartContract.Framework.Attributes;
+using Chain.SmartContract.Framework.Attributes;
 using System.Collections;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.TestContracts
+namespace Chain.Compiler.CSharp.TestContracts
 {
     public class Contract_Enum : SmartContract.Framework.SmartContract
     {
