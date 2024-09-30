@@ -10,7 +10,7 @@
     <RootNamespace>EpicChain.Compiler</RootNamespace>
     <Nullable>enable</Nullable>
     <PackageTags>NEO;Blockchain;Smart Contract;Compiler</PackageTags>
-    <Company>The Neo Project</Company>
+    <Company>The EpicChain Lab's</Company>
     <Product>EpicChain.Compiler.CSharp</Product>
     <Description>EpicChain.Compiler.CSharp</Description>
     <IncludeSymbols>true</IncludeSymbols>
@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\neo\src\EpicChain.Extensions\EpicChain.Extensions.csproj" />
-    <ProjectReference Include="..\..\neo\src\Neo\EpicChain.csproj" />
+    <ProjectReference Include="..\..\epicchain\src\EpicChain.Extensions\EpicChain.Extensions.csproj" />
+    <ProjectReference Include="..\..\epicchain\src\EpicChain\EpicChain.csproj" />
     <ProjectReference Include="..\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj">
       <Aliases>scfx</Aliases>
     </ProjectReference>
