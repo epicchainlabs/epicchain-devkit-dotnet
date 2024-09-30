@@ -9,8 +9,8 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework.Native;
-namespace Chain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Native;
+namespace EpicChain.SmartContract.Framework;
 
 public static class ByteStringExtension
 {

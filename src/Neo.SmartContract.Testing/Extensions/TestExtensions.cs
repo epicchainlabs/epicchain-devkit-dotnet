@@ -1,7 +1,7 @@
-using Chain.Cryptography.ECC;
-using Chain.SmartContract.Testing.Attributes;
-using Chain.SmartContract.Testing.Interpreters;
-using Chain.VM.Types;
+using EpicChain.Cryptography.ECC;
+using EpicChain.SmartContract.Testing.Attributes;
+using EpicChain.SmartContract.Testing.Interpreters;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing.Extensions
+namespace EpicChain.SmartContract.Testing.Extensions
 {
     public static class TestExtensions
     {

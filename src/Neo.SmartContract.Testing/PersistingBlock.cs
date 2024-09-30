@@ -1,12 +1,12 @@
-using Chain.Cryptography;
-using Chain.Network.P2P.Payloads;
-using Chain.Persistence;
-using Chain.SmartContract.Native;
-using Chain.VM;
+using EpicChain.Cryptography;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 using System;
 using System.Linq;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     public class PersistingBlock
     {

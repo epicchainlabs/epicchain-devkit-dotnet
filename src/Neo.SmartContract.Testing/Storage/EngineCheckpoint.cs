@@ -1,12 +1,12 @@
-using Chain.IO;
-using Chain.Persistence;
+using EpicChain.IO;
+using EpicChain.Persistence;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Chain.SmartContract.Testing.Storage
+namespace EpicChain.SmartContract.Testing.Storage
 {
     public class EngineCheckpoint
     {

@@ -33,8 +33,8 @@ This repository contains a set of Roslyn analyzers and code fix providers for Ne
 
 To use these analyzers in your Neo smart contract project:
 
-1. Add a reference to the Chain.SmartContract.Analyzer project in your smart contract project.
-2. Build the Chain.SmartContract.Analyzer project.
+1. Add a reference to the EpicChain.SmartContract.Analyzer project in your smart contract project.
+2. Build the EpicChain.SmartContract.Analyzer project.
 3. The analyzers will automatically run when you build your smart contract project.
 
 ## Contributing

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Chain.SmartContract.Framework" Version="TemplateNeoVersion" />
+    <PackageReference Include="EpicChain.SmartContract.Framework" Version="TemplateNeoVersion" />
   </ItemGroup>
 
   <PropertyGroup>

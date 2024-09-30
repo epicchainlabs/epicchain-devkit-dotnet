@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Chain.SmartContract.Framework.Attributes
+namespace EpicChain.SmartContract.Framework.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class ContractAuthorAttribute : ManifestExtraAttribute

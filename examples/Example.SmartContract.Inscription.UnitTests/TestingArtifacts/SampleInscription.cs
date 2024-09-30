@@ -1,21 +1,21 @@
-using Chain.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing;
+namespace EpicChain.SmartContract.Testing;
 
-public abstract class SampleInscription : Chain.SmartContract.Testing.SmartContract, IContractInfo
+public abstract class SampleInscription : EpicChain.SmartContract.Testing.SmartContract, IContractInfo
 {
     #region Compiled data
 
-    public static Chain.SmartContract.Manifest.ContractManifest Manife> EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""SampleInscription"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""addInscription"",""parameters"":[{""name"":""address"",""type"":""Hash160""},{""name"":""inscription"",""type"":""String""}],""returntype"":""Void"",""offset"":0,""safe"":false},{""name"":""getInscription"",""parameters"":[{""name"":""address"",""type"":""Hash160""}],""returntype"":""String"",""offset"":103,""safe"":true}],""events"":[{""name"":""InscriptionAdded"",""parameters"":[{""name"":""arg1"",""type"":""Hash160""},{""name"":""arg2"",""type"":""String""}]}]},""permissions"":[{""contract"":""*"",""methods"":""*""}],""trusts"":[],""extra"":{""Author"":""core-dev"",""Description"":""A sample inscription contract."",""Version"":""0.0.1"",""Sourcecode"":""https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/"",""nef"":{""optimization"":""All""}}}");
+    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""SampleInscription"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""addInscription"",""parameters"":[{""name"":""address"",""type"":""Hash160""},{""name"":""inscription"",""type"":""String""}],""returntype"":""Void"",""offset"":0,""safe"":false},{""name"":""getInscription"",""parameters"":[{""name"":""address"",""type"":""Hash160""}],""returntype"":""String"",""offset"":103,""safe"":true}],""events"":[{""name"":""InscriptionAdded"",""parameters"":[{""name"":""arg1"",""type"":""Hash160""},{""name"":""arg2"",""type"":""String""}]}]},""permissions"":[{""contract"":""*"",""methods"":""*""}],""trusts"":[],""extra"":{""Author"":""core-dev"",""Description"":""A sample inscription contract."",""Version"":""0.0.1"",""Sourcecode"":""https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/"",""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"
     /// </summary>
-    public static Chain.SmartContract.NefFile N> EpicChain.IO.Helper.AsSlizable<EpicChain.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZXAAJ4Qfgn7IyqJjIMLVVuYXV0aG9yaXplZDogQ2FsbGVyIGlzIG5vdCB0aGUgYWRkcmVzcyBvd25lcjp5eEGb9mfOQeY/GITCSnjPSnnPDBBJbnNjcmlwdGlvbkFkZGVkQZUBb2FAVwABeEGb9mfOQZJd6DFADTeFbw=="));
+    public static EpicChain.SmartContract.NefFile Nef => EpicChain.IO.Helper.AsSerializable<EpicChain.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZXAAJ4Qfgn7IyqJjIMLVVuYXV0aG9yaXplZDogQ2FsbGVyIGlzIG5vdCB0aGUgYWRkcmVzcyBvd25lcjp5eEGb9mfOQeY/GITCSnjPSnnPDBBJbnNjcmlwdGlvbkFkZGVkQZUBb2FAVwABeEGb9mfOQZJd6DFADTeFbw=="));
 
     #endregion
 
@@ -50,7 +50,7 @@ public abstract class SampleInscription : Chain.SmartContract.Testing.SmartContr
 
     #region Constructor for internal use only
 
-    protected SampleInscription(Chain.SmartContract.Testing.SmartContractInitialize initialize) : base(initialize) { }
+    protected SampleInscription(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

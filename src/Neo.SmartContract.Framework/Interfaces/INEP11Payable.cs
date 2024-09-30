@@ -13,7 +13,7 @@
 
 using System.Numerics;
 
-namespace Chain.SmartContract.Framework.Interfaces;
+namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of method that indicate a contract receives NEP-11 Payment

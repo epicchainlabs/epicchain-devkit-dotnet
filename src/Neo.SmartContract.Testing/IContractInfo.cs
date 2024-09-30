@@ -1,6 +1,6 @@
-using Chain.SmartContract.Manifest;
+using EpicChain.SmartContract.Manifest;
 
-namespace Chain.SmartContract.Testing;
+namespace EpicChain.SmartContract.Testing;
 
 public interface IContractInfo
 {

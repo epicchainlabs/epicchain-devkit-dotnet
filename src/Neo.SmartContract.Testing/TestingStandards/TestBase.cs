@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Chain.IO;
-using Chain.Network.P2P.Payloads;
-using Chain.SmartContract.Manifest;
-using Chain.SmartContract.Testing.Coverage;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Testing.Coverage;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Chain.SmartContract.Testing.TestingStandards;
+namespace EpicChain.SmartContract.Testing.TestingStandards;
 
 public class TestBase<T> where T : SmartContract, IContractInfo
 {

@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework.Native;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_IndexOrRange : SmartContract.Framework.SmartContract
     {

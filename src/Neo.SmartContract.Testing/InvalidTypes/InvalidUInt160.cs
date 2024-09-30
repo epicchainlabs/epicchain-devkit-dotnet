@@ -1,4 +1,4 @@
-namespace Chain.SmartContract.Testing.InvalidTypes
+namespace EpicChain.SmartContract.Testing.InvalidTypes
 {
     public class InvalidUInt160
     {

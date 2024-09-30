@@ -1,10 +1,10 @@
-using Chain.Cryptography;
+using EpicChain.Cryptography;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     internal class TestingSyscall
     {
@@ -13,7 +13,7 @@ namespace Chain.SmartContract.Testing
         /// <summary>
         /// Syscall Name
         /// </summary>
-        public const string Name = $"Chain.SmartContract.Testing.Invoke";
+        public const string Name = $"EpicChain.SmartContract.Testing.Invoke";
 
         /// <summary>
         /// Syscall hash

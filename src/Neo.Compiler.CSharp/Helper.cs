@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,10 +11,10 @@
 extern alias scfx;
 
 using Microsoft.CodeAnalysis;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 
-namespace Chain.Compiler
+namespace EpicChain.Compiler
 {
     static class Helper
     {
@@ -85,20 +85,20 @@ namespace Chain.Compiler
                 case "string": return ContractParameterType.String;
                 case "byte[]": return ContractParameterType.ByteArray;
                 case "object": return ContractParameterType.Any;
-                case "Chain.Cryptography.ECC.ECPoint": /d EpicChain.SmartContract.Framework
-                case "Chain.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
-                case "Chain.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
-                case "Chain.UInt160": /d EpicChain.SmartContract.Framework
-                case "Chain.SmartContract.Framework.UInt160": return ContractParameterType.Hash160;
-                case "Chain.UInt256": /d EpicChain.SmartContract.Framework
-                case "Chain.SmartContract.Framework.UInt256": return ContractParameterType.Hash256;
+                case "EpicChain.Cryptography.ECC.ECPoint": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
+                case "EpicChain.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
+                case "EpicChain.UInt160": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.SmartContract.Framework.UInt160": return ContractParameterType.Hash160;
+                case "EpicChain.UInt256": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.SmartContract.Framework.UInt256": return ContractParameterType.Hash256;
                 case "System.Numerics.BigInteger": return ContractParameterType.Integer;
             }
             if (type.Name == "Map") return ContractParameterType.Map;
             if (type.Name == "List") return ContractParameterType.Array;
             if (type.TypeKind == TypeKind.Enum) return ContractParameterType.Integer;
             if (type is IArrayTypeSymbol) return ContractParameterType.Array;
-            if (type.AllInterfaces.Any(p => p.Name == nameof(scfx::Chain.SmartContract.Framework.IApiInterface)))
+            if (type.AllInterfaces.Any(p => p.Name == nameof(scfx::EpicChain.SmartContract.Framework.IApiInterface)))
                 return ContractParameterType.InteropInterface;
             if (type.IsValueType) return ContractParameterType.Array;
             return ContractParameterType.Any;
@@ -136,7 +136,7 @@ namespace Chain.Compiler
                 "bool" => StackItemType.Boolean,
                 "byte[]" => StackItemType.Buffer,
                 "string" => StackItemType.ByteString,
-                "Chain.SmartContract.Framework.ByteString" => StackItemType.ByteString,
+                "EpicChain.SmartContract.Framework.ByteString" => StackItemType.ByteString,
                 "System.Numerics.BigInteger" => StackItemType.Integer,
                 _ => throw new CompilationException(type, DiagnosticId.SyntaxNotSupported, $"Unsupported pattern type: {type}")
             };

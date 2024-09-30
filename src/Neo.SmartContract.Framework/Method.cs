@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Chain.SmartContract.Framework;
+namespace EpicChain.SmartContract.Framework;
 
 public static class Method
 {

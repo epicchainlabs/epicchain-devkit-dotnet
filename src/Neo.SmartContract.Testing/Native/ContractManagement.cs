@@ -1,9 +1,9 @@
-using Chain.SmartContract.Iterators;
-using Chain.SmartContract.Native;
+using EpicChain.SmartContract.Iterators;
+using EpicChain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Native;
+namespace EpicChain.SmartContract.Testing.Native;
 
 public abstract class ContractManagement : SmartContract
 {

@@ -1,9 +1,9 @@
-using Chain.Cryptography.ECC;
-using Chain.SmartContract.Native;
+using EpicChain.Cryptography.ECC;
+using EpicChain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Native;
+namespace EpicChain.SmartContract.Testing.Native;
 
 public abstract class RoleManagement : SmartContract
 {

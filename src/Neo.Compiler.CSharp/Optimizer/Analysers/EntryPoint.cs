@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using Chain.VM;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     public enum EntryType
     {

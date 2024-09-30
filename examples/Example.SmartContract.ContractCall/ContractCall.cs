@@ -9,16 +9,16 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 using System.Numerics;
 
 namespace ContractCall;
 
 [DisplayName("SampleContractCall")]
-[ContractAuthor("core-dev", "dev@Chain.org")]
+[ContractAuthor("core-dev", "dev@EpicChain.org")]
 [ContractVersion("0.0.1")]
 [ContractDescription("A sample contract to demonstrate how to call a contract")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

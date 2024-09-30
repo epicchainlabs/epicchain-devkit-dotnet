@@ -1,12 +1,12 @@
-using Chain.VM;
+using EpicChain.VM;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using static Chain.Optimizer.OpCodeTypes;
-using static Chain.Optimizer.Optimizer;
+using static EpicChain.Optimizer.OpCodeTypes;
+using static EpicChain.Optimizer.Optimizer;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class OptimizedScriptBuilder
     {

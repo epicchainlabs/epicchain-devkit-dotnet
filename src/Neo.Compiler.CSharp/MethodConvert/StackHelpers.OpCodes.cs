@@ -1,8 +1,8 @@
 using System.Numerics;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 
-namespace Chain.Compiler;
+namespace EpicChain.Compiler;
 
 partial class MethodConvert
 {

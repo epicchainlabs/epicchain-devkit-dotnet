@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.SmartContract.Framework is free software distributed under the MIT
+// The EpicChain.SmartContract.Framework is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,9 +11,9 @@
 #pragma warning disable CS0626
 
 using System;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.SmartContract.Framework.Native
+namespace EpicChain.SmartContract.Framework.Native
 {
     [Contract("0x726cb6e0cd8628a1350a611384688911ab75f51b")]
     public static partial class CryptoLib

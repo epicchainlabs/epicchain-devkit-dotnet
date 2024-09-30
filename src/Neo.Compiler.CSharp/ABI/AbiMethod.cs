@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,10 +11,10 @@
 extern alias scfx;
 
 using Microsoft.CodeAnalysis;
-using Chain.SmartContract;
+using EpicChain.SmartContract;
 using System.Linq;
 
-namespace Chain.Compiler
+namespace EpicChain.Compiler
 {
     class AbiMethod : AbiEvent
     {
@@ -27,7 +27,7 @@ namespace Chain.Compiler
             : base(symbol, symbol.GetDisplayName(true), symbol.Parameters.Select(p => p.ToAbiParameter()).ToArray())
         {
             Symbol = symbol;
-            Safe = symbol.GetAttributes().Any(p => p.AttributeClass!.Name == nameof(scfx::Chain.SmartContract.Framework.Attributes.SafeAttribute));
+            Safe = symbol.GetAttributes().Any(p => p.AttributeClass!.Name == nameof(scfx::EpicChain.SmartContract.Framework.Attributes.SafeAttribute));
             ReturnType = symbol.ReturnType.GetContractParameterType();
         }
     }

@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Chain.SmartContract.Framework.Linq
+namespace EpicChain.SmartContract.Framework.Linq
 {
     public static class LinqExtensions
     {

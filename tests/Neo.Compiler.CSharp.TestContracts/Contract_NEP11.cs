@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     [SupportedStandards(NepStandard.Nep11)]
     public class Contract_NEP11 : Nep11Token<TokenState>

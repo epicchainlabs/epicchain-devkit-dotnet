@@ -1,6 +1,6 @@
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_ABISafe : SmartContract.Framework.SmartContract
     {

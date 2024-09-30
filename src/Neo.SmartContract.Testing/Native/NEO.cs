@@ -1,17 +1,17 @@
-using Chain.Cryptography.ECC;
-using Chain.SmartContract.Iterators;
-using Chain.SmartContract.Native;
+using EpicChain.Cryptography.ECC;
+using EpicChain.SmartContract.Iterators;
+using EpicChain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Native;
+namespace EpicChain.SmartContract.Testing.Native;
 
 public abstract class NEO : SmartContract, TestingStandards.INep17Standard
 {
     #region Compiled data
 
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.Chain.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.EpicChain.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
     #endregion
 
@@ -103,7 +103,7 @@ public abstract class NEO : SmartContract, TestingStandards.INep17Standard
     /// Safe method
     /// </summary>
     [DisplayName("getAccountState")]
-    public abstract Chain.SmartContract.Native.NeoToken.NeoAccountState GetAccountState(UInt160 account);
+    public abstract EpicChain.SmartContract.Native.NeoToken.NeoAccountState GetAccountState(UInt160 account);
 
     /// <summary>
     /// Safe method

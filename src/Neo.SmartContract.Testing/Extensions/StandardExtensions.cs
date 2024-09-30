@@ -1,8 +1,8 @@
-using Chain.SmartContract.Manifest;
+using EpicChain.SmartContract.Manifest;
 using System;
 using System.Linq;
 
-namespace Chain.SmartContract.Testing.Extensions
+namespace EpicChain.SmartContract.Testing.Extensions
 {
     public static class StandardExtensions
     {

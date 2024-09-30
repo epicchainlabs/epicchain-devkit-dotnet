@@ -9,7 +9,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-namespace Chain.SmartContract.Framework.Services
+namespace EpicChain.SmartContract.Framework.Services
 {
     public struct ContractAbi
     {

@@ -1,6 +1,6 @@
-using Chain.SmartContract.Testing.Attributes;
+using EpicChain.SmartContract.Testing.Attributes;
 
-namespace Chain.SmartContract.Testing.Native.Models
+namespace EpicChain.SmartContract.Testing.Native.Models
 {
     public class Transaction
     {

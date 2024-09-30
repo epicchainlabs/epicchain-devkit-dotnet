@@ -1,9 +1,9 @@
-using Chain.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
 namespace Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests
 {
     [TestClass]
-    public class SampleRoyaltyNEP11TokenTest : TestBase<Chain.SmartContract.Testing.SampleRoyaltyNEP11Token>
+    public class SampleRoyaltyNEP11TokenTest : TestBase<EpicChain.SmartContract.Testing.SampleRoyaltyNEP11Token>
     {
         [TestInitialize]
         public void TestSetup()

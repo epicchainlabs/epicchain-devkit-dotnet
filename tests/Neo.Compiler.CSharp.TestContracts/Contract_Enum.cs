@@ -1,8 +1,8 @@
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 using System.Collections;
 using System.Numerics;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Enum : SmartContract.Framework.SmartContract
     {

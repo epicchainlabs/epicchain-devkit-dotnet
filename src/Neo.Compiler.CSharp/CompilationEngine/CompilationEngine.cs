@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -13,7 +13,7 @@ extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Chain.Json;
+using EpicChain.Json;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using BigInteger = System.Numerics.BigInteger;
 
-namespace Chain.Compiler
+namespace EpicChain.Compiler
 {
     public class CompilationEngine(CompilationOptions options)
     {
@@ -52,13 +52,13 @@ namespace Chain.Compiler
 
         internal List<CompilationContext> CompileFromCodeBlock(string codeBlock)
         {
-            var sourceCode = $"using Chain.SmartContract.Framework.Native;\n" +
-                             $"using Chain.SmartContract.Framework.Services;\n" +
+            var sourceCode = $"using EpicChain.SmartContract.Framework.Native;\n" +
+                             $"using EpicChain.SmartContract.Framework.Services;\n" +
                              $"using System;\n" +
                              $"using System.Text;\n" +
                              $"using System.Numerics;\n" +
-                             $"using Chain.SmartContract.Framework;\n\n" +
-                             $"namespace Chain.Compiler.CSharp.TestContracts;\n\n" +
+                             $"using EpicChain.SmartContract.Framework;\n\n" +
+                             $"namespace EpicChain.Compiler.CSharp.TestContracts;\n\n" +
                              $"public class CodeBlockTest : SmartContract.Framework.SmartContract\n{{\n\n" +
                              $"    public static void CodeBlock()\n" +
                              $"    {{\n" +
@@ -91,7 +91,7 @@ namespace Chain.Compiler
         {
             return CompileSources(new CompilationSourceReferences()
             {
-                Packages = [new("Chain.SmartContract.Framework", "3.7.4-*")]
+                Packages = [new("EpicChain.SmartContract.Framework", "3.7.4-*")]
             },
             sourceFiles);
         }

@@ -1,4 +1,4 @@
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     public class SmartContractInitialize
     {

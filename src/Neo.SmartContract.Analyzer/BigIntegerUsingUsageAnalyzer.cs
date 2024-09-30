@@ -11,7 +11,7 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Chain.SmartContract.Analyzer
+namespace EpicChain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class BigIntegerUsingUsageAnalyzer : DiagnosticAnalyzer

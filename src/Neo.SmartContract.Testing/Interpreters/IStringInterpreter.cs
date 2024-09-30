@@ -1,6 +1,6 @@
 using System;
 
-namespace Chain.SmartContract.Testing.Interpreters
+namespace EpicChain.SmartContract.Testing.Interpreters
 {
     public interface IStringInterpreter
     {

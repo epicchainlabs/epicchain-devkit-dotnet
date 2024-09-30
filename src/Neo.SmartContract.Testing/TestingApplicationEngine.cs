@@ -1,14 +1,14 @@
-using Chain.Network.P2P.Payloads;
-using Chain.Persistence;
-using Chain.SmartContract.Native;
-using Chain.SmartContract.Testing.Extensions;
-using Chain.SmartContract.Testing.Storage;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract.Native;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.SmartContract.Testing.Storage;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     /// <summary>
     /// TestingApplicationEngine is responsible for redirecting System.Contract.Call syscalls to their corresponding mock if necessary

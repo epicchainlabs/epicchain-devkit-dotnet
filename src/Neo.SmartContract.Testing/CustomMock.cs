@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     internal class CustomMock
     {

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.TestingStandards;
+namespace EpicChain.SmartContract.Testing.TestingStandards;
 
 public interface INep17Standard
 {

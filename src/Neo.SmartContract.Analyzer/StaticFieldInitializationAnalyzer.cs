@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Chain.SmartContract.Analyzer
+namespace EpicChain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class StaticFieldInitializationAnalyzer : DiagnosticAnalyzer

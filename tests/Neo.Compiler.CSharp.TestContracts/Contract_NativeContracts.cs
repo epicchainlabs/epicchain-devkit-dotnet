@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Native;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_NativeContracts : SmartContract.Framework.SmartContract
     {
@@ -12,7 +12,7 @@ namespace Chain.Compiler.CSharp.TestContracts
 
         public static string NEOSymbol()
         {
-            return Chain.Symbol;
+            return EpicChain.Symbol;
         }
 
         public static string GASSymbol()
@@ -27,7 +27,7 @@ namespace Chain.Compiler.CSharp.TestContracts
 
         public static UInt160 NEOHash()
         {
-            return Chain.Hash;
+            return EpicChain.Hash;
         }
 
 

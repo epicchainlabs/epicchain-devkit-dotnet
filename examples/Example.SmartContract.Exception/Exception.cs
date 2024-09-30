@@ -9,14 +9,14 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
 using System.ComponentModel;
 
 namespace Exception
 {
     [DisplayName("SampleException")]
-    [ContractAuthor("core-dev", "dev@Chain.org")]
+    [ContractAuthor("core-dev", "dev@EpicChain.org")]
     [ContractDescription("A sample contract to demonstrate how to handle exception")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

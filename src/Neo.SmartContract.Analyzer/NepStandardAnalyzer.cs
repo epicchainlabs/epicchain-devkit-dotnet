@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
-using Chain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework;
 
-namespace Chain.SmartContract.Analyzer
+namespace EpicChain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class SupportedStandardsAnalyzer : DiagnosticAnalyzer

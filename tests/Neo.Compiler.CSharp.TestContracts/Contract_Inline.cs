@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
-using Chain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Inline : SmartContract.Framework.SmartContract
     {

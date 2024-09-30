@@ -1,22 +1,22 @@
-using Chain.SmartContract;
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
-using Chain.SmartContract.Framework.Native;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Chain.SmartContract.Template
+namespace EpicChain.SmartContract.Template
 {
     [DisplayName(nameof(OracleRequest))]
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Chain.SmartContract.Template/templates/neocontractoracle/OracleRequest.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/neocontractoracle/OracleRequest.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
-    public class OracleRequest : Chain.SmartContract.Framework.SmartContract
+    public class OracleRequest : EpicChain.SmartContract.Framework.SmartContract
     {
         [Safe]
         public static string GetResponse()

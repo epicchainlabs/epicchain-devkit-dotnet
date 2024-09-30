@@ -9,16 +9,16 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.Json;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using Chain.VM;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
-using static Chain.Optimizer.JumpTarget;
-using static Chain.Optimizer.OpCodeTypes;
+using static EpicChain.Optimizer.JumpTarget;
+using static EpicChain.Optimizer.OpCodeTypes;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class Reachability
     {

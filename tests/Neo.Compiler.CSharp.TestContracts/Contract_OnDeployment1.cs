@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_OnDeployment1 : SmartContract.Framework.SmartContract
     {

@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -11,16 +11,16 @@
 extern alias scfx;
 
 using Microsoft.CodeAnalysis;
-using Chain.Cryptography;
-using Chain.IO;
-using Chain.SmartContract;
-using Chain.VM;
-using scfx::Chain.SmartContract.Framework.Attributes;
+using EpicChain.Cryptography;
+using EpicChain.IO;
+using EpicChain.SmartContract;
+using EpicChain.VM;
+using scfx::EpicChain.SmartContract.Framework.Attributes;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Chain.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {
@@ -72,7 +72,7 @@ internal partial class MethodConvert
                 emitted = true;
                 AddInstruction(OpCode.NEWARRAY0);
             }
-            else if (Symbol.ToString()?.Equals("Chain.SmartContract.Framework.Services.Runtime.Debug(string)") == true)
+            else if (Symbol.ToString()?.Equals("EpicChain.SmartContract.Framework.Services.Runtime.Debug(string)") == true)
             {
                 _context.AddEvent(new AbiEvent(Symbol, "Debug", new SmartContract.Manifest.ContractParameterDefinition() { Name = "message", Type = ContractParameterType.String }), false);
             }

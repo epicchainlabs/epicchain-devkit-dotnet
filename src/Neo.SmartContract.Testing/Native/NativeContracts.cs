@@ -1,9 +1,9 @@
-using Chain.Network.P2P.Payloads;
-using Chain.Persistence;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
 using System;
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing.Native
+namespace EpicChain.SmartContract.Testing.Native
 {
     /// <summary>
     /// NativeContracts makes it easier to access native contracts
@@ -65,15 +65,15 @@ namespace Chain.SmartContract.Testing.Native
         {
             _engine = engine;
 
-            ContractManagement = _engine.FromHash<ContractManagement>(Chain.SmartContract.Native.NativeContract.ContractManagement., EpicChain.SmartContract.Native.NativeContract.ContractManagement.Id);
-            CryptoLib = _engine.FromHash<CryptoLib>(Chain.SmartContract.Native.NativeContract.CryptoLib., EpicChain.SmartContract.Native.NativeContract.CryptoLib.Id);
-            GAS = _engine.FromHash<GAS>(Chain.SmartContract.Native.NativeContract.GAS., EpicChain.SmartContract.Native.NativeContract.GAS.Id);
-            NEO = _engine.FromHash<NEO>(Chain.SmartContract.Native.NativeCont.Epicn.Hash, EpicChain.SmartContract.NatiativeContract.EpicChain.Id);
-            Ledger = _engine.FromHash<Ledger>(Chain.SmartContract.Native.NativeContract.Ledger., EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
-            Oracle = _engine.FromHash<Oracle>(Chain.SmartContract.Native.NativeContract.Oracle., EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
-            Policy = _engine.FromHash<Policy>(Chain.SmartContract.Native.NativeContract.Policy., EpicChain.SmartContract.Native.NativeContract.Policy.Id);
-            RoleManagement = _engine.FromHash<RoleManagement>(Chain.SmartContract.Native.NativeContract.RoleManagement., EpicChain.SmartContract.Native.NativeContract.RoleManagement.Id);
-            StdLib = _engine.FromHash<StdLib>(Chain.SmartContract.Native.NativeContract.StdLib., EpicChain.SmartContract.Native.NativeContract.StdLib.Id);
+            ContractManagement = _engine.FromHash<ContractManagement>(EpicChain.SmartContract.Native.NativeContract.ContractManagement.Hash, EpicChain.SmartContract.Native.NativeContract.ContractManagement.Id);
+            CryptoLib = _engine.FromHash<CryptoLib>(EpicChain.SmartContract.Native.NativeContract.CryptoLib.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoLib.Id);
+            GAS = _engine.FromHash<GAS>(EpicChain.SmartContract.Native.NativeContract.GAS.Hash, EpicChain.SmartContract.Native.NativeContract.GAS.Id);
+            NEO = _engine.FromHash<NEO>(EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Id);
+            Ledger = _engine.FromHash<Ledger>(EpicChain.SmartContract.Native.NativeContract.Ledger.Hash, EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
+            Oracle = _engine.FromHash<Oracle>(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
+            Policy = _engine.FromHash<Policy>(EpicChain.SmartContract.Native.NativeContract.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Id);
+            RoleManagement = _engine.FromHash<RoleManagement>(EpicChain.SmartContract.Native.NativeContract.RoleManagement.Hash, EpicChain.SmartContract.Native.NativeContract.RoleManagement.Id);
+            StdLib = _engine.FromHash<StdLib>(EpicChain.SmartContract.Native.NativeContract.StdLib.Hash, EpicChain.SmartContract.Native.NativeContract.StdLib.Id);
         }
 
         /// <summary>
@@ -94,12 +94,12 @@ namespace Chain.SmartContract.Testing.Native
 
             // Process native contracts
 
-            foreach (var native in new Chain.SmartContract.Native.NativeContract[]
+            foreach (var native in new EpicChain.SmartContract.Native.NativeContract[]
                 {
-                    Chain.SmartContract.Native.NativeContract.ContractManagement,
-                    Chain.SmartContract.Native.NativeContract.Ledger,
-                    Chain.SmartContract.Native.NativeContract.NEO,
-                    Chain.SmartContract.Native.NativeContract.GAS
+                    EpicChain.SmartContract.Native.NativeContract.ContractManagement,
+                    EpicChain.SmartContract.Native.NativeContract.Ledger,
+                    EpicChain.SmartContract.Native.NativeContract.NEO,
+                    EpicChain.SmartContract.Native.NativeContract.GAS
                 }
             )
             {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Chain.SmartContract.Testing.Attributes;
+namespace EpicChain.SmartContract.Testing.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public sealed class FieldOrderAttribute : Attribute

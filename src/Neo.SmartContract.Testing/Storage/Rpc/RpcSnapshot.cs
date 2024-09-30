@@ -1,8 +1,8 @@
-using Chain.Persistence;
+using EpicChain.Persistence;
 using System;
 using System.Collections.Generic;
 
-namespace Chain.SmartContract.Testing.Storage.Rpc;
+namespace EpicChain.SmartContract.Testing.Storage.Rpc;
 
 internal class RpcSnapshot : ISnapshot
 {

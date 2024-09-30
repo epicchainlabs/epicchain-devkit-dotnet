@@ -1,7 +1,7 @@
-using Chain.VM;
+using EpicChain.VM;
 using System;
 
-namespace Chain.SmartContract.Testing.Exceptions
+namespace EpicChain.SmartContract.Testing.Exceptions
 {
     public class TestException : Exception
     {

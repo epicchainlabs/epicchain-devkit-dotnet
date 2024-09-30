@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.Compiler.CSharp.TestContracts;
+namespace EpicChain.Compiler.CSharp.TestContracts;
 
 [ContractPermission("0x01ff00ff00ff00ff00ff00ff00ff00ff00ff00a4", "a", "b", "c")]
 [ContractPermission("0x01ff00ff00ff00ff00ff00ff00ff00ff00ff00a4", "*")]

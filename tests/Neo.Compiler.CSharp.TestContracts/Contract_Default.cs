@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Default : SmartContract.Framework.SmartContract
     {

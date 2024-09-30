@@ -250,4 +250,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
-/src/Chain.Compiler.MSIL/Properties/launchSettings.json
+/src/EpicChain.Compiler.MSIL/Properties/launchSettings.json

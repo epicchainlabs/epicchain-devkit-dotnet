@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     [SupportedStandards(NepStandard.Nep17)]
     public class Contract_NEP17 : Nep17Token

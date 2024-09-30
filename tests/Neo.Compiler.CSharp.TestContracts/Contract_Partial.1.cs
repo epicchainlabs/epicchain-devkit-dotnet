@@ -1,4 +1,4 @@
-namespace Chain.Compiler.CSharp.UnitTests.TestClasses
+namespace EpicChain.Compiler.CSharp.UnitTests.TestClasses
 {
     public partial class Contract_Partial : SmartContract.Framework.SmartContract
     {

@@ -9,8 +9,8 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Services;
 using System.Numerics;
 
 namespace NFT

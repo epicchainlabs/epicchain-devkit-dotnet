@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
 
-namespace Chain.SmartContract.Analyzer
+namespace EpicChain.SmartContract.Analyzer
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class LinqUsageAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = "NC4011";
         private static readonly string Title = "LINQ usage";
-        private static readonly string MessageFormat = "Use Chain.SmartContract.Framework.Linq instead of System.Linq: {0}";
-        private static readonly string Description = "System.Linq is not supported in neo smart contract. Use Chain.SmartContract.Framework.Linq instead.";
+        private static readonly string MessageFormat = "Use EpicChain.SmartContract.Framework.Linq instead of System.Linq: {0}";
+        private static readonly string Description = "System.Linq is not supported in neo smart contract. Use EpicChain.SmartContract.Framework.Linq instead.";
         private const string Category = "Usage";
 
         private static readonly DiagnosticDescriptor Rule = new(
@@ -68,9 +68,9 @@ namespace Chain.SmartContract.Analyzer
             {
                 context.RegisterCodeFix(
                     CodeAction.Create(
-                        title: "Use Chain.SmartContract.Framework.Linq",
+                        title: "Use EpicChain.SmartContract.Framework.Linq",
                         createChangedDocument: c => FixSystemLinqUsage(context.Document, usingDirective, c),
-                        equivalenceKey: "Use Chain.SmartContract.Framework.Linq"),
+                        equivalenceKey: "Use EpicChain.SmartContract.Framework.Linq"),
                     diagnostic);
             }
         }
@@ -78,7 +78,7 @@ namespace Chain.SmartContract.Analyzer
         private static async Task<Document> FixSystemLinqUsage(Document document, UsingDirectiveSyntax usingDirective, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-            var newUsingDirective = usingDirective.WithName(SyntaxFactory.ParseName("Chain.SmartContract.Framework.Linq"));
+            var newUsingDirective = usingDirective.WithName(SyntaxFactory.ParseName("EpicChain.SmartContract.Framework.Linq"));
             var newRoot = root!.ReplaceNode(usingDirective, newUsingDirective);
             return document.WithSyntaxRoot(newRoot);
         }

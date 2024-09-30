@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     /// <summary>
     /// Constructor

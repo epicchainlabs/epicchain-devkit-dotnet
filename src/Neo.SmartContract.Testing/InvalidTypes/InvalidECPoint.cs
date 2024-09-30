@@ -1,6 +1,6 @@
-using Chain.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 
-namespace Chain.SmartContract.Testing.InvalidTypes
+namespace EpicChain.SmartContract.Testing.InvalidTypes
 {
     public class InvalidECPoint
     {

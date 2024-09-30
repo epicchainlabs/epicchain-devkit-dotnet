@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_ComplexAssign : SmartContract.Framework.SmartContract
     {

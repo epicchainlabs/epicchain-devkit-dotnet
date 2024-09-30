@@ -9,16 +9,16 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.Compiler;
-using Chain.Json;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using Chain.VM;
+using EpicChain.Compiler;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     public static class Optimizer
     {

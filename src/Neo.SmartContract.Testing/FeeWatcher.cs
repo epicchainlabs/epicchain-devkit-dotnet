@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     [DebuggerDisplay("Value={Value}")]
     public class FeeWatcher : IDisposable

@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Chain.IO;
-using Chain.SmartContract.Manifest;
-using Chain.SmartContract.Testing.Coverage;
-using Chain.SmartContract.Testing.Exceptions;
-using Chain.SmartContract.Testing.InvalidTypes;
+using EpicChain.IO;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing.InvalidTypes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Chain.SmartContract.Testing.TestingStandards;
+namespace EpicChain.SmartContract.Testing.TestingStandards;
 
 public class OwnableTests<T> : TestBase<T>
     where T : SmartContract, IOwnable, IContractInfo

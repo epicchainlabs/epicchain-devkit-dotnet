@@ -1,4 +1,4 @@
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     public enum MethodDetectionMechanism
     {

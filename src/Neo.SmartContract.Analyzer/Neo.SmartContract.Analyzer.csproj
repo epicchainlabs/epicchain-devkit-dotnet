@@ -6,12 +6,12 @@
     <LangVersion>latest</LangVersion>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <IsRoslynComponent>true</IsRoslynComponent>
-    <RootNamespace>Chain.SmartContract.Analyzer</RootNamespace>
-    <PackageId>Chain.SmartContract.Analyzer</PackageId>
+    <RootNamespace>EpicChain.SmartContract.Analyzer</RootNamespace>
+    <PackageId>EpicChain.SmartContract.Analyzer</PackageId>
     <PackAsTool>true</PackAsTool>
     <PackageTags>NEO;Blockchain;Smart Contract;Analyzer</PackageTags>
-    <Product>Chain.SmartContract.Analyzer.CSharp</Product>
-    <Description>Chain.SmartContract.Analyzer.CSharp</Description>
+    <Product>EpicChain.SmartContract.Analyzer.CSharp</Product>
+    <Description>EpicChain.SmartContract.Analyzer.CSharp</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chain.SmartContract.Framk\EpicChain.SmartContract.Framework.csproj" />
+    <ProjectReference Include="..\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj" />
   </ItemGroup>
 </Project>

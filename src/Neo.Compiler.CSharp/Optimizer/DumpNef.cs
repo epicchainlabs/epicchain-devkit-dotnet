@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.Json;
-using Chain.SmartContract;
-using Chain.SmartContract.Native;
-using Chain.VM;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -23,7 +23,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class DumpNef
     {

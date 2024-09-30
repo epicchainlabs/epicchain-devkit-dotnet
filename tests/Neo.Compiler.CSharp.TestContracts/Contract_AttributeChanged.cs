@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class SampleAttribute : System.Attribute { }
 

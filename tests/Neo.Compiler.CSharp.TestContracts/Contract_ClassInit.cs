@@ -1,10 +1,10 @@
-using Chain.SmartContract.Framework.Native;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 using System;
 using System.Numerics;
-using Chain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public struct IntInit
     {

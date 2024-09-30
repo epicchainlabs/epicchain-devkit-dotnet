@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Chain.SmartContract.Testing.Coverage.Formats
+namespace EpicChain.SmartContract.Testing.Coverage.Formats
 {
     public abstract class CoverageFormatBase
     {

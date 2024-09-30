@@ -9,15 +9,15 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract;
-using Chain.VM;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Chain.Optimizer.OpCodeTypes;
-using static Chain.VM.OpCode;
+using static EpicChain.Optimizer.OpCodeTypes;
+using static EpicChain.VM.OpCode;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class JumpTarget
     {

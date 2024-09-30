@@ -9,8 +9,8 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
 using System;
 using System.ComponentModel;
 using System.Numerics;
@@ -18,7 +18,7 @@ using System.Numerics;
 namespace Event;
 
 [DisplayName("SampleEvent")]
-[ContractAuthor("code-dev", "dev@Chain.org")]
+[ContractAuthor("code-dev", "dev@EpicChain.org")]
 [ContractDescription("A sample contract that demonstrates how to use Events")]
 [ContractVersion("0.0.1")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

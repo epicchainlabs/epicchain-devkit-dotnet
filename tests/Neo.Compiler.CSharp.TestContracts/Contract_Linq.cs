@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Linq;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Linq;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Linq : SmartContract.Framework.SmartContract
     {

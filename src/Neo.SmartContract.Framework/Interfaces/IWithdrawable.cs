@@ -11,7 +11,7 @@
 
 #nullable enable
 
-namespace Chain.SmartContract.Framework.Interfaces;
+namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of method that indicate a contract can be withdrawn.

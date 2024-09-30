@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing.Extensions
+namespace EpicChain.SmartContract.Testing.Extensions
 {
     internal static class MockExtensions
     {

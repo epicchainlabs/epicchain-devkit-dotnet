@@ -1,11 +1,11 @@
-using Chain.IO;
-using Chain.Network.P2P.Payloads;
-using Chain.SmartContract.Native;
-using Chain.VM;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Native;
+namespace EpicChain.SmartContract.Testing.Native;
 
 public abstract class Ledger : SmartContract
 {

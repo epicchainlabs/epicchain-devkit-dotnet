@@ -1,6 +1,6 @@
-using Chain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     [Contract("0e26a6a9b6f37a54d5666aaa2efb71dc75abfdfa")]
     public class Contract_Call

@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.VM;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Chain.VM.OpCode;
+using static EpicChain.VM.OpCode;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class OpCodeTypes
     {

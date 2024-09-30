@@ -1,8 +1,8 @@
-using Chain.SmartContract.Native;
+using EpicChain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Native;
+namespace EpicChain.SmartContract.Testing.Native;
 
 public abstract class Policy : SmartContract
 {

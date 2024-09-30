@@ -9,7 +9,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-namespace Chain.Compiler
+namespace EpicChain.Compiler
 {
     public class CompilationSourceReferences
     {

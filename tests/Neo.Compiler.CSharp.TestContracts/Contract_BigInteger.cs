@@ -1,8 +1,8 @@
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Services;
 using System.Numerics;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_BigInteger : SmartContract.Framework.SmartContract
     {

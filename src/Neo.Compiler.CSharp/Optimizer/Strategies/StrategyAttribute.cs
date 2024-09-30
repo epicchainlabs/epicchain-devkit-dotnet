@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     class StrategyAttribute : Attribute

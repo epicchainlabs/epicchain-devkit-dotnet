@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Chain.SmartContract.Testing.Coverage;
-using Chain.SmartContract.Testing.Coverage.Formats;
+using EpicChain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Coverage.Formats;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing.TestingStandards
+namespace EpicChain.SmartContract.Testing.TestingStandards
 {
     public abstract class TestCleanupBase
     {

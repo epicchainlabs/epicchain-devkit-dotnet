@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
-using Chain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
 using System.ComponentModel;
 using System.Numerics;
-using Chain.SmartContract.Framework.Services;
-using UInt160 = Chain.SmartContract.Framework.UInt160;
+using EpicChain.SmartContract.Framework.Services;
+using UInt160 = EpicChain.SmartContract.Framework.UInt160;
 
 namespace Transfer;
 
@@ -23,7 +23,7 @@ namespace Transfer;
 /// This is a sample contract that can be used as a template for creating new contracts.
 /// </summary>
 [DisplayName("SampleTransferContract")]
-[ContractAuthor("code-dev", "dev@Chain.org")]
+[ContractAuthor("code-dev", "dev@EpicChain.org")]
 [ContractDescription("A sample contract to demonstrate how to transfer NEO and GAS")]
 [ContractVersion("1.0.0.0")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
@@ -40,7 +40,7 @@ public class TransferContract : SmartContract
     public static void Transfer(UInt160 to, BigInteger amount)
     {
         ExecutionEngine.Assert(Runtime.CheckWitness(Owner));
-        ExecutionEngine.Assert(Chain.Transfer(Runtime.ExecutingScriptHash, to, amount));
+        ExecutionEngine.Assert(EpicChain.Transfer(Runtime.ExecutingScriptHash, to, amount));
         ExecutionEngine.Assert(GAS.Transfer(Runtime.ExecutingScriptHash, to, GAS.BalanceOf(Runtime.ExecutingScriptHash), true));
     }
 }

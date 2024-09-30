@@ -1,10 +1,10 @@
-using Chain.Json;
-using Chain.VM;
+using EpicChain.Json;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     static class DebugInfoBuilder
     {

@@ -1,5 +1,5 @@
-using Chain.IO;
-using Chain.Persistence;
+using EpicChain.IO;
+using EpicChain.Persistence;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 
-namespace Chain.SmartContract.Testing.Storage.Rpc;
+namespace EpicChain.SmartContract.Testing.Storage.Rpc;
 
 public class RpcStore : IStore
 {

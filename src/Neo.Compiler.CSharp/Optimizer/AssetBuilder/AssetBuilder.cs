@@ -1,10 +1,10 @@
-using Chain.Json;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using Chain.VM;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System.Collections.Generic;
 
-namespace Chain.Optimizer
+namespace EpicChain.Optimizer
 {
     public static class AssetBuilder
     {

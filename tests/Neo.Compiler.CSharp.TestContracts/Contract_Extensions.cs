@@ -1,4 +1,4 @@
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public static class Ext
     {

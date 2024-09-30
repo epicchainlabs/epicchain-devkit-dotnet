@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Chain.SmartContract.Testing.TestingStandards;
+namespace EpicChain.SmartContract.Testing.TestingStandards;
 
 public interface IOwnable
 {

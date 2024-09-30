@@ -1,11 +1,11 @@
-using Chain.VM;
+using EpicChain.VM;
 using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using Chain.Extensions;
-using Chain.SmartContract.Testing.Interpreters;
+using EpicChain.Extensions;
+using EpicChain.SmartContract.Testing.Interpreters;
 
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     /// <summary>
     /// Constructor

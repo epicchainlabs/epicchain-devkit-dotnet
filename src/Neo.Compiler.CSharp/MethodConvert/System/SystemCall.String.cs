@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -12,11 +12,11 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Chain.SmartContract.Native;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 
-namespace Chain.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Chain.SmartContract.Testing.Coverage.Formats
+namespace EpicChain.SmartContract.Testing.Coverage.Formats
 {
     public partial class CoverletJsonFormat : CoverageFormatBase
     {

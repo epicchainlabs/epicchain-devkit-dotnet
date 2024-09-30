@@ -1,12 +1,12 @@
-using Chain.Json;
-using Chain.Optimizer;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
+using EpicChain.Json;
+using EpicChain.Optimizer;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chain.Compiler.SecurityAnalyzer
+namespace EpicChain.Compiler.SecurityAnalyzer
 {
     /// <summary>
     /// Re-entrancy can happen when you call untrusted external code
@@ -85,7 +85,7 @@ namespace Chain.Compiler.SecurityAnalyzer
             foreach (BasicBlock b in basicBlocks)
             {
                 int addr = b.startAddr;
-                foreach (Chain.VM.Instruction instruction in b.instructions)
+                foreach (EpicChain.VM.Instruction instruction in b.instructions)
                 {
                     if (instruction.OpCode == VM.OpCode.SYSCALL)
                     {

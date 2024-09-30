@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "The Neo Project",
   "classifications": [ "NEO", "Blockchain", "Smart Contract", "Owner" ],
-  "identity": "Chain.SmartContract.Template.Owner",
+  "identity": "EpicChain.SmartContract.Template.Owner",
   "name": "Neo Smart Contract - Advanced Owner",
   "shortName": "neocontractowner",
   "preferNameDirectory": true,

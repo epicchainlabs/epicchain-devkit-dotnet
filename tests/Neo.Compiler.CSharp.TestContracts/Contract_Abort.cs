@@ -1,7 +1,7 @@
-using Chain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework;
 using System;
 
-namespace Chain.Compiler.CSharp.TestContracts
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Abort : SmartContract.Framework.SmartContract
     {

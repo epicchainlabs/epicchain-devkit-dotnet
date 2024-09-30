@@ -1,5 +1,5 @@
-using Chain.SmartContract.Framework;
-namespace Chain.Compiler.CSharp.TestContracts
+using EpicChain.SmartContract.Framework;
+namespace EpicChain.Compiler.CSharp.TestContracts
 {
     public class Contract_Logical : SmartContract.Framework.SmartContract
     {

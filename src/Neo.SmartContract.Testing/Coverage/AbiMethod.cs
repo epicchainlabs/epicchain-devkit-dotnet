@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     [DebuggerDisplay("{Name},{PCount}")]
     public class AbiMethod : IEquatable<AbiMethod>

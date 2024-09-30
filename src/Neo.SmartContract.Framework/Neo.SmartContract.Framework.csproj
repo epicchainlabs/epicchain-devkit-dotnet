@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyTitle>Chain.SmartContract.Framework</AssemblyTitle>
-    <AssemblyName>Chain.SmartContract.Framework</AssemblyName>
-    <PackageId>Chain.SmartContract.Framework</PackageId>
-    <Description>Chain.SmartContract.Framework</Description>
+    <AssemblyTitle>EpicChain.SmartContract.Framework</AssemblyTitle>
+    <AssemblyName>EpicChain.SmartContract.Framework</AssemblyName>
+    <PackageId>EpicChain.SmartContract.Framework</PackageId>
+    <Description>EpicChain.SmartContract.Framework</Description>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>

@@ -1,8 +1,8 @@
-using Chain.Extensions;
+using EpicChain.Extensions;
 using System;
 using System.Text.RegularExpressions;
 
-namespace Chain.SmartContract.Testing.Interpreters
+namespace EpicChain.SmartContract.Testing.Interpreters
 {
     public class HexStringInterpreter : IStringInterpreter
     {

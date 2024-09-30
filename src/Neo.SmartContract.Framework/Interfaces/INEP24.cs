@@ -11,7 +11,7 @@
 
 using System.Numerics;
 
-namespace Chain.SmartContract.Framework.Interfaces;
+namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of supporting royalty information for Non-Fungible Tokens (NFTs)

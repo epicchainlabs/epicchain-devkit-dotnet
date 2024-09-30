@@ -1,9 +1,9 @@
-using Chain.Json;
+using EpicChain.Json;
 using System;
 using System.Buffers.Binary;
 using System.Numerics;
 
-namespace Chain.SmartContract.Testing.Storage
+namespace EpicChain.SmartContract.Testing.Storage
 {
     public class SmartContractStorage
     {

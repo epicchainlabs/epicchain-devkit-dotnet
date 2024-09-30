@@ -1,13 +1,13 @@
-using Chain.SmartContract.Manifest;
-using Chain.SmartContract.Testing.Coverage.Formats;
-using Chain.VM;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Testing.Coverage.Formats;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     [DebuggerDisplay("{Name}")]
     public class CoveredContract : CoverageBase

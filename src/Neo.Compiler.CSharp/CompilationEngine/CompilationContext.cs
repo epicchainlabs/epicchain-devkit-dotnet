@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -13,15 +13,15 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
-using Chain.Compiler.Optimizer;
-using Chain.Cryptography.ECC;
-using Chain.IO;
-using Chain.Json;
-using Chain.Optimizer;
-using Chain.SmartContract;
-using Chain.SmartContract.Manifest;
-using scfx::Chain.SmartContract.Framework;
-using scfx::Chain.SmartContract.Framework.Attributes;
+using EpicChain.Compiler.Optimizer;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
+using EpicChain.Json;
+using EpicChain.Optimizer;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using scfx::EpicChain.SmartContract.Framework;
+using scfx::EpicChain.SmartContract.Framework.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +30,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Diagnostic = Microsoft.CodeAnalysis.Diagnostic;
-using ECPoint = Chain.Cryptography.ECC.ECPoint;
+using ECPoint = EpicChain.Cryptography.ECC.ECPoint;
 
-namespace Chain.Compiler
+namespace EpicChain.Compiler
 {
     public class CompilationContext
     {
@@ -159,7 +159,7 @@ namespace Chain.Compiler
                 try
                 {
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    (nef, manifest, debugInfo) = Chain.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo: debugInfo!.Clone() as JObject, optimizationType: Options.Optimize);
+                    (nef, manifest, debugInfo) = EpicChain.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo: debugInfo!.Clone() as JObject, optimizationType: Options.Optimize);
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 }
                 catch (Exception ex)
@@ -195,7 +195,7 @@ namespace Chain.Compiler
 
             if (nef.Compiler.Length > 64)
             {
-                // Chain.Compiler.CSharp 3.6.2+470d9a8608b41de658849994a258200d8abf7caa
+                // EpicChain.Compiler.CSharp 3.6.2+470d9a8608b41de658849994a258200d8abf7caa
                 nef.Compiler = nef.Compiler.Substring(0, 61) + "...";
             }
 
@@ -357,7 +357,7 @@ namespace Chain.Compiler
             if (symbol.IsSubclassOf(nameof(Attribute))) return;
             bool isPublic = symbol.DeclaredAccessibility == Accessibility.Public;
             bool isAbstract = symbol.IsAbstract;
-            bool isContractType = symbol.IsSubclassOf(nameof(scfx.Chain.SmartContract.Framework.SmartContract));
+            bool isContractType = symbol.IsSubclassOf(nameof(scfx.EpicChain.SmartContract.Framework.SmartContract));
             bool isSmartContract = isPublic && !isAbstract && isContractType;
 
             if (isSmartContract)

@@ -1,7 +1,7 @@
-using Chain.SmartContract.Testing.Extensions;
-using Chain.SmartContract.Testing.Storage;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.SmartContract.Testing.Storage;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     public class SmartContract : IDisposable
     {

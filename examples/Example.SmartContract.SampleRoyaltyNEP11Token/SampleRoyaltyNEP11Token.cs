@@ -9,11 +9,11 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework;
-using Chain.SmartContract.Framework.Attributes;
-using Chain.SmartContract.Framework.Interfaces;
-using Chain.SmartContract.Framework.Native;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Interfaces;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 using System.Numerics;
 
@@ -21,7 +21,7 @@ namespace NonDivisibleNEP11
 {
     /// <inheritdoc />
     [DisplayName("SampleRoyaltyNEP11Token")]
-    [ContractAuthor("core-dev", "dev@Chain.org")]
+    [ContractAuthor("core-dev", "dev@EpicChain.org")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample of NEP-11 Royalty Feature")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

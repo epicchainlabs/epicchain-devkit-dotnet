@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 
-namespace Chain.SmartContract.Testing.Coverage.Formats
+namespace EpicChain.SmartContract.Testing.Coverage.Formats
 {
     public partial class CoberturaFormat
     {

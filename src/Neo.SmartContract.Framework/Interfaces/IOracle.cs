@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Chain.SmartContract.Framework.Native;
-using Chain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 
-namespace Chain.SmartContract.Framework.Interfaces;
+namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
 /// Interface of oracle callback method

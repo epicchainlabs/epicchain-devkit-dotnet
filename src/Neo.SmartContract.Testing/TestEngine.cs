@@ -1,18 +1,18 @@
 using Moq;
-using Chain.Cryptography.ECC;
-using Chain.IO;
-using Chain.Network.P2P.Payloads;
-using Chain.Persistence;
-using Chain.SmartContract.Manifest;
-using Chain.SmartContract.Native;
-using Chain.SmartContract.Testing.Coverage;
-using Chain.SmartContract.Testing.Exceptions;
-using Chain.SmartContract.Testing.Extensions;
-using Chain.SmartContract.Testing.Interpreters;
-using Chain.SmartContract.Testing.Native;
-using Chain.SmartContract.Testing.Storage;
-using Chain.VM;
-using Chain.VM.Types;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Native;
+using EpicChain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.SmartContract.Testing.Interpreters;
+using EpicChain.SmartContract.Testing.Native;
+using EpicChain.SmartContract.Testing.Storage;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     public class TestEngine
     {
@@ -115,7 +115,7 @@ namespace Chain.SmartContract.Testing
                     return validatorsScript.ToScriptHash();
                 }
 
-                var validators = NativeContract.Chain.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
+                var validators = NativeContract.EpicChain.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
                 return Contract.GetBFTAddress(validators);
             }
         }
@@ -135,7 +135,7 @@ namespace Chain.SmartContract.Testing
                     return committeeScript.ToScriptHash();
                 }
 
-                return NativeContract.Chain.GetCommitteeAddress(Storage.Snapshot);
+                return NativeContract.EpicChain.GetCommitteeAddress(Storage.Snapshot);
             }
         }
 

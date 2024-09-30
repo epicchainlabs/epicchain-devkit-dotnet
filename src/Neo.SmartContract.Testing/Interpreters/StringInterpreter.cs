@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace Chain.SmartContract.Testing.Interpreters
+namespace EpicChain.SmartContract.Testing.Interpreters
 {
     public class StringInterpreter : IStringInterpreter
     {

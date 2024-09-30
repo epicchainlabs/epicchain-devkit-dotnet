@@ -1,6 +1,6 @@
 // Copyright (C) 2015-2024 The Neo Project.
 //
-// The Chain.Compiler.CSharp is free software distributed under the MIT
+// The EpicChain.Compiler.CSharp is free software distributed under the MIT
 // software license, see the accompanying file LICENSE in the main directory
 // of the project or http://www.opensource.org/licenses/mit-license.php
 // for more details.
@@ -12,11 +12,11 @@ extern alias scfx;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Chain.IO;
-using Chain.VM;
+using EpicChain.IO;
+using EpicChain.VM;
 using System.Linq;
 
-namespace Chain.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {
@@ -47,7 +47,7 @@ internal partial class MethodConvert
         if (initializer is null)
         {
             IMethodSymbol baseConstructor = baseType.InstanceConstructors.First(p => p.Parameters.Length == 0);
-            if (baseType.DeclaringSyntaxReferences.IsEmpty && baseConstructor.GetAttributes().All(p => p.AttributeClass!.ContainingAssembly.Name != "Chain.SmartContract.Framework"))
+            if (baseType.DeclaringSyntaxReferences.IsEmpty && baseConstructor.GetAttributes().All(p => p.AttributeClass!.ContainingAssembly.Name != "EpicChain.SmartContract.Framework"))
                 return;
             CallMethodWithInstanceExpression(model, baseConstructor, null);
         }

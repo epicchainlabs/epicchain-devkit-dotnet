@@ -1,8 +1,8 @@
-using Chain.SmartContract.Testing.Coverage.Formats;
+using EpicChain.SmartContract.Testing.Coverage.Formats;
 using System;
 using System.Collections.Generic;
 
-namespace Chain.SmartContract.Testing.Coverage
+namespace EpicChain.SmartContract.Testing.Coverage
 {
     public class CoveredCollection : CoverageBase
     {

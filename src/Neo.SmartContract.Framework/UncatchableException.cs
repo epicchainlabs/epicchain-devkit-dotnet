@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Chain.SmartContract.Framework
+namespace EpicChain.SmartContract.Framework
 {
     /// <summary>
     /// Represents an exception that cannot be caught in the contract.

@@ -1,8 +1,8 @@
-using Chain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Coverage;
 using System;
 using System.Linq.Expressions;
 
-namespace Chain.SmartContract.Testing
+namespace EpicChain.SmartContract.Testing
 {
     public static class SmartContractExtensions
     {
