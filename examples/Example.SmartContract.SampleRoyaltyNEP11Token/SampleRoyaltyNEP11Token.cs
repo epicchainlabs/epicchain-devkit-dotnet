@@ -24,7 +24,7 @@ namespace NonDivisibleNEP11
     [ContractAuthor("core-dev", "dev@neo.org")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample of NEP-11 Royalty Feature")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(NepStandard.Nep11)]
     [SupportedStandards(NepStandard.Nep24)]

@@ -13,7 +13,7 @@ namespace Neo.SmartContract.Template
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/src/Neo.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/Neo.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(NepStandard.Nep17)]
     public class Nep17Contract : Neo.SmartContract.Framework.Nep17Token

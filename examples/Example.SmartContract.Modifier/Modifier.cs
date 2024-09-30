@@ -38,7 +38,7 @@ namespace Modifier
     [ContractAuthor("core-dev", "dev@neo.org")]
     [ContractDescription("A sample contract to demonstrate how to use modifiers")]
     [ContractVersion("0.0.1")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     public class SampleModifier : SmartContract
     {
         [OnlyOwner("AAAAAAAAAAAAAAAAAAAAAAAAAAA=")]

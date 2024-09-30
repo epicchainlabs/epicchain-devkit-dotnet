@@ -26,7 +26,7 @@ namespace Transfer;
 [ContractAuthor("code-dev", "dev@neo.org")]
 [ContractDescription("A sample contract to demonstrate how to transfer NEO and GAS")]
 [ContractVersion("1.0.0.0")]
-[ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+[ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 [ContractPermission(Permission.Any, Method.Any)]
 public class TransferContract : SmartContract
 {
