@@ -22,7 +22,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
         //[TestMethod]
         public void TestRpcStore()
         {
-            var engine = new TestEngine(new EngineStorage(new RpcStore("http://seed2t5.EpicChain.org:20332")), false);
+            var engine = new TestEngine(new EngineStorage(new RpcStore("http://testnet1-seed.epic-chain.org:20111")), false);
 
             // check network values
 
