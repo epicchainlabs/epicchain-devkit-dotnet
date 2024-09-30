@@ -3,7 +3,7 @@ using EpicChain.SmartContract.Framework.Attributes;
 namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     [ContractAuthor("core-dev")]
-    [ContractEmail("dev@EpicChain.org")]
+    [ContractEmail("devs@epic-chain.org")]
     [ContractVersion("v3.6.3")]
     [ContractDescription("This is a test contract.")]
     [ManifestExtra("ExtraKey", "ExtraValue")]

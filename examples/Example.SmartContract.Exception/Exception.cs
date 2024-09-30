@@ -16,7 +16,7 @@ using System.ComponentModel;
 namespace Exception
 {
     [DisplayName("SampleException")]
-    [ContractAuthor("core-dev", "dev@EpicChain.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample contract to demonstrate how to handle exception")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

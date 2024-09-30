@@ -18,7 +18,7 @@ using System.Numerics;
 namespace ContractCall;
 
 [DisplayName("SampleContractCall")]
-[ContractAuthor("core-dev", "dev@EpicChain.org")]
+[ContractAuthor("core-dev", "devs@epic-chain.org")]
 [ContractVersion("0.0.1")]
 [ContractDescription("A sample contract to demonstrate how to call a contract")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

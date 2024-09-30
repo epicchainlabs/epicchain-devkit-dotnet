@@ -20,7 +20,7 @@ using EpicChain.SmartContract.Framework.Interfaces;
 namespace Oracle
 {
     [DisplayName("SampleOracle")]
-    [ContractAuthor("code-dev", "dev@EpicChain.org")]
+    [ContractAuthor("code-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample contract to demonstrate how to use Example.SmartContract.Oracle Service")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

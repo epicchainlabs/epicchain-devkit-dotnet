@@ -18,7 +18,7 @@ using System.Numerics;
 namespace Event;
 
 [DisplayName("SampleEvent")]
-[ContractAuthor("code-dev", "dev@EpicChain.org")]
+[ContractAuthor("code-dev", "devs@epic-chain.org")]
 [ContractDescription("A sample contract that demonstrates how to use Events")]
 [ContractVersion("0.0.1")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

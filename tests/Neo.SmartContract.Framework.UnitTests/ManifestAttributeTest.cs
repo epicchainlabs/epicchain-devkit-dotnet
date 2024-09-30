@@ -20,12 +20,12 @@ public class ManifestAttributeTest
         Assert.AreEqual(6, extra.Count);
         // ["nef"]["optimizations"]
         // [Author("core-dev")]
-        // [Email("dev@EpicChain.org")]
+        // [Email("devs@epic-chain.org")]
         // [Version("v3.6.3")]
         // [Description("This is a test contract.")]
         // [ManifestExtra("ExtraKey", "ExtraValue")]
         Assert.AreEqual("core-dev", extra["Author"]!.GetString());
-        Assert.AreEqual("dev@EpicChain.org", extra["E-mail"]!.GetString());
+        Assert.AreEqual("devs@epic-chain.org", extra["E-mail"]!.GetString());
         Assert.AreEqual("v3.6.3", extra["Version"]!.GetString());
         Assert.AreEqual("This is a test contract.", extra["Description"]!.GetString());
         Assert.AreEqual("ExtraValue", extra["ExtraKey"]!.GetString());

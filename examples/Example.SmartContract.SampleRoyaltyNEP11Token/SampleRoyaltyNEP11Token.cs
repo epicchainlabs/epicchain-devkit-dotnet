@@ -21,7 +21,7 @@ namespace NonDivisibleNEP11
 {
     /// <inheritdoc />
     [DisplayName("SampleRoyaltyNEP11Token")]
-    [ContractAuthor("core-dev", "dev@EpicChain.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample of NEP-11 Royalty Feature")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

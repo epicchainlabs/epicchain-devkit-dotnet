@@ -23,7 +23,7 @@ namespace Transfer;
 /// This is a sample contract that can be used as a template for creating new contracts.
 /// </summary>
 [DisplayName("SampleTransferContract")]
-[ContractAuthor("code-dev", "dev@EpicChain.org")]
+[ContractAuthor("code-dev", "devs@epic-chain.org")]
 [ContractDescription("A sample contract to demonstrate how to transfer NEO and GAS")]
 [ContractVersion("1.0.0.0")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

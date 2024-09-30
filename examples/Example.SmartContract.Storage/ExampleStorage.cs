@@ -17,7 +17,7 @@ using System.ComponentModel;
 namespace ExampleStorage
 {
     [DisplayName("SampleStorage")]
-    [ContractAuthor("code-dev", "dev@EpicChain.org")]
+    [ContractAuthor("code-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample contract to demonstrate how to use storage")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

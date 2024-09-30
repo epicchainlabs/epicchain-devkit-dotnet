@@ -18,7 +18,7 @@ using System.ComponentModel;
 namespace Inscription
 {
     [DisplayName("SampleInscription")]
-    [ContractAuthor("core-dev", "dev@EpicChain.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample inscription contract.")]
     [ContractVersion("0.0.1")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]

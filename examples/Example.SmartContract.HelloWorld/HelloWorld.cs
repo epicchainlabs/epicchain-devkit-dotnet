@@ -18,7 +18,7 @@ namespace HelloWorld;
 
 [DisplayName("SampleHelloWorld")]
 [ContractDescription("A simple `hello world` contract")]
-[ContractEmail("dev@EpicChain.org")]
+[ContractEmail("devs@epic-chain.org")]
 [ContractVersion("0.0.1")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 [ContractPermission(Permission.Any, Method.Any)]

@@ -19,7 +19,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
             var extra = Contract_ExtraAttribute.Manifest.Extra;
 
             Assert.AreEqual("Neo", extra["Author"]?.GetString());
-            Assert.AreEqual("dev@EpicChain.org", extra["E-mail"]?.GetString());
+            Assert.AreEqual("devs@epic-chain.org", extra["E-mail"]?.GetString());
         }
     }
 }

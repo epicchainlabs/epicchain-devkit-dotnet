@@ -21,7 +21,7 @@ namespace NEP17
 {
     /// <inheritdoc />
     [DisplayName("SampleNep17Token")]
-    [ContractAuthor("core-dev", "dev@EpicChain.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample NEP-17 token")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
