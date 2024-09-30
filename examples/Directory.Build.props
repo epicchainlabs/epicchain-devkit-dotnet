@@ -6,7 +6,7 @@
         <VersionPrefix>3.7.4</VersionPrefix>
         <TargetFramework>net8.0</TargetFramework>
         <Authors>The Neo SmartContract Examples Project</Authors>
-        <PackageIcon>Chain.png</PackageIcon>
+        <PackageIcon>EpicChain.png</PackageIcon>
         <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet/examples</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -21,15 +21,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Chain.SmartContract.Framk\EpicChain.SmartContract.Framework.csproj"/>
-        <ProjectReference Include="..\..\src\Chain.Compiler.Cp\EpicChain.Compiler.CSharp.csproj" PrivateAssets="All"/>
-        <ProjectReference Include="..\..\src\Chain.SmartContract.Anar\EpicChain.SmartContract.Analyzer.csproj"
+        <ProjectReference Include="..\..\src\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj"/>
+        <ProjectReference Include="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" PrivateAssets="All"/>
+        <ProjectReference Include="..\..\src\EpicChain.SmartContract.Analyzer\EpicChain.SmartContract.Analyzer.csproj"
                           OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
     </ItemGroup>
 
     <Target Name="ExecuteBeforeBuild" BeforeTargets="PreBuildEvent">
-        <MSBuild Projects="..\..\src\Chain.Compiler.Cp\EpicChain.Compiler.CSharp.csproj" Targets="Build" ContinueOnError="true"/>
-        <Exec Command="dotnet ..\..\src\Chain.Compiler.CSharp\bin\Debug\net8.0\nccs.dll &quot;$(MSBuildProjectFile)&quot;" ContinueOnError="true"/>
+        <MSBuild Projects="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" Targets="Build" ContinueOnError="true"/>
+        <Exec Command="dotnet ..\..\src\EpicChain.Compiler.CSharp\bin\Debug\net8.0\nccs.dll &quot;$(MSBuildProjectFile)&quot;" ContinueOnError="true"/>
     </Target>
 
 </Project>
