@@ -121,7 +121,7 @@ jobs:
         --version-suffix ${{ env.VERSION_SUFFIX }}
     - name : Replace Neo reference by package in EpicChain.SmartContract.Testing
       run: |
-        dotnet remove ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj reference '..\..\neo\src\Neo\EpicChain.csproj'
+        dotnet remove ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj reference '..\..\epicchain\src\EpicChain\EpicChain.csproj'
         dotnet add    ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj package 'Neo' --version ${{ env.VERSION_NEO }}-${{ env.VERSION_SUFFIX_NEO }}
     - name : Build (EpicChain.SmartContract.Testing)
       run: |

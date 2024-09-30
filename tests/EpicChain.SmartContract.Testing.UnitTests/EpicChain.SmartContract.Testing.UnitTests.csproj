@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\neo\src\Neo\EpicChain.csproj" />
+		<ProjectReference Include="..\..\epicchain\src\EpicChain\EpicChain.csproj" />
 		<ProjectReference Include="..\..\src\EpicChain.SmartContract.Testing\EpicChain.SmartContract.Testing.csproj" />
 	</ItemGroup>
 
