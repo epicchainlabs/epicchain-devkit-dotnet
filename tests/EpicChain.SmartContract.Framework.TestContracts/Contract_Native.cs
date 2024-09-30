@@ -54,8 +54,8 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
             return EpicChain.GetCandidates();
         }
 
-        [DisplayName("GAS_Decimals")]
-        public static int GAS_Decimals()
+        [DisplayName("EpicPulse_Decimals")]
+        public static int EpicPulse_Decimals()
         {
             return GAS.Decimals;
         }

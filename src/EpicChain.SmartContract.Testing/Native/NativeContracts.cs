@@ -23,12 +23,12 @@ namespace EpicChain.SmartContract.Testing.Native
         public CryptoLib CryptoLib { get; }
 
         /// <summary>
-        /// GasToken
+        /// EpicPulse
         /// </summary>
         public GAS GAS { get; }
 
         /// <summary>
-        /// NeoToken
+        /// EpicChain
         /// </summary>
         public NEO NEO { get; }
 

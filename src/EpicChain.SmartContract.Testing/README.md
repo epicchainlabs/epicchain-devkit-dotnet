@@ -112,7 +112,7 @@ var engine = new TestEngine(true);
 
 // Instantiate neo contract from native hash, (not necessary if we use engine.Native.NEO)
 
-var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash, false);
+var neo = engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash, false);
 
 // Ensure that the main address contains the totalSupply
 
@@ -237,7 +237,7 @@ TestEngine engine = new(true);
 
 // Get neo token smart contract and mock balanceOf to always return 123
 
-var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash,
+var neo = engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash,
     mock => mock.Setup(o => o.BalanceOf(It.IsAny<UInt160>())).Returns(123),
     false);
 

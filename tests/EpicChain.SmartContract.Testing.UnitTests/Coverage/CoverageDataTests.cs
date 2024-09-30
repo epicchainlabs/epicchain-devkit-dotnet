@@ -21,7 +21,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Coverage
             Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             Assert.AreEqual(WhiteSpaceRegex.Replace(@"
-NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
+EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 ┌-───────────────────────────────-┬-────────-┬-────────-┐
 │ Method                          │   Line   │   Branch │
 ├-───────────────────────────────-┼-────────-┼-────────-┤
