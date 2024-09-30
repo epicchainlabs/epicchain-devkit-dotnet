@@ -1,46 +1,71 @@
-# Neo Smart Contract Roslyn Analyzers
+# EpicChain Smart Contract Roslyn Analyzers
 
-This repository contains a set of Roslyn analyzers and code fix providers for Neo smart contracts.
+This repository contains a comprehensive set of Roslyn analyzers and code fix providers specifically designed for EpicChain smart contracts. These tools are intended to help developers adhere to best practices, prevent the use of unsupported features, and maintain high standards of quality and security when writing smart contracts for the EpicChain ecosystem.
 
-## Content
-### NeoContractAnalyzer
+## Overview of the Analyzers
 
-- [FloatUsageAnalyzer.cs](NeoContractAnalyzer/FloatUsageAnalyzer.cs): This analyzer checks for usage of float type, which is not supported in Neo smart contracts.
-- [DecimalUsageAnalyzer.cs](NeoContractAnalyzer/DecimalUsageAnalyzer.cs): This analyzer detects usage of decimal type, which is not supported in Neo smart contracts.
-- [DoubleUsageAnalyzer.cs](NeoContractAnalyzer/DoubleUsageAnalyzer.cs): This analyzer identifies usage of double type, which is not supported in Neo smart contracts.
-- [SystemMathUsageAnalyzer.cs](NeoContractAnalyzer/SystemMathUsageAnalyzer.cs): This analyzer flags usage of certain System.Math methods that are not supported in Neo smart contracts.
-- [BigIntegerUsageAnalyzer.cs](NeoContractAnalyzer/BigIntegerUsageAnalyzer.cs): This analyzer checks for specific methods of the BigInteger class that are not supported.
-- [StringMethodUsageAnalyzer.cs](NeoContractAnalyzer/StringMethodUsageAnalyzer.cs): This analyzer identifies and reports specific methods of the string class that are not supported.
-- [BigIntegerCreationAnalyzer.cs](NeoContractAnalyzer/BigIntegerCreationAnalyzer.cs): This analyzer checks for creation patterns of the BigInteger class that are not supported.
-- [InitialValueAnalyzer.cs](NeoContractAnalyzer/InitialValueAnalyzer.cs): This analyzer suggests converting attribute-based initializations to literal initializations for certain types.
-- [RefKeywordUsageAnalyzer.cs](NeoContractAnalyzer/RefKeywordUsageAnalyzer.cs): This analyzer flags the usage of the 'ref' keyword, which might not be supported in smart contracts.
-- [LinqUsageAnalyzer.cs](NeoContractAnalyzer/LinqUsageAnalyzer.cs): This analyzer detects usage of LINQ methods which are not supported in smart contracts.
-- [CharMethodsUsageAnalyzer.cs](NeoContractAnalyzer/CharMethodsUsageAnalyzer.cs): This analyzer reports specific methods of the char class that are not recommended for use in smart contracts.
-- [CollectionTypesUsageAnalyzer.cs](NeoContractAnalyzer/CollectionTypesUsageAnalyzer.cs): This analyzer flags the usage of unsupported collection types like List and Dictionary.
-- [VolatileKeywordUsageAnalyzer.cs](NeoContractAnalyzer/VolatileKeywordUsageAnalyzer.cs): This analyzer warns about the usage of the 'volatile' keyword, which might not be supported in smart contracts.
-- [KeywordUsageAnalyzer.cs](NeoContractAnalyzer/KeywordUsageAnalyzer.cs): This analyzer detects usage of restricted keywords in smart contracts.
-- [BanCastMethodAnalyzer.cs](NeoContractAnalyzer/BanCastMethodAnalyzer.cs): This analyzer flags usage of certain cast methods that are not supported in smart contracts.
-- [SmartContractMethodNamingAnalyzer.cs](NeoContractAnalyzer/SmartContractMethodNamingAnalyzer.cs): This analyzer ensures smart contract methods follow the correct naming convention.
-- [NotifyEventNameAnalyzer.cs](NeoContractAnalyzer/NotifyEventNameAnalyzer.cs): This analyzer checks for correct usage of event names in notify calls.
-- [SmartContractMethodNamingAnalyzerUnderline.cs](NeoContractAnalyzer/SmartContractMethodNamingAnalyzerUnderline.cs): This analyzer warns about smart contract method names containing underscores.
-- [SupportedStandardsAnalyzer.cs](NeoContractAnalyzer/SupportedStandardsAnalyzer.cs): This analyzer checks for correct implementation of supported standards in smart contracts.
-- [BigIntegerUsingUsageAnalyzer.cs](NeoContractAnalyzer/BigIntegerUsingUsageAnalyzer.cs): This analyzer warns about incorrect usage of BigInteger in using statements.
-- [StaticFieldInitializationAnalyzer.cs](NeoContractAnalyzer/StaticFieldInitializationAnalyzer.cs): This analyzer checks for proper initialization of static fields in smart contracts.
-- [MultipleCatchBlockAnalyzer.cs](NeoContractAnalyzer/MultipleCatchBlockAnalyzer.cs): This analyzer checks for multiple catch blocks in try statements.
-- [SystemDiagnosticsUsageAnalyzer.cs](NeoContractAnalyzer/SystemDiagnosticsUsageAnalyzer.cs): This analyzer detects and reports usage of System.Diagnostics namespace, which is not supported in Neo smart contracts.
+The following is a detailed breakdown of the analyzers included in the repository, highlighting their purpose and functionality:
 
-## How to Use
+### EpicChainContractAnalyzer
 
-To use these analyzers in your Neo smart contract project:
+- **[FloatUsageAnalyzer.cs](EpicChainContractAnalyzer/FloatUsageAnalyzer.cs)**: This analyzer checks for the usage of the `float` data type. Since floating-point arithmetic is generally unsupported in blockchain environments, this tool ensures that developers do not introduce `float` types in EpicChain smart contracts.
 
-1. Add a reference to the EpicChain.SmartContract.Analyzer project in your smart contract project.
-2. Build the EpicChain.SmartContract.Analyzer project.
-3. The analyzers will automatically run when you build your smart contract project.
+- **[DecimalUsageAnalyzer.cs](EpicChainContractAnalyzer/DecimalUsageAnalyzer.cs)**: Detects the usage of the `decimal` data type, which is not permitted in EpicChain smart contracts due to its precision-related issues in decentralized applications.
 
-## Contributing
+- **[DoubleUsageAnalyzer.cs](EpicChainContractAnalyzer/DoubleUsageAnalyzer.cs)**: Identifies the usage of the `double` data type, another unsupported floating-point type that could lead to errors in smart contract execution.
 
-Contributions to improve existing analyzers or add new ones are welcome. Please submit a pull request with your changes.
+- **[SystemMathUsageAnalyzer.cs](EpicChainContractAnalyzer/SystemMathUsageAnalyzer.cs)**: Flags any attempt to use certain methods from the `System.Math` library that are incompatible with the limitations of EpicChain smart contracts.
 
-## License
+- **[BigIntegerUsageAnalyzer.cs](EpicChainContractAnalyzer/BigIntegerUsageAnalyzer.cs)**: Checks for unsupported methods from the `BigInteger` class, which is often used for handling large numbers in blockchain systems. This analyzer ensures only permissible `BigInteger` methods are utilized.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **[StringMethodUsageAnalyzer.cs](EpicChainContractAnalyzer/StringMethodUsageAnalyzer.cs)**: Reports the use of specific methods from the `string` class that are not supported in EpicChain smart contracts, helping developers avoid potential issues with string manipulation.
+
+- **[BigIntegerCreationAnalyzer.cs](EpicChainContractAnalyzer/BigIntegerCreationAnalyzer.cs)**: Examines how instances of the `BigInteger` class are created and flags unsupported creation patterns, ensuring that developers use best practices for managing large integers.
+
+- **[InitialValueAnalyzer.cs](EpicChainContractAnalyzer/InitialValueAnalyzer.cs)**: Suggests converting attribute-based initializations to literal initializations for certain types, a practice that can optimize performance in EpicChain smart contracts.
+
+- **[RefKeywordUsageAnalyzer.cs](EpicChainContractAnalyzer/RefKeywordUsageAnalyzer.cs)**: Warns about the usage of the `ref` keyword in smart contracts, which may introduce unpredictability and is generally not supported.
+
+- **[LinqUsageAnalyzer.cs](EpicChainContractAnalyzer/LinqUsageAnalyzer.cs)**: Detects the usage of LINQ methods in smart contracts, which can introduce performance overhead and are typically not supported in the blockchain environment.
+
+- **[CharMethodsUsageAnalyzer.cs](EpicChainContractAnalyzer/CharMethodsUsageAnalyzer.cs)**: Flags certain methods of the `char` class that are either inefficient or unsupported in the context of smart contracts, helping developers avoid potential pitfalls with character data types.
+
+- **[CollectionTypesUsageAnalyzer.cs](EpicChainContractAnalyzer/CollectionTypesUsageAnalyzer.cs)**: Identifies the use of unsupported collection types such as `List` and `Dictionary`. These data structures can introduce inefficiencies or non-determinism in smart contract logic, so this analyzer promotes safer alternatives.
+
+- **[VolatileKeywordUsageAnalyzer.cs](EpicChainContractAnalyzer/VolatileKeywordUsageAnalyzer.cs)**: Issues warnings for the use of the `volatile` keyword, which is generally not suitable for blockchain smart contracts due to its interaction with concurrent programming constructs.
+
+- **[KeywordUsageAnalyzer.cs](EpicChainContractAnalyzer/KeywordUsageAnalyzer.cs)**: Detects the usage of restricted or unsupported keywords in smart contracts. This analyzer helps ensure that contracts remain compatible with the EpicChain virtual machine.
+
+- **[BanCastMethodAnalyzer.cs](EpicChainContractAnalyzer/BanCastMethodAnalyzer.cs)**: Flags unsupported cast methods, helping developers avoid runtime issues caused by inappropriate type conversions.
+
+- **[SmartContractMethodNamingAnalyzer.cs](EpicChainContractAnalyzer/SmartContractMethodNamingAnalyzer.cs)**: Ensures that all smart contract methods follow the correct naming conventions, improving code readability and maintainability.
+
+- **[NotifyEventNameAnalyzer.cs](EpicChainContractAnalyzer/NotifyEventNameAnalyzer.cs)**: This analyzer ensures the proper naming and usage of event names in notify calls within smart contracts, which is essential for maintaining consistency and clarity in event-driven logic.
+
+- **[SmartContractMethodNamingAnalyzerUnderline.cs](EpicChainContractAnalyzer/SmartContractMethodNamingAnalyzerUnderline.cs)**: Warns developers if smart contract method names contain underscores, enforcing naming standards that align with best practices for smart contract development.
+
+- **[SupportedStandardsAnalyzer.cs](EpicChainContractAnalyzer/SupportedStandardsAnalyzer.cs)**: Checks the contract for correct implementation of supported EpicChain standards, ensuring compatibility and interoperability with the broader EpicChain ecosystem.
+
+- **[BigIntegerUsingUsageAnalyzer.cs](EpicChainContractAnalyzer/BigIntegerUsingUsageAnalyzer.cs)**: Identifies incorrect usage of `BigInteger` within `using` statements, guiding developers to safer and more efficient patterns for handling large numeric values.
+
+- **[StaticFieldInitializationAnalyzer.cs](EpicChainContractAnalyzer/StaticFieldInitializationAnalyzer.cs)**: Analyzes the initialization of static fields to ensure that they are properly set up in smart contracts, avoiding common errors related to static data handling.
+
+- **[MultipleCatchBlockAnalyzer.cs](EpicChainContractAnalyzer/MultipleCatchBlockAnalyzer.cs)**: Checks for the use of multiple `catch` blocks in `try` statements. This analyzer ensures that exception handling logic is simplified and error-prone patterns are avoided.
+
+- **[SystemDiagnosticsUsageAnalyzer.cs](EpicChainContractAnalyzer/SystemDiagnosticsUsageAnalyzer.cs)**: Detects the usage of the `System.Diagnostics` namespace, which is not supported in EpicChain smart contracts, helping developers avoid introducing debug-related methods that are incompatible with production environments.
+
+## How to Use These Analyzers
+
+To incorporate these analyzers into your EpicChain smart contract project:
+
+1. **Add a Reference**: Include a reference to the `EpicChain.SmartContract.Analyzer` project in your smart contract project.
+2. **Build the Analyzer Project**: Once the project is built, the analyzers will automatically run during the build process of your smart contract.
+3. **Analyze and Fix**: Review any issues flagged by the analyzers and apply the necessary code fixes to ensure that your smart contract complies with EpicChain standards.
+
+## Contributing to This Repository
+
+Contributions are highly encouraged! Whether you're interested in improving existing analyzers, fixing bugs, or adding new features, you're welcome to submit a pull request. Please ensure that your contributions follow the project's guidelines and are well-documented.
+
+## License Information
+
+This project is licensed under the MIT License. For more details, refer to the [LICENSE](LICENSE) file included in the repository.

@@ -1,4 +1,4 @@
-// Copyright (C) 2015-2022 The Neo Project.
+// Copyright (C) 2021-2024 EpicChain Lab's
 //
 // The EpicChain.SmartContract.Framework is open-source software made available under the MIT License.
 // This permissive license allows anyone to freely use, modify, and distribute both the source code
