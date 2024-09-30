@@ -56,7 +56,7 @@ namespace EpicChain.Compiler
         internal CompilationOptions Options { get; private set; } = options;
         private static readonly MetadataReference[] CommonReferences;
         private static readonly Dictionary<string, MetadataReference> MetaReferences = [];
-        private static readonly Regex s_pattern = new(@"^(Neo\.SmartContract\.Framework\.SmartContract|SmartContract\.Framework\.SmartContract|Framework\.SmartContract|SmartContract)$");
+        private static readonly Regex s_pattern = new(@"^(EpicChain\.SmartContract\.Framework\.SmartContract|SmartContract\.Framework\.SmartContract|Framework\.SmartContract|SmartContract)$");
         internal readonly ConcurrentDictionary<INamedTypeSymbol, CompilationContext> Contexts = new(SymbolEqualityComparer.Default);
 
         static CompilationEngine()

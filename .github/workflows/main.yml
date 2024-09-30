@@ -8,7 +8,7 @@ on:
 env:
   DOTNET_VERSION: 8.0.x
   DOTNET_TEST_PARAMETERS: --no-build /p:CollectCoverage=true -l "console;verbosity=detailed"
-  COVERLET_EXCLUDE_COVERAGE: /p:Exclude=\"[EpicChain.SmartContract.TestEngine]*,[EpicChain.Compiler.CSharp.UnitTests]*,[Neo]*,[EpicChain.IO]*,[EpicChain.Json]*,[EpicChain.VM]*,[EpicChain.Extensions]*,[EpicChain.Cryptography.BLS12_381]*\"
+  COVERLET_EXCLUDE_COVERAGE: /p:Exclude=\"[EpicChain.SmartContract.TestEngine]*,[EpicChain.Compiler.CSharp.UnitTests]*,[EpicChain]*,[EpicChain.IO]*,[EpicChain.Json]*,[EpicChain.VM]*,[EpicChain.Extensions]*,[EpicChain.Cryptography.BLS12_381]*\"
   COVERLET_OUTPUT: /p:CoverletOutput=${{ github.workspace }}/coverage-join/
   COVERLET_MERGE_WITH: /p:MergeWith=${{ github.workspace }}/coverage-join/coverage.json
 
@@ -92,7 +92,7 @@ jobs:
         file: ${{ github.workspace }}/coverage/lcov.info
 
   PublishPackage:
-    if: github.ref == 'refs/heads/master' && startsWith(github.repository, 'neo-project/')
+    if: github.ref == 'refs/heads/master' && startsWith(github.repository, 'epicchainlabs/')
     needs: Test
     runs-on: ubuntu-latest
     steps:
@@ -108,10 +108,10 @@ jobs:
 
     - name: Set Version (dev-pack)
       run: git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX={}' >> $GITHUB_ENV
-    - name: Set Version (Neo)
+    - name: Set Version (EpicChain)
       run: |
-        git --git-dir=./neo/.git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX_NEO={}' >> $GITHUB_ENV
-        sed -n 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/p' ./neo/src/Directory.Build.props | xargs -I{} echo 'VERSION_NEO={}' >> $GITHUB_ENV
+        git --git-dir=./epicchain/.git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX_EpicChain={}' >> $GITHUB_ENV
+        sed -n 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/p' ./epicchain/src/Directory.Build.props | xargs -I{} echo 'VERSION_NEO={}' >> $GITHUB_ENV
 
     - name : Pack (EpicChain.SmartContract.Framework)
       run: |
@@ -119,10 +119,10 @@ jobs:
         --configuration Debug \
         --output ./out \
         --version-suffix ${{ env.VERSION_SUFFIX }}
-    - name : Replace Neo reference by package in EpicChain.SmartContract.Testing
+    - name : Replace EpicChain reference by package in EpicChain.SmartContract.Testing
       run: |
         dotnet remove ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj reference '..\..\epicchain\src\EpicChain\EpicChain.csproj'
-        dotnet add    ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj package 'Neo' --version ${{ env.VERSION_NEO }}-${{ env.VERSION_SUFFIX_NEO }}
+        dotnet add    ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj package 'EpicChain' --version ${{ env.VERSION_EpicChain }}-${{ env.VERSION_SUFFIX_EpicChain }}
     - name : Build (EpicChain.SmartContract.Testing)
       run: |
         dotnet build ./src/EpicChain.SmartContract.Testing -f net8.0
@@ -187,12 +187,12 @@ jobs:
     - name: Publish to NuGet
       if: steps.check_tag.outputs.statusCode == '404'
       run: |
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/neo/EpicChain.csproj
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/EpicChain.Cryptography.BLS12_381/EpicChain.Cryptography.BLS12_381.csproj
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/EpicChain.Extensions/EpicChain.Extensions.csproj
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/EpicChain.IO/EpicChain.IO.csproj
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/EpicChain.Json/EpicChain.Json.csproj
-        dotnet sln epicchain-devkit-dotnet remove ./neo/src/EpicChain.VM/EpicChain.VM.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain/EpicChain.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain.Cryptography.BLS12_381/EpicChain.Cryptography.BLS12_381.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain.Extensions/EpicChain.Extensions.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain.IO/EpicChain.IO.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain.Json/EpicChain.Json.csproj
+        dotnet sln epicchain-devkit-dotnet remove ./epicchain/src/EpicChain.VM/EpicChain.VM.csproj
         dotnet pack -o pub -c Release
         dotnet nuget push "pub/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN} --skip-duplicate
       env:

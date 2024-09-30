@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.Compiler.CSharp.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.SmartContract.Framework.TestContracts", "tests\EpicChain.SmartContract.Framework.TestContracts\EpicChain.SmartContract.Framework.TestContracts.csproj", "{A372F1D6-51FF-472C-9508-FDAF7E6FEB13}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo", "epicchain\src\Neo\EpicChain.csproj", "{73223FBD-C562-4FA0-9722-C7F1C382A9DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain", "epicchain\src\EpicChain\EpicChain.csproj", "{73223FBD-C562-4FA0-9722-C7F1C382A9DE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.Cryptography.BLS12_381", "epicchain\src\EpicChain.Cryptography.BLS12_381\EpicChain.Cryptography.BLS12_381.csproj", "{D541BCE9-65BC-475B-94E5-19B6BFFF2B8E}"
 EndProject
