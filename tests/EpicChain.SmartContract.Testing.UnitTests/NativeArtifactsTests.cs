@@ -26,12 +26,12 @@ namespace EpicChain.SmartContract.Testing.UnitTests
             // Check symbols
 
             using var fee = engine.CreateGasWatcher();
-            Assert.AreEqual("NEO", engine.Native.EpicChain.Symbol);
+            Assert.AreEqual("XPR", engine.Native.EpicChain.Symbol);
             Assert.AreEqual(984060L, fee.Value);
 
             using var gas = engine.CreateGasWatcher();
             {
-                Assert.AreEqual("GAS", engine.Native.GAS.Symbol);
+                Assert.AreEqual("XPP", engine.Native.GAS.Symbol);
                 Assert.AreEqual(984060L, gas);
             }
 
