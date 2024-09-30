@@ -8,7 +8,7 @@
         <AssemblyName>EpicChain.SmartContract.Testing</AssemblyName>
         <RootNamespace>EpicChain.SmartContract.Testing</RootNamespace>
         <PackageId>EpicChain.SmartContract.Testing</PackageId>
-        <PackageTags>NEO;Blockchain;Smart Contract</PackageTags>
+        <PackageTags>EpicChain;Blockchain;Smart Contract</PackageTags>
         <Description>TestEngine for NEO smart contract testing.</Description>
         <IncludeContentInPack>true</IncludeContentInPack>
         <ContentTargetFolders>content</ContentTargetFolders>

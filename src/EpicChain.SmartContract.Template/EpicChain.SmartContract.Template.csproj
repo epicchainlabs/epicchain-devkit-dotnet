@@ -5,7 +5,7 @@
     <Title>EpicChain.SmartContract.Template</Title>
     <PackageType>Template</PackageType>
     <PackageId>EpicChain.SmartContract.Template</PackageId>
-    <PackageTags>NEO;Blockchain;Smart Contract</PackageTags>
+    <PackageTags>EpicChain;Blockchain;Smart Contract</PackageTags>
     <Description>Templates to use when creating a smart contract for EpicChain.</Description>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>

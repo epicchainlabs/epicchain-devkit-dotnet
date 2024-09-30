@@ -9,7 +9,7 @@
     <RootNamespace>EpicChain.SmartContract.Analyzer</RootNamespace>
     <PackageId>EpicChain.SmartContract.Analyzer</PackageId>
     <PackAsTool>true</PackAsTool>
-    <PackageTags>NEO;Blockchain;Smart Contract;Analyzer</PackageTags>
+    <PackageTags>EpicChain;Blockchain;Smart Contract;Analyzer</PackageTags>
     <Product>EpicChain.SmartContract.Analyzer.CSharp</Product>
     <Description>EpicChain.SmartContract.Analyzer.CSharp</Description>
   </PropertyGroup>

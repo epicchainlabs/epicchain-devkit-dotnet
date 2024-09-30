@@ -1,4 +1,4 @@
-using Neo;
+using EpicChain;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.TestingStandards;
 

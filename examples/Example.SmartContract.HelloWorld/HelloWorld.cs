@@ -58,7 +58,8 @@ namespace HelloWorld;
 public class HelloWorldorld : SmartContract
 {
     /// <summary>
-    /// Hello world from NEO!
+    /// Hello world from [ContractDescription("A sample contract to demonstrate how to transfer EpicChain and EpicPulse")]
+!
     /// </summary>
     /// <returns>Hello world string</returns>
     [Safe]
