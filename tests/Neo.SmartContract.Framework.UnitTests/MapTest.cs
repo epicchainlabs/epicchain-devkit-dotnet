@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.VM.Types;
 using System.Reflection;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class MapTest : DebugAndTestBase<Contract_Map>

@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     // Both NEP-10 and NEP-5 are obsolete, but this is just a test contract
     [SupportedStandards("NEP-10", "NEP-5")]

@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
 using System;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class StaticStorageMapTest : DebugAndTestBase<Contract_StaticStorageMap>

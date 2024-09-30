@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Shift : DebugAndTestBase<Contract_shift>

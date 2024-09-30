@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Verifier =
-    Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<Neo.SmartContract.Analyzer.DoubleUsageAnalyzer,
-        Neo.SmartContract.Analyzer.DoubleUsageCodeFixProvider>;
+    Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<EpicChain.SmartContract.Analyzer.DoubleUsageAnalyzer,
+        EpicChain.SmartContract.Analyzer.DoubleUsageCodeFixProvider>;
 
-namespace Neo.SmartContract.Analyzer.UnitTests
+namespace EpicChain.SmartContract.Analyzer.UnitTests
 {
     [TestClass]
     public class DoubleUsageAnalyzerUnitTest

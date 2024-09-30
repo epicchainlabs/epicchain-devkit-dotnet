@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.SmartContract.Framework.UnitTests;
+namespace EpicChain.SmartContract.Framework.UnitTests;
 
 public class DebugAndTestBase<T> : TestBase<T>
     where T : SmartContract.Testing.SmartContract, IContractInfo

@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
-    Neo.SmartContract.Analyzer.CollectionTypesUsageAnalyzer,
-    Neo.SmartContract.Analyzer.CollectionTypesUsageCodeFixProvider>;
+    EpicChain.SmartContract.Analyzer.CollectionTypesUsageAnalyzer,
+    EpicChain.SmartContract.Analyzer.CollectionTypesUsageCodeFixProvider>;
 
-namespace Neo.SmartContract.Analyzer.Test
+namespace EpicChain.SmartContract.Analyzer.Test
 {
     [TestClass]
     public class CollectionTypesUsageAnalyzerUnitTests

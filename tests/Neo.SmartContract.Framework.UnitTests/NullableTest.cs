@@ -1,8 +1,8 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class NullableTest : DebugAndTestBase<Contract_Nullable>

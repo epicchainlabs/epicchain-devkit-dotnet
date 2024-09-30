@@ -1,13 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
-using Neo.Persistence;
-using Neo.SmartContract.Testing.Storage;
+using EpicChain.Json;
+using EpicChain.Persistence;
+using EpicChain.SmartContract.Testing.Storage;
 using System;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Neo.SmartContract.Testing.UnitTests.Storage
+namespace EpicChain.SmartContract.Testing.UnitTests.Storage
 {
     [TestClass]
     public class TestStorageTests
@@ -21,8 +21,8 @@ namespace Neo.SmartContract.Testing.UnitTests.Storage
 
             // Check that all it works
 
-            Assert.IsTrue(engine.Native.NEO.Storage.Contains(1)); // Prefix_VotersCount
-            Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+            Assert.IsTrue(engine.Native.EpicChain.Storage.Contains(1)); // Prefix_VotersCount
+            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
             // Create checkpoint
 
@@ -40,7 +40,7 @@ namespace Neo.SmartContract.Testing.UnitTests.Storage
 
             // Ensure that all works
 
-            Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
             // Test restoring in raw
 
@@ -48,7 +48,7 @@ namespace Neo.SmartContract.Testing.UnitTests.Storage
             new EngineCheckpoint(new MemoryStream(checkpoint.ToArray())).Restore(storage.Snapshot);
 
             engine = new TestEngine(storage, false);
-            Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
         }
 
         [TestMethod]

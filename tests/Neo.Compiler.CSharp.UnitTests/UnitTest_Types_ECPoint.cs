@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Extensions;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.Interpreters;
-using Neo.SmartContract.Testing.InvalidTypes;
+using EpicChain.Extensions;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing.Interpreters;
+using EpicChain.SmartContract.Testing.InvalidTypes;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Types_ECPoint : DebugAndTestBase<Contract_Types_ECPoint>

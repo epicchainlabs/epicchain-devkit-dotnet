@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.Cryptography.ECC;
-using Neo.SmartContract.Testing.Exceptions;
+using EpicChain.Cryptography.ECC;
+using EpicChain.SmartContract.Testing.Exceptions;
 using System.Linq;
 using System.Reflection;
 
-namespace Neo.SmartContract.Testing.UnitTests
+namespace EpicChain.SmartContract.Testing.UnitTests
 {
     [TestClass]
     public class NativeArtifactsTests
@@ -26,7 +26,7 @@ namespace Neo.SmartContract.Testing.UnitTests
             // Check symbols
 
             using var fee = engine.CreateGasWatcher();
-            Assert.AreEqual("NEO", engine.Native.NEO.Symbol);
+            Assert.AreEqual("NEO", engine.Native.EpicChain.Symbol);
             Assert.AreEqual(984060L, fee.Value);
 
             using var gas = engine.CreateGasWatcher();
@@ -37,14 +37,14 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
-            Assert.AreEqual(engine.Native.NEO.TotalSupply, engine.Native.NEO.BalanceOf(engine.ValidatorsAddress));
+            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(engine.Native.EpicChain.TotalSupply, engine.Native.EpicChain.BalanceOf(engine.ValidatorsAddress));
 
             // Check coverage
 
-            Assert.AreEqual(1M, engine.Native.NEO.GetCoverage(o => o.Symbol)!.CoveredLinesPercentage);
-            Assert.AreEqual(1M, engine.Native.NEO.GetCoverage(o => o.TotalSupply)!.CoveredLinesPercentage);
-            Assert.AreEqual(1M, engine.Native.NEO.GetCoverage(o => o.BalanceOf(It.IsAny<UInt160>()))!.CoveredLinesPercentage);
+            Assert.AreEqual(1M, engine.Native.EpicChain.GetCoverage(o => o.Symbol)!.CoveredLinesPercentage);
+            Assert.AreEqual(1M, engine.Native.EpicChain.GetCoverage(o => o.TotalSupply)!.CoveredLinesPercentage);
+            Assert.AreEqual(1M, engine.Native.EpicChain.GetCoverage(o => o.BalanceOf(It.IsAny<UInt160>()))!.CoveredLinesPercentage);
         }
 
         [TestMethod]
@@ -54,18 +54,18 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Check initial value
 
-            Assert.AreEqual(0, engine.Native.NEO.Candidates?.Length);
+            Assert.AreEqual(0, engine.Native.EpicChain.Candidates?.Length);
 
             // Register
 
             var candidate = ECPoint.Parse("03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c", ECCurve.Secp256r1);
             engine.SetTransactionSigners(Contract.CreateSignatureContract(candidate).ScriptHash);
-            Assert.IsTrue(engine.Native.NEO.RegisterCandidate(candidate));
+            Assert.IsTrue(engine.Native.EpicChain.RegisterCandidate(candidate));
 
             // Check
 
-            Assert.AreEqual(1, engine.Native.NEO.Candidates?.Length);
-            Assert.AreEqual(candidate.ToString(), engine.Native.NEO.Candidates![0].PublicKey!.ToString());
+            Assert.AreEqual(1, engine.Native.EpicChain.Candidates?.Length);
+            Assert.AreEqual(candidate.ToString(), engine.Native.EpicChain.Candidates![0].PublicKey!.ToString());
         }
 
         [TestMethod]
@@ -82,12 +82,12 @@ namespace Neo.SmartContract.Testing.UnitTests
             // Define address to transfer funds
 
             UInt160 addressTo = UInt160.Parse("0x1230000000000000000000000000000000000000");
-            Assert.AreEqual(0, engine.Native.NEO.BalanceOf(addressTo));
+            Assert.AreEqual(0, engine.Native.EpicChain.BalanceOf(addressTo));
 
             // Attach to Transfer event
 
             var raisedEvent = false;
-            engine.Native.NEO.OnTransfer += (from, to, amount) =>
+            engine.Native.EpicChain.OnTransfer += (from, to, amount) =>
                 {
                     Assert.AreEqual(engine.Transaction.Sender, from);
                     Assert.AreEqual(addressTo, to);
@@ -99,12 +99,12 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Transfer funds
 
-            Assert.IsTrue(engine.Native.NEO.Transfer(engine.Transaction.Sender, addressTo, 123, null));
+            Assert.IsTrue(engine.Native.EpicChain.Transfer(engine.Transaction.Sender, addressTo, 123, null));
 
             // Ensure that we have balance and the event was raised
 
             Assert.IsTrue(raisedEvent);
-            Assert.AreEqual(123, engine.Native.NEO.BalanceOf(addressTo));
+            Assert.AreEqual(123, engine.Native.EpicChain.BalanceOf(addressTo));
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Check initial value of getRegisterPrice
 
-            Assert.AreEqual(100000000000, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(100000000000, engine.Native.EpicChain.RegisterPrice);
 
             // Fake Committee Signature
 
@@ -128,15 +128,15 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Change RegisterPrice to 123
 
-            engine.Native.NEO.RegisterPrice = 123;
+            engine.Native.EpicChain.RegisterPrice = 123;
 
-            Assert.AreEqual(123, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(123, engine.Native.EpicChain.RegisterPrice);
 
             // Now test it without this signature
 
             engine.SetTransactionSigners(TestEngine.GetNewSigner());
 
-            var exception = Assert.ThrowsException<TestException>(() => engine.Native.NEO.RegisterPrice = 123);
+            var exception = Assert.ThrowsException<TestException>(() => engine.Native.EpicChain.RegisterPrice = 123);
             Assert.IsInstanceOfType<TargetInvocationException>(exception.InnerException);
         }
     }

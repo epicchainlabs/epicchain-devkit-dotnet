@@ -1,8 +1,8 @@
 using System.Numerics;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Interfaces;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Interfaces;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     [SupportedStandards(NepStandard.Nep11)]
     public class Contract_SupportedStandard11Enum : Nep11Token<Nep11TokenState>, INep11Payable

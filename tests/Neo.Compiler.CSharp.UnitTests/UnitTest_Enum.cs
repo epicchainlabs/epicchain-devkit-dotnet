@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.VM.Types;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Enum : DebugAndTestBase<Contract_Enum>

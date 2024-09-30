@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class ManifestExtraTest
@@ -19,7 +19,7 @@ namespace Neo.SmartContract.Framework.UnitTests
             var extra = Contract_ExtraAttribute.Manifest.Extra;
 
             Assert.AreEqual("Neo", extra["Author"]?.GetString());
-            Assert.AreEqual("dev@neo.org", extra["E-mail"]?.GetString());
+            Assert.AreEqual("dev@EpicChain.org", extra["E-mail"]?.GetString());
         }
     }
 }

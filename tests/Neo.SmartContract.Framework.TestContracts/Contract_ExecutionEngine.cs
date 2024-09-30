@@ -1,6 +1,6 @@
-using Neo.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Services;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_ExecutionEngine : SmartContract
     {

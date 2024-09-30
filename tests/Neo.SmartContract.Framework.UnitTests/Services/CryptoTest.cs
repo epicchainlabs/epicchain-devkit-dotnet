@@ -1,13 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography;
-using Neo.Network.P2P;
-using Neo.SmartContract.Testing;
-using Neo.Wallets;
+using EpicChain.Cryptography;
+using EpicChain.Network.P2P;
+using EpicChain.SmartContract.Testing;
+using EpicChain.Wallets;
 using System.Security.Cryptography;
 using System.Text;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class CryptoTest : DebugAndTestBase<Contract_Crypto>

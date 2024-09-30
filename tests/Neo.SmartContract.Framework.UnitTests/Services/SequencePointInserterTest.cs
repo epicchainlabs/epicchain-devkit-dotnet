@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.VM;
+using EpicChain.SmartContract.Testing;
+using EpicChain.VM;
 using System.Linq;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class SequencePointInserterTest : DebugAndTestBase<Contract_SequencePointInserter>

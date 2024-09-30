@@ -9,8 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Neo.Compiler.CSharp\Neo.Compiler.CSharp.csproj" />
-		<ProjectReference Include="..\..\src\Neo.SmartContract.Testing\Neo.SmartContract.Testing.csproj" />
+		<ProjectReference Include="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" />
+		<ProjectReference Include="..\..\src\EpicChain.SmartContract.Testing\EpicChain.SmartContract.Testing.csproj" />
 	</ItemGroup>
 
 </Project>

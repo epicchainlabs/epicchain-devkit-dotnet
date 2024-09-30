@@ -8,9 +8,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Numerics;
-using SyscallAttribute = scfx.Neo.SmartContract.Framework.Attributes.SyscallAttribute;
+using SyscallAttribute = scfx.EpicChain.SmartContract.Framework.Attributes.SyscallAttribute;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     class MySymbolVisitor : SymbolVisitor<IEnumerable<string>>
     {
@@ -65,7 +65,7 @@ namespace Neo.SmartContract.Framework.UnitTests
             neoSyscalls.Remove("System.Contract.NativeOnPersist");
             neoSyscalls.Remove("System.Contract.NativePostPersist");
             neoSyscalls.Remove("System.Contract.CallNative");
-            neoSyscalls.Remove("Neo.SmartContract.Testing.Invoke");
+            neoSyscalls.Remove("EpicChain.SmartContract.Testing.Invoke");
 
             string coreDir = Path.GetDirectoryName(typeof(object).Assembly.Location)!;
             MetadataReference[] references =
@@ -78,7 +78,7 @@ namespace Neo.SmartContract.Framework.UnitTests
                 MetadataReference.CreateFromFile(typeof(SyscallAttribute).Assembly.Location)
             ];
             CSharpCompilation compilation = CSharpCompilation.Create(null, references: references);
-            MySymbolVisitor visitor = new("Neo.SmartContract.Framework", nameof(SyscallAttribute));
+            MySymbolVisitor visitor = new("EpicChain.SmartContract.Framework", nameof(SyscallAttribute));
             HashSet<string> fwSyscalls = visitor.Visit(compilation.GlobalNamespace)!.ToHashSet();
 
             fwSyscalls.SymmetricExceptWith(neoSyscalls);

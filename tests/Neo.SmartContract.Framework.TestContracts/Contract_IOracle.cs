@@ -1,8 +1,8 @@
-using Neo.SmartContract.Framework.Interfaces;
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Interfaces;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_IOracle : SmartContract, IOracle
     {

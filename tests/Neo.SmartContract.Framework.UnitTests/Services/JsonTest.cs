@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.VM.Types;
 using System.Reflection;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class JsonTest : DebugAndTestBase<Contract_Json>

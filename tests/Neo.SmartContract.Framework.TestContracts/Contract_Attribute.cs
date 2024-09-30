@@ -1,8 +1,8 @@
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
-using Neo.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Native;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class OwnerOnlyAttribute : ModifierAttribute
     {

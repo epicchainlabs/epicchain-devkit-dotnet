@@ -1,9 +1,9 @@
-using Neo.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     [ContractAuthor("core-dev")]
-    [ContractEmail("dev@neo.org")]
+    [ContractEmail("dev@EpicChain.org")]
     [ContractVersion("v3.6.3")]
     [ContractDescription("This is a test contract.")]
     [ManifestExtra("ExtraKey", "ExtraValue")]

@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Native;
 using System.ComponentModel;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_Crypto : SmartContract
     {

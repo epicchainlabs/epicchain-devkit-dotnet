@@ -1,17 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.InvalidTypes;
-using Neo.VM.Types;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing.InvalidTypes;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Array = Neo.VM.Types.Array;
+using Array = EpicChain.VM.Types.Array;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class ContractTest : DebugAndTestBase<Contract_Contract>

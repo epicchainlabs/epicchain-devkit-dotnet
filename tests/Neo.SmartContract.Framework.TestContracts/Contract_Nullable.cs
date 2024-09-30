@@ -1,8 +1,8 @@
 using System;
 using System.Numerics;
-using Neo.SmartContract.Framework;
+using EpicChain.SmartContract.Framework;
 
-namespace Neo.SmartContract.Framework.TestContracts
+namespace EpicChain.SmartContract.Framework.TestContracts
 {
     public class Contract_Nullable : SmartContract
     {

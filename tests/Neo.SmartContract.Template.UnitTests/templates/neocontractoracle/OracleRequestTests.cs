@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
+using EpicChain.Json;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
 using System.Text;
-using Neo.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.SmartContract.Template.UnitTests.templates.neocontractoracle
+namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractoracle
 {
     /// <summary>
     /// You need to build the solution to resolve OracleRequest class.

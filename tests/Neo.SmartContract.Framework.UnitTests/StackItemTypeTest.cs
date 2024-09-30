@@ -1,9 +1,9 @@
 extern alias scfx;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using scfxStackItemType = scfx.Neo.SmartContract.Framework.StackItemType;
+using scfxStackItemType = scfx.EpicChain.SmartContract.Framework.StackItemType;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class StackItemTypeTest

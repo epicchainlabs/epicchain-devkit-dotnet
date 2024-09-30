@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.SmartContract.Testing.Extensions;
-using Neo.SmartContract.Testing.Native;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.SmartContract.Testing.Native;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
 
-namespace Neo.SmartContract.Testing.UnitTests
+namespace EpicChain.SmartContract.Testing.UnitTests
 {
     [TestClass]
     public class TestEngineTests
@@ -22,11 +22,11 @@ namespace Neo.SmartContract.Testing.UnitTests
         //[TestMethod]
         public void GenerateNativeArtifacts()
         {
-            foreach (var n in Neo.SmartContract.Native.NativeContract.Contracts)
+            foreach (var n in EpicChain.SmartContract.Native.NativeContract.Contracts)
             {
                 var manifest = n.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
                 var source = manifest.GetArtifactsSource(manifest.Name, generateProperties: true);
-                var fullPath = Path.GetFullPath($"../../../../../src/Neo.SmartContract.Testing/Native/{manifest.Name}.cs");
+                var fullPath = Path.GetFullPath($"../../../../../src/EpicChain.SmartContract.Testing/Native/{manifest.Name}.cs");
 
                 File.WriteAllText(fullPath, source);
             }
@@ -67,11 +67,11 @@ namespace Neo.SmartContract.Testing.UnitTests
         {
             TestEngine engine = new(false);
 
-            Assert.ThrowsException<KeyNotFoundException>(() => engine.FromHash<NEO>(engine.Native.NEO.Hash, true));
+            Assert.ThrowsException<KeyNotFoundException>(() => engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true));
 
             engine.Native.Initialize(false);
 
-            Assert.IsInstanceOfType<NEO>(engine.FromHash<NEO>(engine.Native.NEO.Hash, true));
+            Assert.IsInstanceOfType<NEO>(engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true));
         }
 
         [TestMethod]
@@ -83,19 +83,19 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Get neo token smart contract and mock balanceOf to always return 123
 
-            var neo = engine.FromHash<NEO>(engine.Native.NEO.Hash,
+            var neo = engine.FromHash<NEO>(engine.Native.EpicChain.Hash,
                 mock => mock.Setup(o => o.BalanceOf(It.IsAny<UInt160>())).Returns(new BigInteger(123)),
                 false);
 
             // Test direct call
 
-            Assert.AreEqual(123, neo.BalanceOf(engine.ValidatorsAddress));
+            Assert.AreEqual(123, EpicChain.BalanceOf(engine.ValidatorsAddress));
 
             // Test vm call
 
             using (ScriptBuilder script = new())
             {
-                script.EmitDynamicCall(neo.Hash, "balanceOf", engine.ValidatorsAddress);
+                script.EmitDynamicCall(EpicChain.Hash, "balanceOf", engine.ValidatorsAddress);
 
                 Assert.AreEqual(123, engine.Execute(script.ToArray()).GetInteger());
             }
@@ -119,14 +119,14 @@ namespace Neo.SmartContract.Testing.UnitTests
         {
             TestEngine engine = new(false);
 
-            Assert.AreEqual(engine.Native.ContractManagement.Hash, Neo.SmartContract.Native.NativeContract.ContractManagement.Hash);
-            Assert.AreEqual(engine.Native.StdLib.Hash, Neo.SmartContract.Native.NativeContract.StdLib.Hash);
-            Assert.AreEqual(engine.Native.CryptoLib.Hash, Neo.SmartContract.Native.NativeContract.CryptoLib.Hash);
-            Assert.AreEqual(engine.Native.GAS.Hash, Neo.SmartContract.Native.NativeContract.GAS.Hash);
-            Assert.AreEqual(engine.Native.NEO.Hash, Neo.SmartContract.Native.NativeContract.NEO.Hash);
-            Assert.AreEqual(engine.Native.Oracle.Hash, Neo.SmartContract.Native.NativeContract.Oracle.Hash);
-            Assert.AreEqual(engine.Native.Policy.Hash, Neo.SmartContract.Native.NativeContract.Policy.Hash);
-            Assert.AreEqual(engine.Native.RoleManagement.Hash, Neo.SmartContract.Native.NativeContract.RoleManagement.Hash);
+            Assert.AreEqual(engine.Native.ContractManagement.Hash, EpicChain.SmartContract.Native.NativeContract.ContractManagement.Hash);
+            Assert.AreEqual(engine.Native.StdLib.Hash, EpicChain.SmartContract.Native.NativeContract.StdLib.Hash);
+            Assert.AreEqual(engine.Native.CryptoLib.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoLib.Hash);
+            Assert.AreEqual(engine.Native.GAS.Hash, EpicChain.SmartContract.Native.NativeContract.GAS.Hash);
+            Assert.AreEqual(engine.Native.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash);
+            Assert.AreEqual(engine.Native.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Hash);
+            Assert.AreEqual(engine.Native.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Hash);
+            Assert.AreEqual(engine.Native.RoleManagement.Hash, EpicChain.SmartContract.Native.NativeContract.RoleManagement.Hash);
         }
 
         [TestMethod]
@@ -149,12 +149,12 @@ namespace Neo.SmartContract.Testing.UnitTests
 
             // Instantiate neo contract from native hash, (not necessary if we use engine.Native.NEO)
 
-            var neo = engine.FromHash<NEO>(engine.Native.NEO.Hash, true);
+            var neo = engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true);
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, neo.TotalSupply);
-            Assert.AreEqual(neo.TotalSupply, neo.BalanceOf(engine.ValidatorsAddress));
+            Assert.AreEqual(100_000_000, EpicChain.TotalSupply);
+            Assert.AreEqual(EpicChain.TotalSupply, EpicChain.BalanceOf(engine.ValidatorsAddress));
         }
     }
 }

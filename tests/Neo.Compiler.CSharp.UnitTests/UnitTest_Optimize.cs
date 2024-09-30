@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 using System.IO;
 using System.Linq;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Optimize : DebugAndTestBase<Contract_Optimize>
@@ -13,7 +13,7 @@ namespace Neo.Compiler.CSharp.UnitTests
         {
             // Compile without optimizations
 
-            var testContractsPath = new FileInfo("../../../../Neo.Compiler.CSharp.TestContracts/Contract_Optimize.cs").FullName;
+            var testContractsPath = new FileInfo("../../../../EpicChain.Compiler.CSharp.TestContracts/Contract_Optimize.cs").FullName;
             var results = new CompilationEngine(new CompilationOptions()
             {
                 Debug = true,

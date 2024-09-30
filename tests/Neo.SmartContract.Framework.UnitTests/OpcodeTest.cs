@@ -3,10 +3,10 @@ extern alias scfx;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using FrameworkOpCode = scfx.Neo.SmartContract.Framework.OpCode;
-using VMOpCode = Neo.VM.OpCode;
+using FrameworkOpCode = scfx.EpicChain.SmartContract.Framework.OpCode;
+using VMOpCode = EpicChain.VM.OpCode;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class OpcodeTest

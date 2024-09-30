@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Json;
-using Neo.SmartContract;
-using Neo.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.IO;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Testing;
+using EpicChain.VM.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Types : DebugAndTestBase<Contract_Types>

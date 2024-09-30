@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.VM.Types;
 using System.Linq;
 using System.Text;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class StdLibTest : DebugAndTestBase<Contract_StdLib>

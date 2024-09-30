@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Extensions;
-using Neo.VM.Types;
+using EpicChain.Cryptography.ECC;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.VM.Types;
 using System.Linq;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class NativeTest : DebugAndTestBase<Contract_Native>

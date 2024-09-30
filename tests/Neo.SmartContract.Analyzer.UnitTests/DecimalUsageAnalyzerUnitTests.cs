@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS =
-    Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<Neo.SmartContract.Analyzer.DecimalUsageAnalyzer,
-        Neo.SmartContract.Analyzer.DecimalUsageCodeFixProvider>;
+    Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<EpicChain.SmartContract.Analyzer.DecimalUsageAnalyzer,
+        EpicChain.SmartContract.Analyzer.DecimalUsageCodeFixProvider>;
 
-namespace Neo.SmartContract.Analyzer.UnitTests
+namespace EpicChain.SmartContract.Analyzer.UnitTests
 {
     [TestClass]
     public class DecimalUsageAnalyzerUnitTests

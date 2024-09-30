@@ -1,4 +1,4 @@
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_String : SmartContract
     {

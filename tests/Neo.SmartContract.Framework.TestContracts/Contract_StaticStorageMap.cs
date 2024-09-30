@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework.Services;
+using EpicChain.SmartContract.Framework.Services;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_StaticStorageMap : SmartContract
     {

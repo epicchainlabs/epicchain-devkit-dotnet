@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.SmartContract.Template.UnitTests.templates.neocontractnep17
+namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
 {
     /// <summary>
     /// You need to build the solution to resolve Nep17Contract class.

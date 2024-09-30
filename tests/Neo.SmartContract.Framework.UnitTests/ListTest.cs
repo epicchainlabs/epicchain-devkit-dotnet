@@ -1,9 +1,9 @@
 using System.Numerics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
-using Neo.SmartContract.Testing;
+using EpicChain.Json;
+using EpicChain.SmartContract.Testing;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class ListTest : DebugAndTestBase<Contract_List>

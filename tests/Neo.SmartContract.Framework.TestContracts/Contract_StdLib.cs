@@ -1,7 +1,7 @@
-using Neo.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Native;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_StdLib : SmartContract
     {

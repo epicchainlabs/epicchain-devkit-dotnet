@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_Pointers : SmartContract
     {

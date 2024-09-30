@@ -1,15 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class BlockchainTest : DebugAndTestBase<Contract_Blockchain>

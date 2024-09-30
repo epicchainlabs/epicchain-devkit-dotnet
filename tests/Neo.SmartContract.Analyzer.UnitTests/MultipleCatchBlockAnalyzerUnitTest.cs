@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<Neo.SmartContract.Analyzer.MultipleCatchBlockAnalyzer>;
+using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<EpicChain.SmartContract.Analyzer.MultipleCatchBlockAnalyzer>;
 
-namespace Neo.SmartContract.Analyzer.UnitTests
+namespace EpicChain.SmartContract.Analyzer.UnitTests
 {
     [TestClass]
     public class MultipleCatchBlockAnalyzerUnitTest

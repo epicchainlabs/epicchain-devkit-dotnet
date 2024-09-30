@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.VM.Types;
 using System.Numerics;
 using System.Text;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Foreach : DebugAndTestBase<Contract_Foreach>

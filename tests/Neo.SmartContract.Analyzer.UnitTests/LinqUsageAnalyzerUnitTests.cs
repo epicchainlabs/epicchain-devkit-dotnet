@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
-    Neo.SmartContract.Analyzer.LinqUsageAnalyzer,
-    Neo.SmartContract.Analyzer.LinqUsageCodeFixProvider>;
+    EpicChain.SmartContract.Analyzer.LinqUsageAnalyzer,
+    EpicChain.SmartContract.Analyzer.LinqUsageCodeFixProvider>;
 
-namespace Neo.SmartContract.Analyzer.UnitTests
+namespace EpicChain.SmartContract.Analyzer.UnitTests
 {
     [TestClass]
     public class LinqUsageAnalyzerUnitTests
@@ -40,7 +40,7 @@ namespace Neo.SmartContract.Analyzer.UnitTests
                        using System;
                        using System.Linq;
 
-                       namespace Neo.SmartContract.Framework.Linq
+                       namespace EpicChain.SmartContract.Framework.Linq
                        {
                            public static class LinqExtensions
                            {}
@@ -57,9 +57,9 @@ namespace Neo.SmartContract.Analyzer.UnitTests
 
             var fixtest = """
                           using System;
-                          using Neo.SmartContract.Framework.Linq;
+                          using EpicChain.SmartContract.Framework.Linq;
 
-                          namespace Neo.SmartContract.Framework.Linq
+                          namespace EpicChain.SmartContract.Framework.Linq
                           {
                               public static class LinqExtensions
                               {}

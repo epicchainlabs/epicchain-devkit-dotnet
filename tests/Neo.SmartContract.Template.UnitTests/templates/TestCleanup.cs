@@ -1,14 +1,14 @@
 using System.Collections.Concurrent;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Compiler;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Extensions;
+using EpicChain.Compiler;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Extensions;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Neo.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.SmartContract.Template.UnitTests.templates
+namespace EpicChain.SmartContract.Template.UnitTests.templates
 {
     [TestClass]
     public class TestCleanup : TestCleanupBase
@@ -26,8 +26,8 @@ namespace Neo.SmartContract.Template.UnitTests.templates
 
             // Define paths
 
-            string frameworkPath = Path.GetFullPath("../../../../../src/Neo.SmartContract.Framework/Neo.SmartContract.Framework.csproj");
-            string templatePath = Path.GetFullPath("../../../../../src/Neo.SmartContract.Template/templates");
+            string frameworkPath = Path.GetFullPath("../../../../../src/EpicChain.SmartContract.Framework/EpicChain.SmartContract.Framework.csproj");
+            string templatePath = Path.GetFullPath("../../../../../src/EpicChain.SmartContract.Template/templates");
             string artifactsPath = Path.GetFullPath("../../../templates");
 
             // Compile

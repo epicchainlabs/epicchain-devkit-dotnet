@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Extensions;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Extensions;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System.Numerics;
 
-namespace Neo.SmartContract.Framework.UnitTests.Services
+namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
     public class RuntimeTest : DebugAndTestBase<Contract_Runtime>
@@ -138,11 +138,11 @@ namespace Neo.SmartContract.Framework.UnitTests.Services
             using (ScriptBuilder sb = new())
             {
                 // One notification to UInt160
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
                 // One notification to Contract
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
                 // Consume only contract
-                sb.EmitDynamicCall(Contract.Hash, "getNotificationsCount", Engine.Native.NEO.Hash);
+                sb.EmitDynamicCall(Contract.Hash, "getNotificationsCount", Engine.Native.EpicChain.Hash);
                 script = sb.ToArray();
             }
 
@@ -151,9 +151,9 @@ namespace Neo.SmartContract.Framework.UnitTests.Services
             using (ScriptBuilder sb = new())
             {
                 // One notification to UInt160
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
                 // One notification to Contract
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
                 // Consume all
                 sb.EmitDynamicCall(Contract.Hash, "getNotificationsCount", Alice.Account);
                 script = sb.ToArray();
@@ -173,11 +173,11 @@ namespace Neo.SmartContract.Framework.UnitTests.Services
             using (ScriptBuilder sb = new())
             {
                 // One notification to UInt160
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
                 // One notification to Contract
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
                 // Consume only contract
-                sb.EmitDynamicCall(Contract.Hash, "getNotifications", Engine.Native.NEO.Hash);
+                sb.EmitDynamicCall(Contract.Hash, "getNotifications", Engine.Native.EpicChain.Hash);
                 script = sb.ToArray();
             }
 
@@ -186,9 +186,9 @@ namespace Neo.SmartContract.Framework.UnitTests.Services
             using (ScriptBuilder sb = new())
             {
                 // One notification to UInt160
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, UInt160.Zero, 123, null);
                 // One notification to Contract
-                sb.EmitDynamicCall(Engine.Native.NEO.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
+                sb.EmitDynamicCall(Engine.Native.EpicChain.Hash, "transfer", Engine.ValidatorsAddress, Alice.Account, 1234, null);
                 // Consume all
                 sb.EmitDynamicCall(Contract.Hash, "getAllNotifications");
                 script = sb.ToArray();

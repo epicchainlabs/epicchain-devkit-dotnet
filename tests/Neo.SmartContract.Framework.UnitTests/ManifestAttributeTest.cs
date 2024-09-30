@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 
-namespace Neo.SmartContract.Framework.UnitTests;
+namespace EpicChain.SmartContract.Framework.UnitTests;
 
 [TestClass]
 public class ManifestAttributeTest
@@ -20,12 +20,12 @@ public class ManifestAttributeTest
         Assert.AreEqual(6, extra.Count);
         // ["nef"]["optimizations"]
         // [Author("core-dev")]
-        // [Email("dev@neo.org")]
+        // [Email("dev@EpicChain.org")]
         // [Version("v3.6.3")]
         // [Description("This is a test contract.")]
         // [ManifestExtra("ExtraKey", "ExtraValue")]
         Assert.AreEqual("core-dev", extra["Author"]!.GetString());
-        Assert.AreEqual("dev@neo.org", extra["E-mail"]!.GetString());
+        Assert.AreEqual("dev@EpicChain.org", extra["E-mail"]!.GetString());
         Assert.AreEqual("v3.6.3", extra["Version"]!.GetString());
         Assert.AreEqual("This is a test contract.", extra["Description"]!.GetString());
         Assert.AreEqual("ExtraValue", extra["ExtraKey"]!.GetString());

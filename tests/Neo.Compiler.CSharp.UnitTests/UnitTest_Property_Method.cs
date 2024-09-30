@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.SmartContract.Testing;
+using EpicChain.VM.Types;
 using System.Numerics;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_Property_Method : DebugAndTestBase<Contract_PropertyMethod>

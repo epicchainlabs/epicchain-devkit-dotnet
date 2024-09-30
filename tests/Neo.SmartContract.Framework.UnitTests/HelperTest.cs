@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Extensions;
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.Exceptions;
+using EpicChain.Extensions;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.Exceptions;
 using System.Reflection;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class HelperTest : DebugAndTestBase<Contract_Helper>

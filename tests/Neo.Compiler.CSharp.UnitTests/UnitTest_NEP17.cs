@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.SmartContract.Testing;
+using EpicChain.SmartContract.Testing;
 using System.Numerics;
-using Neo.SmartContract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Neo.Compiler.CSharp.UnitTests
+namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
     public class UnitTest_NEP17 : Nep17Tests<Contract_NEP17>

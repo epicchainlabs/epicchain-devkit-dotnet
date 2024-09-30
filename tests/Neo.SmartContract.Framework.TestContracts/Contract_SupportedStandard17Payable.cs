@@ -1,9 +1,9 @@
-using Neo.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Attributes;
 using System.ComponentModel;
 using System.Numerics;
-using Neo.SmartContract.Framework.Interfaces;
+using EpicChain.SmartContract.Framework.Interfaces;
 
-namespace Neo.SmartContract.Framework.TestContracts
+namespace EpicChain.SmartContract.Framework.TestContracts
 {
     [DisplayName(nameof(Contract_SupportedStandard17Payable))]
     [ContractDescription("<Description Here>")]

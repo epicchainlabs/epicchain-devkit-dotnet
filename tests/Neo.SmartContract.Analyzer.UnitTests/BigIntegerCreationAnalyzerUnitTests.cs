@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
-    Neo.SmartContract.Analyzer.BigIntegerCreationAnalyzer,
-    Neo.SmartContract.Analyzer.BigIntegerCreationCodeFixProvider>;
+    EpicChain.SmartContract.Analyzer.BigIntegerCreationAnalyzer,
+    EpicChain.SmartContract.Analyzer.BigIntegerCreationCodeFixProvider>;
 
-namespace Neo.SmartContract.Analyzer.Test
+namespace EpicChain.SmartContract.Analyzer.Test
 {
     [TestClass]
     public class BigIntegerCreationAnalyzerUnitTests

@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<Neo.SmartContract.Analyzer.BigIntegerUsageAnalyzer>;
+using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.AnalyzerVerifier<EpicChain.SmartContract.Analyzer.BigIntegerUsageAnalyzer>;
 
-namespace Neo.SmartContract.Analyzer.Test
+namespace EpicChain.SmartContract.Analyzer.Test
 {
 
     [TestClass]

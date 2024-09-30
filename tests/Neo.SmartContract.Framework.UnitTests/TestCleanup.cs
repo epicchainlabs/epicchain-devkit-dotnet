@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Compiler;
-using Neo.SmartContract.Testing.Coverage;
-using Neo.SmartContract.Testing.Extensions;
+using EpicChain.Compiler;
+using EpicChain.SmartContract.Testing.Coverage;
+using EpicChain.SmartContract.Testing.Extensions;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -12,17 +12,17 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Akka.Util;
 using Microsoft.CodeAnalysis;
-using Neo.SmartContract.Testing.TestingStandards;
-using CompilationOptions = Neo.Compiler.CompilationOptions;
+using EpicChain.SmartContract.Testing.TestingStandards;
+using CompilationOptions = EpicChain.Compiler.CompilationOptions;
 
-namespace Neo.SmartContract.Framework.UnitTests
+namespace EpicChain.SmartContract.Framework.UnitTests
 {
     [TestClass]
     public class TestCleanup : TestCleanupBase
     {
         private static readonly Regex WhiteSpaceRegex = new("\\s", RegexOptions.Compiled);
         public static readonly ConcurrentDictionary<Type, (CompilationContext Context, NeoDebugInfo? DbgInfo)> CachedContracts = new();
-        private static readonly string TestContractsPath = Path.GetFullPath(Path.Combine("..", "..", "..", "..", "Neo.SmartContract.Framework.TestContracts", "Neo.SmartContract.Framework.TestContracts.csproj"));
+        private static readonly string TestContractsPath = Path.GetFullPath(Path.Combine("..", "..", "..", "..", "EpicChain.SmartContract.Framework.TestContracts", "EpicChain.SmartContract.Framework.TestContracts.csproj"));
         private static readonly string ArtifactsPath = Path.GetFullPath(Path.Combine("..", "..", "..", "TestingArtifacts"));
         private static readonly string RootPath = Path.GetDirectoryName(TestContractsPath) ?? string.Empty;
 

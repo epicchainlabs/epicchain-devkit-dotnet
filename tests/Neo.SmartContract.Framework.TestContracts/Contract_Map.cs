@@ -1,6 +1,6 @@
-using Neo.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Native;
 
-namespace Neo.SmartContract.Framework.UnitTests.TestClasses
+namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_Map : SmartContract
     {
