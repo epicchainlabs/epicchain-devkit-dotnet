@@ -1,11 +1,11 @@
-# C# Syntax Support for Neo Smart Contracts
+# C# Syntax Support for EpicChain Smart Contracts
 
-This document serves as a comprehensive guide to C# syntax support in Neo smart contract development. While Neo allows for smart contract development using C#, it's important to note that not all C# features are fully supported or may behave differently in the context of smart contracts.
+This document serves as a comprehensive guide to C# syntax support in EpicChain smart contract development. While EpicChain allows for smart contract development using C#, it's important to note that not all C# features are fully supported or may behave differently in the context of smart contracts.
 
 ## Purpose
-- To provide clarity on which C# syntaxes are supported in Neo smart contracts
+- To provide clarity on which C# syntaxes are supported in EpicChain smart contracts
 - To highlight any differences or limitations compared to standard C# usage
-- To serve as a reference for both experienced C# developers and those new to Neo smart contract development
+- To serve as a reference for both experienced C# developers and those new to EpicChain smart contract development
 
 ## How to Use This Document
 - Each C# feature or syntax element is listed with its support status
@@ -14,9 +14,9 @@ This document serves as a comprehensive guide to C# syntax support in Neo smart 
 - Partial support or behavior differences are noted where applicable
 
 ## Ongoing Development
-We are continuously working to expand C# syntax support in Neo smart contracts. This document will be regularly updated to reflect the latest developments and improvements in Neo's C# support for smart contracts.
+We are continuously working to expand C# syntax support in EpicChain smart contracts. This document will be regularly updated to reflect the latest developments and improvements in EpicChain's C# support for smart contracts.
 
-For any C# features not listed or marked as unsupported, please refer to the official Neo documentation or community resources for alternative approaches or workarounds in smart contract development.
+For any C# features not listed or marked as unsupported, please refer to the official EpicChain documentation or community resources for alternative approaches or workarounds in smart contract development.
 
 C# Language Specification :  https://ecma-international.org/publications-and-standards/standards/ecma-334/
 
@@ -25,7 +25,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 
 ## 1. Keywords
 
-### Basic Data Types (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.Compiler.CSharp/Helper.cs)
+### Basic Data Types (https://github.com/EpicChain-project/EpicChain-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
 - [x] **void**: Represents the absence of a value or a method that does not return a value.
 - [x] **bool**: Declares a variable of Boolean data type. Example: `bool isReady = true;`
 - [x] **byte**: Declares a variable of 8-bit unsigned integer data type. Example: `byte myByte = 100;`
@@ -45,14 +45,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **System.Numerics.BigInteger**: Represents a large integer data type. Example: `System.Numerics.BigInteger bigInt = 1234567890123456789012345678901234567890;`
 - [x] **List**: Represents a list data type. Example: `List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };`
 - [x] **Map**: Represents a map data type. Example: `Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();`
-- [x] **Neo.UInt160**: Represents a 160-bit unsigned integer data type. Example: `Neo.UInt160 hash160Value = new Neo.UInt160();`
-- [x] **Neo.UInt256**: Represents a 256-bit unsigned integer data type. Example: `Neo.UInt256 hash256Value = new Neo.UInt256();`
+- [x] **EpicChain.UInt160**: Represents a 160-bit unsigned integer data type. Example: `EpicChain.UInt160 hash160Value = new EpicChain.UInt160();`
+- [x] **EpicChain.UInt256**: Represents a 256-bit unsigned integer data type. Example: `EpicChain.UInt256 hash256Value = new EpicChain.UInt256();`
 
 
-## C# to Neo smart contract type mapping table:
+## C# to EpicChain smart contract type mapping table:
 
-| C# Type | Neo Type | Description |
-|-|-|-|  
+| C# Type | EpicChain Type | Description |
+|-|-|-|
 | `bool` | `Boolean` | Boolean type |
 | `byte` | `Integer` | 8-bit unsigned integer |
 | `sbyte` | `Integer` | 8-bit signed integer |
@@ -70,10 +70,10 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 | Array types | `Array` | Array |
 | `object` | `Any` | Any type |
 | `void` | `Void` | No return value |
-| `Neo.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
-| `Neo.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
-| `Neo.UInt160` | `Hash160` | 20-byte hash value | 
-| `Neo.UInt256` | `Hash256` | 32-byte hash value |
+| `EpicChain.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
+| `EpicChain.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
+| `EpicChain.UInt160` | `Hash160` | 20-byte hash value |
+| `EpicChain.UInt256` | `Hash256` | 32-byte hash value |
 | Other classes/interfaces | `ByteArray` | Stored as byte arrays |
 
 ### Classes and Structures
@@ -101,7 +101,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **try**: Starts a try-catch block. Example: `try { /* code */ } catch (Exception ex) { /* handle exception */ }`
 - [x] **catch**: Catches and handles exceptions in a try-catch block. Example: `try { /* code that may throw an exception */ } catch (Exception ex) { /* handle exception */ }`
 > [!WARNING]
-> In Neo smart contracts, at most one catch block is allowed for each try block.
+> In EpicChain smart contracts, at most one catch block is allowed for each try block.
 - [x] **finally**: Defines a block of code to be executed in a try-catch-finally block. Example: `try { /* code */ } catch (Exception ex) { /* handle exception */ } finally { /* cleanup code */ }`
 
 ### Access Modifiers and Member Control
@@ -338,7 +338,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 
-## 2. Operators (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.Compiler.CSharp/MethodConvert.cs)
+## 2. Operators (https://github.com/EpicChain-project/EpicChain-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
 
 ### Arithmetic Operators
 - [x] `+`: Adds two operands. Example: `int result = 5 + 3; // result is 8`
@@ -418,14 +418,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [ ] `interface`: Represents an interface. Example: `interface IMyInterface { /* interface members */ }`
 - [x] `delegate`: Represents a delegate. Example: `delegate int MyDelegate(int x, int y);`
 > [!WARNING]
-> In Neo smart contracts, delegate is used to define events for the contract.
+> In EpicChain smart contracts, delegate is used to define events for the contract.
 - [ ] `dynamic`: Represents a dynamically-typed object. Example: `dynamic dynVar = 42;`
 - [x] `array`: Represents an array. Example: `int[] numbers = { 1, 2, 3, 4, 5 };`
 
 ## 4. Syntactic Sugar and Advanced Features
 
 - [x] **Auto Properties**: Used to simplify property declaration with getter and setter methods. Example: `public int MyProperty { get; set; }`
-- [x] **Object and Collection Initializers**: Allow concise initialization of objects and collections. Example: 
+- [x] **Object and Collection Initializers**: Allow concise initialization of objects and collections. Example:
   ```csharp
   var person = new Person
   {
@@ -437,7 +437,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **String Interpolation**: Provides a more readable way to format strings with embedded expressions. Example: `string name = $"Hello, {firstName} {lastName}!";`
 - [ ] **Anonymous Types**: Allow the creation of objects with dynamically defined properties. Example: `var person = new { Name = "John", Age = 30 };`
 - [x] **Lambda Expressions**: Enable the creation of inline delegate functions. Example: `(x, y) => x + y`
-- [ ] **LINQ Queries**: Provide a language-integrated query syntax for collections. Example: 
+- [ ] **LINQ Queries**: Provide a language-integrated query syntax for collections. Example:
   ```csharp
   var result = from num in numbers
                where num % 2 == 0
@@ -445,14 +445,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   ```
 - [ ] **Extension Methods**: Allow adding new methods to existing types without modifying them. Example: `public static string Reverse(this string str) { /* code */ }`
 - [ ] **Generics**: Enable type parameterization to create reusable data structures and algorithms. Example: `public class List<T> { /* code */ }`
-- [ ] **Asynchronous Programming (`async`, `await`)**: Facilitate non-blocking code execution. Example: 
+- [ ] **Asynchronous Programming (`async`, `await`)**: Facilitate non-blocking code execution. Example:
   ```csharp
   public async Task<int> GetDataAsync()
   {
       // asynchronous code
   }
   ```
-- [x] **Pattern Matching**: Simplify conditional code with pattern-based matching. Example: 
+- [x] **Pattern Matching**: Simplify conditional code with pattern-based matching. Example:
   ```csharp
   if (obj is string text)
   {
@@ -460,7 +460,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 - [x] **Tuples**: Allow grouping multiple values into a single entity. Example: `(int, string) result = (42, "Hello");`
-- [ ] **Local Functions**: Define functions within a method for local scope. Example: 
+- [ ] **Local Functions**: Define functions within a method for local scope. Example:
   ```csharp
   int CalculateSum(int a, int b)
   {
@@ -468,7 +468,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
       return Add();
   }
   ```
-- [ ] **Record Types (C# 9.0+)**: Simplify the creation of classes for holding data. Example: 
+- [ ] **Record Types (C# 9.0+)**: Simplify the creation of classes for holding data. Example:
   ```csharp
   public record Person(string FirstName, string LastName);
   ```
@@ -478,12 +478,12 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 ## 5. Other Features
 
 - [ ] **Properties and Indexers**: Provide access to class members with getter and setter methods. Example: `public int MyProperty { get; set; }`
-- [x] **Delegates and Events**: Enable the creation of delegate types and event handlers. Example: 
+- [x] **Delegates and Events**: Enable the creation of delegate types and event handlers. Example:
   ```csharp
   public delegate void MyDelegate(string message);
   public event MyDelegate MyEvent;
   ```
-- [x] **Exception Handling**: Allows catching and handling exceptions in code. Example: 
+- [x] **Exception Handling**: Allows catching and handling exceptions in code. Example:
   ```csharp
   try
   {
@@ -495,13 +495,13 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
   > [!WARNING]
-  > In Neo smart contracts, at most one catch block is allowed for each try block.
-- [ ] **Reflection**: Provides information about types and objects at runtime. Example: 
+  > In EpicChain smart contracts, at most one catch block is allowed for each try block.
+- [ ] **Reflection**: Provides information about types and objects at runtime. Example:
   ```csharp
   Type type = typeof(MyClass);
   MethodInfo method = type.GetMethod("MyMethod");
   ```
-- [x] **Attributes**: Add metadata to code elements. Example: 
+- [x] **Attributes**: Add metadata to code elements. Example:
   ```csharp
   [Obsolete("This method is obsolete. Use NewMethod instead.")]
   public void OldMethod()
@@ -510,14 +510,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 - [x] **Namespaces**: Organize code into logical groupings. Example: `namespace MyNamespace { /* code */ }`
-- [ ] **Threads and Concurrency**: Manage concurrent execution using threads and tasks. Example: 
+- [ ] **Threads and Concurrency**: Manage concurrent execution using threads and tasks. Example:
   ```csharp
   Task.Run(() =>
   {
       // code to run asynchronously
   });
   ```
-- [ ] **Memory Management and Pointers**: Allow low-level memory manipulation using pointers (unsafe code). Example: 
+- [ ] **Memory Management and Pointers**: Allow low-level memory manipulation using pointers (unsafe code). Example:
   ```csharp
   unsafe
   {
@@ -525,14 +525,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
       // code using pointer
   }
   ```
-- [ ] **File and Stream Operations**: Provide functionality for working with files and streams. Example: 
+- [ ] **File and Stream Operations**: Provide functionality for working with files and streams. Example:
   ```csharp
   using (var stream = File.OpenRead("file.txt"))
   {
       // code to read from stream
   }
   ```
-- [ ] **Network Programming**: Enable communication over networks. Example: 
+- [ ] **Network Programming**: Enable communication over networks. Example:
   ```csharp
   using (var client = new TcpClient())
   {
