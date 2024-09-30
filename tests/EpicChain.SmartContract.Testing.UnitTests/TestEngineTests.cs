@@ -153,7 +153,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, EpicChain.TotalSupply);
             Assert.AreEqual(EpicChain.TotalSupply, EpicChain.BalanceOf(engine.ValidatorsAddress));
         }
     }

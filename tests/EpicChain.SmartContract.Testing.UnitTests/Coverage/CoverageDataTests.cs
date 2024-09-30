@@ -18,7 +18,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Coverage
 
             // Check totalSupply
 
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             Assert.AreEqual(WhiteSpaceRegex.Replace(@"
 NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
@@ -75,7 +75,7 @@ NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
             // Check totalSupply
 
             Assert.IsNotNull(engine.GetCoverage(engine.Native.NEO));
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             Assert.AreEqual(engine.Native.EpicChain.Hash, engine.GetCoverage(engine.Native.NEO)?.Hash);
             Assert.AreEqual(60, engine.GetCoverage(engine.Native.NEO)?.TotalLines);
@@ -146,7 +146,7 @@ NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
             // Check totalSupply
 
             Assert.IsNotNull(engine.Native.EpicChain.GetCoverage());
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             Assert.AreEqual(engine.Native.EpicChain.Hash, engine.Native.EpicChain.GetCoverage()?.Hash);
             Assert.AreEqual(60, engine.Native.EpicChain.GetCoverage()?.TotalLines);

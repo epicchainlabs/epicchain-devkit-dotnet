@@ -2,11 +2,11 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <Copyright>2024 The Neo SmartContract Examples Project</Copyright>
-        <VersionPrefix>3.7.4</VersionPrefix>
+        <Copyright>2021-2024 EpicChain Lab's</Copyright>
+        <VersionPrefix>1.0.0</VersionPrefix>
         <TargetFramework>net8.0</TargetFramework>
-        <Authors>The Neo SmartContract Examples Project</Authors>
-        <PackageIcon>EpicChain.png</PackageIcon>
+        <Authors>EpicChain Lab's</Authors>
+        <PackageIcon>epicchain.png</PackageIcon>
         <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet/examples</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -14,7 +14,7 @@
         <RepositoryUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet.git</RepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <Company>The Neo N3 Contract Examples Project</Company>
+        <Company>EpicChain Lab's</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>false</AllowUnsafeBlocks>

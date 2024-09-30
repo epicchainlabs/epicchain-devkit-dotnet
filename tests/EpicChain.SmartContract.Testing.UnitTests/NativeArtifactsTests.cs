@@ -37,7 +37,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
             Assert.AreEqual(engine.Native.EpicChain.TotalSupply, engine.Native.EpicChain.BalanceOf(engine.ValidatorsAddress));
 
             // Check coverage

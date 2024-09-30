@@ -26,7 +26,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
 
             // check network values
 
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
             Assert.IsTrue(engine.Native.Ledger.CurrentIndex > 3_510_270);
 
             // check with Seek (RPC doesn't support Backward, it could be slow)

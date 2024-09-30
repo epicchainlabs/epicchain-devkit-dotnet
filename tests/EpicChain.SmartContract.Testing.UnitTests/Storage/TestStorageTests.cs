@@ -22,7 +22,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
             // Check that all it works
 
             Assert.IsTrue(engine.Native.EpicChain.Storage.Contains(1)); // Prefix_VotersCount
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             // Create checkpoint
 
@@ -40,7 +40,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
 
             // Ensure that all works
 
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
             // Test restoring in raw
 
@@ -48,7 +48,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
             new EngineCheckpoint(new MemoryStream(checkpoint.ToArray())).Restore(storage.Snapshot);
 
             engine = new TestEngine(storage, false);
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
         }
 
         [TestMethod]

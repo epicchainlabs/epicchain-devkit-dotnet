@@ -116,7 +116,7 @@ var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash, false);
 
 // Ensure that the main address contains the totalSupply
 
-Assert.AreEqual(100_000_000, EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, EpicChain.TotalSupply);
 Assert.AreEqual(EpicChain.TotalSupply, EpicChain.BalanceOf(engine.ValidatorsAddress));
 ```
 
@@ -139,7 +139,7 @@ var engine = new TestEngine(true);
 
 // Ensure that the main address contains the totalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 Assert.AreEqual(engine.Native.EpicChain.TotalSupply, engine.Native.EpicChain.BalanceOf(engine.ValidatorsAddress));
 ```
 
@@ -198,7 +198,7 @@ var engine = new TestEngine(true);
 
 // Check that all it works
 
-Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Create checkpoint
 
@@ -216,7 +216,7 @@ engine = new TestEngine(false) { Storage = storage };
 
 // Ensure that all works
 
-Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 ```
 
 ### Custom mocks
@@ -369,7 +369,7 @@ Assert.IsNull(engine.GetCoverage(engine.Native.NEO));
 
 // Call EpicChain.TotalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Check that the 3 instructions has been covered
 
@@ -384,7 +384,7 @@ var engine = new TestEngine(true);
 
 // Call EpicChain.TotalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Oracle was not called
 
