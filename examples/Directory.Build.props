@@ -2,34 +2,34 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <Copyright>2021-2024 EpicChain Lab's</Copyright>
-        <VersionPrefix>1.0.0</VersionPrefix>
+        <Copyright>2024 The Neo SmartContract Examples Project</Copyright>
+        <VersionPrefix>3.7.4</VersionPrefix>
         <TargetFramework>net8.0</TargetFramework>
-        <Authors>EpicChain Lab's</Authors>
-        <PackageIcon>epicchain.png</PackageIcon>
-        <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet/examples</PackageProjectUrl>
+        <Authors>The Neo SmartContract Examples Project</Authors>
+        <PackageIcon>neo.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/neo-project/neo-devpack-dotnet/examples</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet.git</RepositoryUrl>
+        <RepositoryUrl>https://github.com/neo-project/neo-devpack-dotnet.git</RepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <Company>EpicChain Lab's</Company>
+        <Company>The Neo N3 Contract Examples Project</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj"/>
-        <ProjectReference Include="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" PrivateAssets="All"/>
-        <ProjectReference Include="..\..\src\EpicChain.SmartContract.Analyzer\EpicChain.SmartContract.Analyzer.csproj"
+        <ProjectReference Include="..\..\src\Neo.SmartContract.Framework\Neo.SmartContract.Framework.csproj"/>
+        <ProjectReference Include="..\..\src\Neo.Compiler.CSharp\Neo.Compiler.CSharp.csproj" PrivateAssets="All"/>
+        <ProjectReference Include="..\..\src\Neo.SmartContract.Analyzer\Neo.SmartContract.Analyzer.csproj"
                           OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
     </ItemGroup>
 
     <Target Name="ExecuteBeforeBuild" BeforeTargets="PreBuildEvent">
-        <MSBuild Projects="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" Targets="Build" ContinueOnError="true"/>
-        <Exec Command="dotnet ..\..\src\EpicChain.Compiler.CSharp\bin\Debug\net8.0\nccs.dll &quot;$(MSBuildProjectFile)&quot;" ContinueOnError="true"/>
+        <MSBuild Projects="..\..\src\Neo.Compiler.CSharp\Neo.Compiler.CSharp.csproj" Targets="Build" ContinueOnError="true"/>
+        <Exec Command="dotnet ..\..\src\Neo.Compiler.CSharp\bin\Debug\net8.0\nccs.dll &quot;$(MSBuildProjectFile)&quot;" ContinueOnError="true"/>
     </Target>
 
 </Project>

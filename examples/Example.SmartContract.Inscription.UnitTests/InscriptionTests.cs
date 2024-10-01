@@ -1,6 +1,6 @@
-using EpicChain;
-using EpicChain.SmartContract.Testing;
-using EpicChain.SmartContract.Testing.TestingStandards;
+using Neo;
+using Neo.SmartContract.Testing;
+using Neo.SmartContract.Testing.TestingStandards;
 
 namespace Example.SmartContract.Inscription.UnitTests
 {

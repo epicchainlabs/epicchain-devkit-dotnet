@@ -1,3 +1,3 @@
 {
-    "dotnet.defaultSolution": "epicchain-devkit-dotnet"
+    "dotnet.defaultSolution": "neo-devpack-dotnet.sln"
 }

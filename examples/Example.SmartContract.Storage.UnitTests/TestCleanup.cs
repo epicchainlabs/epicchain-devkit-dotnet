@@ -1,7 +1,7 @@
-using EpicChain.Compiler;
-using EpicChain.SmartContract;
-using EpicChain.SmartContract.Manifest;
-using EpicChain.SmartContract.Testing.Extensions;
+using Neo.Compiler;
+using Neo.SmartContract;
+using Neo.SmartContract.Manifest;
+using Neo.SmartContract.Testing.Extensions;
 
 namespace Example.SmartContract.Storage.UnitTests
 {
