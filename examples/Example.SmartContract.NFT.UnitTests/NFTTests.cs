@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ntract;
-using ntract.Testing;
-using ntract.Testing.TestingStandards;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
 namespace Example.SmartContract.NFT.UnitTests
 {

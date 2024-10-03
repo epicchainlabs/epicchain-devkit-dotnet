@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Numerics;
 
-namespace mpiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {
