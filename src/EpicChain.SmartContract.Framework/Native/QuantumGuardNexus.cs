@@ -14,8 +14,8 @@ using EpicChain.SmartContract.Framework.Attributes;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0x49cf4e5378ffcd4dec034fd98a174c5491e395e2")]
-    public class RoleManagement
+    [Contract("0xcffffd77bb491d262eda1056bd976e881fc18142")]
+    public class QuantumGuardNexus
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }

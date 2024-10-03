@@ -14,8 +14,8 @@ using EpicChain.SmartContract.Framework.Attributes;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0xfe924b7cfe89ddd271abaf7210a80a7e11178758")]
-    public class Oracle
+    [Contract("0xf95f1e73b6b852e0cdf1535d5371d211707a2d95")]
+    public class OracleNexus
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }

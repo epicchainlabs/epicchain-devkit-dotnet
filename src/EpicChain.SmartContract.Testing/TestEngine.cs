@@ -348,7 +348,7 @@ namespace EpicChain.SmartContract.Testing
         /// Create gas watcher
         /// </summary>
         /// <returns>Gas watcher</returns>
-        public FeeWatcher CreateGasWatcher()
+        public FeeWatcher CreateEpicPulseWatcher()
         {
             return new FeeWatcher(this);
         }

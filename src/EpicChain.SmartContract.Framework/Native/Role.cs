@@ -11,7 +11,7 @@
 namespace EpicChain.SmartContract.Framework.Native
 {
     /// <summary>
-    /// Represents the roles in the NEO system.
+    /// Represents the roles in the EpicChain system.
     /// </summary>
     public enum Role : byte
     {
@@ -21,9 +21,9 @@ namespace EpicChain.SmartContract.Framework.Native
         StateValidator = 4,
 
         /// <summary>
-        /// The nodes used to process Oracle requests.
+        /// The nodes used to process OracleNexus requests.
         /// </summary>
-        Oracle = 8,
+        OracleNexus = 8,
 
         /// <summary>
         /// NeoFS Alphabet nodes.

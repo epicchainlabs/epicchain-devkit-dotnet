@@ -15,7 +15,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0xd2a4cff31913016155e38e474a2c06d08be276cf")]
+    [Contract("0xbc8459660544656355b4f60861c22f544341e828")]
     public class GAS
     {
         [ContractHash]

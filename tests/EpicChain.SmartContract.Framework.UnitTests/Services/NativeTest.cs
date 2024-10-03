@@ -17,7 +17,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
             Assert.AreEqual(0, Contract.EpicChain_Decimals());
             Assert.AreEqual(5_0000_0000, Contract.EpicChain_GetEpicPulsePerBlock());
             Assert.IsNull(Contract.EpicChain_GetAccountState(Bob.Account));
-            Assert.AreEqual(100_000_000, Contract.EpicChain_BalanceOf(Engine.ValidatorsAddress));
+            Assert.AreEqual(1_000_000_000, Contract.EpicChain_BalanceOf(Engine.ValidatorsAddress));
             Assert.AreEqual(0, Contract.EpicChain_UnclaimedEpicPulse(Bob.Account, 0));
             Assert.IsFalse(Contract.EpicChain_Transfer(Bob.Account, Bob.Account, 0));
 

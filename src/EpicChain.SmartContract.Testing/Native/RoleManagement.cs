@@ -5,12 +5,12 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class RoleManagement : SmartContract
+public abstract class QuantumGuardNexus : SmartContract
 {
     #region Compiled data
 
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.RoleManagement.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.QuantumGuardNexus.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
     #endregion
 
@@ -47,7 +47,7 @@ public abstract class RoleManagement : SmartContract
 
     #region Constructor for internal use only
 
-    protected RoleManagement(SmartContractInitialize initialize) : base(initialize) { }
+    protected QuantumGuardNexus(SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

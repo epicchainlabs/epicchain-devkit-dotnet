@@ -14,7 +14,7 @@ using EpicChain.SmartContract.Framework.Attributes;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b")]
+    [Contract("0xadd3e350a8789c507686ea677da85d89272f064b")]
     public class Policy
     {
         [ContractHash]

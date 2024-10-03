@@ -12,7 +12,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
 
         public static string NEOSymbol()
         {
-            return EpicChain.Symbol;
+            return XPR.Symbol;
         }
 
         public static string GASSymbol()
@@ -22,7 +22,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
 
         public static ECPoint[] getOracleNodes()
         {
-            return RoleManagement.GetDesignatedByRole(Role.Oracle, 0);
+            return QuantumGuardNexus.GetDesignatedByRole(Role.Oracle, 0);
         }
 
         public static UInt160 NEOHash()

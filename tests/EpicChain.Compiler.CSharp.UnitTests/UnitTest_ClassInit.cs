@@ -18,7 +18,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             var cs = new IntInit();
 
-            using var fee = Engine.CreateGasWatcher();
+            using var fee = Engine.CreateEpicPulseWatcher();
             var result = Contract.TestInitInt();
             Assert.AreEqual(1493550, fee.Value);
             Assert.IsNotNull(result);

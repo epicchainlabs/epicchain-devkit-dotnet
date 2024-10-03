@@ -23,12 +23,12 @@ namespace EpicChain.SmartContract.Testing.Native
         public CryptoLib CryptoLib { get; }
 
         /// <summary>
-        /// GasToken
+        /// EpicPulse
         /// </summary>
         public GAS GAS { get; }
 
         /// <summary>
-        /// NeoToken
+        /// EpicChain
         /// </summary>
         public NEO NEO { get; }
 
@@ -48,9 +48,9 @@ namespace EpicChain.SmartContract.Testing.Native
         public Policy Policy { get; }
 
         /// <summary>
-        /// RoleManagement
+        /// QuantumGuardNexus
         /// </summary>
-        public RoleManagement RoleManagement { get; }
+        public QuantumGuardNexus QuantumGuardNexus { get; }
 
         /// <summary>
         /// StdLib
@@ -72,7 +72,7 @@ namespace EpicChain.SmartContract.Testing.Native
             Ledger = _engine.FromHash<Ledger>(EpicChain.SmartContract.Native.NativeContract.Ledger.Hash, EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
             Oracle = _engine.FromHash<Oracle>(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
             Policy = _engine.FromHash<Policy>(EpicChain.SmartContract.Native.NativeContract.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Id);
-            RoleManagement = _engine.FromHash<RoleManagement>(EpicChain.SmartContract.Native.NativeContract.RoleManagement.Hash, EpicChain.SmartContract.Native.NativeContract.RoleManagement.Id);
+            QuantumGuardNexus = _engine.FromHash<QuantumGuardNexus>(EpicChain.SmartContract.Native.NativeContract.QuantumGuardNexus.Hash, EpicChain.SmartContract.Native.NativeContract.QuantumGuardNexus.Id);
             StdLib = _engine.FromHash<StdLib>(EpicChain.SmartContract.Native.NativeContract.StdLib.Hash, EpicChain.SmartContract.Native.NativeContract.StdLib.Id);
         }
 

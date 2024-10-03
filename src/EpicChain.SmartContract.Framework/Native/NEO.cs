@@ -16,7 +16,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5")]
+    [Contract("0x6dc3bff7b2e6061f3cad5744edf307c14823328e")]
     public class NEO
     {
         [ContractHash]

@@ -25,19 +25,19 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Check symbols
 
-            using var fee = engine.CreateGasWatcher();
-            Assert.AreEqual("NEO", engine.Native.EpicChain.Symbol);
+            using var fee = engine.CreateEpicPulseWatcher();
+            Assert.AreEqual("EpicChain", engine.Native.XPR.Symbol);
             Assert.AreEqual(984060L, fee.Value);
 
-            using var gas = engine.CreateGasWatcher();
+            using var epicpulse = engine.CreateEpicPulseWatcher();
             {
-                Assert.AreEqual("GAS", engine.Native.EpicPulse.Symbol);
-                Assert.AreEqual(984060L, gas);
+                Assert.AreEqual("EpicPulse", engine.Native.XPP.Symbol);
+                Assert.AreEqual(984060L, epicpulse);
             }
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
             Assert.AreEqual(engine.Native.EpicChain.TotalSupply, engine.Native.EpicChain.BalanceOf(engine.ValidatorsAddress));
 
             // Check coverage

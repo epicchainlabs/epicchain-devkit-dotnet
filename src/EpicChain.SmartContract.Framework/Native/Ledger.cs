@@ -15,7 +15,7 @@ using EpicChain.SmartContract.Framework.Services;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    [Contract("0xda65b600f7124ce6c79950c1772a36403104f2be")]
+    [Contract("0x8fd7b7687ff40a5ddd6ea466a8787df2633ed3df")]
     public class Ledger
     {
         [ContractHash]

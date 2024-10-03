@@ -126,7 +126,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
             Assert.AreEqual(engine.Native.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash);
             Assert.AreEqual(engine.Native.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Hash);
             Assert.AreEqual(engine.Native.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Hash);
-            Assert.AreEqual(engine.Native.RoleManagement.Hash, EpicChain.SmartContract.Native.NativeContract.RoleManagement.Hash);
+            Assert.AreEqual(engine.Native.QuantumGuardNexus.Hash, EpicChain.SmartContract.Native.NativeContract.QuantumGuardNexus.Hash);
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Ensure that the main address contains the totalSupply
 
-            Assert.AreEqual(100_000_000, epicchain.TotalSupply);
+            Assert.AreEqual(1_000_000_000, epicchain.TotalSupply);
             Assert.AreEqual(epicchain.TotalSupply, epicchain.BalanceOf(engine.ValidatorsAddress));
         }
     }
