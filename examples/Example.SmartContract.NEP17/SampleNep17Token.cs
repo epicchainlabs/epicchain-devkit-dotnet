@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Native;
-using ntract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 using System;
 using System.ComponentModel;
 using System.Numerics;
@@ -21,10 +21,10 @@ namespace NEP17
 {
     /// <inheritdoc />
     [DisplayName("SampleNep17Token")]
-    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample NEP-17 token")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(NepStandard.Nep17)]
     public class SampleNep17Token : Nep17Token

@@ -51,7 +51,7 @@ internal partial class MethodConvert
     /// <param name="model">The semantic model providing context and information about event invocation expression.</param>
     /// <param name="symbol">Symbol of the event</param>
     /// <param name="arguments">Arguments of the event</param>
-    /// <example><see href="https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.Event/Event.cs"/></example>
+    /// <example><see href="https://github.com/epicchainlabs/epicchain-devkit-dotnet/blob/master/examples/Example.SmartContract.Event/Event.cs"/></example>
     private void ConvertEventInvocationExpression(SemanticModel model, IEventSymbol symbol, ArgumentSyntax[] arguments)
     {
         AddInstruction(OpCode.NEWARRAY0);

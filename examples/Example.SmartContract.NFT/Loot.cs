@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Native;
-using ntract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 using System;
 using System.ComponentModel;
 using System.Numerics;
@@ -21,11 +21,11 @@ using System.Runtime.CompilerServices;
 namespace NFT
 {
     [DisplayName("SampleLootNFT")]
-    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractDescription("This is a text Example.SmartContract.NFT")]
     [SupportedStandards(NepStandard.Nep11)]
     [ContractPermission(Permission.Any, Method.OnNEP11Payment)]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     public partial class Loot : Nep11Token<TokenState>
     {
         public override string Symbol { [Safe] get => "sLoot"; }

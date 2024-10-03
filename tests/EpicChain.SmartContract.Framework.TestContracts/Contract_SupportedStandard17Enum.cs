@@ -10,7 +10,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
     [ContractDescription("<Description Here>")]
     [ManifestExtra("Email", "<Your Public Email Here>")]
     [ManifestExtra("Version", "<Version String Here>")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/src/EpicChain.SmartContract.Template")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(NepStandard.Nep17)]
     public class Contract_SupportedStandard17Enum : Nep17Token, INep17Payable

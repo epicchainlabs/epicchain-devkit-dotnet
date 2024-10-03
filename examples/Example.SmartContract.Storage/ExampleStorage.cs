@@ -9,18 +9,18 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace ExampleStorage
 {
     [DisplayName("SampleStorage")]
-    [ContractAuthor("code-dev", "dev@neo.org")]
+    [ContractAuthor("code-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample contract to demonstrate how to use storage")]
     [ContractVersion("0.0.1")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
     public class SampleStorage : SmartContract
     {

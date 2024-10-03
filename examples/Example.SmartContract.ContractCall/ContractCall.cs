@@ -9,19 +9,19 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 using System.Numerics;
 
 namespace ContractCall;
 
 [DisplayName("SampleContractCall")]
-[ContractAuthor("core-dev", "dev@neo.org")]
+[ContractAuthor("core-dev", "devs@epic-chain.org")]
 [ContractVersion("0.0.1")]
 [ContractDescription("A sample contract to demonstrate how to call a contract")]
-[ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+[ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 public class SampleContractCall : SmartContract
 {
     [Hash160("0x13a83e059c2eedd5157b766d3357bc826810905e")]

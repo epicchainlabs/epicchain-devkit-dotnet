@@ -9,9 +9,9 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Native;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
 using System;
 using System.ComponentModel;
 
@@ -21,7 +21,7 @@ namespace ZKP
     [ContractAuthor("code-dev")]
     [ContractVersion("0.0.1")]
     [ContractDescription("A sample contract to demonstrate how to use Example.SmartContract.ZKPil")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
     public class ExampleZKP : SmartContract
     {

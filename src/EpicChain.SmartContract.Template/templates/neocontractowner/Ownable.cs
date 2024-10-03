@@ -13,7 +13,7 @@ namespace EpicChain.SmartContract.Template
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/neocontractowner/Ownable.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/neocontractowner/Ownable.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
     public class Ownable : EpicChain.SmartContract.Framework.SmartContract
     {

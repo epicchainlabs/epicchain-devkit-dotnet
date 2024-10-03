@@ -25,7 +25,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 
 ## 1. Keywords
 
-### Basic Data Types (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
+### Basic Data Types (https://github.com/epicchainlabs/epicchain-devkit-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
 - [x] **void**: Represents the absence of a value or a method that does not return a value.
 - [x] **bool**: Declares a variable of Boolean data type. Example: `bool isReady = true;`
 - [x] **byte**: Declares a variable of 8-bit unsigned integer data type. Example: `byte myByte = 100;`
@@ -338,7 +338,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 
-## 2. Operators (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
+## 2. Operators (https://github.com/epicchainlabs/epicchain-devkit-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
 
 ### Arithmetic Operators
 - [x] `+`: Adds two operands. Example: `int result = 5 + 3; // result is 8`

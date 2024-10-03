@@ -10,7 +10,7 @@ public abstract class Contract_ExtraAttribute(EpicChain.SmartContract.Testing.Sm
 {
     #region Compiled data
 
-    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_ExtraAttribute"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""main2"",""parameters"":[{""name"":""method"",""type"":""String""},{""name"":""args"",""type"":""Array""}],""returntype"":""Any"",""offset"":0,""safe"":false}],""events"":[]},""permissions"":[],""trusts"":[],""extra"":{""Author"":""Neo"",""E-mail"":""dev@neo.org"",""nef"":{""optimization"":""All""}}}");
+    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_ExtraAttribute"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""main2"",""parameters"":[{""name"":""method"",""type"":""String""},{""name"":""args"",""type"":""Array""}],""returntype"":""Any"",""offset"":0,""safe"":false}],""events"":[]},""permissions"":[],""trusts"":[],""extra"":{""Author"":""Neo"",""E-mail"":""devs@epic-chain.org"",""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"

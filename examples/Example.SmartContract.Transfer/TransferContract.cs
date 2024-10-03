@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Native;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
 using System.ComponentModel;
 using System.Numerics;
-using ntract.Framework.Services;
-using UInt160 = ntract.Framework.UInt160;
+using EpicChain.SmartContract.Framework.Services;
+using UInt160 = EpicChain.SmartContract.Framework.UInt160;
 
 namespace Transfer;
 
@@ -23,10 +23,10 @@ namespace Transfer;
 /// This is a sample contract that can be used as a template for creating new contracts.
 /// </summary>
 [DisplayName("SampleTransferContract")]
-[ContractAuthor("code-dev", "dev@neo.org")]
+[ContractAuthor("code-dev", "devs@epic-chain.org")]
 [ContractDescription("A sample contract to demonstrate how to transfer NEO and GAS")]
 [ContractVersion("1.0.0.0")]
-[ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+[ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 [ContractPermission(Permission.Any, Method.Any)]
 public class TransferContract : SmartContract
 {

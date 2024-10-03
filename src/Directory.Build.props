@@ -6,10 +6,10 @@
     <Company>The Neo Project</Company>
     <VersionPrefix>3.7.4</VersionPrefix>
     <Authors>The Neo Project</Authors>
-    <PackageProjectUrl>https://github.com/neo-project/neo-devpack-dotnet</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/neo-project/neo-devpack-dotnet.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

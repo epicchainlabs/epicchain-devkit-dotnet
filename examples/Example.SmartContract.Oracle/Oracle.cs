@@ -9,21 +9,21 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract.Framework;
-using ntract.Framework.Attributes;
-using ntract.Framework.Native;
-using ntract.Framework.Services;
+using EpicChain.SmartContract.Framework;
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Native;
+using EpicChain.SmartContract.Framework.Services;
 using System;
 using System.ComponentModel;
-using ntract.Framework.Interfaces;
+using EpicChain.SmartContract.Framework.Interfaces;
 
 namespace Oracle
 {
     [DisplayName("SampleOracle")]
-    [ContractAuthor("code-dev", "dev@neo.org")]
+    [ContractAuthor("code-dev", "devs@epic-chain.org")]
     [ContractDescription("A sample contract to demonstrate how to use Example.SmartContract.Oracle Service")]
     [ContractVersion("0.0.1")]
-    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
     public class SampleOracle : SmartContract, IOracle
     {
@@ -55,7 +55,7 @@ namespace Oracle
                 ReturnValueType = string array
             */
             var requestUrl = "https://api.jsonbin.io/v3/qs/6520ad3c12a5d3765988542a";
-            ntract.Framework.Native.Oracle.Request(requestUrl, "$.record.propertyName", Method.OnOracleResponse, martContract.Framework.Native.Oracle.MinimumResponseFee);
+            EpicChain.SmartContract.Framework.Native.Oracle.Request(requestUrl, "$.record.propertyName", Method.OnOracleResponse, null, EpicChain.SmartContract.Framework.Native.Oracle.MinimumResponseFee);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Oracle
         /// <exception cref="Exception">It was not a success</exception>
         public void OnOracleResponse(string requestedUrl, object userData, OracleResponseCode oracleResponse, string jsonString)
         {
-            if (Runtime.CallingScriptHash != ntract.Framework.Native.Oracle.Hash)
+            if (Runtime.CallingScriptHash != EpicChain.SmartContract.Framework.Native.Oracle.Hash)
                 throw new InvalidOperationException("No Authorization!");
             if (oracleResponse != OracleResponseCode.Success)
                 throw new Exception("Oracle response failure with code " + (byte)oracleResponse);
