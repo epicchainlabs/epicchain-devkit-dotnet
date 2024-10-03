@@ -1,7 +1,7 @@
 using Neo.Compiler;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Testing.Extensions;
+using ntract;
+using ntract.Manifest;
+using ntract.Testing.Extensions;
 
 namespace Example.SmartContract.ContractCall.UnitTests
 {

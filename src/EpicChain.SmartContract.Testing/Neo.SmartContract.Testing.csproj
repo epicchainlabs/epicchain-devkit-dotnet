@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Title>EpicChain.SmartContract.Testing</Title>
+        <LangVersion>latest</LangVersion>
+        <AssemblyTitle>EpicChain.SmartContract.Testing</AssemblyTitle>
+        <AssemblyName>EpicChain.SmartContract.Testing</AssemblyName>
+        <RootNamespace>EpicChain.SmartContract.Testing</RootNamespace>
+        <PackageId>EpicChain.SmartContract.Testing</PackageId>
+        <PackageTags>NEO;Blockchain;Smart Contract</PackageTags>
+        <Description>TestEngine for NEO smart contract testing.</Description>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Moq" Version="4.20.70" />
+      <PackageReference Include="MSTest.TestFramework" Version="3.5.0" />
+      <PackageReference Include="ReportGenerator.Core" Version="5.3.8" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\neo\src\Neo\Neo.csproj" />
+    </ItemGroup>
+
+</Project>

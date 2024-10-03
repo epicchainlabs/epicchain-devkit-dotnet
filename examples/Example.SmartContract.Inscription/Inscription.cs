@@ -9,9 +9,9 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Services;
+using ntract.Framework;
+using ntract.Framework.Attributes;
+using ntract.Framework.Services;
 using System;
 using System.ComponentModel;
 
@@ -26,7 +26,7 @@ namespace Inscription
     public class SampleInscription : SmartContract
     {
         /// <summary>
-        /// Neo.SmartContract.Examples.Event for logging inscriptions
+        /// ntract.Examples.Event for logging inscriptions
         /// </summary>
         [DisplayName("InscriptionAdded")]
         public static event Action<UInt160, string> InscriptionAdded;

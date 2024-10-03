@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>EpicChain.SmartContract.Framework.UnitTests</RootNamespace>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\EpicChain.Compiler.CSharp\EpicChain.Compiler.CSharp.csproj" />
+		<ProjectReference Include="..\..\src\EpicChain.SmartContract.Testing\EpicChain.SmartContract.Testing.csproj" />
+		<ProjectReference Include="..\..\src\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj">
+			<Aliases>scfx</Aliases>
+		</ProjectReference>
+	</ItemGroup>
+
+</Project>

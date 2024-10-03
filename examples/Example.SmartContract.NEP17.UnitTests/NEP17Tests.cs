@@ -1,5 +1,5 @@
-using Neo.SmartContract.Testing;
-using Neo.SmartContract.Testing.TestingStandards;
+using ntract.Testing;
+using ntract.Testing.TestingStandards;
 
 namespace Example.SmartContract.NEP17.UnitTests
 {

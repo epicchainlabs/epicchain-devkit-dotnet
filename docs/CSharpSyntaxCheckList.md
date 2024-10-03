@@ -25,7 +25,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 
 ## 1. Keywords
 
-### Basic Data Types (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.Compiler.CSharp/Helper.cs)
+### Basic Data Types (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
 - [x] **void**: Represents the absence of a value or a method that does not return a value.
 - [x] **bool**: Declares a variable of Boolean data type. Example: `bool isReady = true;`
 - [x] **byte**: Declares a variable of 8-bit unsigned integer data type. Example: `byte myByte = 100;`
@@ -52,7 +52,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 ## C# to Neo smart contract type mapping table:
 
 | C# Type | Neo Type | Description |
-|-|-|-|  
+|-|-|-|
 | `bool` | `Boolean` | Boolean type |
 | `byte` | `Integer` | 8-bit unsigned integer |
 | `sbyte` | `Integer` | 8-bit signed integer |
@@ -71,8 +71,8 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 | `object` | `Any` | Any type |
 | `void` | `Void` | No return value |
 | `Neo.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
-| `Neo.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
-| `Neo.UInt160` | `Hash160` | 20-byte hash value | 
+| `EpicChain.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
+| `Neo.UInt160` | `Hash160` | 20-byte hash value |
 | `Neo.UInt256` | `Hash256` | 32-byte hash value |
 | Other classes/interfaces | `ByteArray` | Stored as byte arrays |
 
@@ -338,7 +338,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 
-## 2. Operators (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.Compiler.CSharp/MethodConvert.cs)
+## 2. Operators (https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
 
 ### Arithmetic Operators
 - [x] `+`: Adds two operands. Example: `int result = 5 + 3; // result is 8`
@@ -425,7 +425,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 ## 4. Syntactic Sugar and Advanced Features
 
 - [x] **Auto Properties**: Used to simplify property declaration with getter and setter methods. Example: `public int MyProperty { get; set; }`
-- [x] **Object and Collection Initializers**: Allow concise initialization of objects and collections. Example: 
+- [x] **Object and Collection Initializers**: Allow concise initialization of objects and collections. Example:
   ```csharp
   var person = new Person
   {
@@ -437,7 +437,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **String Interpolation**: Provides a more readable way to format strings with embedded expressions. Example: `string name = $"Hello, {firstName} {lastName}!";`
 - [ ] **Anonymous Types**: Allow the creation of objects with dynamically defined properties. Example: `var person = new { Name = "John", Age = 30 };`
 - [x] **Lambda Expressions**: Enable the creation of inline delegate functions. Example: `(x, y) => x + y`
-- [ ] **LINQ Queries**: Provide a language-integrated query syntax for collections. Example: 
+- [ ] **LINQ Queries**: Provide a language-integrated query syntax for collections. Example:
   ```csharp
   var result = from num in numbers
                where num % 2 == 0
@@ -445,14 +445,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   ```
 - [ ] **Extension Methods**: Allow adding new methods to existing types without modifying them. Example: `public static string Reverse(this string str) { /* code */ }`
 - [ ] **Generics**: Enable type parameterization to create reusable data structures and algorithms. Example: `public class List<T> { /* code */ }`
-- [ ] **Asynchronous Programming (`async`, `await`)**: Facilitate non-blocking code execution. Example: 
+- [ ] **Asynchronous Programming (`async`, `await`)**: Facilitate non-blocking code execution. Example:
   ```csharp
   public async Task<int> GetDataAsync()
   {
       // asynchronous code
   }
   ```
-- [x] **Pattern Matching**: Simplify conditional code with pattern-based matching. Example: 
+- [x] **Pattern Matching**: Simplify conditional code with pattern-based matching. Example:
   ```csharp
   if (obj is string text)
   {
@@ -460,7 +460,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 - [x] **Tuples**: Allow grouping multiple values into a single entity. Example: `(int, string) result = (42, "Hello");`
-- [ ] **Local Functions**: Define functions within a method for local scope. Example: 
+- [ ] **Local Functions**: Define functions within a method for local scope. Example:
   ```csharp
   int CalculateSum(int a, int b)
   {
@@ -468,7 +468,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
       return Add();
   }
   ```
-- [ ] **Record Types (C# 9.0+)**: Simplify the creation of classes for holding data. Example: 
+- [ ] **Record Types (C# 9.0+)**: Simplify the creation of classes for holding data. Example:
   ```csharp
   public record Person(string FirstName, string LastName);
   ```
@@ -478,12 +478,12 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 ## 5. Other Features
 
 - [ ] **Properties and Indexers**: Provide access to class members with getter and setter methods. Example: `public int MyProperty { get; set; }`
-- [x] **Delegates and Events**: Enable the creation of delegate types and event handlers. Example: 
+- [x] **Delegates and Events**: Enable the creation of delegate types and event handlers. Example:
   ```csharp
   public delegate void MyDelegate(string message);
   public event MyDelegate MyEvent;
   ```
-- [x] **Exception Handling**: Allows catching and handling exceptions in code. Example: 
+- [x] **Exception Handling**: Allows catching and handling exceptions in code. Example:
   ```csharp
   try
   {
@@ -496,12 +496,12 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   ```
   > [!WARNING]
   > In Neo smart contracts, at most one catch block is allowed for each try block.
-- [ ] **Reflection**: Provides information about types and objects at runtime. Example: 
+- [ ] **Reflection**: Provides information about types and objects at runtime. Example:
   ```csharp
   Type type = typeof(MyClass);
   MethodInfo method = type.GetMethod("MyMethod");
   ```
-- [x] **Attributes**: Add metadata to code elements. Example: 
+- [x] **Attributes**: Add metadata to code elements. Example:
   ```csharp
   [Obsolete("This method is obsolete. Use NewMethod instead.")]
   public void OldMethod()
@@ -510,14 +510,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 - [x] **Namespaces**: Organize code into logical groupings. Example: `namespace MyNamespace { /* code */ }`
-- [ ] **Threads and Concurrency**: Manage concurrent execution using threads and tasks. Example: 
+- [ ] **Threads and Concurrency**: Manage concurrent execution using threads and tasks. Example:
   ```csharp
   Task.Run(() =>
   {
       // code to run asynchronously
   });
   ```
-- [ ] **Memory Management and Pointers**: Allow low-level memory manipulation using pointers (unsafe code). Example: 
+- [ ] **Memory Management and Pointers**: Allow low-level memory manipulation using pointers (unsafe code). Example:
   ```csharp
   unsafe
   {
@@ -525,14 +525,14 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
       // code using pointer
   }
   ```
-- [ ] **File and Stream Operations**: Provide functionality for working with files and streams. Example: 
+- [ ] **File and Stream Operations**: Provide functionality for working with files and streams. Example:
   ```csharp
   using (var stream = File.OpenRead("file.txt"))
   {
       // code to read from stream
   }
   ```
-- [ ] **Network Programming**: Enable communication over networks. Example: 
+- [ ] **Network Programming**: Enable communication over networks. Example:
   ```csharp
   using (var client = new TcpClient())
   {

@@ -1,9 +1,9 @@
-using Neo.SmartContract.Testing.TestingStandards;
+using ntract.Testing.TestingStandards;
 
 namespace Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests
 {
     [TestClass]
-    public class SampleRoyaltyNEP11TokenTest : TestBase<Neo.SmartContract.Testing.SampleRoyaltyNEP11Token>
+    public class SampleRoyaltyNEP11TokenTest : TestBase<ntract.Testing.SampleRoyaltyNEP11Token>
     {
         [TestInitialize]
         public void TestSetup()

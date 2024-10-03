@@ -22,7 +22,7 @@ jobs:
       - name: Delete versions below 3.6.1
         env:
           MYGET_FEED: 'neo'
-          PACKAGE_NAMES: 'Neo.SmartContract.Framework,Neo.SmartContract.Testing'
+          PACKAGE_NAMES: 'ntract.FrammartContract.Testing'
           MYGET_API_KEY: ${{ secrets.MYGET_TOKEN }}
         run: |
           import requests
@@ -67,20 +67,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Delete Neo.SmartContract.Testing Package
+    - name: Delete ntract.Testing Package
       uses: actions/delete-package-versions@v4
       with:
-        package-name: Neo.SmartContract.Testing
+        package-name: ntract.Testing
         package-type: nuget
         min-versions-to-keep: 3
         delete-only-pre-release-versions: "true"
         token: "${{ secrets.GITHUB_TOKEN }}"
       continue-on-error: true
 
-    - name: Delete Neo.SmartContract.Framework Package
+    - name: Delete ntract.Framework Package
       uses: actions/delete-package-versions@v4
       with:
-        package-name: Neo.SmartContract.Framework
+        package-name: ntract.Framework
         package-type: nuget
         min-versions-to-keep: 3
         delete-only-pre-release-versions: "true"

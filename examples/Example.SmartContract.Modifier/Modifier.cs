@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Native;
-using Neo.SmartContract.Framework.Services;
+using ntract.Framework;
+using ntract.Framework.Attributes;
+using ntract.Framework.Native;
+using ntract.Framework.Services;
 using System.ComponentModel;
 
 namespace Modifier

@@ -9,13 +9,13 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Attributes;
-using Neo.SmartContract.Framework.Native;
+using ntract.Framework;
+using ntract.Framework.Attributes;
+using ntract.Framework.Native;
 using System.ComponentModel;
 using System.Numerics;
-using Neo.SmartContract.Framework.Services;
-using UInt160 = Neo.SmartContract.Framework.UInt160;
+using ntract.Framework.Services;
+using UInt160 = ntract.Framework.UInt160;
 
 namespace Transfer;
 
