@@ -67,7 +67,7 @@ public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
     /// <summary>
     /// Safe property
     /// </summary>
-    public abstract BigInteger GasPerBlock { [DisplayName("getGasPerBlock")] get; [DisplayName("setGasPerBlock")] set; }
+    public abstract BigInteger GasPerBlock { [DisplayName("GetEpicPulsePerBlock")] get; [DisplayName("setGasPerBlock")] set; }
 
     /// <summary>
     /// Safe property
@@ -114,8 +114,8 @@ public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
     /// <summary>
     /// Safe method
     /// </summary>
-    [DisplayName("unclaimedGas")]
-    public abstract BigInteger UnclaimedGas(UInt160 account, uint end);
+    [DisplayName("UnclaimedEpicPulse")]
+    public abstract BigInteger UnclaimedEpicPulse(UInt160 account, uint end);
 
     #endregion
 

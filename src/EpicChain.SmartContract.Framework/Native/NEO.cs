@@ -27,9 +27,9 @@ namespace EpicChain.SmartContract.Framework.Native
         public static extern BigInteger BalanceOf(UInt160 account);
         public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null);
 
-        public static extern BigInteger GetGasPerBlock();
+        public static extern BigInteger GetEpicPulsePerBlock();
         public static extern long GetRegisterPrice();
-        public static extern BigInteger UnclaimedGas(UInt160 account, uint end);
+        public static extern BigInteger UnclaimedEpicPulse(UInt160 account, uint end);
 
         public static extern bool RegisterCandidate(ECPoint pubkey);
         public static extern bool UnRegisterCandidate(ECPoint pubkey);

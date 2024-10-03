@@ -34,7 +34,7 @@ NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 │ getCandidateVote(pubKey)        │   0.00 % │ 100.00 % │
 │ getCommittee()                  │   0.00 % │ 100.00 % │
 │ getCommitteeAddress()           │   0.00 % │ 100.00 % │
-│ getGasPerBlock()                │   0.00 % │ 100.00 % │
+│ GetEpicPulsePerBlock()                │   0.00 % │ 100.00 % │
 │ getNextBlockValidators()        │   0.00 % │ 100.00 % │
 │ getRegisterPrice()              │   0.00 % │ 100.00 % │
 │ registerCandidate(pubkey)       │   0.00 % │ 100.00 % │
@@ -42,7 +42,7 @@ NeoToken [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 │ setRegisterPrice(registerPrice) │   0.00 % │ 100.00 % │
 │ symbol()                        │   0.00 % │ 100.00 % │
 │ transfer(from,to,amount,data)   │   0.00 % │ 100.00 % │
-│ unclaimedGas(account,end)       │   0.00 % │ 100.00 % │
+│ UnclaimedEpicPulse(account,end)       │   0.00 % │ 100.00 % │
 │ unregisterCandidate(pubkey)     │   0.00 % │ 100.00 % │
 │ vote(account,voteTo)            │   0.00 % │ 100.00 % │
 └-───────────────────────────────-┴-────────-┴-────────-┘

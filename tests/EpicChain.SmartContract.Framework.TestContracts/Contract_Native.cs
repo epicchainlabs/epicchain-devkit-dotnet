@@ -6,56 +6,56 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 {
     public class Contract_Native : SmartContract
     {
-        [DisplayName("NEO_Decimals")]
-        public static int NEO_Decimals()
+        [DisplayName("EpicChain_Decimals")]
+        public static int EpicChain_Decimals()
         {
             return EpicChain.Decimals;
         }
 
-        [DisplayName("NEO_Transfer")]
-        public static bool NEO_Transfer(UInt160 from, UInt160 to, BigInteger amount)
+        [DisplayName("EpicChain_Transfer")]
+        public static bool EpicChain_Transfer(UInt160 from, UInt160 to, BigInteger amount)
         {
             return EpicChain.Transfer(from, to, amount, null);
         }
 
-        [DisplayName("NEO_BalanceOf")]
-        public static BigInteger NEO_BalanceOf(UInt160 account)
+        [DisplayName("EpicChain_BalanceOf")]
+        public static BigInteger EpicChain_BalanceOf(UInt160 account)
         {
             return EpicChain.BalanceOf(account);
         }
 
-        [DisplayName("NEO_GetAccountState")]
-        public static object NEO_GetAccountState(UInt160 account)
+        [DisplayName("EpicChain_GetAccountState")]
+        public static object EpicChain_GetAccountState(UInt160 account)
         {
             return EpicChain.GetAccountState(account);
         }
 
-        [DisplayName("NEO_GetGasPerBlock")]
-        public static BigInteger NEO_GetGasPerBlock()
+        [DisplayName("EpicChain_GetEpicPulsePerBlock")]
+        public static BigInteger EpicChain_GetEpicPulsePerBlock()
         {
-            return EpicChain.GetGasPerBlock();
+            return EpicChain.GetEpicPulsePerBlock();
         }
 
-        [DisplayName("NEO_UnclaimedGas")]
-        public static BigInteger NEO_UnclaimedGas(UInt160 account, uint end)
+        [DisplayName("EpicChain_UnclaimedEpicPulse")]
+        public static BigInteger EpicChain_UnclaimedEpicPulse(UInt160 account, uint end)
         {
-            return EpicChain.UnclaimedGas(account, end);
+            return EpicChain.UnclaimedEpicPulse(account, end);
         }
 
-        [DisplayName("NEO_RegisterCandidate")]
-        public static bool NEO_RegisterCandidate(ECPoint pubkey)
+        [DisplayName("EpicChain_RegisterCandidate")]
+        public static bool EpicChain_RegisterCandidate(ECPoint pubkey)
         {
             return EpicChain.RegisterCandidate(pubkey);
         }
 
-        [DisplayName("NEO_GetCandidates")]
-        public static (ECPoint, BigInteger)[] NEO_GetCandidates()
+        [DisplayName("EpicChain_GetCandidates")]
+        public static (ECPoint, BigInteger)[] EpicChain_GetCandidates()
         {
             return EpicChain.GetCandidates();
         }
 
-        [DisplayName("GAS_Decimals")]
-        public static int GAS_Decimals()
+        [DisplayName("EpicPulse_Decimals")]
+        public static int EpicPulse_Decimals()
         {
             return EpicPulse.Decimals;
         }

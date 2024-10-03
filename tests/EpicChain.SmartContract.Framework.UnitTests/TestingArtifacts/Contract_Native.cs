@@ -10,7 +10,7 @@ public abstract class Contract_Native(EpicChain.SmartContract.Testing.SmartContr
 {
     #region Compiled data
 
-    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_Native"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""NEO_Decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":0,""safe"":false},{""name"":""NEO_Transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""}],""returntype"":""Boolean"",""offset"":4,""safe"":false},{""name"":""NEO_BalanceOf"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Integer"",""offset"":15,""safe"":false},{""name"":""NEO_GetAccountState"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Any"",""offset"":23,""safe"":false},{""name"":""NEO_GetGasPerBlock"",""parameters"":[],""returntype"":""Integer"",""offset"":31,""safe"":false},{""name"":""NEO_UnclaimedGas"",""parameters"":[{""name"":""account"",""type"":""Hash160""},{""name"":""end"",""type"":""Integer""}],""returntype"":""Integer"",""offset"":35,""safe"":false},{""name"":""NEO_RegisterCandidate"",""parameters"":[{""name"":""pubkey"",""type"":""PublicKey""}],""returntype"":""Boolean"",""offset"":44,""safe"":false},{""name"":""NEO_GetCandidates"",""parameters"":[],""returntype"":""Array"",""offset"":52,""safe"":false},{""name"":""GAS_Decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":56,""safe"":false},{""name"":""Policy_GetFeePerByte"",""parameters"":[],""returntype"":""Integer"",""offset"":60,""safe"":false},{""name"":""Policy_IsBlocked"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Boolean"",""offset"":64,""safe"":false}],""events"":[]},""permissions"":[{""contract"":""0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b"",""methods"":[""getFeePerByte"",""isBlocked""]},{""contract"":""0xd2a4cff31913016155e38e474a2c06d08be276cf"",""methods"":[""decimals""]},{""contract"":""0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"",""methods"":[""balanceOf"",""decimals"",""getAccountState"",""getCandidates"",""getGasPerBlock"",""registerCandidate"",""transfer"",""unclaimedGas""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
+    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_Native"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""EpicChain_Decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":0,""safe"":false},{""name"":""EpicChain_Transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""}],""returntype"":""Boolean"",""offset"":4,""safe"":false},{""name"":""EpicChain_BalanceOf"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Integer"",""offset"":15,""safe"":false},{""name"":""EpicChain_GetAccountState"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Any"",""offset"":23,""safe"":false},{""name"":""EpicChain_GetEpicPulsePerBlock"",""parameters"":[],""returntype"":""Integer"",""offset"":31,""safe"":false},{""name"":""EpicChain_UnclaimedEpicPulse"",""parameters"":[{""name"":""account"",""type"":""Hash160""},{""name"":""end"",""type"":""Integer""}],""returntype"":""Integer"",""offset"":35,""safe"":false},{""name"":""EpicChain_RegisterCandidate"",""parameters"":[{""name"":""pubkey"",""type"":""PublicKey""}],""returntype"":""Boolean"",""offset"":44,""safe"":false},{""name"":""EpicChain_GetCandidates"",""parameters"":[],""returntype"":""Array"",""offset"":52,""safe"":false},{""name"":""EpicPulse_Decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":56,""safe"":false},{""name"":""Policy_GetFeePerByte"",""parameters"":[],""returntype"":""Integer"",""offset"":60,""safe"":false},{""name"":""Policy_IsBlocked"",""parameters"":[{""name"":""account"",""type"":""Hash160""}],""returntype"":""Boolean"",""offset"":64,""safe"":false}],""events"":[]},""permissions"":[{""contract"":""0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b"",""methods"":[""getFeePerByte"",""isBlocked""]},{""contract"":""0xd2a4cff31913016155e38e474a2c06d08be276cf"",""methods"":[""decimals""]},{""contract"":""0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"",""methods"":[""balanceOf"",""decimals"",""getAccountState"",""getCandidates"",""GetEpicPulsePerBlock"",""registerCandidate"",""transfer"",""UnclaimedEpicPulse""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"
@@ -24,47 +24,47 @@ public abstract class Contract_Native(EpicChain.SmartContract.Testing.SmartContr
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract BigInteger? GAS_Decimals();
+    public abstract BigInteger? EpicPulse_Decimals();
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract BigInteger? NEO_BalanceOf(UInt160? account);
+    public abstract BigInteger? EpicChain_BalanceOf(UInt160? account);
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract BigInteger? NEO_Decimals();
+    public abstract BigInteger? EpicChain_Decimals();
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract object? NEO_GetAccountState(UInt160? account);
+    public abstract object? EpicChain_GetAccountState(UInt160? account);
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract IList<object>? NEO_GetCandidates();
+    public abstract IList<object>? EpicChain_GetCandidates();
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract BigInteger? NEO_GetGasPerBlock();
+    public abstract BigInteger? EpicChain_GetEpicPulsePerBlock();
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract bool? NEO_RegisterCandidate(ECPoint? pubkey);
+    public abstract bool? EpicChain_RegisterCandidate(ECPoint? pubkey);
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract bool? NEO_Transfer(UInt160? from, UInt160? to, BigInteger? amount);
+    public abstract bool? EpicChain_Transfer(UInt160? from, UInt160? to, BigInteger? amount);
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    public abstract BigInteger? NEO_UnclaimedGas(UInt160? account, BigInteger? end);
+    public abstract BigInteger? EpicChain_UnclaimedEpicPulse(UInt160? account, BigInteger? end);
 
     /// <summary>
     /// Unsafe method
