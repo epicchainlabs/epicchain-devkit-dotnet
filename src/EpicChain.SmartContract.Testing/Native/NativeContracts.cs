@@ -85,7 +85,7 @@ namespace EpicChain.SmartContract.Testing.Native
         {
             _engine.Transaction.Script = Array.Empty<byte>(); // Store the script in the current transaction
 
-            var genesis = NeoSystem.CreateGenesisBlock(_engine.ProtocolSettings);
+            var genesis = EpicChainSystem.CreateGenesisBlock(_engine.ProtocolSettings);
 
             // Attach to static event
 

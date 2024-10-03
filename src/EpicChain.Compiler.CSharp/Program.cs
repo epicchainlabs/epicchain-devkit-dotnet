@@ -276,7 +276,7 @@ namespace EpicChain.Compiler
                                 MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
                                 MetadataReference.CreateFromFile(typeof(DisplayNameAttribute).Assembly.Location),
                                 MetadataReference.CreateFromFile(typeof(System.Numerics.BigInteger).Assembly.Location),
-                                MetadataReference.CreateFromFile(typeof(NeoSystem).Assembly.Location),
+                                MetadataReference.CreateFromFile(typeof(EpicChainSystem).Assembly.Location),
                                 MetadataReference.CreateFromFile(typeof(SmartContract.Testing.TestEngine).Assembly.Location)
                             };
 

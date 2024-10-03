@@ -76,7 +76,7 @@ namespace EpicChain.SmartContract.Testing
             MaxTransactionsPerBlock = ProtocolSettings.Default.MaxTransactionsPerBlock,
             MemoryPoolMaxTransactions = ProtocolSettings.Default.MemoryPoolMaxTransactions,
             MaxTraceableBlocks = ProtocolSettings.Default.MaxTraceableBlocks,
-            InitialEpicChainDistribution = ProtocolSettings.Default.InitialEpicChainDistribution,
+            InitialEpicPulseDistribution = ProtocolSettings.Default.InitialEpicPulseDistribution,
             Hardforks = ProtocolSettings.Default.Hardforks
         };
 
@@ -257,7 +257,7 @@ namespace EpicChain.SmartContract.Testing
                 Version = 0,
                 Attributes = [],
                 Script = System.Array.Empty<byte>(),
-                NetworkFee = ApplicationEngine.TestModeGas,
+                NetworkFee = ApplicationEngine.TestModeEpicPulse,
                 SystemFee = 0,
                 ValidUntilBlock = 0,
                 Nonce = 0x01020304,
@@ -294,7 +294,7 @@ namespace EpicChain.SmartContract.Testing
                 }
                 else
                 {
-                    PersistingBlock = new PersistingBlock(this, NeoSystem.CreateGenesisBlock(ProtocolSettings));
+                    PersistingBlock = new PersistingBlock(this, EpicChainSystem.CreateGenesisBlock(ProtocolSettings));
                 }
             }
             FeeConsumed = new FeeWatcher(this);
