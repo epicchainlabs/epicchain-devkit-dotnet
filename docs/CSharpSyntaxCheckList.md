@@ -1,11 +1,11 @@
-# C# Syntax Support for Neo Smart Contracts
+# C# Syntax Support for EpicChain Smart Contracts
 
-This document serves as a comprehensive guide to C# syntax support in Neo smart contract development. While Neo allows for smart contract development using C#, it's important to note that not all C# features are fully supported or may behave differently in the context of smart contracts.
+This document serves as a comprehensive guide to C# syntax support in EpicChain smart contract development. While EpicChain allows for smart contract development using C#, it's important to note that not all C# features are fully supported or may behave differently in the context of smart contracts.
 
 ## Purpose
-- To provide clarity on which C# syntaxes are supported in Neo smart contracts
+- To provide clarity on which C# syntaxes are supported in EpicChain smart contracts
 - To highlight any differences or limitations compared to standard C# usage
-- To serve as a reference for both experienced C# developers and those new to Neo smart contract development
+- To serve as a reference for both experienced C# developers and those new to EpicChain smart contract development
 
 ## How to Use This Document
 - Each C# feature or syntax element is listed with its support status
@@ -14,9 +14,9 @@ This document serves as a comprehensive guide to C# syntax support in Neo smart 
 - Partial support or behavior differences are noted where applicable
 
 ## Ongoing Development
-We are continuously working to expand C# syntax support in Neo smart contracts. This document will be regularly updated to reflect the latest developments and improvements in Neo's C# support for smart contracts.
+We are continuously working to expand C# syntax support in EpicChain smart contracts. This document will be regularly updated to reflect the latest developments and improvements in EpicChain's C# support for smart contracts.
 
-For any C# features not listed or marked as unsupported, please refer to the official Neo documentation or community resources for alternative approaches or workarounds in smart contract development.
+For any C# features not listed or marked as unsupported, please refer to the official EpicChain documentation or community resources for alternative approaches or workarounds in smart contract development.
 
 C# Language Specification :  https://ecma-international.org/publications-and-standards/standards/ecma-334/
 
@@ -25,7 +25,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 
 ## 1. Keywords
 
-### Basic Data Types (https://github.com/epicchainlabs/epicchain-devkit-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
+### Basic Data Types (https://github.com/EpicChain-project/EpicChain-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/Helper.cs)
 - [x] **void**: Represents the absence of a value or a method that does not return a value.
 - [x] **bool**: Declares a variable of Boolean data type. Example: `bool isReady = true;`
 - [x] **byte**: Declares a variable of 8-bit unsigned integer data type. Example: `byte myByte = 100;`
@@ -45,13 +45,13 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **System.Numerics.BigInteger**: Represents a large integer data type. Example: `System.Numerics.BigInteger bigInt = 1234567890123456789012345678901234567890;`
 - [x] **List**: Represents a list data type. Example: `List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };`
 - [x] **Map**: Represents a map data type. Example: `Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();`
-- [x] **EpicChain.UInt160**: Represents a 160-bit unsigned integer data type. Example: `v.UInt160 hash160Value = new EpicChain.UInt160();`
+- [x] **EpicChain.UInt160**: Represents a 160-bit unsigned integer data type. Example: `EpicChain.UInt160 hash160Value = new EpicChain.UInt160();`
 - [x] **EpicChain.UInt256**: Represents a 256-bit unsigned integer data type. Example: `EpicChain.UInt256 hash256Value = new EpicChain.UInt256();`
 
 
-## C# to Neo smart contract type mapping table:
+## C# to EpicChain smart contract type mapping table:
 
-| C# Type | Neo Type | Description |
+| C# Type | EpicChain Type | Description |
 |-|-|-|
 | `bool` | `Boolean` | Boolean type |
 | `byte` | `Integer` | 8-bit unsigned integer |
@@ -101,7 +101,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **try**: Starts a try-catch block. Example: `try { /* code */ } catch (Exception ex) { /* handle exception */ }`
 - [x] **catch**: Catches and handles exceptions in a try-catch block. Example: `try { /* code that may throw an exception */ } catch (Exception ex) { /* handle exception */ }`
 > [!WARNING]
-> In Neo smart contracts, at most one catch block is allowed for each try block.
+> In EpicChain smart contracts, at most one catch block is allowed for each try block.
 - [x] **finally**: Defines a block of code to be executed in a try-catch-finally block. Example: `try { /* code */ } catch (Exception ex) { /* handle exception */ } finally { /* cleanup code */ }`
 
 ### Access Modifiers and Member Control
@@ -338,7 +338,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
 
-## 2. Operators (https://github.com/epicchainlabs/epicchain-devkit-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
+## 2. Operators (https://github.com/EpicChain-project/EpicChain-devpack-dotnet/blob/master/src/EpicChain.Compiler.CSharp/MethodConvert.cs)
 
 ### Arithmetic Operators
 - [x] `+`: Adds two operands. Example: `int result = 5 + 3; // result is 8`
@@ -418,7 +418,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [ ] `interface`: Represents an interface. Example: `interface IMyInterface { /* interface members */ }`
 - [x] `delegate`: Represents a delegate. Example: `delegate int MyDelegate(int x, int y);`
 > [!WARNING]
-> In Neo smart contracts, delegate is used to define events for the contract.
+> In EpicChain smart contracts, delegate is used to define events for the contract.
 - [ ] `dynamic`: Represents a dynamically-typed object. Example: `dynamic dynVar = 42;`
 - [x] `array`: Represents an array. Example: `int[] numbers = { 1, 2, 3, 4, 5 };`
 
@@ -495,7 +495,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
   }
   ```
   > [!WARNING]
-  > In Neo smart contracts, at most one catch block is allowed for each try block.
+  > In EpicChain smart contracts, at most one catch block is allowed for each try block.
 - [ ] **Reflection**: Provides information about types and objects at runtime. Example:
   ```csharp
   Type type = typeof(MyClass);
