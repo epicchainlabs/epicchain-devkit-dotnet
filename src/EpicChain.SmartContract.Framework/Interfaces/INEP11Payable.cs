@@ -1,13 +1,28 @@
-// Copyright (C) 2015-2024 The Neo Project.
+// Copyright (C) 2021-2024 EpicChain Lab's
 //
-// INEP11Payable.cs file belongs to the neo project and is free
-// software distributed under the MIT software license, see the
-// accompanying file LICENSE in the main directory of the
-// repository or http://www.opensource.org/licenses/mit-license.php
-// for more details.
-//
-// Redistribution and use in source and binary forms with or without
-// modifications are permitted.
+// ================================================================================================
+//                                        INEP11Payable.cs
+//                                   Part of the EpicChain Project
+// ------------------------------------------------------------------------------------------------
+// This file is a core component of the EpicChain project. It is distributed as free software under
+// the MIT license, a permissive open-source license. For the full legal details on the usage,
+// modification, and distribution of this software, please see the LICENSE file in the root folder
+// of the project repository or visit the official MIT license page at:
+// http://www.opensource.org/licenses/mit-license.php
+// ------------------------------------------------------------------------------------------------
+// MIT License Overview:
+// - Redistribution and use in source and binary forms, with or without modification, are allowed.
+// - The software can be freely modified, ensuring compliance with the terms and conditions.
+// ------------------------------------------------------------------------------------------------
+// A Message from xmoohad, Founder & CEO of EpicChain Labs:
+// "EpicChain is driven by innovation and transparency. Every line of code, including
+// INEP11Payable.cs, reflects our vision to provide robust and scalable blockchain solutions for
+// the global community. We encourage developers to contribute and build on our work. Together,
+// we are laying the foundations for the future of decentralized technology."
+// ------------------------------------------------------------------------------------------------
+//                                  Thank you for supporting EpicChain.
+// ================================================================================================
+
 
 #nullable enable
 

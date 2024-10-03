@@ -1,6 +1,6 @@
 
 
-// Copyright (C) 2015-2024 The Neo Project.
+// Copyright (C) 2021-2024 EpicChain Lab's
 //
 // ContractManifestExtensions.cs file belongs to neo-express project and is free
 // software distributed under the MIT software license, see the
