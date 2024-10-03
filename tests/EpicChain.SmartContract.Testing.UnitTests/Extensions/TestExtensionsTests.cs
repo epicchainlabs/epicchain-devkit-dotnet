@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
-using Neo.IO;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
 using EpicChain.SmartContract.Testing.Extensions;
 using EpicChain.SmartContract.Testing.Native.Models;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System.Numerics;
 
 namespace EpicChain.SmartContract.TestEngine.UnitTests.Extensions

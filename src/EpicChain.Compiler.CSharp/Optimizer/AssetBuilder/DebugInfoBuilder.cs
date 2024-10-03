@@ -1,5 +1,5 @@
-using Neo.Json;
-using Neo.VM;
+using EpicChain.Json;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;

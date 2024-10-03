@@ -24,11 +24,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.SmartContract.Fra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo", "epicchain\src\EpicChain\EpicChain.csproj", "{73223FBD-C562-4FA0-9722-C7F1C382A9DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Cryptography.BLS12_381", "epicchain\src\EpicChain.Cryptography.BLS12_381\Neo.Cryptography.BLS12_381.csproj", "{D541BCE9-65BC-475B-94E5-19B6BFFF2B8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.Cryptography.BLS12_381", "epicchain\src\EpicChain.Cryptography.BLS12_381\EpicChain.Cryptography.BLS12_381.csproj", "{D541BCE9-65BC-475B-94E5-19B6BFFF2B8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Json", "epicchain\src\EpicChain.Json\Neo.Json.csproj", "{35A34EBD-F2BF-4D83-A096-D5F007B12732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.Json", "epicchain\src\EpicChain.Json\EpicChain.Json.csproj", "{35A34EBD-F2BF-4D83-A096-D5F007B12732}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.VM", "epicchain\src\EpicChain.VM\Neo.VM.csproj", "{D6D53889-5A10-46A4-BA66-E78B56EC1881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.VM", "epicchain\src\EpicChain.VM\EpicChain.VM.csproj", "{D6D53889-5A10-46A4-BA66-E78B56EC1881}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependency", "dependency", "{49D5873D-7B38-48A5-B853-85146F032091}"
 EndProject
@@ -38,9 +38,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.SmartContract.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.SmartContract.Template.UnitTests", "tests\EpicChain.SmartContract.Template.UnitTests\EpicChain.SmartContract.Template.UnitTests.csproj", "{17F45E0B-AB1C-4796-8C99-E5212A5592F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.Extensions", "epicchain\src\EpicChain.Extensions\Neo.Extensions.csproj", "{E5EFB018-810D-4297-8921-940FA0B1ED97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.Extensions", "epicchain\src\EpicChain.Extensions\EpicChain.Extensions.csproj", "{E5EFB018-810D-4297-8921-940FA0B1ED97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neo.IO", "epicchain\src\EpicChain.IO\Neo.IO.csproj", "{C2B7927F-AAA5-432A-8E76-B5080BD7EFB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.IO", "epicchain\src\EpicChain.IO\EpicChain.IO.csproj", "{C2B7927F-AAA5-432A-8E76-B5080BD7EFB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicChain.SmartContract.Analyzer.UnitTests", "tests\EpicChain.SmartContract.Analyzer.UnitTests\EpicChain.SmartContract.Analyzer.UnitTests.csproj", "{F30E2375-012A-4A38-985B-31CB7DBA4D28}"
 EndProject

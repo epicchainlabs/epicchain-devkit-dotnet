@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 
 namespace Neo.Compiler;
 

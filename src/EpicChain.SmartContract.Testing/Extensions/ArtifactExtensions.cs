@@ -1,4 +1,4 @@
-using Neo.IO;
+using EpicChain.IO;
 using EpicChain.SmartContract.Manifest;
 using System;
 using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace EpicChain.SmartContract.Testing.Extensions
             if (manifest.IsOwnable()) inheritance.Add(typeof(IOwnable));
             if (manifest.IsVerificable()) inheritance.Add(typeof(IVerificable));
 
-            sourceCode.WriteLine("using Neo.Cryptography.ECC;");
+            sourceCode.WriteLine("using EpicChain.Cryptography.ECC;");
             sourceCode.WriteLine("using System;");
             sourceCode.WriteLine("using System.Collections.Generic;");
             sourceCode.WriteLine("using System.ComponentModel;");
@@ -87,7 +87,7 @@ namespace EpicChain.SmartContract.Testing.Extensions
                     sourceCode.WriteLine($"    /// Optimization: {optimization}");
                     sourceCode.WriteLine($"    /// </summary>");
                 }
-                sourceCode.WriteLine($"    public static {typeof(NefFile).FullName} Nef => Neo.IO.Helper.AsSerializable<{typeof(NefFile).FullName}>(Convert.FromBase64String(@\"{value}\"));");
+                sourceCode.WriteLine($"    public static {typeof(NefFile).FullName} Nef => EpicChain.IO.Helper.AsSerializable<{typeof(NefFile).FullName}>(Convert.FromBase64String(@\"{value}\"));");
                 sourceCode.WriteLine();
             }
 

@@ -1,4 +1,4 @@
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Collections;
 using System.Collections.Generic;

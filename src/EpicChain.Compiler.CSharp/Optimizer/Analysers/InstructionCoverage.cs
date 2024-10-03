@@ -9,9 +9,9 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using ntract;
-using ntract.Manifest;
-using Neo.VM;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

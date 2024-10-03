@@ -1,6 +1,6 @@
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Coverage.Formats;
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

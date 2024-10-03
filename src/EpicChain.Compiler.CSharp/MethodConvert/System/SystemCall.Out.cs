@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
+using EpicChain.VM;
 
 namespace Neo.Compiler;
 

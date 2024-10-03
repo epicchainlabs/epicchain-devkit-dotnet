@@ -1,4 +1,4 @@
-using Neo.Json;
+using EpicChain.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;

@@ -1,8 +1,8 @@
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using Neo.Extensions;
+using EpicChain.Extensions;
 using EpicChain.SmartContract.Testing.Interpreters;
 
 namespace EpicChain.SmartContract.Testing.Coverage

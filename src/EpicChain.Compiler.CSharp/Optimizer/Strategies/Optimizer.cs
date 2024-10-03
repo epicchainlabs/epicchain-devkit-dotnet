@@ -10,10 +10,10 @@
 // modifications are permitted.
 
 using Neo.Compiler;
-using Neo.Json;
-using ntract;
-using ntract.Manifest;
-using Neo.VM;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

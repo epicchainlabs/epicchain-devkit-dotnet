@@ -12,10 +12,10 @@ extern alias scfx;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.IO;
+using EpicChain.IO;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
+using EpicChain.VM;
 using scfx::EpicChain.SmartContract.Framework.Attributes;
 using System;
 using System.Linq;

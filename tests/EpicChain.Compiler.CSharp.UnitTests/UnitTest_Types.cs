@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
-using Neo.Json;
+using EpicChain.IO;
+using EpicChain.Json;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;

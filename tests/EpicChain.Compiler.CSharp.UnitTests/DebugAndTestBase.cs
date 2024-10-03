@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
+using EpicChain.Json;
 using Neo.Optimizer;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;

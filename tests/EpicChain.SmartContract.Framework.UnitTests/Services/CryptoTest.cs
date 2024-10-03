@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography;
+using EpicChain.Cryptography;
 using Neo.Network.P2P;
 using EpicChain.SmartContract.Testing;
 using Neo.Wallets;
 using System.Security.Cryptography;
 using System.Text;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
 namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {

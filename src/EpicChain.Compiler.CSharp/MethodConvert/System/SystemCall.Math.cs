@@ -13,7 +13,7 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.VM;
+using EpicChain.VM;
 
 namespace Neo.Compiler;
 

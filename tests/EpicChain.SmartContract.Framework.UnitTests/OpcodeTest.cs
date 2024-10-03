@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 using FrameworkOpCode = scfx.EpicChain.SmartContract.Framework.OpCode;
-using VMOpCode = Neo.VM.OpCode;
+using VMOpCode = EpicChain.VM.OpCode;
 
 namespace EpicChain.SmartContract.Framework.UnitTests
 {

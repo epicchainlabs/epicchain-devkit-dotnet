@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using OpCode = Neo.VM.OpCode;
+using OpCode = EpicChain.VM.OpCode;
 
 namespace Neo.Compiler;
 

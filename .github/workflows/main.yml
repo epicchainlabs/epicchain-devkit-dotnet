@@ -8,7 +8,7 @@ on:
 env:
   DOTNET_VERSION: 8.0.x
   DOTNET_TEST_PARAMETERS: --no-build /p:CollectCoverage=true -l "console;verbosity=detailed"
-  COVERLET_EXCLUDE_COVERAGE: /p:Exclude=\"[EpicChain.SmartContract.TestEngine]*,[EpicChain.Compiler.CSharp.UnitTests]*,[Neo]*,[Neo.IO]*,[Neo.Json]*,[Neo.VM]*,[Neo.Extensions]*,[Neo.Cryptography.BLS12_381]*\"
+  COVERLET_EXCLUDE_COVERAGE: /p:Exclude=\"[EpicChain.SmartContract.TestEngine]*,[EpicChain.Compiler.CSharp.UnitTests]*,[Neo]*,[EpicChain.IO]*,[EpicChain.Json]*,[EpicChain.VM]*,[EpicChain.Extensions]*,[EpicChain.Cryptography.BLS12_381]*\"
   COVERLET_OUTPUT: /p:CoverletOutput=${{ github.workspace }}/coverage-join/
   COVERLET_MERGE_WITH: /p:MergeWith=${{ github.workspace }}/coverage-join/coverage.json
 
@@ -53,7 +53,7 @@ jobs:
         dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/ownable/OwnableEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/neocontractowner/Artifacts/
         dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/oracle/OracleRequestEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/neocontractoracle/Artifacts/
     - name: Build Solution
-      run: dotnet build ./neo-devpack-dotnet.sln
+      run: dotnet build ./epicchain-devkit-dotnet.sln
     - name: Add package coverlet.msbuild
       run: find tests -name *.csproj | xargs -I % dotnet add % package coverlet.msbuild
     - name: Test EpicChain.Compiler.CSharp.UnitTests
@@ -187,12 +187,12 @@ jobs:
     - name: Publish to NuGet
       if: steps.check_tag.outputs.statusCode == '404'
       run: |
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/neo/EpicChain.csproj
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.Cryptography.BLS12_381/Neo.Cryptography.BLS12_381.csproj
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.Extensions/Neo.Extensions.csproj
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.IO/Neo.IO.csproj
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.Json/Neo.Json.csproj
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.VM/Neo.VM.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain/EpicChain.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain.Cryptography.BLS12_381/EpicChain.Cryptography.BLS12_381.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain.Extensions/EpicChain.Extensions.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain.IO/EpicChain.IO.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain.Json/EpicChain.Json.csproj
+        dotnet sln epicchain-devkit-dotnet.sln remove ./epicchain/src/EpicChain.VM/EpicChain.VM.csproj
         dotnet pack -o pub -c Release
         dotnet nuget push "pub/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN} --skip-duplicate
       env:

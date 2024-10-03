@@ -13,7 +13,7 @@ extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.VM;
+using EpicChain.VM;
 
 namespace Neo.Compiler;
 

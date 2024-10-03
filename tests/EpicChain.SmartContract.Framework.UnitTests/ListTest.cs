@@ -1,6 +1,6 @@
 using System.Numerics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
+using EpicChain.Json;
 using EpicChain.SmartContract.Testing;
 
 namespace EpicChain.SmartContract.Framework.UnitTests

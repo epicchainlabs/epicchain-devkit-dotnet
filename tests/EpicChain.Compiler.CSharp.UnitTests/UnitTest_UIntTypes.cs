@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.IO;
+using EpicChain.IO;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;
 using EpicChain.SmartContract.Testing.InvalidTypes;

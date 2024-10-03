@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System.Numerics;
 using System.Text;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
 namespace EpicChain.Compiler.CSharp.UnitTests
 {

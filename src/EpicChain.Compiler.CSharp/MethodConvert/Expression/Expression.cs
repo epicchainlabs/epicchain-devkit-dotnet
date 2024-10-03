@@ -11,11 +11,11 @@
 extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.Cryptography.ECC;
-using Neo.IO;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using Neo.Wallets;
 using System.Linq;
 using System.Numerics;

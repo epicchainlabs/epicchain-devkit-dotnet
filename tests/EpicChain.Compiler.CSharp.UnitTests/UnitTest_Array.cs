@@ -1,11 +1,11 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.SmartContract.Testing;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System.Linq;
 using System.Numerics;
 using EpicChain.SmartContract.Testing.Exceptions;
-using Array = Neo.VM.Types.Array;
+using Array = EpicChain.VM.Types.Array;
 
 namespace EpicChain.Compiler.CSharp.UnitTests
 {

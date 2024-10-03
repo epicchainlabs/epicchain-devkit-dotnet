@@ -9,7 +9,7 @@
 // modifications are permitted.
 
 using Microsoft.CodeAnalysis;
-using Neo.VM;
+using EpicChain.VM;
 using System.Collections.Generic;
 
 namespace Neo.Compiler

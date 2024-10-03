@@ -11,7 +11,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.VM;
+using EpicChain.VM;
 using System.Linq;
 
 namespace Neo.Compiler

@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\epicchain\src\EpicChain.Extensions\Neo.Extensions.csproj" />
+    <ProjectReference Include="..\..\epicchain\src\EpicChain.Extensions\EpicChain.Extensions.csproj" />
     <ProjectReference Include="..\..\epicchain\src\EpicChain\EpicChain.csproj" />
     <ProjectReference Include="..\EpicChain.SmartContract.Framework\EpicChain.SmartContract.Framework.csproj">
       <Aliases>scfx</Aliases>

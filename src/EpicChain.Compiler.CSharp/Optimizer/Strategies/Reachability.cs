@@ -9,10 +9,10 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.Json;
-using ntract;
-using ntract.Manifest;
-using Neo.VM;
+using EpicChain.Json;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 using static Neo.Optimizer.JumpTarget;

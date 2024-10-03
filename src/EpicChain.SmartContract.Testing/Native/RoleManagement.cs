@@ -1,4 +1,4 @@
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using EpicChain.SmartContract.Native;
 using System.ComponentModel;
 using System.Numerics;

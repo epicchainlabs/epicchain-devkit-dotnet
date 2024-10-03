@@ -13,8 +13,8 @@ extern alias scfx;
 using Microsoft.CodeAnalysis;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
@@ -85,7 +85,7 @@ namespace Neo.Compiler
                 case "string": return ContractParameterType.String;
                 case "byte[]": return ContractParameterType.ByteArray;
                 case "object": return ContractParameterType.Any;
-                case "Neo.Cryptography.ECC.ECPoint": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.Cryptography.ECC.ECPoint": // Old EpicChain.SmartContract.Framework
                 case "EpicChain.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
                 case "EpicChain.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
                 case "Neo.UInt160": // Old EpicChain.SmartContract.Framework

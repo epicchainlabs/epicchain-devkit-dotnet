@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using EpicChain.SmartContract.Testing.Exceptions;
 using System.Linq;
 using System.Reflection;

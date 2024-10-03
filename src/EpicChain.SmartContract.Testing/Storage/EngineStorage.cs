@@ -1,4 +1,4 @@
-using Neo.Json;
+using EpicChain.Json;
 using Neo.Persistence;
 using System;
 using System.Buffers.Binary;

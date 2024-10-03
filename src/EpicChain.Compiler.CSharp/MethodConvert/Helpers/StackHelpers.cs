@@ -11,12 +11,12 @@
 extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Buffers.Binary;
 using System.Numerics;
 using scfx::EpicChain.SmartContract.Framework;
-using OpCode = Neo.VM.OpCode;
+using OpCode = EpicChain.VM.OpCode;
 
 namespace Neo.Compiler;
 

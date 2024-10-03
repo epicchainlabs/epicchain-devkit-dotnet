@@ -3,8 +3,8 @@ using Neo.Persistence;
 using EpicChain.SmartContract.Native;
 using EpicChain.SmartContract.Testing.Extensions;
 using EpicChain.SmartContract.Testing.Storage;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 

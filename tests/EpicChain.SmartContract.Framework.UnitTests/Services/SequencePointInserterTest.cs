@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.SmartContract.Testing;
-using Neo.VM;
+using EpicChain.VM;
 using System.Linq;
 
 namespace EpicChain.SmartContract.Framework.UnitTests.Services

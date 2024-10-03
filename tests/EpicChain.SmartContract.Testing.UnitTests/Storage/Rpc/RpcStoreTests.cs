@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using EpicChain.SmartContract.Testing.Storage;
 using EpicChain.SmartContract.Testing.Storage.Rpc;
 using System.Numerics;

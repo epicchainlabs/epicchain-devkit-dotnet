@@ -10,8 +10,8 @@
 
 using Microsoft.CodeAnalysis;
 using EpicChain.SmartContract;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
-using Neo.Extensions;
+using EpicChain.Extensions;
 
 namespace Neo.Compiler
 {

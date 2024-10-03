@@ -8,7 +8,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.Json;
+using EpicChain.Json;
 using System.Collections.Generic;
 using System.Linq;
 

@@ -1,8 +1,8 @@
-using Neo.Cryptography;
+using EpicChain.Cryptography;
 using Neo.Network.P2P.Payloads;
 using Neo.Persistence;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Linq;
 

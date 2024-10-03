@@ -1,7 +1,7 @@
-using Neo.IO;
+using EpicChain.IO;
 using Neo.Network.P2P.Payloads;
 using EpicChain.SmartContract.Native;
-using Neo.VM;
+using EpicChain.VM;
 using System.ComponentModel;
 using System.Numerics;
 

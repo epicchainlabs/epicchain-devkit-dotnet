@@ -16,7 +16,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using scfx::EpicChain.SmartContract.Framework.Attributes;
-using OpCode = Neo.VM.OpCode;
+using OpCode = EpicChain.VM.OpCode;
 
 namespace Neo.Compiler;
 

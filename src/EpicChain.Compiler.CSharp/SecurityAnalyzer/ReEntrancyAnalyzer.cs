@@ -1,7 +1,7 @@
-using Neo.Json;
+using EpicChain.Json;
 using Neo.Optimizer;
-using ntract;
-using ntract.Manifest;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,7 +85,7 @@ namespace Neo.Compiler.SecurityAnalyzer
             foreach (BasicBlock b in basicBlocks)
             {
                 int addr = b.startAddr;
-                foreach (Neo.VM.Instruction instruction in b.instructions)
+                foreach (EpicChain.VM.Instruction instruction in b.instructions)
                 {
                     if (instruction.OpCode == VM.OpCode.SYSCALL)
                     {

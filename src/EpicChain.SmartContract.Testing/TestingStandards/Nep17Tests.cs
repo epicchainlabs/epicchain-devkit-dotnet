@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Neo.IO;
+using EpicChain.IO;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Coverage;
 using EpicChain.SmartContract.Testing.Exceptions;
 using EpicChain.SmartContract.Testing.InvalidTypes;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;

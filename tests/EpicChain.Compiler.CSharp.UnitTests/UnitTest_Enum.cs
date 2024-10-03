@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 
 namespace EpicChain.Compiler.CSharp.UnitTests
 {

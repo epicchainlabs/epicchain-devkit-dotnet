@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using Neo.Network.P2P.Payloads;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Extensions;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System.Linq;
 
 namespace EpicChain.SmartContract.Framework.UnitTests.Services

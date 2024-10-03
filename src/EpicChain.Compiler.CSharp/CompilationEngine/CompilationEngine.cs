@@ -13,7 +13,7 @@ extern alias scfx;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.Json;
+using EpicChain.Json;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

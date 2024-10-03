@@ -1,6 +1,6 @@
 using System.Numerics;
-using Neo.VM;
-using Neo.VM.Types;
+using EpicChain.VM;
+using EpicChain.VM.Types;
 
 namespace Neo.Compiler;
 

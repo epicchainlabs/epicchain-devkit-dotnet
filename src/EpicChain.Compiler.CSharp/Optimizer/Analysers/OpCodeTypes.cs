@@ -9,11 +9,11 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.VM;
+using EpicChain.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Neo.VM.OpCode;
+using static EpicChain.VM.OpCode;
 
 namespace Neo.Optimizer
 {

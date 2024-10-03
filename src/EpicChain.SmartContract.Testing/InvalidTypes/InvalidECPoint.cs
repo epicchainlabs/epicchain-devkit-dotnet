@@ -1,4 +1,4 @@
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 
 namespace EpicChain.SmartContract.Testing.InvalidTypes
 {

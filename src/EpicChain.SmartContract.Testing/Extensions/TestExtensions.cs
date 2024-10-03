@@ -1,7 +1,7 @@
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using EpicChain.SmartContract.Testing.Attributes;
 using EpicChain.SmartContract.Testing.Interpreters;
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;

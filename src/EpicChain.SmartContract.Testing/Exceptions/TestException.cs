@@ -1,4 +1,4 @@
-using Neo.VM;
+using EpicChain.VM;
 using System;
 
 namespace EpicChain.SmartContract.Testing.Exceptions

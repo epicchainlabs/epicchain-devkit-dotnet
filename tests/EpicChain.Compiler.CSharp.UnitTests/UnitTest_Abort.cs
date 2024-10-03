@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
+using EpicChain.Json;
 using Neo.Optimizer;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;
-using Neo.VM;
+using EpicChain.VM;
 using System.Collections.Generic;
 
 namespace EpicChain.Compiler.CSharp.UnitTests

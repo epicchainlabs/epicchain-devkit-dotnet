@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Json;
+using EpicChain.Json;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Extensions;
 
@@ -19,7 +19,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Extensions
             var source = manifest.GetArtifactsSource(manifest.Name, generateProperties: true);
 
             Assert.AreEqual(source, """
-                                    using Neo.Cryptography.ECC;
+                                    using EpicChain.Cryptography.ECC;
                                     using System;
                                     using System.Collections.Generic;
                                     using System.ComponentModel;

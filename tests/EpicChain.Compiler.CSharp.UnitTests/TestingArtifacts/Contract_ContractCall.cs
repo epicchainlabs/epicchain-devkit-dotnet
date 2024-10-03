@@ -1,4 +1,4 @@
-using Neo.Cryptography.ECC;
+using EpicChain.Cryptography.ECC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ public abstract class Contract_ContractCall(EpicChain.SmartContract.Testing.Smar
     /// <summary>
     /// Optimization: "All"
     /// </summary>
-    public static EpicChain.SmartContract.NefFile Nef => Neo.IO.Helper.AsSerializable<EpicChain.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL6/at13HH7LqpqZtVUevO2qaYmDgl0ZXN0QXJnczEBAAEP+v2rddxx+y6qambVVHrztqmmJg4IdGVzdFZvaWQAAAAPAAAJFDcAAEA3AQBAPzwuew=="));
+    public static EpicChain.SmartContract.NefFile Nef => EpicChain.IO.Helper.AsSerializable<EpicChain.SmartContract.NefFile>(Convert.FromBase64String(@"TkVGM1Rlc3RpbmdFbmdpbmUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL6/at13HH7LqpqZtVUevO2qaYmDgl0ZXN0QXJnczEBAAEP+v2rddxx+y6qambVVHrztqmmJg4IdGVzdFZvaWQAAAAPAAAJFDcAAEA3AQBAPzwuew=="));
 
     #endregion
 

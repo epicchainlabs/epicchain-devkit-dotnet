@@ -14,9 +14,9 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 using Neo.Compiler.Optimizer;
-using Neo.Cryptography.ECC;
-using Neo.IO;
-using Neo.Json;
+using EpicChain.Cryptography.ECC;
+using EpicChain.IO;
+using EpicChain.Json;
 using Neo.Optimizer;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
@@ -30,7 +30,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Diagnostic = Microsoft.CodeAnalysis.Diagnostic;
-using ECPoint = Neo.Cryptography.ECC.ECPoint;
+using ECPoint = EpicChain.Cryptography.ECC.ECPoint;
 
 namespace Neo.Compiler
 {

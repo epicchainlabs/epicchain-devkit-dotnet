@@ -8,7 +8,7 @@
 // Redistribution and use in source and binary forms with or without
 // modifications are permitted.
 
-using Neo.VM;
+using EpicChain.VM;
 using System.Collections.Generic;
 
 namespace Neo.Compiler.Optimizer

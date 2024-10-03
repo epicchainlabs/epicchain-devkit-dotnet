@@ -70,7 +70,7 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 | Array types | `Array` | Array |
 | `object` | `Any` | Any type |
 | `void` | `Void` | No return value |
-| `Neo.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
+| `EpicChain.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
 | `EpicChain.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
 | `Neo.UInt160` | `Hash160` | 20-byte hash value |
 | `Neo.UInt256` | `Hash256` | 32-byte hash value |
