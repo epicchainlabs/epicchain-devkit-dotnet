@@ -110,14 +110,14 @@ It has four methods:
 
 var engine = new TestEngine(true);
 
-// Instantiate neo contract from native hash, (not necessary if we use engine.Native.NEO)
+// Instantiate epicchain contract from native hash, (not necessary if we use engine.Native.NEO)
 
 var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash, false);
 
 // Ensure that the main address contains the totalSupply
 
-Assert.AreEqual(100_000_000, neo.TotalSupply);
-Assert.AreEqual(neo.TotalSupply, neo.BalanceOf(engine.ValidatorsAddress));
+Assert.AreEqual(100_000_000, epicchain.TotalSupply);
+Assert.AreEqual(epicchain.TotalSupply, epicchain.BalanceOf(engine.ValidatorsAddress));
 ```
 
 ### NativeArtifacts
@@ -243,13 +243,13 @@ var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash,
 
 // Test direct call
 
-Assert.AreEqual(123, neo.BalanceOf(engine.ValidatorsAddress));
+Assert.AreEqual(123, epicchain.BalanceOf(engine.ValidatorsAddress));
 
 // Test vm call
 
 using (ScriptBuilder script = new())
 {
-    script.EmitDynamicCall(neo.Hash, "balanceOf", engine.ValidatorsAddress);
+    script.EmitDynamicCall(epicchain.Hash, "balanceOf", engine.ValidatorsAddress);
 
     Assert.AreEqual(123, engine.Execute(script.ToArray()).GetInteger());
 }

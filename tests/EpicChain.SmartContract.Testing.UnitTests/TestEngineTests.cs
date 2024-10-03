@@ -154,7 +154,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
             // Ensure that the main address contains the totalSupply
 
             Assert.AreEqual(100_000_000, epicchain.TotalSupply);
-            Assert.AreEqual(epicchain.TotalSupply, neo.BalanceOf(engine.ValidatorsAddress));
+            Assert.AreEqual(epicchain.TotalSupply, epicchain.BalanceOf(engine.ValidatorsAddress));
         }
     }
 }
