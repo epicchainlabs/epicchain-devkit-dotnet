@@ -103,7 +103,7 @@ public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
     /// Safe method
     /// </summary>
     [DisplayName("getAccountState")]
-    public abstract EpicChain.SmartContract.Native.EpicChain.NeoAccountState GetAccountState(UInt160 account);
+    public abstract EpicChain.SmartContract.Native.EpicChain.EpicChainAccountState GetAccountState(UInt160 account);
 
     /// <summary>
     /// Safe method

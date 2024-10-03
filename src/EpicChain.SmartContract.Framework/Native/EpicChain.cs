@@ -17,7 +17,7 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Framework.Native
 {
     [Contract("0x6dc3bff7b2e6061f3cad5744edf307c14823328e")]
-    public class NEO
+    public class EpicChain
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }
@@ -41,6 +41,6 @@ namespace EpicChain.SmartContract.Framework.Native
         public static extern ECPoint[] GetCommittee();
         public static extern UInt160 GetCommitteeAddress();
         public static extern ECPoint[] GetNextBlockValidators();
-        public static extern NeoAccountState GetAccountState(UInt160 account);
+        public static extern EpicChainAccountState GetAccountState(UInt160 account);
     }
 }

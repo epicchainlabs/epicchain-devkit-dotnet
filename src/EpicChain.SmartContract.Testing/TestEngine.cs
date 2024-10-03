@@ -76,7 +76,7 @@ namespace EpicChain.SmartContract.Testing
             MaxTransactionsPerBlock = ProtocolSettings.Default.MaxTransactionsPerBlock,
             MemoryPoolMaxTransactions = ProtocolSettings.Default.MemoryPoolMaxTransactions,
             MaxTraceableBlocks = ProtocolSettings.Default.MaxTraceableBlocks,
-            InitialGasDistribution = ProtocolSettings.Default.InitialGasDistribution,
+            InitialEpicChainDistribution = ProtocolSettings.Default.InitialEpicChainDistribution,
             Hardforks = ProtocolSettings.Default.Hardforks
         };
 

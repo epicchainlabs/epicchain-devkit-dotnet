@@ -12,7 +12,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    public class NeoAccountState
+    public class EpicChainAccountState
     {
         public readonly BigInteger Balance;
         public readonly BigInteger Height;
