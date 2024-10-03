@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     public static class Optimizer
     {

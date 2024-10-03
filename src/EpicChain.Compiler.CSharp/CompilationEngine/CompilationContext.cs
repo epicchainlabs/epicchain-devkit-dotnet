@@ -17,7 +17,7 @@ using EpicChain.Compiler.Optimizer;
 using EpicChain.Cryptography.ECC;
 using EpicChain.IO;
 using EpicChain.Json;
-using Neo.Optimizer;
+using EpicChain.Optimizer;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
 using scfx::EpicChain.SmartContract.Framework;
@@ -159,7 +159,7 @@ namespace EpicChain.Compiler
                 try
                 {
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    (nef, manifest, debugInfo) = Neo.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo: debugInfo!.Clone() as JObject, optimizationType: Options.Optimize);
+                    (nef, manifest, debugInfo) = EpicChain.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo: debugInfo!.Clone() as JObject, optimizationType: Options.Optimize);
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 }
                 catch (Exception ex)

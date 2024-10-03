@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Optimizer;
+using EpicChain.Optimizer;
 using EpicChain.SmartContract.Testing;
 
 namespace EpicChain.Compiler.CSharp.UnitTests.Optimizer

@@ -4,7 +4,7 @@ using EpicChain.SmartContract.Manifest;
 using EpicChain.VM;
 using System.Collections.Generic;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     public static class AssetBuilder
     {

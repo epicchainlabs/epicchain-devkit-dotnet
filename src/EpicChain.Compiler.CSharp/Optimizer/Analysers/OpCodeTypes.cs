@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static EpicChain.VM.OpCode;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     static class OpCodeTypes
     {

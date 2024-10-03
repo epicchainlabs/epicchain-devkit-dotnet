@@ -16,7 +16,7 @@ using EpicChain.VM;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     public static class Peephole
     {

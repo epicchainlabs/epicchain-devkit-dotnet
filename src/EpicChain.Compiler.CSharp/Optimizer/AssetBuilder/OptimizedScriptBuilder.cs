@@ -3,10 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using static Neo.Optimizer.OpCodeTypes;
-using static Neo.Optimizer.Optimizer;
+using static EpicChain.Optimizer.OpCodeTypes;
+using static EpicChain.Optimizer.Optimizer;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     static class OptimizedScriptBuilder
     {

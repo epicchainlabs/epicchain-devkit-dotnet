@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis.Emit;
 using EpicChain.Compiler.SecurityAnalyzer;
 using EpicChain.IO;
 using EpicChain.Json;
-using Neo.Optimizer;
+using EpicChain.Optimizer;
 using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Extensions;
@@ -116,7 +116,7 @@ namespace EpicChain.Compiler
                         debugInfo = (JObject?)JObject.Parse(DumpNef.UnzipDebugInfo(File.ReadAllBytes(debugInfoPath)));
                     else
                         debugInfo = null;
-                    (nef, manifest, debugInfo) = Neo.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo, optimizationType: options.Optimize);
+                    (nef, manifest, debugInfo) = EpicChain.Optimizer.Optimizer.Optimize(nef, manifest, debugInfo, optimizationType: options.Optimize);
                     File.WriteAllBytes(Path.Combine(directory, filename + ".optimized.nef"), nef.ToArray());
                     File.WriteAllBytes(Path.Combine(directory, filename + ".optimized.manifest.json"), manifest.ToJson().ToByteArray(true));
                     if (options.Assembly)

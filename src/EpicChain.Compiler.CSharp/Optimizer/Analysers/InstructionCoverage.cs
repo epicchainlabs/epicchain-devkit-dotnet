@@ -16,10 +16,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using static Neo.Optimizer.JumpTarget;
-using static Neo.Optimizer.OpCodeTypes;
+using static EpicChain.Optimizer.JumpTarget;
+using static EpicChain.Optimizer.OpCodeTypes;
 
-namespace Neo.Optimizer
+namespace EpicChain.Optimizer
 {
     public enum TryStackType
     {
