@@ -47,7 +47,7 @@ using System.Numerics;
 
 namespace NFT
 {
-    public class TokenState : Nep11TokenState
+    public class TokenState : XEP11TokenState
     {
         public BigInteger TokenId;
 

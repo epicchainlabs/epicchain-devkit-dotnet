@@ -12,14 +12,14 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.TestingStandards;
 
-public class Nep17Tests<T> : TestBase<T>
+public class XEP17Tests<T> : TestBase<T>
     where T : SmartContract, INep17Standard, IContractInfo
 {
-    public abstract class onNEP17PaymentContract : SmartContract
+    public abstract class onXEP17PaymentContract : SmartContract
     {
-        protected onNEP17PaymentContract(SmartContractInitialize initialize) : base(initialize) { }
+        protected onXEP17PaymentContract(SmartContractInitialize initialize) : base(initialize) { }
 
-        public abstract void onNEP17Payment(UInt160? from, BigInteger? amount, object? data = null);
+        public abstract void onXEP17Payment(UInt160? from, BigInteger? amount, object? data = null);
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class Nep17Tests<T> : TestBase<T>
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest file</param>
     /// <param name="debugInfoFile">Debug info file</param>
-    public Nep17Tests(string nefFile, string manifestFile, string? debugInfoFile = null) :
+    public XEP17Tests(string nefFile, string manifestFile, string? debugInfoFile = null) :
         base(nefFile, manifestFile, debugInfoFile)
     {
         Contract.OnTransfer += onTransfer;
@@ -61,7 +61,7 @@ public class Nep17Tests<T> : TestBase<T>
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest</param>
     /// <param name="debugInfo">Debug info</param>
-    public Nep17Tests(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+    public XEP17Tests(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
        : base(nefFile, manifestFile, debugInfo)
     {
         Contract.OnTransfer += onTransfer;
@@ -204,7 +204,7 @@ public class Nep17Tests<T> : TestBase<T>
         Assert.AreEqual(initialSupply, Contract.TotalSupply);
         AssertTransferEvent(Bob.Account, Alice.Account, 3);
 
-        // Test onNEP17Payment with a mock
+        // Test onXEP17Payment with a mock
         // We create a mock contract using the current nef and manifest
         // Only we need to create the manifest method, then it will be redirected
 
@@ -213,7 +213,7 @@ public class Nep17Tests<T> : TestBase<T>
         [
             new()
             {
-                Name = "onNEP17Payment",
+                Name = "onXEP17Payment",
                 ReturnType = ContractParameterType.Void,
                 Safe = false,
                 Parameters =
@@ -231,10 +231,10 @@ public class Nep17Tests<T> : TestBase<T>
         BigInteger? calledAmount = null;
         UInt160? calledData = null;
 
-        var mock = Engine.Deploy<onNEP17PaymentContract>(NefFile, manifest, null, m =>
+        var mock = Engine.Deploy<onXEP17PaymentContract>(NefFile, manifest, null, m =>
          {
              m
-             .Setup(s => s.onNEP17Payment(It.IsAny<UInt160>(), It.IsAny<BigInteger>(), It.IsAny<object>()))
+             .Setup(s => s.onXEP17Payment(It.IsAny<UInt160>(), It.IsAny<BigInteger>(), It.IsAny<object>()))
              .Callback(new InvocationAction((i) =>
              {
                  // Set variables

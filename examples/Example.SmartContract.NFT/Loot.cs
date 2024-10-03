@@ -55,10 +55,10 @@ namespace NFT
     [DisplayName("SampleLootNFT")]
     [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractDescription("This is a text Example.SmartContract.NFT")]
-    [SupportedStandards(NepStandard.Nep11)]
-    [ContractPermission(Permission.Any, Method.OnNEP11Payment)]
+    [SupportedStandards(XepStandard.XEP11)]
+    [ContractPermission(Permission.Any, Method.OnXEP11Payment)]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
-    public partial class Loot : Nep11Token<TokenState>
+    public partial class Loot : XEP11Token<TokenState>
     {
         public override string Symbol { [Safe] get => "sLoot"; }
 

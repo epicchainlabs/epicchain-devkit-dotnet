@@ -147,7 +147,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
             return Owner();
         }
 
-        static readonly string[] SupportedStandards = new string[] { "NEP-5", "NEP-10" };
+        static readonly string[] SupportedStandards = new string[] { "XEP-5", "XEP-10" };
 
         public static string[] TestSupportedStandards()
         {

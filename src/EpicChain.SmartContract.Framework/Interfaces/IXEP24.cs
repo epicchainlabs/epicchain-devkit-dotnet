@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// INEP24.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// IXep24.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -48,7 +48,7 @@ namespace EpicChain.SmartContract.Framework.Interfaces;
 /// <summary>
 /// Interface of supporting royalty information for Non-Fungible Tokens (NFTs)
 /// </summary>
-public interface INep24
+public interface IXep24
 {
     /// <summary>
     /// This implements Royalty Standard: https://github.com/neo-project/proposals/pull/155/

@@ -19,31 +19,31 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         [TestMethod]
         public void TestAttribute()
         {
-            CollectionAssert.AreEqual(Contract_SupportedStandards.Manifest.SupportedStandards, new string[] { "NEP-10", "NEP-5" });
+            CollectionAssert.AreEqual(Contract_SupportedStandards.Manifest.SupportedStandards, new string[] { "XEP-10", "XEP-5" });
         }
 
         [TestMethod]
-        public void TestStandardNEP11AttributeEnum()
+        public void TestStandardXEP11AttributeEnum()
         {
-            CollectionAssert.AreEqual(Contract_SupportedStandard11Enum.Manifest.SupportedStandards, new string[] { "NEP-11" });
+            CollectionAssert.AreEqual(Contract_SupportedStandard11Enum.Manifest.SupportedStandards, new string[] { "XEP-11" });
         }
 
         [TestMethod]
         public void TestStandardNEP17AttributeEnum()
         {
-            CollectionAssert.AreEqual(Contract_SupportedStandard17Enum.Manifest.SupportedStandards, new string[] { "NEP-17" });
+            CollectionAssert.AreEqual(Contract_SupportedStandard17Enum.Manifest.SupportedStandards, new string[] { "XEP-17" });
         }
 
         [TestMethod]
-        public void TestStandardNEP11PayableAttribute()
+        public void TestStandardXEP11PayableAttribute()
         {
-            CollectionAssert.AreEqual(Contract_SupportedStandard11Payable.Manifest.SupportedStandards, new string[] { "NEP-26" });
+            CollectionAssert.AreEqual(Contract_SupportedStandard11Payable.Manifest.SupportedStandards, new string[] { "XEP-26" });
         }
 
         [TestMethod]
-        public void TestStandardNEP17PayableAttribute()
+        public void TestStandardXep17PayableAttribute()
         {
-            CollectionAssert.AreEqual(Contract_SupportedStandard17Payable.Manifest.SupportedStandards, new string[] { "NEP-27" });
+            CollectionAssert.AreEqual(Contract_SupportedStandard17Payable.Manifest.SupportedStandards, new string[] { "XEP-27" });
         }
     }
 }

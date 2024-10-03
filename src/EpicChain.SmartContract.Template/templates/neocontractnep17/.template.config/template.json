@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "The Neo Project",
-  "classifications": [ "NEO", "Blockchain", "Smart Contract", "NEP-17" ],
+  "classifications": [ "NEO", "Blockchain", "Smart Contract", "XEP-17" ],
   "identity": "EpicChain.SmartContract.Template.Nep17",
-  "name": "Neo Smart Contract - NEP-17",
+  "name": "Neo Smart Contract - XEP-17",
   "shortName": "neocontractnep17",
   "preferNameDirectory": true,
   "tags": {

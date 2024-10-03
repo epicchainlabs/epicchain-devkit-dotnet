@@ -188,8 +188,8 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var items = Contract.TestSupportedStandards();
             AssertGasConsumed(1784760);
 
-            Assert.AreEqual((ByteString)"NEP-5", items?[0]);
-            Assert.AreEqual((ByteString)"NEP-10", items?[1]);
+            Assert.AreEqual((ByteString)"XEP-5", items?[0]);
+            Assert.AreEqual((ByteString)"XEP-10", items?[1]);
         }
 
         [TestMethod]

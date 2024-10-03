@@ -1,10 +1,10 @@
-using ntract.Testing;
-using ntract.Testing.TestingStandards;
+using EpicChain.SmartContract.Testing;
+using EpicChain.SmartContract.Testing.TestingStandards;
 
 namespace Example.SmartContract.NEP17.UnitTests
 {
     [TestClass]
-    public class NEP17Tests : TestBase<SampleNep17Token>
+    public class XEP17Tests : TestBase<SampleXep17Token>
     {
         [TestInitialize]
         public void TestSetup()
@@ -16,7 +16,7 @@ namespace Example.SmartContract.NEP17.UnitTests
         [TestMethod]
         public void Test()
         {
-            Assert.AreEqual(Contract.Symbol, "SampleNep17Token");
+            Assert.AreEqual(Contract.Symbol, "SampleXep17Token");
             Assert.AreEqual(Contract.Decimals, 8);
         }
     }

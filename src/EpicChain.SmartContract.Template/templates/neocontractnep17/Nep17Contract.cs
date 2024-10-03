@@ -15,7 +15,7 @@ namespace EpicChain.SmartContract.Template
     [ContractVersion("<Version String Here>")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(NepStandard.Nep17)]
+    [SupportedStandards(XepStandard.Nep17)]
     public class Nep17Contract : EpicChain.SmartContract.Framework.Nep17Token
     {
         #region Owner
@@ -114,6 +114,6 @@ namespace EpicChain.SmartContract.Template
             ContractManagement.Update(nefFile, manifest, data);
         }
 
-        // NOTE: NEP-17 contracts "SHOULD NOT" have "Destroy" method
+        // NOTE: XEP-17 contracts "SHOULD NOT" have "Destroy" method
     }
 }

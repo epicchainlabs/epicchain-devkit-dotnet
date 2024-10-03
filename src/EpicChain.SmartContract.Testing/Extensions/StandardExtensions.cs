@@ -10,10 +10,10 @@ namespace EpicChain.SmartContract.Testing.Extensions
         /// Is Nep17 contract
         /// </summary>
         /// <param name="manifest">Manifest</param>
-        /// <returns>True if NEP-17</returns>
+        /// <returns>True if XEP-17</returns>
         public static bool IsNep17(this ContractManifest manifest)
         {
-            return manifest.SupportedStandards.Contains("NEP-17");
+            return manifest.SupportedStandards.Contains("XEP-17");
         }
 
         /// <summary>

@@ -59,7 +59,7 @@ public class SampleContractCall : SmartContract
     [Hash160("0x13a83e059c2eedd5157b766d3357bc826810905e")]
     private static readonly UInt160 DummyTarget;
 
-    public static void onNEP17Payment(UInt160 from, BigInteger amount, BigInteger data)
+    public static void onXEP17Payment(UInt160 from, BigInteger amount, BigInteger data)
     {
         if (!data.Equals(123)) return;
         UInt160 @this = Runtime.ExecutingScriptHash;

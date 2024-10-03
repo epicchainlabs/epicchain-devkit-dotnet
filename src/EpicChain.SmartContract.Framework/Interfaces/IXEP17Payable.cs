@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// INEP17Payable.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// IXEP17Payable.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -48,12 +48,12 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
-/// Interface of method that indicate a contract receives NEP-17 Payment
+/// Interface of method that indicate a contract receives XEP-17 Payment
 /// </summary>
-public interface INep17Payable
+public interface IXEP17Payable
 {
     /// <summary>
-    /// The contract should implement the <see cref="OnNEP17Payment"/> method
+    /// The contract should implement the <see cref="onXEP17Payment"/> method
     /// to receive NEP17 tokens.
     /// </summary>
     /// <param name="from">The address of the payer</param>
@@ -66,5 +66,5 @@ public interface INep17Payable
     /// Both static and non-static methods of smart contract interface works,
     /// they differs on how you process static field.
     /// </remarks>
-    public void OnNEP17Payment(UInt160 from, BigInteger amount, object? data = null);
+    public void onXEP17Payment(UInt160 from, BigInteger amount, object? data = null);
 }

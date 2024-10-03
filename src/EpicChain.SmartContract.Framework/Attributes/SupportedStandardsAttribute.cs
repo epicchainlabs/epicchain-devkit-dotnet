@@ -19,7 +19,7 @@ namespace EpicChain.SmartContract.Framework.Attributes
         {
         }
 
-        public SupportedStandardsAttribute(params NepStandard[] supportedStandards)
+        public SupportedStandardsAttribute(params XepStandard[] supportedStandards)
         {
         }
     }

@@ -55,18 +55,18 @@ namespace EpicChain.SmartContract.Analyzer
                         if (argument is LiteralExpressionSyntax literalExpression)
                         {
                             var standardValue = literalExpression.Token.ValueText.ToUpper();
-                            if (standardValue is "NEP11" or "NEP-11" or "NEP17" or "NEP-17")
+                            if (standardValue is "XEP11" or "XEP-11" or "NEP17" or "XEP-17")
                             {
-                                var standard = standardValue is "NEP11" or "NEP-11" ? NepStandard.Nep11 : NepStandard.Nep17;
+                                var standard = standardValue is "XEP11" or "XEP-11" ? XepStandard.XEP11 : XepStandard.Nep17;
                                 var expectedSyntax = SyntaxFactory.AttributeArgument(
                                     SyntaxFactory.MemberAccessExpression(
                                         SyntaxKind.SimpleMemberAccessExpression,
-                                        SyntaxFactory.IdentifierName("NepStandard"),
+                                        SyntaxFactory.IdentifierName("XepStandard"),
                                         SyntaxFactory.IdentifierName(standard.ToString())));
 
                                 if (!argumentList.Arguments[0].Expression.IsEquivalentTo(expectedSyntax.Expression))
                                 {
-                                    var suggestionMessage = $"Consider using [SupportedStandards(NepStandard.{standard})]";
+                                    var suggestionMessage = $"Consider using [SupportedStandards(XepStandard.{standard})]";
                                     var diagnostic = Diagnostic.Create(Rule, attributeSyntax.GetLocation(), suggestionMessage);
                                     context.ReportDiagnostic(diagnostic);
                                 }
@@ -84,12 +84,12 @@ namespace EpicChain.SmartContract.Analyzer
 
         private static bool IsSupportedStandard(string value)
         {
-            return Enum.TryParse<NepStandard>(value, out _);
+            return Enum.TryParse<XepStandard>(value, out _);
         }
 
-        private string GetSuggestionMessage(NepStandard standard)
+        private string GetSuggestionMessage(XepStandard standard)
         {
-            return $"Consider using [SupportedStandards(NepStandard.{standard})]";
+            return $"Consider using [SupportedStandards(XepStandard.{standard})]";
         }
     }
 
@@ -131,13 +131,13 @@ namespace EpicChain.SmartContract.Analyzer
                 if (argument is LiteralExpressionSyntax literalExpression)
                 {
                     var standardValue = literalExpression.Token.ValueText;
-                    if (standardValue == "NEP11")
+                    if (standardValue == "XEP11")
                     {
-                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("NepStandard"), SyntaxFactory.IdentifierName("Nep11")))));
+                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("XEP11")))));
                     }
                     else if (standardValue == "NEP17")
                     {
-                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("NepStandard"), SyntaxFactory.IdentifierName("Nep17")))));
+                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("Nep17")))));
                     }
                 }
             }

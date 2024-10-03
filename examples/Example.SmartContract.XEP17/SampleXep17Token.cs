@@ -52,14 +52,14 @@ using System.Numerics;
 namespace NEP17
 {
     /// <inheritdoc />
-    [DisplayName("SampleNep17Token")]
+    [DisplayName("SampleXep17Token")]
     [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractVersion("0.0.1")]
-    [ContractDescription("A sample NEP-17 token")]
+    [ContractDescription("A sample XEP-17 token")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(NepStandard.Nep17)]
-    public class SampleNep17Token : Nep17Token
+    [SupportedStandards(XepStandard.Nep17)]
+    public class SampleXep17Token : Nep17Token
     {
         #region Owner
 
@@ -142,7 +142,7 @@ namespace NEP17
 
         #region Example.SmartContract.NEP17
 
-        public override string Symbol { [Safe] get => "SampleNep17Token"; }
+        public override string Symbol { [Safe] get => "SampleXep17Token"; }
         public override byte Decimals { [Safe] get => 8; }
 
         public new static void Burn(UInt160 account, BigInteger amount)

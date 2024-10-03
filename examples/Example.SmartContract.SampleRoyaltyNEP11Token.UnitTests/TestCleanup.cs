@@ -3,7 +3,7 @@ using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Extensions;
 
-namespace Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests
+namespace Example.SmartContract.SampleRoyaltyXEP11Token.UnitTests
 {
     public class TestCleanup
     {

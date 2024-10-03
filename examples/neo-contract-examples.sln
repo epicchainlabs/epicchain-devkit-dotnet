@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.Inscr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.Modifier", "Example.SmartContract.Modifier\Example.SmartContract.Modifier.csproj", "{50E8D694-AC3C-456C-B901-3530E9AFF555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.NEP17", "Example.SmartContract.NEP17\Example.SmartContract.NEP17.csproj", "{FBDF111C-65C0-45E4-8D25-9BE78C35CDC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.XEP17", "Example.SmartContract.XEP17\Example.SmartContract.XEP17.csproj", "{FBDF111C-65C0-45E4-8D25-9BE78C35CDC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.NFT", "Example.SmartContract.NFT\Example.SmartContract.NFT.csproj", "{051A2A1E-2225-405F-82F6-79E4D5345DF6}"
 EndProject
@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.ZKP",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.NFT.UnitTests", "Example.SmartContract.NFT.UnitTests\Example.SmartContract.NFT.UnitTests.csproj", "{F1512011-B002-4854-8E4E-74E67F486FD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.NEP17.UnitTests", "Example.SmartContract.NEP17.UnitTests\Example.SmartContract.NEP17.UnitTests.csproj", "{DA7106D4-E077-4C9A-A2D5-82C5176D6E99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.XEP17.UnitTests", "Example.SmartContract.XEP17.UnitTests\Example.SmartContract.XEP17.UnitTests.csproj", "{DA7106D4-E077-4C9A-A2D5-82C5176D6E99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.ContractCall.UnitTests", "Example.SmartContract.ContractCall.UnitTests\Example.SmartContract.ContractCall.UnitTests.csproj", "{762390D3-D576-4D39-837A-EB834470860E}"
 EndProject
@@ -47,9 +47,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.Trans
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.ZKP.UnitTests", "Example.SmartContract.ZKP.UnitTests\Example.SmartContract.ZKP.UnitTests.csproj", "{FD294EB0-2BE9-4256-92D8-D487197A994F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.SampleRoyaltyNEP11Token", "Example.SmartContract.SampleRoyaltyNEP11Token\Example.SmartContract.SampleRoyaltyNEP11Token.csproj", "{E951B308-7DB7-44D9-A277-624F9405538D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.SampleRoyaltyXEP11Token", "Example.SmartContract.SampleRoyaltyXEP11Token\Example.SmartContract.SampleRoyaltyXEP11Token.csproj", "{E951B308-7DB7-44D9-A277-624F9405538D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests", "Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests\Example.SmartContract.SampleRoyaltyNEP11Token.UnitTests.csproj", "{0ECF7743-FD1B-4DEC-9F1C-A8DFB978E0FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.SmartContract.SampleRoyaltyXEP11Token.UnitTests", "Example.SmartContract.SampleRoyaltyXEP11Token.UnitTests\Example.SmartContract.SampleRoyaltyXEP11Token.UnitTests.csproj", "{0ECF7743-FD1B-4DEC-9F1C-A8DFB978E0FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@ using EpicChain.SmartContract.Testing.TestingStandards;
 namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
-    public class UnitTest_NEP17 : Nep17Tests<Contract_NEP17>
+    public class UnitTest_NEP17 : XEP17Tests<Contract_NEP17>
     {
         #region Expected values in base tests
 

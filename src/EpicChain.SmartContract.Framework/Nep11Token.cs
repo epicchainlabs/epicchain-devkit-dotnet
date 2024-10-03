@@ -17,10 +17,10 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Framework
 {
-    [SupportedStandards(NepStandard.Nep11)]
-    [ContractPermission(Permission.Any, Method.OnNEP11Payment)]
-    public abstract class Nep11Token<TokenState> : TokenContract
-        where TokenState : Nep11TokenState
+    [SupportedStandards(XepStandard.XEP11)]
+    [ContractPermission(Permission.Any, Method.OnXEP11Payment)]
+    public abstract class XEP11Token<TokenState> : TokenContract
+        where TokenState : XEP11TokenState
     {
         public delegate void OnTransferDelegate(UInt160 from, UInt160 to, BigInteger amount, ByteString tokenId);
 
@@ -142,7 +142,7 @@ namespace EpicChain.SmartContract.Framework
         {
             OnTransfer(from, to, 1, tokenId);
             if (to is not null && ContractManagement.GetContract(to) is not null)
-                Contract.Call(to, "onNEP11Payment", CallFlags.All, from, 1, tokenId, data);
+                Contract.Call(to, "OnXEP11Payment", CallFlags.All, from, 1, tokenId, data);
         }
     }
 }

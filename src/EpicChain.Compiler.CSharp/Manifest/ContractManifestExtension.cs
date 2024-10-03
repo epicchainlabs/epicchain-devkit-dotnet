@@ -23,7 +23,7 @@ namespace EpicChain.Compiler
     internal static class ContractManifestExtensions
     {
         private static System.Collections.Generic.List<CompilationException>
-            CheckNep11Compliant(this ContractManifest manifest)
+            CheckXEP11Compliant(this ContractManifest manifest)
         {
             var symbolMethod = manifest.Abi.GetMethod("symbol", 0);
             var decimalsMethod = manifest.Abi.GetMethod("decimals", 0);
@@ -86,34 +86,34 @@ namespace EpicChain.Compiler
 
             System.Collections.Generic.List<CompilationException> errors = new();
 
-            if (!symbolValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: symbol"));
-            if (!decimalsValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: decimals"));
+            if (!symbolValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: symbol"));
+            if (!decimalsValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: decimals"));
 
-            if (!totalSupplyValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: totalSupply"));
+            if (!totalSupplyValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: totalSupply"));
 
-            if (!balanceOfValid1 && !balanceOfValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: balanceOf"));
+            if (!balanceOfValid1 && !balanceOfValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: balanceOf"));
 
-            if (!tokensOfValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: tokensOf"));
+            if (!tokensOfValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: tokensOf"));
 
-            if (!ownerOfValid1 && !ownerOfValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep11.ToStandard()} implementation: ownerOf"));
+            if (!ownerOfValid1 && !ownerOfValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.XEP11.ToStandard()} implementation: ownerOf"));
 
-            if (!transferValid1 && !transferValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete NEP standard {NepStandard.Nep11.ToStandard()} implementation: transfer"));
+            if (!transferValid1 && !transferValid2) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete NEP standard {XepStandard.XEP11.ToStandard()} implementation: transfer"));
 
-            if (!transferEvent) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete NEP standard {NepStandard.Nep11.ToStandard()} implementation: {nameof(transferEvent)}"));
+            if (!transferEvent) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete NEP standard {XepStandard.XEP11.ToStandard()} implementation: {nameof(transferEvent)}"));
 
             return errors;
         }
 
         private static System.Collections.Generic.List<CompilationException>
-            CheckNep24Compliant(this ContractManifest manifest)
+            CheckXep24Compliant(this ContractManifest manifest)
         {
             var royaltyInfoMethod = manifest.Abi.GetMethod("royaltyInfo", 0);
 
@@ -125,8 +125,8 @@ namespace EpicChain.Compiler
                                 royaltyInfoMethod.Parameters[2].Type == ContractParameterType.Integer;
 
             System.Collections.Generic.List<CompilationException> errors = [];
-            if (!royaltyInfoValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep24.ToStandard()} implementation: royaltyInfo"));
+            if (!royaltyInfoValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.Xep24.ToStandard()} implementation: royaltyInfo"));
             return errors;
         }
 
@@ -165,70 +165,70 @@ namespace EpicChain.Compiler
 
             System.Collections.Generic.List<CompilationException> errors = new();
 
-            if (!symbolValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep17.ToStandard()} implementation: symbol"));
-            if (!decimalsValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep17.ToStandard()} implementation: decimals"));
-            if (!totalSupplyValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep17.ToStandard()} implementation: totalSupply"));
-            if (!balanceOfValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete or unsafe NEP standard {NepStandard.Nep17.ToStandard()} implementation: balanceOf"));
-            if (!transferValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete NEP standard {NepStandard.Nep17.ToStandard()} implementation: transfer"));
+            if (!symbolValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.Nep17.ToStandard()} implementation: symbol"));
+            if (!decimalsValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.Nep17.ToStandard()} implementation: decimals"));
+            if (!totalSupplyValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.Nep17.ToStandard()} implementation: totalSupply"));
+            if (!balanceOfValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete or unsafe NEP standard {XepStandard.Nep17.ToStandard()} implementation: balanceOf"));
+            if (!transferValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete NEP standard {XepStandard.Nep17.ToStandard()} implementation: transfer"));
 
             return errors;
         }
 
         private static System.Collections.Generic.List<CompilationException>
-            CheckNep11PayableCompliant(this ContractManifest manifest)
+            CheckXEP11PayableCompliant(this ContractManifest manifest)
         {
-            var onNEP11PaymentMethod = manifest.Abi.GetMethod("onNEP11Payment", 4);
-            var onNEP11PaymentValid = onNEP11PaymentMethod is { ReturnType: ContractParameterType.Void } &&
-                                        onNEP11PaymentMethod.Parameters.Length == 4 &&
-                                        onNEP11PaymentMethod.Parameters[0].Type == ContractParameterType.Hash160 &&
-                                        onNEP11PaymentMethod.Parameters[1].Type == ContractParameterType.Integer &&
-                                        onNEP11PaymentMethod.Parameters[2].Type == ContractParameterType.String &&
-                                        onNEP11PaymentMethod.Parameters[3].Type == ContractParameterType.Any;
+            var OnXEP11PaymentMethod = manifest.Abi.GetMethod("OnXEP11Payment", 4);
+            var OnXEP11PaymentValid = OnXEP11PaymentMethod is { ReturnType: ContractParameterType.Void } &&
+                                        OnXEP11PaymentMethod.Parameters.Length == 4 &&
+                                        OnXEP11PaymentMethod.Parameters[0].Type == ContractParameterType.Hash160 &&
+                                        OnXEP11PaymentMethod.Parameters[1].Type == ContractParameterType.Integer &&
+                                        OnXEP11PaymentMethod.Parameters[2].Type == ContractParameterType.String &&
+                                        OnXEP11PaymentMethod.Parameters[3].Type == ContractParameterType.Any;
 
             System.Collections.Generic.List<CompilationException> errors = [];
-            if (!onNEP11PaymentValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete NEP standard {NepStandard.Nep11Payable.ToStandard()} implementation: onNEP11Payment"));
+            if (!OnXEP11PaymentValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete NEP standard {XepStandard.XEP11Payable.ToStandard()} implementation: OnXEP11Payment"));
             return errors;
         }
 
         private static System.Collections.Generic.List<CompilationException>
-            CheckNep17PayableCompliant(this ContractManifest manifest)
+            CheckXep17PayableCompliant(this ContractManifest manifest)
         {
-            var onNEP17PaymentMethod = manifest.Abi.GetMethod("onNEP17Payment", 3);
-            var onNEP17PaymentValid = onNEP17PaymentMethod is { ReturnType: ContractParameterType.Void } &&
-                                        onNEP17PaymentMethod.Parameters.Length == 3 &&
-                                        onNEP17PaymentMethod.Parameters[0].Type == ContractParameterType.Hash160 &&
-                                        onNEP17PaymentMethod.Parameters[1].Type == ContractParameterType.Integer &&
-                                        onNEP17PaymentMethod.Parameters[2].Type == ContractParameterType.Any;
+            var onXEP17PaymentMethod = manifest.Abi.GetMethod("onXEP17Payment", 3);
+            var onXEP17PaymentValid = onXEP17PaymentMethod is { ReturnType: ContractParameterType.Void } &&
+                                        onXEP17PaymentMethod.Parameters.Length == 3 &&
+                                        onXEP17PaymentMethod.Parameters[0].Type == ContractParameterType.Hash160 &&
+                                        onXEP17PaymentMethod.Parameters[1].Type == ContractParameterType.Integer &&
+                                        onXEP17PaymentMethod.Parameters[2].Type == ContractParameterType.Any;
 
             System.Collections.Generic.List<CompilationException> errors = [];
-            if (!onNEP17PaymentValid) errors.Add(new CompilationException(DiagnosticId.IncorrectNEPStandard,
-                $"Incomplete NEP standard {NepStandard.Nep17Payable.ToStandard()} implementation: onNEP17Payment"));
+            if (!onXEP17PaymentValid) errors.Add(new CompilationException(DiagnosticId.IncorrectXepStandard,
+                $"Incomplete XEP standard {XepStandard.Xep17Payable.ToStandard()} implementation: onXEP17Payment"));
             return errors;
         }
 
         internal static ContractManifest CheckStandards(this ContractManifest manifest)
         {
             System.Collections.Generic.IEnumerable<CompilationException> errors = [];
-            if (manifest.SupportedStandards.Contains(NepStandard.Nep11.ToStandard()))
-                errors = errors.Concat(manifest.CheckNep11Compliant());
+            if (manifest.SupportedStandards.Contains(XepStandard.XEP11.ToStandard()))
+                errors = errors.Concat(manifest.CheckXEP11Compliant());
 
-            if (manifest.SupportedStandards.Contains(NepStandard.Nep17.ToStandard()))
+            if (manifest.SupportedStandards.Contains(XepStandard.Nep17.ToStandard()))
                 errors = errors.Concat(manifest.CheckNep17Compliant());
 
-            if (manifest.SupportedStandards.Contains(NepStandard.Nep24.ToStandard()))
-                errors = errors.Concat(manifest.CheckNep24Compliant());
+            if (manifest.SupportedStandards.Contains(XepStandard.Xep24.ToStandard()))
+                errors = errors.Concat(manifest.CheckXep24Compliant());
 
-            if (manifest.SupportedStandards.Contains(NepStandard.Nep11Payable.ToStandard()))
-                errors = errors.Concat(manifest.CheckNep11PayableCompliant());
+            if (manifest.SupportedStandards.Contains(XepStandard.XEP11Payable.ToStandard()))
+                errors = errors.Concat(manifest.CheckXEP11PayableCompliant());
 
-            if (manifest.SupportedStandards.Contains(NepStandard.Nep17Payable.ToStandard()))
-                errors = errors.Concat(manifest.CheckNep17PayableCompliant());
+            if (manifest.SupportedStandards.Contains(XepStandard.Xep17Payable.ToStandard()))
+                errors = errors.Concat(manifest.CheckXep17PayableCompliant());
 
             foreach (CompilationException ex in errors)
                 Console.WriteLine(ex.Diagnostic);

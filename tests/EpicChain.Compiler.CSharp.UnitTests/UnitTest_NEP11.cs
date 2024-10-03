@@ -4,7 +4,7 @@ using EpicChain.SmartContract.Testing;
 namespace EpicChain.Compiler.CSharp.UnitTests
 {
     [TestClass]
-    public class UnitTest_NEP11 : DebugAndTestBase<Contract_NEP11>
+    public class UnitTest_XEP11 : DebugAndTestBase<Contract_XEP11>
     {
         [TestMethod]
         public void UnitTest_Symbol()

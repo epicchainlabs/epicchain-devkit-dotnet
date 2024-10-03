@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// INEP11Payable.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// IXEP11Payable.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -49,13 +49,13 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Framework.Interfaces;
 
 /// <summary>
-/// Interface of method that indicate a contract receives NEP-11 Payment
+/// Interface of method that indicate a contract receives XEP-11 Payment
 /// </summary>
-public interface INep11Payable
+public interface IXEP11Payable
 {
     /// <summary>
-    /// Contracts should implement the <see cref="OnNEP11Payment"/> method
-    /// to receive NFT (NEP11) tokens.
+    /// Contracts should implement the <see cref="OnXEP11Payment"/> method
+    /// to receive NFT (XEP11) tokens.
     /// </summary>
     /// <param name="from">The address of the payer</param>
     /// <param name="amount">The amount of token to be transferred</param>
@@ -68,5 +68,5 @@ public interface INep11Payable
     /// Both static and non-static methods of smart contract interface works,
     /// they differs on how you process static field.
     /// </remarks>
-    public void OnNEP11Payment(UInt160 from, BigInteger amount, string tokenId, object? data = null);
+    public void OnXEP11Payment(UInt160 from, BigInteger amount, string tokenId, object? data = null);
 }

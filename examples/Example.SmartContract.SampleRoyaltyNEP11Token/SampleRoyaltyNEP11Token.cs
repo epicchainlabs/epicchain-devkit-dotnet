@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// SampleRoyaltyNEP11Token.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// SampleRoyaltyXEP11Token.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -49,18 +49,18 @@ using EpicChain.SmartContract.Framework.Services;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace NonDivisibleNEP11
+namespace NonDivisibleXEP11
 {
     /// <inheritdoc />
-    [DisplayName("SampleRoyaltyNEP11Token")]
+    [DisplayName("SampleRoyaltyXEP11Token")]
     [ContractAuthor("core-dev", "devs@epic-chain.org")]
     [ContractVersion("0.0.1")]
-    [ContractDescription("A sample of NEP-11 Royalty Feature")]
+    [ContractDescription("A sample of XEP-11 Royalty Feature")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(NepStandard.Nep11)]
-    [SupportedStandards(NepStandard.Nep24)]
-    public class SampleRoyaltyNEP11Token : Nep11Token<Nep11TokenState>, INep24
+    [SupportedStandards(XepStandard.XEP11)]
+    [SupportedStandards(XepStandard.Xep24)]
+    public class SampleRoyaltyXEP11Token : XEP11Token<XEP11TokenState>, IXep24
     {
         #region Owner
 
@@ -137,12 +137,12 @@ namespace NonDivisibleNEP11
             ExecutionEngine.Assert(IsOwner() || IsMinter(), "No Authorization!");
             IncreaseCount();
             BigInteger tokenId = CurrentCount();
-            Nep11TokenState nep11TokenState = new Nep11TokenState()
+            XEP11TokenState XEP11TokenState = new XEP11TokenState()
             {
-                Name = "SampleRoyaltyNep11Token",
+                Name = "SampleRoyaltyXEP11Token",
                 Owner = to
             };
-            Mint((ByteString)tokenId, nep11TokenState);
+            Mint((ByteString)tokenId, XEP11TokenState);
         }
 
         private static void SetCount(BigInteger count)
@@ -163,7 +163,7 @@ namespace NonDivisibleNEP11
 
         #endregion
 
-        #region Example.SmartContract.NEP11
+        #region Example.SmartContract.XEP11
 
         public override string Symbol { [Safe] get => "SampleRoyalty"; }
 

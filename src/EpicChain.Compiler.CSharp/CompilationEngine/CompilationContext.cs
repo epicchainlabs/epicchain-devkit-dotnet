@@ -405,8 +405,8 @@ namespace EpicChain.Compiler
                                 attribute.ConstructorArguments[0].Values
                                     .Select(p => p.Value)
                                     .Select(p =>
-                                        p is int ip && Enum.IsDefined(typeof(NepStandard), ip)
-                                            ? ((NepStandard)ip).ToStandard()
+                                        p is int ip && Enum.IsDefined(typeof(XepStandard), ip)
+                                            ? ((XepStandard)ip).ToStandard()
                                             : p as string
                                     )
                                     .Where(v => v != null)! // Ensure null values are not added

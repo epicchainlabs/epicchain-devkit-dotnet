@@ -12,7 +12,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
     /// You need to build the solution to resolve Nep17Contract class.
     /// </summary>
     [TestClass]
-    public class Nep17ContractTests : Nep17Tests<Nep17ContractTemplate>
+    public class Nep17ContractTests : XEP17Tests<Nep17ContractTemplate>
     {
         #region Expected values in base tests
 

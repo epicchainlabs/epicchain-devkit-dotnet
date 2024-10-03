@@ -59,14 +59,14 @@ public static class Method
     public const string Any = "*";
 
     /// <summary>
-    /// The name of the method that is called when a contract receives NEP-17 tokens.
+    /// The name of the method that is called when a contract receives XEP-17 tokens.
     /// </summary>
-    public const string OnNEP17Payment = "onNEP17Payment";
+    public const string onXEP17Payment = "onXEP17Payment";
 
     /// <summary>
-    /// The name of the method that is called when a contract receives NEP-11 tokens.
+    /// The name of the method that is called when a contract receives XEP-11 tokens.
     /// </summary>
-    public const string OnNEP11Payment = "onNEP11Payment";
+    public const string OnXEP11Payment = "OnXEP11Payment";
 
     /// <summary>
     /// The name of the method that is called when a contract receives Oracle response.

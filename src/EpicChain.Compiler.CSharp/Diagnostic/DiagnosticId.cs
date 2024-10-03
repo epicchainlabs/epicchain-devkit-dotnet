@@ -34,7 +34,7 @@ namespace EpicChain.Compiler
         public const string MethodNameConflict = "NC3003";
         public const string EventNameConflict = "NC3004";
         public const string InvalidInitialValue = "NC3005";
-        public const string IncorrectNEPStandard = "NC3006";
+        public const string IncorrectXepStandard = "NC3006";
         public const string CapturedStaticFieldNotFound = "NC3007";
         public const string InvalidType = "NC3008";
         public const string InvalidArgument = "NC3009";

@@ -10,7 +10,7 @@
 
 namespace EpicChain.SmartContract.Framework
 {
-    public class Nep11TokenState
+    public class XEP11TokenState
     {
         public UInt160 Owner;
         public string Name;

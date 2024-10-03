@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.SmartContract.SampleRoyaltyNEP11Token", "Example.SmartContract.SampleRoyaltyNEP11Token.csproj", "{E363C475-EB64-48BD-A032-B13F48156BE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.SmartContract.SampleRoyaltyXEP11Token", "Example.SmartContract.SampleRoyaltyXEP11Token.csproj", "{E363C475-EB64-48BD-A032-B13F48156BE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

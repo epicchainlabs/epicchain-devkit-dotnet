@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// NEPStandard.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// XepStandard.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -43,44 +43,44 @@
 
 namespace EpicChain.SmartContract.Framework
 {
-    public enum NepStandard
+    public enum XepStandard
     {
-        // The NEP-11 standard is used for non-fungible tokens (NFTs).
-        // Defined at https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki
-        Nep11,
-        // The NEP-17 standard is used for fungible tokens.
-        // Defined at https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki
+        // The XEP-11 standard is used for non-fungible tokens (NFTs).
+        // Defined at https://github.com/neo-project/proposals/blob/master/XEP-11.mediawiki
+        XEP11,
+        // The XEP-17 standard is used for fungible tokens.
+        // Defined at https://github.com/neo-project/proposals/blob/master/XEP-17.mediawiki
         Nep17,
         // Smart contract transfer callback for non-fungible tokens (NFTs).
-        // This is an extension standard of NEP-11.
+        // This is an extension standard of XEP-11.
         // Defined at https://github.com/neo-project/proposals/pull/169/files#diff-2b5f7c12a23f7dbe4cb46bbf4be6936882f8e0f0b3a4db9d8c58eb294b02e6ed
         Nep26,
-        // This is the nick name of NEP-25.
-        Nep11Payable,
+        // This is the nick name of XEP-25.
+        XEP11Payable,
         // Smart contract transfer callback for fungible tokens.
-        // This is an extension standard of NEP-17.
+        // This is an extension standard of XEP-17.
         // Defined at https://github.com/neo-project/proposals/pull/169/files#diff-70768f307c9aa84f8c94e790495a76d47fffeca2331444592ebba6f13b1e6460
         Nep27,
-        // This is the nick name of NEP-26.
-        Nep17Payable,
+        // This is the nick name of XEP-26.
+        Xep17Payable,
         // This NEP defines a global standard to get royalty payment information for Non-Fungible Tokens (NFTs)
         // in order to enable support for royalty payments across all NFT marketplaces in the NEO Smart Economy.
-        // This NEP requires NEP-11.
-        // Defined at https://github.com/neo-project/proposals/blob/master/nep-24.mediawiki
-        Nep24
+        // This NEP requires XEP-11.
+        // Defined at https://github.com/neo-project/proposals/blob/master/XEP-24.mediawiki
+        Xep24
     }
 
-    public static class NepStandardExtensions
+    public static class XepStandardExtensions
     {
-        public static string ToStandard(this NepStandard standard)
+        public static string ToStandard(this XepStandard standard)
         {
             return standard switch
             {
-                NepStandard.Nep11 => "NEP-11",
-                NepStandard.Nep17 => "NEP-17",
-                NepStandard.Nep24 => "NEP-24",
-                NepStandard.Nep11Payable or NepStandard.Nep26 => "NEP-26",
-                NepStandard.Nep17Payable or NepStandard.Nep27 => "NEP-27",
+                XepStandard.XEP11 => "XEP-11",
+                XepStandard.Nep17 => "XEP-17",
+                XepStandard.Xep24 => "XEP-24",
+                XepStandard.XEP11Payable or XepStandard.Nep26 => "XEP-26",
+                XepStandard.Xep17Payable or XepStandard.Nep27 => "XEP-27",
                 _ => standard.ToString()
             };
         }

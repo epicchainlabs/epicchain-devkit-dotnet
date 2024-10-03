@@ -12,13 +12,13 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
     [ManifestExtra("Version", "<Version String Here>")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(NepStandard.Nep17)]
-    public class Contract_SupportedStandard17Enum : Nep17Token, INep17Payable
+    [SupportedStandards(XepStandard.Nep17)]
+    public class Contract_SupportedStandard17Enum : Nep17Token, IXEP17Payable
     {
         public override string Symbol { [Safe] get; } = "EXAMPLE";
         public override byte Decimals { [Safe] get; } = 0;
 
-        public void OnNEP17Payment(UInt160 from, BigInteger amount, object? data = null)
+        public void onXEP17Payment(UInt160 from, BigInteger amount, object? data = null)
         {
         }
     }
