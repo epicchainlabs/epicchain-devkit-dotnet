@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis;
 using EpicChain.SmartContract;
 using System.Linq;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class AbiMethod : AbiEvent
     {

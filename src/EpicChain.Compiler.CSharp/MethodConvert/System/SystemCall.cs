@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 using Array = System.Array;
 using Akka.Util.Internal;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

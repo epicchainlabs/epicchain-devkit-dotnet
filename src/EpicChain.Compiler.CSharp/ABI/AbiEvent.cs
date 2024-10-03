@@ -12,7 +12,7 @@ using Microsoft.CodeAnalysis;
 using EpicChain.SmartContract.Manifest;
 using System.Linq;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class AbiEvent
     {

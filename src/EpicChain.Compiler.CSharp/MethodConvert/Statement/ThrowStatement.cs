@@ -11,7 +11,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     /// <summary>
     /// Converts a 'throw' statement into the corresponding throw instruction.

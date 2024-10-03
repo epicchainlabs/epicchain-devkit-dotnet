@@ -12,7 +12,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     internal partial class MethodConvert
     {

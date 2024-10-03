@@ -11,7 +11,7 @@
 using EpicChain.VM;
 using System.Collections.Generic;
 
-namespace Neo.Compiler.Optimizer
+namespace EpicChain.Compiler.Optimizer
 {
     static class BasicOptimizer
     {

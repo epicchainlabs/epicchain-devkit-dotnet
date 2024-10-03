@@ -12,7 +12,7 @@ using Microsoft.CodeAnalysis;
 using EpicChain.VM;
 using System.Collections.Generic;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class ExceptionHandling
     {

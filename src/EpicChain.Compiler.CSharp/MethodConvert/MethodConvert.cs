@@ -12,7 +12,7 @@ extern alias scfx;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Neo.Compiler.Optimizer;
+using EpicChain.Compiler.Optimizer;
 using EpicChain.Cryptography.ECC;
 using EpicChain.IO;
 using EpicChain.SmartContract;
@@ -26,7 +26,7 @@ using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     internal partial class MethodConvert
     {

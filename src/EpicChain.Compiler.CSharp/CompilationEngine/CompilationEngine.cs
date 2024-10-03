@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using BigInteger = System.Numerics.BigInteger;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     public class CompilationEngine(CompilationOptions options)
     {

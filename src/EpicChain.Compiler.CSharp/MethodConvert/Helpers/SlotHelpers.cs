@@ -18,7 +18,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using OpCode = EpicChain.VM.OpCode;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

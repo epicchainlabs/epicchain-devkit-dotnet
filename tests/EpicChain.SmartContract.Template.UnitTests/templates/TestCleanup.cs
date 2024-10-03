@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Compiler;
+using EpicChain.Compiler;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Coverage;
 using EpicChain.SmartContract.Testing.Extensions;

@@ -16,7 +16,7 @@ using EpicChain.SmartContract.Native;
 using EpicChain.VM;
 using EpicChain.VM.Types;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

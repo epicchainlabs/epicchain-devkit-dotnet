@@ -2,7 +2,7 @@ using System.Numerics;
 using EpicChain.VM;
 using EpicChain.VM.Types;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 partial class MethodConvert
 {

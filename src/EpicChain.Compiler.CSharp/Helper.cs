@@ -22,7 +22,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     static class Helper
     {

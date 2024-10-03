@@ -20,7 +20,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

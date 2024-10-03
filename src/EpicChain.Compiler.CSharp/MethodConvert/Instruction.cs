@@ -21,7 +21,7 @@ using System.Reflection;
 using System.Text;
 using EpicChain.Extensions;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     [DebuggerDisplay("{OpCode}")]
     class Instruction

@@ -11,7 +11,7 @@
 using Microsoft.CodeAnalysis;
 using System;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class CompilationException : Exception
     {

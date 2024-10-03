@@ -12,7 +12,7 @@ using EpicChain.Json;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class PermissionBuilder
     {

@@ -18,7 +18,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using scfx::EpicChain.SmartContract.Framework.Attributes;
 using OpCode = EpicChain.VM.OpCode;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 extern alias scfx;
 

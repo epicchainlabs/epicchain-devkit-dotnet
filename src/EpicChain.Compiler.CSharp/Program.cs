@@ -11,7 +11,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
-using Neo.Compiler.SecurityAnalyzer;
+using EpicChain.Compiler.SecurityAnalyzer;
 using EpicChain.IO;
 using EpicChain.Json;
 using Neo.Optimizer;
@@ -29,7 +29,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     public class Program
     {

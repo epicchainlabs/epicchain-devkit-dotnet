@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Neo.Compiler;
+using EpicChain.Compiler;
 using EpicChain.SmartContract.Testing.Coverage;
 using EpicChain.SmartContract.Testing.Extensions;
 using System;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Akka.Util;
 using Microsoft.CodeAnalysis;
 using EpicChain.SmartContract.Testing.TestingStandards;
-using CompilationOptions = Neo.Compiler.CompilationOptions;
+using CompilationOptions = EpicChain.Compiler.CompilationOptions;
 
 namespace EpicChain.SmartContract.Framework.UnitTests
 {

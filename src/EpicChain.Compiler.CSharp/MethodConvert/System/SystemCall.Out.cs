@@ -16,7 +16,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.SmartContract.Native;
 using EpicChain.VM;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 partial class MethodConvert
 {

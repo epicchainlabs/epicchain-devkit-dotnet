@@ -17,7 +17,7 @@ using EpicChain.VM;
 using System;
 using System.Runtime.InteropServices;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

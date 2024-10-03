@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     public class CompilationOptions
     {

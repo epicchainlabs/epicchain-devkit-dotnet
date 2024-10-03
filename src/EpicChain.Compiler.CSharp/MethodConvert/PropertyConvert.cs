@@ -21,7 +21,7 @@ using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

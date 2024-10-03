@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.Compiler.SecurityAnalyzer
+namespace EpicChain.Compiler.SecurityAnalyzer
 {
     /// <summary>
     /// Re-entrancy can happen when you call untrusted external code

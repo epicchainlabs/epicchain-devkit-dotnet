@@ -18,7 +18,7 @@ using System.Numerics;
 using scfx::EpicChain.SmartContract.Framework;
 using OpCode = EpicChain.VM.OpCode;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

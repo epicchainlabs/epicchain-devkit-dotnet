@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Numerics;
 
-namespace Neo.Compiler;
+namespace mpiler;
 
 internal partial class MethodConvert
 {

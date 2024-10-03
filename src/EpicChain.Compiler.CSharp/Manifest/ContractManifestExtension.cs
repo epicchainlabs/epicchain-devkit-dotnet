@@ -14,11 +14,11 @@
 extern alias scfx;
 using System;
 using System.Linq;
-using ntract.Manifest;
-using scfx::ntract.Framework;
-using ContractParameterType = ntract.ContractParameterType;
+using EpicChain.SmartContract.Manifest;
+using scfx::EpicChain.SmartContract.Framework;
+using ContractParameterType = EpicChain.SmartContract.ContractParameterType;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     internal static class ContractManifestExtensions
     {

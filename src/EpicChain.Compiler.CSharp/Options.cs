@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     public class Options : CompilationOptions
     {

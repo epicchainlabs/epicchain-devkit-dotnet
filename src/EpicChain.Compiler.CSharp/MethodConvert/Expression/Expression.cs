@@ -20,7 +20,7 @@ using Neo.Wallets;
 using System.Linq;
 using System.Numerics;
 
-namespace Neo.Compiler;
+namespace EpicChain.Compiler;
 
 internal partial class MethodConvert
 {

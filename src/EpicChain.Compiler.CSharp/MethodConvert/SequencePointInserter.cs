@@ -12,7 +12,7 @@ using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
 
-namespace Neo.Compiler
+namespace EpicChain.Compiler
 {
     class SequencePointInserter : IDisposable
     {
