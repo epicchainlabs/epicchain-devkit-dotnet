@@ -15,7 +15,7 @@ namespace EpicChain.SmartContract.Template
     [ContractVersion("<Version String Here>")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/epicchaincontractxep17/Xep17Contract.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(XepStandard.Nep17)]
+    [SupportedStandards(XepStandard.Xep17)]
     public class Xep17Contract : EpicChain.SmartContract.Framework.Xep17Token
     {
         #region Owner

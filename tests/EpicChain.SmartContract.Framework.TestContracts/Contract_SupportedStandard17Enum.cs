@@ -12,7 +12,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
     [ManifestExtra("Version", "<Version String Here>")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(XepStandard.Nep17)]
+    [SupportedStandards(XepStandard.Xep17)]
     public class Contract_SupportedStandard17Enum : Xep17Token, IXEP17Payable
     {
         public override string Symbol { [Safe] get; } = "EXAMPLE";

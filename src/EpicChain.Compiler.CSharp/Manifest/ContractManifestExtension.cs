@@ -131,7 +131,7 @@ namespace EpicChain.Compiler
         }
 
         private static System.Collections.Generic.List<CompilationException>
-            CheckNep17Compliant(this ContractManifest manifest)
+            CheckXep17Compliant(this ContractManifest manifest)
         {
             var symbolMethod = manifest.Abi.GetMethod("symbol", 0);
             var decimalsMethod = manifest.Abi.GetMethod("decimals", 0);
@@ -219,7 +219,7 @@ namespace EpicChain.Compiler
                 errors = errors.Concat(manifest.CheckXEP11Compliant());
 
             if (manifest.SupportedStandards.Contains(XepStandard.Xep17.ToStandard()))
-                errors = errors.Concat(manifest.CheckNep17Compliant());
+                errors = errors.Concat(manifest.CheckXep17Compliant());
 
             if (manifest.SupportedStandards.Contains(XepStandard.Xep24.ToStandard()))
                 errors = errors.Concat(manifest.CheckXep24Compliant());

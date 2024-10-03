@@ -51,7 +51,7 @@ namespace EpicChain.SmartContract.Testing.Extensions
                 typeof(SmartContract)
             };
 
-            if (manifest.IsNep17()) inheritance.Add(typeof(IXep17Standard));
+            if (manifest.IsXep17()) inheritance.Add(typeof(IXep17Standard));
             if (manifest.IsOwnable()) inheritance.Add(typeof(IOwnable));
             if (manifest.IsVerificable()) inheritance.Add(typeof(IVerificable));
 

@@ -137,7 +137,7 @@ namespace EpicChain.SmartContract.Analyzer
                     }
                     else if (standardValue == "XEP17")
                     {
-                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("Nep17")))));
+                        newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("Xep17")))));
                     }
                 }
             }

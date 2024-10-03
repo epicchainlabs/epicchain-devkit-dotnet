@@ -7,11 +7,11 @@ namespace EpicChain.SmartContract.Testing.Extensions
     public static class StandardExtensions
     {
         /// <summary>
-        /// Is Nep17 contract
+        /// Is Xep17 contract
         /// </summary>
         /// <param name="manifest">Manifest</param>
         /// <returns>True if XEP-17</returns>
-        public static bool IsNep17(this ContractManifest manifest)
+        public static bool IsXep17(this ContractManifest manifest)
         {
             return manifest.SupportedStandards.Contains("XEP-17");
         }

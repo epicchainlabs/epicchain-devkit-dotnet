@@ -17,7 +17,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Framework
 {
-    [SupportedStandards(XepStandard.Nep17)]
+    [SupportedStandards(XepStandard.Xep17)]
     [ContractPermission(Permission.Any, Method.onXEP17Payment)]
     public abstract class Xep17Token : TokenContract
     {

@@ -20,7 +20,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
                                                  XEP11,
                                                  // The XEP-17 standard is used for fungible tokens.
                                                  // Defined at https://github.com/neo-project/proposals/blob/master/XEP-17.mediawiki
-                                                 Nep17
+                                                 Xep17
                                              }
 
                                              [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
@@ -73,11 +73,11 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
         }
 
         [TestMethod]
-        public async Task SupportedStandardsAnalyzer_Nep17Suggestion_ShouldReportDiagnostic()
+        public async Task SupportedStandardsAnalyzer_Xep17Suggestion_ShouldReportDiagnostic()
         {
             const string originalCode = TestNamespace + """
 
-                                                        [SupportedStandards("NEP17")]
+                                                        [SupportedStandards("XEP17")]
                                                         public class TestContract
                                                         {
                                                             public static void Main()
@@ -87,7 +87,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
                                                         """;
 
             var expectedDiagnostic = Verifier.Diagnostic(SupportedStandardsAnalyzer.DiagnosticId)
-                .WithSpan(22, 2, 22, 29).WithArguments("Consider using [SupportedStandards(XepStandard.Nep17)]");
+                .WithSpan(22, 2, 22, 29).WithArguments("Consider using [SupportedStandards(XepStandard.Xep17)]");
 
             await Verifier.VerifyAnalyzerAsync(originalCode, expectedDiagnostic).ConfigureAwait(false);
         }
@@ -139,7 +139,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
 
             const string fixedCode = TestNamespace + """
 
-                                                     [SupportedStandards(XepStandard.Nep17)]
+                                                     [SupportedStandards(XepStandard.Xep17)]
                                                      public class TestContract
                                                      {
                                                          public static void Main()
@@ -149,7 +149,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
                                                      """;
 
             var expectedDiagnostic = Verifier.Diagnostic(SupportedStandardsAnalyzer.DiagnosticId)
-                .WithSpan(22, 2, 22, 29).WithArguments("Consider using [SupportedStandards(XepStandard.Nep17)]");
+                .WithSpan(22, 2, 22, 29).WithArguments("Consider using [SupportedStandards(XepStandard.Xep17)]");
 
             await Verifier.VerifyCodeFixAsync(originalCode, expectedDiagnostic, fixedCode).ConfigureAwait(false);
         }
