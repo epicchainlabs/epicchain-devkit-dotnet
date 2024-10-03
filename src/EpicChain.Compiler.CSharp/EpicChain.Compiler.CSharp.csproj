@@ -9,7 +9,7 @@
     <PackAsTool>true</PackAsTool>
     <RootNamespace>EpicChain.Compiler</RootNamespace>
     <Nullable>enable</Nullable>
-    <PackageTags>NEO;Blockchain;Smart Contract;Compiler</PackageTags>
+    <PackageTags>EpicChain;Blockchain;Smart Contract;Compiler</PackageTags>
     <Company>The Neo Project</Company>
     <Product>EpicChain.Compiler.CSharp</Product>
     <Description>EpicChain.Compiler.CSharp</Description>

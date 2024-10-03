@@ -57,7 +57,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
         [DisplayName("GAS_Decimals")]
         public static int GAS_Decimals()
         {
-            return GAS.Decimals;
+            return EpicPulse.Decimals;
         }
 
         [DisplayName("Policy_GetFeePerByte")]

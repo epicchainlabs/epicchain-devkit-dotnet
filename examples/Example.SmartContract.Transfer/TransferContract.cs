@@ -56,7 +56,7 @@ namespace Transfer;
 /// </summary>
 [DisplayName("SampleTransferContract")]
 [ContractAuthor("code-dev", "devs@epic-chain.org")]
-[ContractDescription("A sample contract to demonstrate how to transfer NEO and GAS")]
+[ContractDescription("A sample contract to demonstrate how to transfer EpicChain and EpicPulse")]
 [ContractVersion("1.0.0.0")]
 [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
 [ContractPermission(Permission.Any, Method.Any)]
@@ -65,14 +65,14 @@ public class TransferContract : SmartContract
     private static readonly UInt160 Owner = "NUuJw4C4XJFzxAvSZnFTfsNoWZytmQKXQP";
 
     /// <summary>
-    /// Transfer method that demonstrate how to transfer NEO and GAS
+    /// Transfer method that demonstrate how to transfer EpicChain and EpicPulse
     /// </summary>
-    /// <param name="to">Target address to send Neo and GAS</param>
+    /// <param name="to">Target address to send EpicChain and EpicPulse</param>
     /// <param name="amount">Amount of tokens to be sent</param>
     public static void Transfer(UInt160 to, BigInteger amount)
     {
         ExecutionEngine.Assert(Runtime.CheckWitness(Owner));
-        ExecutionEngine.Assert(NEO.Transfer(Runtime.ExecutingScriptHash, to, amount));
-        ExecutionEngine.Assert(GAS.Transfer(Runtime.ExecutingScriptHash, to, GAS.BalanceOf(Runtime.ExecutingScriptHash), true));
+        ExecutionEngine.Assert(EpicChain.Transfer(Runtime.ExecutingScriptHash, to, amount));
+        ExecutionEngine.Assert(EpicPulse.Transfer(Runtime.ExecutingScriptHash, to, EpicPulse.BalanceOf(Runtime.ExecutingScriptHash), true));
     }
 }

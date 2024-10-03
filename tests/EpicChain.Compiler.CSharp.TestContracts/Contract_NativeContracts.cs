@@ -17,7 +17,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
 
         public static string GASSymbol()
         {
-            return GAS.Symbol;
+            return EpicPulse.Symbol;
         }
 
         public static ECPoint[] getOracleNodes()

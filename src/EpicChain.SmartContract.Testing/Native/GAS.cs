@@ -9,7 +9,7 @@ public abstract class GAS : SmartContract, TestingStandards.INep17Standard
     #region Compiled data
 
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.GAS.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.EpicPulse.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
     #endregion
 

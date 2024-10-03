@@ -31,7 +31,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             using var gas = engine.CreateGasWatcher();
             {
-                Assert.AreEqual("GAS", engine.Native.GAS.Symbol);
+                Assert.AreEqual("GAS", engine.Native.EpicPulse.Symbol);
                 Assert.AreEqual(984060L, gas);
             }
 
