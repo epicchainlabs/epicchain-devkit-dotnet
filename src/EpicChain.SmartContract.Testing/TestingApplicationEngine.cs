@@ -1,5 +1,5 @@
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
 using EpicChain.SmartContract.Native;
 using EpicChain.SmartContract.Testing.Extensions;
 using EpicChain.SmartContract.Testing.Storage;

@@ -21,15 +21,15 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Check previous data
 
-            Assert.AreEqual(100000000000, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(100000000000, engine.Native.EpicChain.RegisterPrice);
 
             // Alter data
 
-            engine.Native.NEO.Storage.Put(_registerPricePrefix, BigInteger.MinusOne);
+            engine.Native.EpicChain.Storage.Put(_registerPricePrefix, BigInteger.MinusOne);
 
             // Check altered data
 
-            Assert.AreEqual(BigInteger.MinusOne, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(BigInteger.MinusOne, engine.Native.EpicChain.RegisterPrice);
         }
 
         [TestMethod]
@@ -41,18 +41,18 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             // Check previous data
 
-            Assert.AreEqual(100000000000, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(100000000000, engine.Native.EpicChain.RegisterPrice);
 
-            var storage = engine.Native.NEO.Storage.Export();
+            var storage = engine.Native.EpicChain.Storage.Export();
 
             // Alter data
 
             storage[storage.Properties.First().Key]![Convert.ToBase64String(_registerPricePrefix)] = Convert.ToBase64String(BigInteger.MinusOne.ToByteArray());
-            engine.Native.NEO.Storage.Import(storage);
+            engine.Native.EpicChain.Storage.Import(storage);
 
             // Check altered data
 
-            Assert.AreEqual(BigInteger.MinusOne, engine.Native.NEO.RegisterPrice);
+            Assert.AreEqual(BigInteger.MinusOne, engine.Native.EpicChain.RegisterPrice);
         }
     }
 }

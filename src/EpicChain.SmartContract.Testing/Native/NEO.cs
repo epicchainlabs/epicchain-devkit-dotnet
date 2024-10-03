@@ -11,7 +11,7 @@ public abstract class NEO : SmartContract, TestingStandards.INep17Standard
     #region Compiled data
 
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.NEO.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.EpicChain.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
     #endregion
 

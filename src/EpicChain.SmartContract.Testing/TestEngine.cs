@@ -1,8 +1,8 @@
 using Moq;
 using EpicChain.Cryptography.ECC;
 using EpicChain.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Native;
 using EpicChain.SmartContract.Testing.Coverage;
@@ -115,7 +115,7 @@ namespace EpicChain.SmartContract.Testing
                     return validatorsScript.ToScriptHash();
                 }
 
-                var validators = NativeContract.NEO.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
+                var validators = NativeContract.EpicChain.ComputeNextBlockValidators(Storage.Snapshot, ProtocolSettings);
                 return Contract.GetBFTAddress(validators);
             }
         }
@@ -135,7 +135,7 @@ namespace EpicChain.SmartContract.Testing
                     return committeeScript.ToScriptHash();
                 }
 
-                return NativeContract.NEO.GetCommitteeAddress(Storage.Snapshot);
+                return NativeContract.EpicChain.GetCommitteeAddress(Storage.Snapshot);
             }
         }
 

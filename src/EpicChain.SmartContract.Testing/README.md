@@ -112,7 +112,7 @@ var engine = new TestEngine(true);
 
 // Instantiate neo contract from native hash, (not necessary if we use engine.Native.NEO)
 
-var neo = engine.FromHash<NeoToken>(engine.Native.NEO.Hash, false);
+var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash, false);
 
 // Ensure that the main address contains the totalSupply
 
@@ -139,8 +139,8 @@ var engine = new TestEngine(true);
 
 // Ensure that the main address contains the totalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
-Assert.AreEqual(engine.Native.NEO.TotalSupply, engine.Native.NEO.BalanceOf(engine.ValidatorsAddress));
+Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
+Assert.AreEqual(engine.Native.EpicChain.TotalSupply, engine.Native.EpicChain.BalanceOf(engine.ValidatorsAddress));
 ```
 
 ### SmartContractStorage
@@ -164,15 +164,15 @@ TestEngine engine = new(true);
 
 // Check previous data
 
-Assert.AreEqual(100000000000, engine.Native.NEO.RegisterPrice);
+Assert.AreEqual(100000000000, engine.Native.EpicChain.RegisterPrice);
 
 // Alter data
 
-engine.Native.NEO.Storage.Put(registerPricePrefix, BigInteger.MinusOne);
+engine.Native.EpicChain.Storage.Put(registerPricePrefix, BigInteger.MinusOne);
 
 // Check altered data
 
-Assert.AreEqual(BigInteger.MinusOne, engine.Native.NEO.RegisterPrice);
+Assert.AreEqual(BigInteger.MinusOne, engine.Native.EpicChain.RegisterPrice);
 ```
 
 ### Checkpoints
@@ -198,7 +198,7 @@ var engine = new TestEngine(true);
 
 // Check that all it works
 
-Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Create checkpoint
 
@@ -216,7 +216,7 @@ engine = new TestEngine(false) { Storage = storage };
 
 // Ensure that all works
 
-Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 ```
 
 ### Custom mocks
@@ -237,7 +237,7 @@ TestEngine engine = new(true);
 
 // Get neo token smart contract and mock balanceOf to always return 123
 
-var neo = engine.FromHash<NeoToken>(engine.Native.NEO.Hash,
+var neo = engine.FromHash<NeoToken>(engine.Native.EpicChain.Hash,
     mock => mock.Setup(o => o.BalanceOf(It.IsAny<UInt160>())).Returns(123),
     false);
 
@@ -283,7 +283,7 @@ var engine = new TestEngine(true);
 
 // Check initial value of getRegisterPrice
 
-Assert.AreEqual(100000000000, engine.Native.NEO.RegisterPrice);
+Assert.AreEqual(100000000000, engine.Native.EpicChain.RegisterPrice);
 
 // Fake Committee Signature
 
@@ -295,15 +295,15 @@ engine.SetTransactionSigners(new Network.P2P.Payloads.Signer()
 
 // Change RegisterPrice to 123
 
-engine.Native.NEO.RegisterPrice = 123;
+engine.Native.EpicChain.RegisterPrice = 123;
 
-Assert.AreEqual(123, engine.Native.NEO.RegisterPrice);
+Assert.AreEqual(123, engine.Native.EpicChain.RegisterPrice);
 
 // Now test it without this signature
 
 engine.SetTransactionSigners(TestEngine.GetNewSigner());
 
-Assert.ThrowsException<TargetInvocationException>(() => engine.Native.NEO.RegisterPrice = 123);
+Assert.ThrowsException<TargetInvocationException>(() => engine.Native.EpicChain.RegisterPrice = 123);
 ```
 
 ### Event testing
@@ -333,7 +333,7 @@ UInt160 addressTo = UInt160.Parse("0x1230000000000000000000000000000000000000");
 
 var raisedEvent = false;
 
-engine.Native.NEO.OnTransfer += (UInt160 from, UInt160 to, BigInteger amount) =>
+engine.Native.EpicChain.OnTransfer += (UInt160 from, UInt160 to, BigInteger amount) =>
 {
     Assert.AreEqual(engine.Transaction.Sender, from);
     Assert.AreEqual(addressTo, to);
@@ -344,16 +344,16 @@ engine.Native.NEO.OnTransfer += (UInt160 from, UInt160 to, BigInteger amount) =>
 };
 
 
-Assert.AreEqual(0, engine.Native.NEO.BalanceOf(addressTo));
+Assert.AreEqual(0, engine.Native.EpicChain.BalanceOf(addressTo));
 
 // Transfer funds
 
-Assert.IsTrue(engine.Native.NEO.Transfer(engine.Transaction.Sender, addressTo, 123, null));
+Assert.IsTrue(engine.Native.EpicChain.Transfer(engine.Transaction.Sender, addressTo, 123, null));
 
 // Ensure that we have balance and the event was raised
 
 Assert.IsTrue(raisedEvent);
-Assert.AreEqual(123, engine.Native.NEO.BalanceOf(addressTo));
+Assert.AreEqual(123, engine.Native.EpicChain.BalanceOf(addressTo));
 ```
 
 ### Coverage Calculation
@@ -369,7 +369,7 @@ Assert.IsNull(engine.GetCoverage(engine.Native.NEO));
 
 // Call NEO.TotalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Check that the 3 instructions has been covered
 
@@ -384,7 +384,7 @@ var engine = new TestEngine(true);
 
 // Call NEO.TotalSupply
 
-Assert.AreEqual(100_000_000, engine.Native.NEO.TotalSupply);
+Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
 // Oracle was not called
 

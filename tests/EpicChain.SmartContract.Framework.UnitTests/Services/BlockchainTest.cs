@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.IO;
-using Neo.Network.P2P.Payloads;
+using EpicChain.Network.P2P.Payloads;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;

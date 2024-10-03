@@ -1,5 +1,5 @@
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
 using System;
 using System.Reflection;
 
@@ -68,7 +68,7 @@ namespace EpicChain.SmartContract.Testing.Native
             ContractManagement = _engine.FromHash<ContractManagement>(EpicChain.SmartContract.Native.NativeContract.ContractManagement.Hash, EpicChain.SmartContract.Native.NativeContract.ContractManagement.Id);
             CryptoLib = _engine.FromHash<CryptoLib>(EpicChain.SmartContract.Native.NativeContract.CryptoLib.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoLib.Id);
             GAS = _engine.FromHash<GAS>(EpicChain.SmartContract.Native.NativeContract.GAS.Hash, EpicChain.SmartContract.Native.NativeContract.GAS.Id);
-            NEO = _engine.FromHash<NEO>(EpicChain.SmartContract.Native.NativeContract.NEO.Hash, EpicChain.SmartContract.Native.NativeContract.NEO.Id);
+            NEO = _engine.FromHash<NEO>(EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Id);
             Ledger = _engine.FromHash<Ledger>(EpicChain.SmartContract.Native.NativeContract.Ledger.Hash, EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
             Oracle = _engine.FromHash<Oracle>(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
             Policy = _engine.FromHash<Policy>(EpicChain.SmartContract.Native.NativeContract.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Id);

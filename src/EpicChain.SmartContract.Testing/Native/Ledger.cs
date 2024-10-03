@@ -1,5 +1,5 @@
 using EpicChain.IO;
-using Neo.Network.P2P.Payloads;
+using EpicChain.Network.P2P.Payloads;
 using EpicChain.SmartContract.Native;
 using EpicChain.VM;
 using System.ComponentModel;
