@@ -21,9 +21,9 @@ namespace EpicChain.SmartContract.Framework.Native
         StateValidator = 4,
 
         /// <summary>
-        /// The nodes used to process OracleNexus requests.
+        /// The nodes used to process Oracle requests.
         /// </summary>
-        OracleNexus = 8,
+        Oracle = 8,
 
         /// <summary>
         /// NeoFS Alphabet nodes.

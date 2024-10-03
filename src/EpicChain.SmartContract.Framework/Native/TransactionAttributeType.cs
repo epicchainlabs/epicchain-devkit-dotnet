@@ -54,7 +54,7 @@ namespace EpicChain.SmartContract.Framework.Native
         HighPriority = 0x01,
 
         /// <summary>
-        /// Indicates that the transaction is an OracleNexus response.
+        /// Indicates that the transaction is an Oracle response.
         /// </summary>
         OracleResponse = 0x11,
 
