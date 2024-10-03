@@ -88,9 +88,9 @@ namespace EpicChain.Compiler
                 case "EpicChain.Cryptography.ECC.ECPoint": // Old EpicChain.SmartContract.Framework
                 case "EpicChain.SmartContract.Framework.ECPoint": return ContractParameterType.PublicKey;
                 case "EpicChain.SmartContract.Framework.ByteString": return ContractParameterType.ByteArray;
-                case "Neo.UInt160": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.UInt160": // Old EpicChain.SmartContract.Framework
                 case "EpicChain.SmartContract.Framework.UInt160": return ContractParameterType.Hash160;
-                case "Neo.UInt256": // Old EpicChain.SmartContract.Framework
+                case "EpicChain.UInt256": // Old EpicChain.SmartContract.Framework
                 case "EpicChain.SmartContract.Framework.UInt256": return ContractParameterType.Hash256;
                 case "System.Numerics.BigInteger": return ContractParameterType.Integer;
             }

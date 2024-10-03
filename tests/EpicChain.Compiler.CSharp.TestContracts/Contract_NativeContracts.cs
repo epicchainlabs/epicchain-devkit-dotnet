@@ -27,7 +27,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
 
         public static UInt160 NEOHash()
         {
-            return NEO.Hash;
+            return EpicChain.Hash;
         }
 
 

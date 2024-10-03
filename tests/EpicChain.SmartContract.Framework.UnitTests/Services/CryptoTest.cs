@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicChain.Cryptography;
 using EpicChain.Network.P2P;
 using EpicChain.SmartContract.Testing;
-using Neo.Wallets;
+using EpicChain.Wallets;
 using System.Security.Cryptography;
 using System.Text;
 using EpicChain.Extensions;

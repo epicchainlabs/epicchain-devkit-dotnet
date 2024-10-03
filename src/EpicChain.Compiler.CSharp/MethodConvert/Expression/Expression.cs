@@ -16,7 +16,7 @@ using EpicChain.IO;
 using EpicChain.SmartContract.Native;
 using EpicChain.VM;
 using EpicChain.VM.Types;
-using Neo.Wallets;
+using EpicChain.Wallets;
 using System.Linq;
 using System.Numerics;
 

@@ -17,7 +17,7 @@ using EpicChain.Cryptography.ECC;
 using EpicChain.IO;
 using EpicChain.SmartContract;
 using EpicChain.VM;
-using Neo.Wallets;
+using EpicChain.Wallets;
 using scfx::EpicChain.SmartContract.Framework.Attributes;
 using System;
 using System.Collections.Generic;

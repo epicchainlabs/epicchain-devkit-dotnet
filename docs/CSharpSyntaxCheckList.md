@@ -45,8 +45,8 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 - [x] **System.Numerics.BigInteger**: Represents a large integer data type. Example: `System.Numerics.BigInteger bigInt = 1234567890123456789012345678901234567890;`
 - [x] **List**: Represents a list data type. Example: `List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };`
 - [x] **Map**: Represents a map data type. Example: `Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();`
-- [x] **Neo.UInt160**: Represents a 160-bit unsigned integer data type. Example: `Neo.UInt160 hash160Value = new Neo.UInt160();`
-- [x] **Neo.UInt256**: Represents a 256-bit unsigned integer data type. Example: `Neo.UInt256 hash256Value = new Neo.UInt256();`
+- [x] **EpicChain.UInt160**: Represents a 160-bit unsigned integer data type. Example: `v.UInt160 hash160Value = new EpicChain.UInt160();`
+- [x] **EpicChain.UInt256**: Represents a 256-bit unsigned integer data type. Example: `EpicChain.UInt256 hash256Value = new EpicChain.UInt256();`
 
 
 ## C# to Neo smart contract type mapping table:
@@ -72,8 +72,8 @@ C# Language Specification :  https://ecma-international.org/publications-and-sta
 | `void` | `Void` | No return value |
 | `EpicChain.Cryptography.ECC.ECPoint` | `PublicKey` | Represents public key |
 | `EpicChain.SmartContract.Framework.ByteString` | `ByteString` | Byte string |
-| `Neo.UInt160` | `Hash160` | 20-byte hash value |
-| `Neo.UInt256` | `Hash256` | 32-byte hash value |
+| `EpicChain.UInt160` | `Hash160` | 20-byte hash value |
+| `EpicChain.UInt256` | `Hash256` | 32-byte hash value |
 | Other classes/interfaces | `ByteArray` | Stored as byte arrays |
 
 ### Classes and Structures

@@ -223,7 +223,7 @@ Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
 Custom mocks allow redirecting certain calls to smart contracts so that instead of calling the underlying contract, the logic is redirected to a method in .NET, allowing the developer to test in complex environments without significant issues.
 
-Imagine that our project checks that our account has a balance of 123 NEO. It would be enough to redirect the calls to the NEO `balanceOf` method in the following way, so that it always returns 123.
+Imagine that our project checks that our account has a balance of 123 EpicChain. It would be enough to redirect the calls to the NEO `balanceOf` method in the following way, so that it always returns 123.
 
 It's important to note that all syscalls going to this contract will also be redirected, not only the calls to the method in .NET.
 
@@ -367,7 +367,7 @@ var engine = new TestEngine(true);
 
 Assert.IsNull(engine.GetCoverage(engine.Native.NEO));
 
-// Call NEO.TotalSupply
+// Call EpicChain.TotalSupply
 
 Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
@@ -382,7 +382,7 @@ It is also possible to call it to obtain the specific coverage of a method, eith
 ```csharp
 var engine = new TestEngine(true);
 
-// Call NEO.TotalSupply
+// Call EpicChain.TotalSupply
 
 Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 
@@ -391,7 +391,7 @@ Assert.AreEqual(100_000_000, engine.Native.EpicChain.TotalSupply);
 var methodCovered = engine.GetCoverage(engine.Native.Oracle, o => o.Finish());
 Assert.IsNull(methodCovered);
 
-// NEO.TotalSupply is covered
+// EpicChain.TotalSupply is covered
 
 methodCovered = engine.GetCoverage(engine.Native.NEO, o => o.TotalSupply);
 Assert.AreEqual(3, methodCovered?.TotalInstructions);

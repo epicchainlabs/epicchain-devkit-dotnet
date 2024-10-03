@@ -3,7 +3,7 @@ using EpicChain.IO;
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;
 using EpicChain.SmartContract.Testing.InvalidTypes;
-using Neo.Wallets;
+using EpicChain.Wallets;
 
 namespace EpicChain.Compiler.CSharp.UnitTests
 {
