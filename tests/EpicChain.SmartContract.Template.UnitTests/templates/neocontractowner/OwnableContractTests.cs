@@ -5,7 +5,7 @@ using EpicChain.SmartContract.Testing.Exceptions;
 using EpicChain.SmartContract.Testing.InvalidTypes;
 using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractowner
+namespace EpicChain.SmartContract.Template.UnitTests.templates.epicchaincontractowner
 {
     /// <summary>
     /// You need to build the solution to resolve Ownable class.
@@ -86,14 +86,14 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractowner
             // because the contract hash contains the Sender, and now it's random
 
             var rand = TestEngine.GetNewSigner().Account;
-            var nep17 = Engine.Deploy<OwnableTemplate>(NefFile, Manifest, rand);
-            Assert.AreEqual(check.Hash, nep17.Hash);
+            var xep17 = Engine.Deploy<OwnableTemplate>(NefFile, Manifest, rand);
+            Assert.AreEqual(check.Hash, xep17.Hash);
 
-            Coverage?.Join(nep17.GetCoverage());
+            Coverage?.Join(xep17.GetCoverage());
 
-            Assert.AreEqual(rand, nep17.Owner);
+            Assert.AreEqual(rand, xep17.Owner);
             Assert.IsNull(previousOwnerRaised);
-            Assert.AreEqual(newOwnerRaised, nep17.Owner);
+            Assert.AreEqual(newOwnerRaised, xep17.Owner);
             Assert.AreEqual(newOwnerRaised, rand);
         }
 

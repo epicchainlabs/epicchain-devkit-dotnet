@@ -6,7 +6,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class NEO : SmartContract, TestingStandards.INep17Standard
+public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
 {
     #region Compiled data
 
@@ -24,7 +24,7 @@ public abstract class NEO : SmartContract, TestingStandards.INep17Standard
     public event delCandidateStateChanged? OnCandidateStateChanged;
 
     [DisplayName("Transfer")]
-    public event TestingStandards.INep17Standard.delTransfer? OnTransfer;
+    public event TestingStandards.IXep17Standard.delTransfer? OnTransfer;
 
     public delegate void delCommitteeChanged(ECPoint[] old, ECPoint[] @new);
 

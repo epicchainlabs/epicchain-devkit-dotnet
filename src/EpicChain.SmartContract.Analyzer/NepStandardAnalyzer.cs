@@ -20,7 +20,7 @@ namespace EpicChain.SmartContract.Analyzer
         public const string DiagnosticId = "NC4021";
         private static readonly string Title = "Supported Standards";
         private static readonly string MessageFormat = "Standard format suggestion: '{0}'";
-        private static readonly string Description = "Checks for the usage of supported NEP standards.";
+        private static readonly string Description = "Checks for the usage of supported XEP standards.";
         private const string Category = "Usage";
 
         private static readonly DiagnosticDescriptor Rule = new(
@@ -55,9 +55,9 @@ namespace EpicChain.SmartContract.Analyzer
                         if (argument is LiteralExpressionSyntax literalExpression)
                         {
                             var standardValue = literalExpression.Token.ValueText.ToUpper();
-                            if (standardValue is "XEP11" or "XEP-11" or "NEP17" or "XEP-17")
+                            if (standardValue is "XEP11" or "XEP-11" or "XEP17" or "XEP-17")
                             {
-                                var standard = standardValue is "XEP11" or "XEP-11" ? XepStandard.XEP11 : XepStandard.Nep17;
+                                var standard = standardValue is "XEP11" or "XEP-11" ? XepStandard.XEP11 : XepStandard.Xep17;
                                 var expectedSyntax = SyntaxFactory.AttributeArgument(
                                     SyntaxFactory.MemberAccessExpression(
                                         SyntaxKind.SimpleMemberAccessExpression,
@@ -135,7 +135,7 @@ namespace EpicChain.SmartContract.Analyzer
                     {
                         newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("XEP11")))));
                     }
-                    else if (standardValue == "NEP17")
+                    else if (standardValue == "XEP17")
                     {
                         newAttributeSyntax = attributeSyntax.WithArgumentList(SyntaxFactory.AttributeArgumentList().AddArguments(SyntaxFactory.AttributeArgument(SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.IdentifierName("XepStandard"), SyntaxFactory.IdentifierName("Nep17")))));
                     }

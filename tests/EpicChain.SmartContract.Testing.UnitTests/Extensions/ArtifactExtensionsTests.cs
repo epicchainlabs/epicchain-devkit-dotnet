@@ -27,7 +27,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Extensions
 
                                     namespace EpicChain.SmartContract.Testing;
 
-                                    public abstract class Contract1(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.INep17Standard, EpicChain.SmartContract.Testing.TestingStandards.IVerificable, IContractInfo
+                                    public abstract class Contract1(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard, EpicChain.SmartContract.Testing.TestingStandards.IVerificable, IContractInfo
                                     {
                                         #region Compiled data
 
@@ -43,7 +43,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Extensions
                                         public event delSetOwner? OnSetOwner;
 
                                         [DisplayName("Transfer")]
-                                        public event EpicChain.SmartContract.Testing.TestingStandards.INep17Standard.delTransfer? OnTransfer;
+                                        public event EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard.delTransfer? OnTransfer;
 
                                         #endregion
 

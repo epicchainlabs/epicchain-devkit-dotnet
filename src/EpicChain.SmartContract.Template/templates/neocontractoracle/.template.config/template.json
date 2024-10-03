@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "The Neo Project",
-  "classifications": [ "NEO", "Blockchain", "Smart Contract", "Oracle" ],
+  "author": "xmoohad",
+  "classifications": [ "EpicChain", "Blockchain", "Smart Contract", "Oracle" ],
   "identity": "EpicChain.SmartContract.Template.Oracle",
-  "name": "Neo Smart Contract - Oracle",
+  "name": "Next Generation Ecosystem - Oracle",
   "shortName": "neocontractoracle",
   "preferNameDirectory": true,
   "tags": {

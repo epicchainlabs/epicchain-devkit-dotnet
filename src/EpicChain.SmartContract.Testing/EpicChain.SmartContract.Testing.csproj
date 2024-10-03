@@ -9,7 +9,7 @@
         <RootNamespace>EpicChain.SmartContract.Testing</RootNamespace>
         <PackageId>EpicChain.SmartContract.Testing</PackageId>
         <PackageTags>EpicChain;Blockchain;Smart Contract</PackageTags>
-        <Description>TestEngine for NEO smart contract testing.</Description>
+        <Description>TestEngine for Next Generation Ecosystem testing.</Description>
         <IncludeContentInPack>true</IncludeContentInPack>
         <ContentTargetFolders>content</ContentTargetFolders>
         <Nullable>enable</Nullable>

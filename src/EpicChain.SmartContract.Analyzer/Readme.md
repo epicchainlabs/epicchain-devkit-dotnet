@@ -1,14 +1,14 @@
-# Neo Smart Contract Roslyn Analyzers
+# Next Generation Ecosystem Roslyn Analyzers
 
-This repository contains a set of Roslyn analyzers and code fix providers for Neo smart contracts.
+This repository contains a set of Roslyn analyzers and code fix providers for Next Generation Ecosystems.
 
 ## Content
 ### NeoContractAnalyzer
 
-- [FloatUsageAnalyzer.cs](NeoContractAnalyzer/FloatUsageAnalyzer.cs): This analyzer checks for usage of float type, which is not supported in Neo smart contracts.
-- [DecimalUsageAnalyzer.cs](NeoContractAnalyzer/DecimalUsageAnalyzer.cs): This analyzer detects usage of decimal type, which is not supported in Neo smart contracts.
-- [DoubleUsageAnalyzer.cs](NeoContractAnalyzer/DoubleUsageAnalyzer.cs): This analyzer identifies usage of double type, which is not supported in Neo smart contracts.
-- [SystemMathUsageAnalyzer.cs](NeoContractAnalyzer/SystemMathUsageAnalyzer.cs): This analyzer flags usage of certain System.Math methods that are not supported in Neo smart contracts.
+- [FloatUsageAnalyzer.cs](NeoContractAnalyzer/FloatUsageAnalyzer.cs): This analyzer checks for usage of float type, which is not supported in Next Generation Ecosystems.
+- [DecimalUsageAnalyzer.cs](NeoContractAnalyzer/DecimalUsageAnalyzer.cs): This analyzer detects usage of decimal type, which is not supported in Next Generation Ecosystems.
+- [DoubleUsageAnalyzer.cs](NeoContractAnalyzer/DoubleUsageAnalyzer.cs): This analyzer identifies usage of double type, which is not supported in Next Generation Ecosystems.
+- [SystemMathUsageAnalyzer.cs](NeoContractAnalyzer/SystemMathUsageAnalyzer.cs): This analyzer flags usage of certain System.Math methods that are not supported in Next Generation Ecosystems.
 - [BigIntegerUsageAnalyzer.cs](NeoContractAnalyzer/BigIntegerUsageAnalyzer.cs): This analyzer checks for specific methods of the BigInteger class that are not supported.
 - [StringMethodUsageAnalyzer.cs](NeoContractAnalyzer/StringMethodUsageAnalyzer.cs): This analyzer identifies and reports specific methods of the string class that are not supported.
 - [BigIntegerCreationAnalyzer.cs](NeoContractAnalyzer/BigIntegerCreationAnalyzer.cs): This analyzer checks for creation patterns of the BigInteger class that are not supported.
@@ -27,11 +27,11 @@ This repository contains a set of Roslyn analyzers and code fix providers for Ne
 - [BigIntegerUsingUsageAnalyzer.cs](NeoContractAnalyzer/BigIntegerUsingUsageAnalyzer.cs): This analyzer warns about incorrect usage of BigInteger in using statements.
 - [StaticFieldInitializationAnalyzer.cs](NeoContractAnalyzer/StaticFieldInitializationAnalyzer.cs): This analyzer checks for proper initialization of static fields in smart contracts.
 - [MultipleCatchBlockAnalyzer.cs](NeoContractAnalyzer/MultipleCatchBlockAnalyzer.cs): This analyzer checks for multiple catch blocks in try statements.
-- [SystemDiagnosticsUsageAnalyzer.cs](NeoContractAnalyzer/SystemDiagnosticsUsageAnalyzer.cs): This analyzer detects and reports usage of System.Diagnostics namespace, which is not supported in Neo smart contracts.
+- [SystemDiagnosticsUsageAnalyzer.cs](NeoContractAnalyzer/SystemDiagnosticsUsageAnalyzer.cs): This analyzer detects and reports usage of System.Diagnostics namespace, which is not supported in Next Generation Ecosystems.
 
 ## How to Use
 
-To use these analyzers in your Neo smart contract project:
+To use these analyzers in your Next Generation Ecosystem project:
 
 1. Add a reference to the EpicChain.SmartContract.Analyzer project in your smart contract project.
 2. Build the EpicChain.SmartContract.Analyzer project.

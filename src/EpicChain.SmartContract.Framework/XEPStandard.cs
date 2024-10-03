@@ -50,22 +50,22 @@ namespace EpicChain.SmartContract.Framework
         XEP11,
         // The XEP-17 standard is used for fungible tokens.
         // Defined at https://github.com/neo-project/proposals/blob/master/XEP-17.mediawiki
-        Nep17,
+        Xep17,
         // Smart contract transfer callback for non-fungible tokens (NFTs).
         // This is an extension standard of XEP-11.
         // Defined at https://github.com/neo-project/proposals/pull/169/files#diff-2b5f7c12a23f7dbe4cb46bbf4be6936882f8e0f0b3a4db9d8c58eb294b02e6ed
-        Nep26,
+        Xep26,
         // This is the nick name of XEP-25.
         XEP11Payable,
         // Smart contract transfer callback for fungible tokens.
         // This is an extension standard of XEP-17.
         // Defined at https://github.com/neo-project/proposals/pull/169/files#diff-70768f307c9aa84f8c94e790495a76d47fffeca2331444592ebba6f13b1e6460
-        Nep27,
+        Xep27,
         // This is the nick name of XEP-26.
         Xep17Payable,
-        // This NEP defines a global standard to get royalty payment information for Non-Fungible Tokens (NFTs)
+        // This XEP defines a global standard to get royalty payment information for Non-Fungible Tokens (NFTs)
         // in order to enable support for royalty payments across all NFT marketplaces in the NEO Smart Economy.
-        // This NEP requires XEP-11.
+        // This XEP requires XEP-11.
         // Defined at https://github.com/neo-project/proposals/blob/master/XEP-24.mediawiki
         Xep24
     }
@@ -77,10 +77,10 @@ namespace EpicChain.SmartContract.Framework
             return standard switch
             {
                 XepStandard.XEP11 => "XEP-11",
-                XepStandard.Nep17 => "XEP-17",
+                XepStandard.Xep17 => "XEP-17",
                 XepStandard.Xep24 => "XEP-24",
-                XepStandard.XEP11Payable or XepStandard.Nep26 => "XEP-26",
-                XepStandard.Xep17Payable or XepStandard.Nep27 => "XEP-27",
+                XepStandard.XEP11Payable or XepStandard.Xep26 => "XEP-26",
+                XepStandard.Xep17Payable or XepStandard.Xep27 => "XEP-27",
                 _ => standard.ToString()
             };
         }

@@ -54,7 +54,7 @@ public interface IXEP17Payable
 {
     /// <summary>
     /// The contract should implement the <see cref="onXEP17Payment"/> method
-    /// to receive NEP17 tokens.
+    /// to receive XEP17 tokens.
     /// </summary>
     /// <param name="from">The address of the payer</param>
     /// <param name="amount">The amount of token to be transferred</param>

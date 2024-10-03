@@ -6,13 +6,13 @@ using EpicChain.SmartContract.Testing.InvalidTypes;
 using System.Numerics;
 using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
+namespace EpicChain.SmartContract.Template.UnitTests.templates.epicchaincontractxep17
 {
     /// <summary>
-    /// You need to build the solution to resolve Nep17Contract class.
+    /// You need to build the solution to resolve Xep17Contract class.
     /// </summary>
     [TestClass]
-    public class Nep17ContractTests : XEP17Tests<Nep17ContractTemplate>
+    public class Xep17ContractTests : XEP17Tests<Xep17ContractTemplate>
     {
         #region Expected values in base tests
 
@@ -25,7 +25,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
         /// <summary>
         /// Initialize Test
         /// </summary>
-        public Nep17ContractTests() : base(Nep17ContractTemplate.Nef, Nep17ContractTemplate.Manifest) { }
+        public Xep17ContractTests() : base(Xep17ContractTemplate.Nef, Xep17ContractTemplate.Manifest) { }
 
         [TestMethod]
         public void TestMyMethod()
@@ -158,9 +158,9 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
 
             // Try with invalid owners
 
-            Assert.ThrowsException<TestException>(() => Engine.Deploy<Nep17ContractTemplate>(NefFile, Manifest, UInt160.Zero));
-            Assert.ThrowsException<TestException>(() => Engine.Deploy<Nep17ContractTemplate>(NefFile, Manifest, InvalidUInt160.InvalidLength));
-            Assert.ThrowsException<TestException>(() => Engine.Deploy<Nep17ContractTemplate>(NefFile, Manifest, InvalidUInt160.InvalidType));
+            Assert.ThrowsException<TestException>(() => Engine.Deploy<Xep17ContractTemplate>(NefFile, Manifest, UInt160.Zero));
+            Assert.ThrowsException<TestException>(() => Engine.Deploy<Xep17ContractTemplate>(NefFile, Manifest, InvalidUInt160.InvalidLength));
+            Assert.ThrowsException<TestException>(() => Engine.Deploy<Xep17ContractTemplate>(NefFile, Manifest, InvalidUInt160.InvalidType));
 
             // Test SetOwner notification
 
@@ -168,7 +168,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
             UInt160? newOwnerRaised = null;
 
             var expectedHash = Engine.GetDeployHash(NefFile, Manifest);
-            var check = Engine.FromHash<Nep17ContractTemplate>(expectedHash, false);
+            var check = Engine.FromHash<Xep17ContractTemplate>(expectedHash, false);
             check.OnSetOwner += (previous, newOwner) =>
             {
                 previousOwnerRaised = previous;
@@ -179,14 +179,14 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
             // because the contract hash contains the Sender, and now it's random
 
             var rand = TestEngine.GetNewSigner().Account;
-            var nep17 = Engine.Deploy<Nep17ContractTemplate>(NefFile, Manifest, rand);
-            Assert.AreEqual(check.Hash, nep17.Hash);
+            var xep17 = Engine.Deploy<Xep17ContractTemplate>(NefFile, Manifest, rand);
+            Assert.AreEqual(check.Hash, xep17.Hash);
 
-            Coverage?.Join(nep17.GetCoverage());
+            Coverage?.Join(xep17.GetCoverage());
 
-            Assert.AreEqual(rand, nep17.Owner);
+            Assert.AreEqual(rand, xep17.Owner);
             Assert.IsNull(previousOwnerRaised);
-            Assert.AreEqual(newOwnerRaised, nep17.Owner);
+            Assert.AreEqual(newOwnerRaised, xep17.Owner);
             Assert.AreEqual(newOwnerRaised, rand);
         }
     }

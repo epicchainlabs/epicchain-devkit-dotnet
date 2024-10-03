@@ -3,18 +3,18 @@ using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.Exceptions;
 using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractnep17
+namespace EpicChain.SmartContract.Template.UnitTests.templates.epicchaincontractxep17
 {
     /// <summary>
-    /// You need to build the solution to resolve Nep17Contract class.
+    /// You need to build the solution to resolve Xep17Contract class.
     /// </summary>
     [TestClass]
-    public class OwnerContractTests : OwnableTests<Nep17ContractTemplate>
+    public class OwnerContractTests : OwnableTests<Xep17ContractTemplate>
     {
         /// <summary>
         /// Initialize Test
         /// </summary>
-        public OwnerContractTests() : base(Nep17ContractTemplate.Nef, Nep17ContractTemplate.Manifest) { }
+        public OwnerContractTests() : base(Xep17ContractTemplate.Nef, Xep17ContractTemplate.Manifest) { }
 
         [TestMethod]
         public override void TestSetGetOwner()

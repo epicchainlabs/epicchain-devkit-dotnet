@@ -1,6 +1,6 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// Nep17Token.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
+// Xep17Token.cs file is a crucial component of the EpicChain project and is freely distributed as open-source software.
 // It is made available under the MIT License, a highly permissive and widely adopted license in the open-source community.
 // The MIT License grants users the freedom to use, modify, and distribute the software in both source and binary forms,
 // with or without modifications, subject to certain conditions. To understand these conditions in detail, please refer to
@@ -49,7 +49,7 @@ using System;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace NEP17
+namespace XEP17
 {
     /// <inheritdoc />
     [DisplayName("SampleXep17Token")]
@@ -58,8 +58,8 @@ namespace NEP17
     [ContractDescription("A sample XEP-17 token")]
     [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/examples/")]
     [ContractPermission(Permission.Any, Method.Any)]
-    [SupportedStandards(XepStandard.Nep17)]
-    public class SampleXep17Token : Nep17Token
+    [SupportedStandards(XepStandard.Xep17)]
+    public class SampleXep17Token : Xep17Token
     {
         #region Owner
 
@@ -135,12 +135,12 @@ namespace NEP17
         {
             if (IsOwner() == false && IsMinter() == false)
                 throw new InvalidOperationException("No Authorization!");
-            Nep17Token.Mint(to, amount);
+            Xep17Token.Mint(to, amount);
         }
 
         #endregion
 
-        #region Example.SmartContract.NEP17
+        #region Example.SmartContract.XEP17
 
         public override string Symbol { [Safe] get => "SampleXep17Token"; }
         public override byte Decimals { [Safe] get => 8; }
@@ -149,7 +149,7 @@ namespace NEP17
         {
             if (IsOwner() == false && IsMinter() == false)
                 throw new InvalidOperationException("No Authorization!");
-            Nep17Token.Burn(account, amount);
+            Xep17Token.Burn(account, amount);
         }
 
         #endregion

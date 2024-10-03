@@ -19,7 +19,7 @@ namespace EpicChain.SmartContract.Framework
 {
     [SupportedStandards(XepStandard.Nep17)]
     [ContractPermission(Permission.Any, Method.onXEP17Payment)]
-    public abstract class Nep17Token : TokenContract
+    public abstract class Xep17Token : TokenContract
     {
         public delegate void OnTransferDelegate(UInt160 from, UInt160 to, BigInteger amount);
 

@@ -6,7 +6,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing;
 
-public abstract class Contract_SupportedStandard17Enum(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.INep17Standard, IContractInfo
+public abstract class Contract_SupportedStandard17Enum(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard, IContractInfo
 {
     #region Compiled data
 
@@ -22,7 +22,7 @@ public abstract class Contract_SupportedStandard17Enum(EpicChain.SmartContract.T
     #region Events
 
     [DisplayName("Transfer")]
-    public event EpicChain.SmartContract.Testing.TestingStandards.INep17Standard.delTransfer? OnTransfer;
+    public event EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard.delTransfer? OnTransfer;
 
     #endregion
 

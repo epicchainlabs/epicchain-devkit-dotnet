@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "The Neo Project",
-  "classifications": [ "NEO", "Blockchain", "Smart Contract", "Owner" ],
+  "author": "xmoohad",
+  "classifications": [ "EpicChain", "Blockchain", "Smart Contract", "Owner" ],
   "identity": "EpicChain.SmartContract.Template.Owner",
-  "name": "Neo Smart Contract - Advanced Owner",
-  "shortName": "neocontractowner",
+  "name": "Next Generation Ecosystem - Advanced Owner",
+  "shortName": "epicchaincontractowner",
   "preferNameDirectory": true,
   "tags": {
     "language": "C#",

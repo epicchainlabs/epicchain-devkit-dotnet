@@ -41,21 +41,21 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
             })
             .CompileSources(new CompilationSourceReferences() { Projects = [frameworkPath] },
                 [
-                    Path.Combine(templatePath, "neocontractnep17/Nep17Contract.cs"),
+                    Path.Combine(templatePath, "epicchaincontractxep17/Xep17Contract.cs"),
                     Path.Combine(templatePath, "neocontractoracle/OracleRequest.cs"),
-                    Path.Combine(templatePath, "neocontractowner/Ownable.cs")
+                    Path.Combine(templatePath, "epicchaincontractowner/Ownable.cs")
                 ]);
 
             Assert.IsTrue(result.Count() == 3 && result.All(u => u.Success), "Error compiling templates");
 
-            // Ensure Nep17
+            // Ensure Xep17
 
             var root = Path.GetPathRoot(templatePath) ?? "";
-            var context = result.FirstOrDefault(p => p.ContractName == "Nep17Contract") ?? throw new InvalidOperationException();
-            (var artifact, var dbg) = CreateArtifact<Nep17ContractTemplate>(context, root,
-                Path.Combine(artifactsPath, "neocontractnep17/TestingArtifacts/Nep17ContractTemplate.artifacts.cs"));
+            var context = result.FirstOrDefault(p => p.ContractName == "Xep17Contract") ?? throw new InvalidOperationException();
+            (var artifact, var dbg) = CreateArtifact<Xep17ContractTemplate>(context, root,
+                Path.Combine(artifactsPath, "epicchaincontractxep17/TestingArtifacts/Xep17ContractTemplate.artifacts.cs"));
 
-            CachedContracts[typeof(Nep17ContractTemplate)] = (context, dbg);
+            CachedContracts[typeof(Xep17ContractTemplate)] = (context, dbg);
 
             // Ensure Oracle
 
@@ -69,7 +69,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
 
             context = result.FirstOrDefault(p => p.ContractName == "Ownable") ?? throw new InvalidOperationException();
             (artifact, dbg) = CreateArtifact<OwnableTemplate>(context, root,
-                Path.Combine(artifactsPath, "neocontractowner/TestingArtifacts/OwnableTemplate.artifacts.cs"));
+                Path.Combine(artifactsPath, "epicchaincontractowner/TestingArtifacts/OwnableTemplate.artifacts.cs"));
 
             CachedContracts[typeof(OwnableTemplate)] = (context, dbg);
         }

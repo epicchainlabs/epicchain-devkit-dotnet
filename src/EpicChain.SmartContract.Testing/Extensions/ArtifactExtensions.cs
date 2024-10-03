@@ -51,7 +51,7 @@ namespace EpicChain.SmartContract.Testing.Extensions
                 typeof(SmartContract)
             };
 
-            if (manifest.IsNep17()) inheritance.Add(typeof(INep17Standard));
+            if (manifest.IsNep17()) inheritance.Add(typeof(IXep17Standard));
             if (manifest.IsOwnable()) inheritance.Add(typeof(IOwnable));
             if (manifest.IsVerificable()) inheritance.Add(typeof(IVerificable));
 
@@ -242,13 +242,13 @@ namespace EpicChain.SmartContract.Testing.Extensions
             {
                 case "Transfer":
                     {
-                        if (inheritance.Contains(typeof(INep17Standard)) && ev.Parameters.Length == 3 &&
+                        if (inheritance.Contains(typeof(IXep17Standard)) && ev.Parameters.Length == 3 &&
                             ev.Parameters[0].Type == ContractParameterType.Hash160 &&
                             ev.Parameters[1].Type == ContractParameterType.Hash160 &&
                             ev.Parameters[2].Type == ContractParameterType.Integer)
                         {
                             sourceCode.WriteLine($"    [DisplayName(\"{ev.Name}\")]");
-                            sourceCode.WriteLine($"    public event {typeof(INep17Standard).FullName}.delTransfer? OnTransfer;");
+                            sourceCode.WriteLine($"    public event {typeof(IXep17Standard).FullName}.delTransfer? OnTransfer;");
                             return builder.ToString();
                         }
 

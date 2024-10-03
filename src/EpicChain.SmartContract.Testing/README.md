@@ -424,7 +424,7 @@ public class CoverageContractTests
     {
         // Join here all of your Coverage sources
 
-        var coverage = Nep17ContractTests.Coverage;
+        var coverage = Xep17ContractTests.Coverage;
         coverage?.Join(OwnerContractTests.Coverage);
 
         // Ennsure that the coverage is more than X% at the end of the tests
@@ -454,7 +454,7 @@ public class CoverageContractTests
     {
         // Join here all of your coverage sources
 
-        var coverage = Nep17ContractTests.Coverage;
+        var coverage = Xep17ContractTests.Coverage;
         coverage?.Join(OwnerContractTests.Coverage);
 
         // Dump coverage to console
@@ -468,7 +468,7 @@ public class CoverageContractTests
 
         // Load our debug file
 
-        if (NeoDebugInfo.TryLoad("templates/neocontractnep17/Artifacts/Nep17Contract.nefdbgnfo", out var dbg))
+        if (NeoDebugInfo.TryLoad("templates/epicchaincontractxep17/Artifacts/Xep17Contract.nefdbgnfo", out var dbg))
         {
             // Write the cobertura format
 

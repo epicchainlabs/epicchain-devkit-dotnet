@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.TestingStandards;
 
-public interface INep17Standard
+public interface IXep17Standard
 {
     #region Events
 

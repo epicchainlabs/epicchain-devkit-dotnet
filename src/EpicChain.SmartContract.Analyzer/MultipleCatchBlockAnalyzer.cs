@@ -11,9 +11,9 @@ namespace EpicChain.SmartContract.Analyzer
     {
         public const string DiagnosticId = "NC4024";
 
-        private static readonly LocalizableString Title = "Multiple catch blocks are not allowed in Neo smart contracts";
-        private static readonly LocalizableString MessageFormat = "Neo smart contracts only support a single catch block: {0}";
-        private static readonly LocalizableString Description = "Neo smart contracts are limited to one catch block per try statement.";
+        private static readonly LocalizableString Title = "Multiple catch blocks are not allowed in Next Generation Ecosystems";
+        private static readonly LocalizableString MessageFormat = "Next Generation Ecosystems only support a single catch block: {0}";
+        private static readonly LocalizableString Description = "Next Generation Ecosystems are limited to one catch block per try statement.";
         private const string Category = "Usage";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(

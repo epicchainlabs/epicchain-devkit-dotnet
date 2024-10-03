@@ -13,8 +13,8 @@ namespace EpicChain.SmartContract.Analyzer
 
         private static readonly DiagnosticDescriptor Rule = new(
             DiagnosticId,
-            "Usage of System.Diagnostics is not allowed in Neo smart contracts",
-            "Neo smart contracts do not support System.Diagnostics: {0}",
+            "Usage of System.Diagnostics is not allowed in Next Generation Ecosystems",
+            "Next Generation Ecosystems do not support System.Diagnostics: {0}",
             "Namespace",
             DiagnosticSeverity.Error,
             isEnabledByDefault: true);

@@ -18,7 +18,7 @@ namespace EpicChain.SmartContract.Analyzer
         public const string DiagnosticId = "NC4011";
         private static readonly string Title = "LINQ usage";
         private static readonly string MessageFormat = "Use EpicChain.SmartContract.Framework.Linq instead of System.Linq: {0}";
-        private static readonly string Description = "System.Linq is not supported in neo smart contract. Use EpicChain.SmartContract.Framework.Linq instead.";
+        private static readonly string Description = "System.Linq is not supported in Next Generation Ecosystem. Use EpicChain.SmartContract.Framework.Linq instead.";
         private const string Category = "Usage";
 
         private static readonly DiagnosticDescriptor Rule = new(

@@ -22,7 +22,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\EpicChain.SmartContract.Testing\EpicChain.SmartContract.Testing.csproj"/>
         <ProjectReference Include="..\..\tests\EpicChain.SmartContract.TestEngine\EpicChain.SmartContract.TestEngine.csproj"/>
-        <ProjectReference Include="..\Example.SmartContract.NEP17\Example.SmartContract.NEP17.csproj"/>
+        <ProjectReference Include="..\Example.SmartContract.XEP17\Example.SmartContract.XEP17.csproj"/>
         <ProjectReference Remove="..\..\src\EpicChain.SmartContract.Analyzer\EpicChain.SmartContract.Analyzer.csproj"
                           OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
     </ItemGroup>

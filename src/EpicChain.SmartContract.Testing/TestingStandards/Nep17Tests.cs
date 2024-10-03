@@ -13,7 +13,7 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Testing.TestingStandards;
 
 public class XEP17Tests<T> : TestBase<T>
-    where T : SmartContract, INep17Standard, IContractInfo
+    where T : SmartContract, IXep17Standard, IContractInfo
 {
     public abstract class onXEP17PaymentContract : SmartContract
     {

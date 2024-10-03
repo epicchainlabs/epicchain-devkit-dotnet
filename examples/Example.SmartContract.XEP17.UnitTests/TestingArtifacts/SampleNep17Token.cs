@@ -6,7 +6,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing;
 
-public abstract class SampleXep17Token : EpicChain.SmartContract.Testing.SmartContract, EpicChain.SmartContract.Testing.TestingStandards.INep17Standard, EpicChain.SmartContract.Testing.TestingStandards.IVerificable, IContractInfo
+public abstract class SampleXep17Token : EpicChain.SmartContract.Testing.SmartContract, EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard, EpicChain.SmartContract.Testing.TestingStandards.IVerificable, IContractInfo
 {
     #region Compiled data
 
@@ -32,7 +32,7 @@ public abstract class SampleXep17Token : EpicChain.SmartContract.Testing.SmartCo
     public event delSetOwner? OnSetOwner;
 
     [DisplayName("Transfer")]
-    public event EpicChain.SmartContract.Testing.TestingStandards.INep17Standard.delTransfer? OnTransfer;
+    public event EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard.delTransfer? OnTransfer;
 
     #endregion
 

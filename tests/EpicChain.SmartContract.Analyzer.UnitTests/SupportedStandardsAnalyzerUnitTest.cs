@@ -37,7 +37,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
         {
             const string originalCode = TestNamespace + """
 
-                                                        [SupportedStandards("NEP5")]
+                                                        [SupportedStandards("XEP5")]
                                                         public class TestContract
                                                         {
                                                             public static void Main()
@@ -47,7 +47,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
                                                         """;
 
             var expectedDiagnostic = Verifier.Diagnostic(SupportedStandardsAnalyzer.DiagnosticId)
-                .WithSpan(22, 2, 22, 28).WithArguments("NEP5");
+                .WithSpan(22, 2, 22, 28).WithArguments("XEP5");
 
             await Verifier.VerifyAnalyzerAsync(originalCode, expectedDiagnostic).ConfigureAwait(false);
         }
@@ -124,11 +124,11 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
         }
 
         [TestMethod]
-        public async Task SupportedStandardsAnalyzer_UpdateNep17_ShouldFixCode()
+        public async Task SupportedStandardsAnalyzer_UpdateXep17_ShouldFixCode()
         {
             const string originalCode = TestNamespace + """
 
-                                                        [SupportedStandards("NEP17")]
+                                                        [SupportedStandards("XEP17")]
                                                         public class TestContract
                                                         {
                                                             public static void Main()

@@ -29,7 +29,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         }
 
         [TestMethod]
-        public void TestStandardNEP17AttributeEnum()
+        public void TestStandardXEP17AttributeEnum()
         {
             CollectionAssert.AreEqual(Contract_SupportedStandard17Enum.Manifest.SupportedStandards, new string[] { "XEP-17" });
         }

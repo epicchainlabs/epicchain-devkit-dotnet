@@ -9,14 +9,14 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Template
 {
-    [DisplayName(nameof(Nep17Contract))]
+    [DisplayName(nameof(Xep17Contract))]
     [ContractAuthor("<Your Name Or Company Here>", "<Your Public Email Here>")]
     [ContractDescription( "<Description Here>")]
     [ContractVersion("<Version String Here>")]
-    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/neocontractnep17/Nep17Contract.cs")]
+    [ContractSourceCode("https://github.com/epicchainlabs/epicchain-devkit-dotnet/tree/master/src/EpicChain.SmartContract.Template/templates/epicchaincontractxep17/Xep17Contract.cs")]
     [ContractPermission(Permission.Any, Method.Any)]
     [SupportedStandards(XepStandard.Nep17)]
-    public class Nep17Contract : EpicChain.SmartContract.Framework.Nep17Token
+    public class Xep17Contract : EpicChain.SmartContract.Framework.Xep17Token
     {
         #region Owner
 
@@ -50,7 +50,7 @@ namespace EpicChain.SmartContract.Template
 
         #endregion
 
-        #region NEP17
+        #region XEP17
 
         // TODO: Replace "EXAMPLE" with a short name all UPPERCASE 3-8 characters
         public override string Symbol { [Safe] get => "EXAMPLE"; }
@@ -62,14 +62,14 @@ namespace EpicChain.SmartContract.Template
         {
             if (IsOwner() == false)
                 throw new InvalidOperationException("No Authorization!");
-            Nep17Token.Burn(account, amount);
+            Xep17Token.Burn(account, amount);
         }
 
         public static new void Mint(UInt160 to, BigInteger amount)
         {
             if (IsOwner() == false)
                 throw new InvalidOperationException("No Authorization!");
-            Nep17Token.Mint(to, amount);
+            Xep17Token.Mint(to, amount);
         }
 
         #endregion

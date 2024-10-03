@@ -1,7 +1,7 @@
 using EpicChain.SmartContract.Testing;
 using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace Example.SmartContract.NEP17.UnitTests
+namespace Example.SmartContract.XEP17.UnitTests
 {
     [TestClass]
     public class XEP17Tests : TestBase<SampleXep17Token>

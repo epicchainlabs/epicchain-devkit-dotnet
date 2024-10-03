@@ -3,7 +3,7 @@ using EpicChain.SmartContract;
 using EpicChain.SmartContract.Manifest;
 using EpicChain.SmartContract.Testing.Extensions;
 
-namespace Example.SmartContract.NEP17.UnitTests
+namespace Example.SmartContract.XEP17.UnitTests
 {
     public class TestCleanup
     {

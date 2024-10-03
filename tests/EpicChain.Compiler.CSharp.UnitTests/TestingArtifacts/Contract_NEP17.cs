@@ -6,11 +6,11 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing;
 
-public abstract class Contract_NEP17(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.INep17Standard, IContractInfo
+public abstract class Contract_XEP17(EpicChain.SmartContract.Testing.SmartContractInitialize initialize) : EpicChain.SmartContract.Testing.SmartContract(initialize), EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard, IContractInfo
 {
     #region Compiled data
 
-    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_NEP17"",""groups"":[],""features"":{},""supportedstandards"":[""XEP-17""],""abi"":{""methods"":[{""name"":""symbol"",""parameters"":[],""returntype"":""String"",""offset"":550,""safe"":true},{""name"":""decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":565,""safe"":true},{""name"":""totalSupply"",""parameters"":[],""returntype"":""Integer"",""offset"":40,""safe"":true},{""name"":""balanceOf"",""parameters"":[{""name"":""owner"",""type"":""Hash160""}],""returntype"":""Integer"",""offset"":66,""safe"":true},{""name"":""transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""},{""name"":""data"",""type"":""Any""}],""returntype"":""Boolean"",""offset"":249,""safe"":false},{""name"":""_initialize"",""parameters"":[],""returntype"":""Void"",""offset"":534,""safe"":false}],""events"":[{""name"":""Transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""}]}]},""permissions"":[{""contract"":""0xfffdc93764dbaddd97c48f252a53ea4643faa3fd"",""methods"":[""getContract""]},{""contract"":""*"",""methods"":[""onXEP17Payment""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
+    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_XEP17"",""groups"":[],""features"":{},""supportedstandards"":[""XEP-17""],""abi"":{""methods"":[{""name"":""symbol"",""parameters"":[],""returntype"":""String"",""offset"":550,""safe"":true},{""name"":""decimals"",""parameters"":[],""returntype"":""Integer"",""offset"":565,""safe"":true},{""name"":""totalSupply"",""parameters"":[],""returntype"":""Integer"",""offset"":40,""safe"":true},{""name"":""balanceOf"",""parameters"":[{""name"":""owner"",""type"":""Hash160""}],""returntype"":""Integer"",""offset"":66,""safe"":true},{""name"":""transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""},{""name"":""data"",""type"":""Any""}],""returntype"":""Boolean"",""offset"":249,""safe"":false},{""name"":""_initialize"",""parameters"":[],""returntype"":""Void"",""offset"":534,""safe"":false}],""events"":[{""name"":""Transfer"",""parameters"":[{""name"":""from"",""type"":""Hash160""},{""name"":""to"",""type"":""Hash160""},{""name"":""amount"",""type"":""Integer""}]}]},""permissions"":[{""contract"":""0xfffdc93764dbaddd97c48f252a53ea4643faa3fd"",""methods"":[""getContract""]},{""contract"":""*"",""methods"":[""onXEP17Payment""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"
@@ -22,7 +22,7 @@ public abstract class Contract_NEP17(EpicChain.SmartContract.Testing.SmartContra
     #region Events
 
     [DisplayName("Transfer")]
-    public event EpicChain.SmartContract.Testing.TestingStandards.INep17Standard.delTransfer? OnTransfer;
+    public event EpicChain.SmartContract.Testing.TestingStandards.IXep17Standard.delTransfer? OnTransfer;
 
     #endregion
 
