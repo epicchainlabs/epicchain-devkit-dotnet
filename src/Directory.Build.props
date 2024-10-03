@@ -13,6 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../neo.png" Pack="true" Visible="false" PackagePath=""/>
+    <None Include="../epicchain.png" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 </Project>

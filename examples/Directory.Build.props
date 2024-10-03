@@ -6,7 +6,7 @@
         <VersionPrefix>3.7.4</VersionPrefix>
         <TargetFramework>net8.0</TargetFramework>
         <Authors>The Neo SmartContract Examples Project</Authors>
-        <PackageIcon>neo.png</PackageIcon>
+        <PackageIcon>epicchain.png</PackageIcon>
         <PackageProjectUrl>https://github.com/neo-project/neo-devpack-dotnet/examples</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>

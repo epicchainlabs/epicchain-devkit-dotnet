@@ -121,7 +121,7 @@ jobs:
         --version-suffix ${{ env.VERSION_SUFFIX }}
     - name : Replace Neo reference by package in EpicChain.SmartContract.Testing
       run: |
-        dotnet remove ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj reference '..\..\neo\src\Neo\Neo.csproj'
+        dotnet remove ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj reference '..\..\epicchain\src\EpicChain\EpicChain.csproj'
         dotnet add    ./src/EpicChain.SmartContract.Testing/EpicChain.SmartContract.Testing.csproj package 'Neo' --version ${{ env.VERSION_NEO }}-${{ env.VERSION_SUFFIX_NEO }}
     - name : Build (EpicChain.SmartContract.Testing)
       run: |
@@ -187,7 +187,7 @@ jobs:
     - name: Publish to NuGet
       if: steps.check_tag.outputs.statusCode == '404'
       run: |
-        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/neo/neo.csproj
+        dotnet sln neo-devpack-dotnet.sln remove ./neo/src/neo/EpicChain.csproj
         dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.Cryptography.BLS12_381/Neo.Cryptography.BLS12_381.csproj
         dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.Extensions/Neo.Extensions.csproj
         dotnet sln neo-devpack-dotnet.sln remove ./neo/src/Neo.IO/Neo.IO.csproj
