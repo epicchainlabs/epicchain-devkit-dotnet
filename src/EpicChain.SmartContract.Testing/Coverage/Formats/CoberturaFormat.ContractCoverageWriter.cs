@@ -9,14 +9,14 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
         internal class ContractCoverageWriter
         {
             readonly CoveredContract Contract;
-            readonly NeoDebugInfo DebugInfo;
+            readonly EpicChainDebugInfo DebugInfo;
 
             /// <summary>
             /// Constructor
             /// </summary>
             /// <param name="contract">Contract</param>
             /// <param name="debugInfo">Debug info</param>
-            public ContractCoverageWriter(CoveredContract contract, NeoDebugInfo debugInfo)
+            public ContractCoverageWriter(CoveredContract contract, EpicChainDebugInfo debugInfo)
             {
                 Contract = contract;
                 DebugInfo = debugInfo;
@@ -46,7 +46,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
                 writer.WriteEndElement();
                 writer.WriteEndElement();
 
-                (string @namespace, string filename) NamespaceAndFilename(NeoDebugInfo.Method method)
+                (string @namespace, string filename) NamespaceAndFilename(EpicChainDebugInfo.Method method)
                 {
                     var indexes = method.SequencePoints
                         .Select(sp => sp.Document)
@@ -64,7 +64,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
                 }
             }
 
-            internal void WriteClass(XmlWriter writer, string name, string filename, IEnumerable<NeoDebugInfo.Method> methods)
+            internal void WriteClass(XmlWriter writer, string name, string filename, IEnumerable<EpicChainDebugInfo.Method> methods)
             {
                 var allMethods = methods.SelectMany(m => m.SequencePoints).ToArray();
                 var (lineCount, hitCount) = GetLineRate(Contract, allMethods);
@@ -100,7 +100,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
                 writer.WriteEndElement();
             }
 
-            internal void WriteMethod(XmlWriter writer, NeoDebugInfo.Method method)
+            internal void WriteMethod(XmlWriter writer, EpicChainDebugInfo.Method method)
             {
                 var signature = string.Join(", ", method.Parameters.Select(p => p.Type));
                 var (lineCount, hitCount) = GetLineRate(Contract, method.SequencePoints);
@@ -122,7 +122,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
                 writer.WriteEndElement();
             }
 
-            internal void WriteLine(XmlWriter writer, NeoDebugInfo.Method method, NeoDebugInfo.SequencePoint sp)
+            internal void WriteLine(XmlWriter writer, EpicChainDebugInfo.Method method, EpicChainDebugInfo.SequencePoint sp)
             {
                 var hits = Contract.TryGetLine(sp.Address, out var value) ? value.Hits : 0;
 

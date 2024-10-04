@@ -41,23 +41,23 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         }
 
         [TestMethod]
-        public void Test_NEO()
+        public void Test_EpicChain()
         {
-            // NeoSymbol
+            // EpicChainSymbol
 
-            Assert.AreEqual("NEO", Contract.NEOSymbol());
+            Assert.AreEqual("EpicChain", Contract.EpicChainSymbol());
             AssertGasConsumed(1967100);
 
-            // NeoHash
+            // EpicChainHash
 
-            Assert.AreEqual(NativeContract.EpicChain.Hash, Contract.NEOHash());
+            Assert.AreEqual(NativeContract.EpicChain.Hash, Contract.EpicChainHash());
             AssertGasConsumed(984270);
         }
 
         [TestMethod]
         public void Test_GAS()
         {
-            Assert.AreEqual("GAS", Contract.GASSymbol());
+            Assert.AreEqual("XPP", Contract.GASSymbol());
             AssertGasConsumed(1967100);
         }
 

@@ -57,7 +57,7 @@ namespace HelloWorld;
 public class HelloWorldorld : SmartContract
 {
     /// <summary>
-    /// Hello world from NEO!
+    /// Hello world from EpicChain!
     /// </summary>
     /// <returns>Hello world string</returns>
     [Safe]

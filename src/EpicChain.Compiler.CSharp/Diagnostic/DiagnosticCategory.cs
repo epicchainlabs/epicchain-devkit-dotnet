@@ -12,6 +12,6 @@ namespace EpicChain.Compiler
 {
     static class DiagnosticCategory
     {
-        public const string Default = "NeoContract";
+        public const string Default = "EpicChainContract";
     }
 }

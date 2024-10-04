@@ -61,7 +61,7 @@ public class XEP17Tests<T> : TestBase<T>
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest</param>
     /// <param name="debugInfo">Debug info</param>
-    public XEP17Tests(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+    public XEP17Tests(NefFile nefFile, ContractManifest manifestFile, EpicChainDebugInfo? debugInfo = null)
        : base(nefFile, manifestFile, debugInfo)
     {
         Contract.OnTransfer += onTransfer;

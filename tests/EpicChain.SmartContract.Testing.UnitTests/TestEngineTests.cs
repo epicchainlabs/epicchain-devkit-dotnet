@@ -67,11 +67,11 @@ namespace EpicChain.SmartContract.Testing.UnitTests
         {
             TestEngine engine = new(false);
 
-            Assert.ThrowsException<KeyNotFoundException>(() => engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true));
+            Assert.ThrowsException<KeyNotFoundException>(() => engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash, true));
 
             engine.Native.Initialize(false);
 
-            Assert.IsInstanceOfType<NEO>(engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true));
+            Assert.IsInstanceOfType<EpicChain>(engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash, true));
         }
 
         [TestMethod]
@@ -81,9 +81,9 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             TestEngine engine = new(true);
 
-            // Get neo token smart contract and mock balanceOf to always return 123
+            // Get epicchain token smart contract and mock balanceOf to always return 123
 
-            var neo = engine.FromHash<NEO>(engine.Native.EpicChain.Hash,
+            var epicchain = engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash,
                 mock => mock.Setup(o => o.BalanceOf(It.IsAny<UInt160>())).Returns(new BigInteger(123)),
                 false);
 
@@ -147,9 +147,9 @@ namespace EpicChain.SmartContract.Testing.UnitTests
 
             var engine = new TestEngine(true);
 
-            // Instantiate neo contract from native hash, (not necessary if we use engine.Native.NEO)
+            // Instantiate epicchain contract from native hash, (not necessary if we use engine.Native.EpicChain)
 
-            var neo = engine.FromHash<NEO>(engine.Native.EpicChain.Hash, true);
+            var epicchain = engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash, true);
 
             // Ensure that the main address contains the totalSupply
 

@@ -12,7 +12,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
     public class NativeTest : DebugAndTestBase<Contract_Native>
     {
         [TestMethod]
-        public void Test_NEO()
+        public void Test_EpicChain()
         {
             Assert.AreEqual(0, Contract.EpicChain_Decimals());
             Assert.AreEqual(5_0000_0000, Contract.EpicChain_GetEpicPulsePerBlock());

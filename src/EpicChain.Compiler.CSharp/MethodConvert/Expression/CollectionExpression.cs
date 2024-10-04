@@ -21,7 +21,7 @@ namespace EpicChain.Compiler;
 internal partial class MethodConvert
 {
     /// <summary>
-    /// Converts a collection expression to the appropriate NeoVM instructions.
+    /// Converts a collection expression to the appropriate EpicChainVM instructions.
     /// Determines if the collection is a byte array or a generic collection and calls the appropriate conversion method.
     /// </summary>
     /// <param name="model">The semantic model of the code being analyzed.</param>
@@ -30,7 +30,7 @@ internal partial class MethodConvert
     {
         var typeSymbol = model.GetTypeInfo(expression).ConvertedType;
 
-        // Byte array is considered Buffer type in NeoVM
+        // Byte array is considered Buffer type in EpicChainVM
         if (IsArrayOfBytes(typeSymbol))
         {
             ConvertByteArrayExpression(model, expression);
@@ -52,7 +52,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Converts a byte array expression to NeoVM instructions.
+    /// Converts a byte array expression to EpicChainVM instructions.
     /// Determines if the array contains constant values or not and calls the appropriate conversion method.
     /// </summary>
     /// <param name="model">The semantic model of the code being analyzed.</param>
@@ -85,7 +85,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Converts a non-constant byte array to NeoVM instructions.
+    /// Converts a non-constant byte array to EpicChainVM instructions.
     /// Creates a new buffer and sets each element individually.
     /// </summary>
     /// <param name="model">The semantic model of the code being analyzed.</param>
@@ -105,7 +105,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Converts a single element of a collection expression to NeoVM instructions.
+    /// Converts a single element of a collection expression to EpicChainVM instructions.
     /// </summary>
     /// <param name="model">The semantic model of the code being analyzed.</param>
     /// <param name="element">The collection element syntax to convert.</param>
@@ -122,7 +122,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Converts a constant byte array to NeoVM instructions.
+    /// Converts a constant byte array to EpicChainVM instructions.
     /// Creates a buffer directly from the constant values.
     /// </summary>
     /// <param name="values">An array of optional objects representing the constant byte values.</param>
@@ -134,7 +134,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Converts a generic collection expression to NeoVM instructions.
+    /// Converts a generic collection expression to EpicChainVM instructions.
     /// Creates an array by pushing elements onto the stack and then packing them.
     /// </summary>
     /// <param name="model">The semantic model of the code being analyzed.</param>

@@ -38,12 +38,12 @@ namespace EpicChain.Compiler
         private bool _internalInline;
         // _initSlot is a boolean flag that determines whether an INITSLOT instruction
         // should be added at the beginning of the method's bytecode.
-        // It's used to allocate space for local variables and parameters in the Neo VM.
+        // It's used to allocate space for local variables and parameters in the EpicChain VM.
         // The _initSlot flag allows the compiler to avoid adding unnecessary INITSLOT
         // instructions for methods that don't need local variables or parameters.
         // It's typically set to false for inline methods or external method calls.
         // By using this flag, the compiler can efficiently manage stack space allocation
-        // for method execution in the Neo VM, only allocating space when necessary.
+        // for method execution in the EpicChain VM, only allocating space when necessary.
         private bool _initSlot;
         private readonly Dictionary<IParameterSymbol, byte> _parameters = new(SymbolEqualityComparer.Default);
         private readonly List<(ILocalSymbol, byte)> _variableSymbols = new();
@@ -94,7 +94,7 @@ namespace EpicChain.Compiler
         #region Convert
 
         /// <summary>
-        /// This method is responsible for converting a method into a Neo VM bytecode.
+        /// This method is responsible for converting a method into a EpicChain VM bytecode.
         /// </summary>
         /// <param name="model">The semantic model of the method</param>
         public void Convert(SemanticModel model)

@@ -34,7 +34,7 @@ namespace EpicChain.Compiler
         internal CompilationOptions Options { get; private set; } = options;
         private static readonly MetadataReference[] CommonReferences;
         private static readonly Dictionary<string, MetadataReference> MetaReferences = [];
-        private static readonly Regex s_pattern = new(@"^(Neo\.SmartContract\.Framework\.SmartContract|SmartContract\.Framework\.SmartContract|Framework\.SmartContract|SmartContract)$");
+        private static readonly Regex s_pattern = new(@"^(EpicChain\.SmartContract\.Framework\.SmartContract|SmartContract\.Framework\.SmartContract|Framework\.SmartContract|SmartContract)$");
         internal readonly ConcurrentDictionary<INamedTypeSymbol, CompilationContext> Contexts = new(SymbolEqualityComparer.Default);
 
         static CompilationEngine()
@@ -91,7 +91,7 @@ namespace EpicChain.Compiler
         {
             return CompileSources(new CompilationSourceReferences()
             {
-                Packages = [new("EpicChain.SmartContract.Framework", "3.7.4-*")]
+                Packages = [new("EpicChain.SmartContract.Framework", "1.0.0-*")]
             },
             sourceFiles);
         }
@@ -194,7 +194,7 @@ namespace EpicChain.Compiler
             }
 
             // Verify if there is any valid smart contract class
-            if (classDependencies.Count == 0) throw new FormatException("No valid neo SmartContract found. Please make sure your contract is subclass of SmartContract and is not abstract.");
+            if (classDependencies.Count == 0) throw new FormatException("No valid epicchain SmartContract found. Please make sure your contract is subclass of SmartContract and is not abstract.");
             // Check contract dependencies, make sure there is no cycle in the dependency graph
             var sortedClasses = TopologicalSort(classDependencies);
 

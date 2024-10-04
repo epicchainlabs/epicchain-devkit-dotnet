@@ -43,7 +43,7 @@ namespace EpicChain.SmartContract.Testing
         }
 
         /// <summary>
-        /// Invoke to NeoVM
+        /// Invoke to EpicChainVM
         /// </summary>
         /// <param name="methodName">Method name</param>
         /// <param name="args">Arguments</param>

@@ -10,12 +10,12 @@ namespace EpicChain.SmartContract.Testing.TestingStandards
 {
     public abstract class TestCleanupBase
     {
-        protected static void EnsureCoverageInternal(Assembly assembly, IEnumerable<(Type type, NeoDebugInfo? dbgInfo)> debugInfos, decimal requiredCoverage = 0.9M)
+        protected static void EnsureCoverageInternal(Assembly assembly, IEnumerable<(Type type, EpicChainDebugInfo? dbgInfo)> debugInfos, decimal requiredCoverage = 0.9M)
         {
             // Join here all of your coverage sources
             CoverageBase? coverage = null;
             var allTypes = assembly.GetTypes();
-            var list = new List<(CoveredContract Contract, NeoDebugInfo DebugInfo)>();
+            var list = new List<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)>();
 
             foreach (var infos in debugInfos)
             {

@@ -468,7 +468,7 @@ public class CoverageContractTests
 
         // Load our debug file
 
-        if (NeoDebugInfo.TryLoad("templates/epicchaincontractxep17/Artifacts/Xep17Contract.nefdbgnfo", out var dbg))
+        if (EpicChainDebugInfo.TryLoad("templates/epicchaincontractxep17/Artifacts/Xep17Contract.nefdbgnfo", out var dbg))
         {
             // Write the cobertura format
 

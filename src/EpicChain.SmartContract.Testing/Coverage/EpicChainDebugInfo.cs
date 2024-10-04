@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace EpicChain.SmartContract.Testing.Coverage
 {
-    public partial class NeoDebugInfo(UInt160 hash, string documentRoot, IReadOnlyList<string> documents, IReadOnlyList<NeoDebugInfo.Method> methods)
+    public partial class EpicChainDebugInfo(UInt160 hash, string documentRoot, IReadOnlyList<string> documents, IReadOnlyList<EpicChainDebugInfo.Method> methods)
     {
         static readonly Regex spRegex = new(@"^(\d+)\[(-?\d+)\](\d+)\:(\d+)\-(\d+)\:(\d+)$");
 
@@ -22,7 +22,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
         public readonly IReadOnlyList<string> Documents = documents;
         public readonly IReadOnlyList<Method> Methods = methods;
 
-        public static bool TryLoad(string path, [MaybeNullWhen(false)] out NeoDebugInfo debugInfo)
+        public static bool TryLoad(string path, [MaybeNullWhen(false)] out EpicChainDebugInfo debugInfo)
         {
             if (path.EndsWith(NEF_DBG_NFO_EXTENSION))
             {
@@ -39,7 +39,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             }
         }
 
-        public static bool TryLoadManifestDebugInfo(string manifestPath, [MaybeNullWhen(false)] out NeoDebugInfo debugInfo)
+        public static bool TryLoadManifestDebugInfo(string manifestPath, [MaybeNullWhen(false)] out EpicChainDebugInfo debugInfo)
         {
             if (string.IsNullOrEmpty(manifestPath))
             {
@@ -70,7 +70,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return path;
         }
 
-        static bool TryLoadCompressed(string debugInfoPath, [MaybeNullWhen(false)] out NeoDebugInfo debugInfo)
+        static bool TryLoadCompressed(string debugInfoPath, [MaybeNullWhen(false)] out EpicChainDebugInfo debugInfo)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return false;
         }
 
-        internal static bool TryLoadCompressed(Stream stream, [MaybeNullWhen(false)] out NeoDebugInfo debugInfo)
+        internal static bool TryLoadCompressed(Stream stream, [MaybeNullWhen(false)] out EpicChainDebugInfo debugInfo)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return false;
         }
 
-        static bool TryLoadUncompressed(string debugInfoPath, [MaybeNullWhen(false)] out NeoDebugInfo debugInfo)
+        static bool TryLoadUncompressed(string debugInfoPath, [MaybeNullWhen(false)] out EpicChainDebugInfo debugInfo)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return false;
         }
 
-        internal static NeoDebugInfo Load(Stream stream)
+        internal static EpicChainDebugInfo Load(Stream stream)
         {
             using StreamReader reader = new(stream);
             var text = reader.ReadToEnd();
@@ -134,7 +134,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return FromDebugInfoJson(jo);
         }
 
-        public static NeoDebugInfo FromDebugInfoJson(string json)
+        public static EpicChainDebugInfo FromDebugInfoJson(string json)
         {
             var jsonToken = JToken.Parse(json);
             if (jsonToken is not JObject jobj)
@@ -143,7 +143,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
             return FromDebugInfoJson(jobj);
         }
 
-        public static NeoDebugInfo FromDebugInfoJson(JObject json)
+        public static EpicChainDebugInfo FromDebugInfoJson(JObject json)
         {
             if (json["hash"]?.GetString() is not string sHash)
             {
@@ -172,7 +172,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
 
             // TODO: parse events and static variables
 
-            return new NeoDebugInfo(hash, docRoot, documents.ToList(), methods.ToList());
+            return new EpicChainDebugInfo(hash, docRoot, documents.ToList(), methods.ToList());
         }
 
         static Method MethodFromJson(JObject? json)

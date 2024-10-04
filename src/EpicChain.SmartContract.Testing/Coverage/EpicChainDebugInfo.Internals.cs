@@ -3,11 +3,11 @@ using System.Diagnostics;
 
 namespace EpicChain.SmartContract.Testing.Coverage
 {
-    public partial class NeoDebugInfo
+    public partial class EpicChainDebugInfo
     {
         [DebuggerDisplay("Name={Name}")]
         public struct Method(string id, string @namespace, string name, (int, int) range,
-            IReadOnlyList<NeoDebugInfo.Parameter> parameters, IReadOnlyList<NeoDebugInfo.SequencePoint> sequencePoints)
+            IReadOnlyList<EpicChainDebugInfo.Parameter> parameters, IReadOnlyList<EpicChainDebugInfo.SequencePoint> sequencePoints)
         {
             public readonly string Id = id;
             public readonly string Namespace = @namespace;

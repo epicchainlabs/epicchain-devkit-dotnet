@@ -21,7 +21,7 @@ namespace EpicChain.Compiler;
 internal partial class MethodConvert
 {
     /// <summary>
-    /// Convert literal expression to NeoVM instructions
+    /// Convert literal expression to EpicChainVM instructions
     /// </summary>
     /// <param name="model">The semantic model of the method</param>
     /// <param name="expression">The literal expression to convert</param>
@@ -30,7 +30,7 @@ internal partial class MethodConvert
     /// public void ExampleMethod()
     /// {
     ///     int intLiteral = 42;
-    ///     string stringLiteral = "Hello, Neo!";
+    ///     string stringLiteral = "Hello, EpicChain!";
     ///     bool boolLiteral = true;
     ///     object nullLiteral = null;
     ///     int defaultLiteral = default;
@@ -54,7 +54,7 @@ internal partial class MethodConvert
     }
 
     /// <summary>
-    /// Convert default literal expression to NeoVM instructions
+    /// Convert default literal expression to EpicChainVM instructions
     /// </summary>
     /// <param name="model">The semantic model of the method</param>
     /// <param name="expression">The literal expression to convert</param>

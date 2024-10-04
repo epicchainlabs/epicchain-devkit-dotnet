@@ -21,7 +21,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
     public class TestCleanup : TestCleanupBase
     {
         private static readonly Regex WhiteSpaceRegex = new("\\s", RegexOptions.Compiled);
-        public static readonly ConcurrentDictionary<Type, (CompilationContext Context, NeoDebugInfo? DbgInfo)> CachedContracts = new();
+        public static readonly ConcurrentDictionary<Type, (CompilationContext Context, EpicChainDebugInfo? DbgInfo)> CachedContracts = new();
         private static readonly string TestContractsPath = Path.GetFullPath(Path.Combine("..", "..", "..", "..", "EpicChain.SmartContract.Framework.TestContracts", "EpicChain.SmartContract.Framework.TestContracts.csproj"));
         private static readonly string ArtifactsPath = Path.GetFullPath(Path.Combine("..", "..", "..", "TestingArtifacts"));
         private static readonly string RootPath = Path.GetDirectoryName(TestContractsPath) ?? string.Empty;
@@ -109,10 +109,10 @@ namespace EpicChain.SmartContract.Framework.UnitTests
             CachedContracts[type] = (result, debug);
         }
 
-        private static async Task<NeoDebugInfo?> CreateArtifactAsync(string typeName, CompilationContext context, string rootDebug, string artifactsPath)
+        private static async Task<EpicChainDebugInfo?> CreateArtifactAsync(string typeName, CompilationContext context, string rootDebug, string artifactsPath)
         {
             var (nef, manifest, debugInfo) = context.CreateResults(rootDebug);
-            var debug = NeoDebugInfo.FromDebugInfoJson(debugInfo);
+            var debug = EpicChainDebugInfo.FromDebugInfoJson(debugInfo);
             var artifact = manifest.GetArtifactsSource(typeName, nef, generateProperties: true);
 
             var writtenArtifact = File.Exists(artifactsPath)

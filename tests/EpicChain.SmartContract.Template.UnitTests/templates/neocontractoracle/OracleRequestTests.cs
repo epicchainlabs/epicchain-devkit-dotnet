@@ -6,7 +6,7 @@ using EpicChain.SmartContract.Testing.Exceptions;
 using System.Text;
 using EpicChain.SmartContract.Testing.TestingStandards;
 
-namespace EpicChain.SmartContract.Template.UnitTests.templates.neocontractoracle
+namespace EpicChain.SmartContract.Template.UnitTests.templates.epicchaincontractoracle
 {
     /// <summary>
     /// You need to build the solution to resolve OracleRequest class.

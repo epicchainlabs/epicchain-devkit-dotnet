@@ -11,13 +11,13 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
         /// <summary>
         /// Contract
         /// </summary>
-        public IReadOnlyList<(CoveredContract Contract, NeoDebugInfo DebugInfo)> Contracts { get; }
+        public IReadOnlyList<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)> Contracts { get; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="contracts">Contracts</param>
-        public CoberturaFormat(params (CoveredContract Contract, NeoDebugInfo DebugInfo)[] contracts)
+        public CoberturaFormat(params (CoveredContract Contract, EpicChainDebugInfo DebugInfo)[] contracts)
         {
             Contracts = contracts;
         }
@@ -34,7 +34,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             });
         }
 
-        internal static void WriteReport(XmlWriter writer, IReadOnlyList<(CoveredContract Contract, NeoDebugInfo DebugInfo)> coverage)
+        internal static void WriteReport(XmlWriter writer, IReadOnlyList<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)> coverage)
         {
             int linesValid = 0, linesCovered = 0;
             int branchesValid = 0, branchesCovered = 0;
@@ -85,7 +85,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             writer.WriteEndElement();
         }
 
-        private static (int branchCount, int branchHit) GetBranchRate(CoveredContract contract, IEnumerable<NeoDebugInfo.SequencePoint> sequencePoints)
+        private static (int branchCount, int branchHit) GetBranchRate(CoveredContract contract, IEnumerable<EpicChainDebugInfo.SequencePoint> sequencePoints)
         {
             int branchCount = 0, branchHit = 0;
 
@@ -101,7 +101,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             return (branchCount, branchHit);
         }
 
-        private static (int lineCount, int hitCount) GetLineRate(CoveredContract contract, IEnumerable<NeoDebugInfo.SequencePoint> sequencePoints)
+        private static (int lineCount, int hitCount) GetLineRate(CoveredContract contract, IEnumerable<EpicChainDebugInfo.SequencePoint> sequencePoints)
         {
             int lineCount = 0, hitCount = 0;
 
@@ -118,7 +118,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
         }
 
         public static IEnumerable<(int address, CoverageBranch branch)> GetBranchInstructions(
-            CoveredContract contract, NeoDebugInfo.Method method, NeoDebugInfo.SequencePoint sequencePoint
+            CoveredContract contract, EpicChainDebugInfo.Method method, EpicChainDebugInfo.SequencePoint sequencePoint
             )
         {
             var address = sequencePoint.Address;
@@ -136,7 +136,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             }
         }
 
-        public static int GetLineLastAddress(CoverageHit[] lines, NeoDebugInfo.Method method, int index)
+        public static int GetLineLastAddress(CoverageHit[] lines, EpicChainDebugInfo.Method method, int index)
         {
             var nextIndex = index + 1;
             if (nextIndex >= method.SequencePoints.Count)

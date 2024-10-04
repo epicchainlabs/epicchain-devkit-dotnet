@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Message Text="Start NeoContract converter, Source File: &quot;$(ProjectPath)&quot;" Importance="high">
+    <Message Text="Start EpicChainContract converter, Source File: &quot;$(ProjectPath)&quot;" Importance="high">
     </Message>
     <Exec Command="nccs $(BaseNameArgument) $(NullableArgument) $(CheckedArgument) $(DebugArgument) &quot;$(ProjectPath)&quot;" />
   </Target>

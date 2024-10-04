@@ -28,7 +28,7 @@ public class OwnableTests<T> : TestBase<T>
     public OwnableTests(string nefFile, string manifestFile, string? debugInfoFile = null)
         : base(File.ReadAllBytes(nefFile).AsSerializable<NefFile>(),
             ContractManifest.Parse(File.ReadAllText(manifestFile)),
-            !string.IsNullOrEmpty(debugInfoFile) && NeoDebugInfo.TryLoad(debugInfoFile, out var debugInfo) ? debugInfo : null)
+            !string.IsNullOrEmpty(debugInfoFile) && EpicChainDebugInfo.TryLoad(debugInfoFile, out var debugInfo) ? debugInfo : null)
     {
         Contract.OnSetOwner += onSetOwner;
     }
@@ -39,7 +39,7 @@ public class OwnableTests<T> : TestBase<T>
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest</param>
     /// <param name="debugInfo">Debug info</param>
-    public OwnableTests(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+    public OwnableTests(NefFile nefFile, ContractManifest manifestFile, EpicChainDebugInfo? debugInfo = null)
         : base(nefFile, manifestFile, debugInfo)
     {
         Contract.OnSetOwner += onSetOwner;

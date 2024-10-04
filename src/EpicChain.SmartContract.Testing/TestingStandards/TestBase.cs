@@ -18,7 +18,7 @@ public class TestBase<T> where T : SmartContract, IContractInfo
 
     public NefFile NefFile { get; private set; } = default!;
     public ContractManifest Manifest { get; private set; } = default!;
-    public NeoDebugInfo? DebugInfo { get; set; }
+    public EpicChainDebugInfo? DebugInfo { get; set; }
     public TestEngine Engine { get; private set; } = default!;
     public T Contract { get; private set; } = default!;
     public UInt160 ContractHash => Contract.Hash;
@@ -37,7 +37,7 @@ public class TestBase<T> where T : SmartContract, IContractInfo
     public TestBase(string nefFile, string manifestFile, string? debugInfoFile = null) :
         this(File.ReadAllBytes(nefFile).AsSerializable<NefFile>(),
             ContractManifest.Parse(File.ReadAllText(manifestFile)),
-            !string.IsNullOrEmpty(debugInfoFile) && NeoDebugInfo.TryLoad(debugInfoFile, out var debugInfo) ? debugInfo : null)
+            !string.IsNullOrEmpty(debugInfoFile) && EpicChainDebugInfo.TryLoad(debugInfoFile, out var debugInfo) ? debugInfo : null)
     { }
 
     /// <summary>
@@ -46,7 +46,7 @@ public class TestBase<T> where T : SmartContract, IContractInfo
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest</param>
     /// <param name="debugInfo">Debug info</param>
-    public TestBase(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+    public TestBase(NefFile nefFile, ContractManifest manifestFile, EpicChainDebugInfo? debugInfo = null)
     {
         TestBaseSetup(nefFile, manifestFile, debugInfo);
     }
@@ -57,7 +57,7 @@ public class TestBase<T> where T : SmartContract, IContractInfo
     /// <param name="nefFile">Nef file</param>
     /// <param name="manifestFile">Manifest</param>
     /// <param name="debugInfo">Debug info</param>
-    public virtual void TestBaseSetup(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+    public virtual void TestBaseSetup(NefFile nefFile, ContractManifest manifestFile, EpicChainDebugInfo? debugInfo = null)
     {
         NefFile = nefFile;
         Manifest = manifestFile;

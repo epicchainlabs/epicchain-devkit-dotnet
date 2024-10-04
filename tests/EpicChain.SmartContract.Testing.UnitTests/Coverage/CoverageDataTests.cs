@@ -46,7 +46,7 @@ EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 │ unregisterCandidate(pubkey)     │   0.00 % │ 100.00 % │
 │ vote(account,voteTo)            │   0.00 % │ 100.00 % │
 └-───────────────────────────────-┴-────────-┴-────────-┘
-", ""), WhiteSpaceRegex.Replace(engine.GetCoverage(engine.Native.NEO)?.Dump()!, ""));
+", ""), WhiteSpaceRegex.Replace(engine.GetCoverage(engine.Native.EpicChain)?.Dump()!, ""));
 
             Assert.AreEqual(WhiteSpaceRegex.Replace(@"
 EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
@@ -74,40 +74,40 @@ EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 
             // Check totalSupply
 
-            Assert.IsNotNull(engine.GetCoverage(engine.Native.NEO));
+            Assert.IsNotNull(engine.GetCoverage(engine.Native.EpicChain));
             Assert.AreEqual(1_000_000_000, engine.Native.EpicChain.TotalSupply);
 
-            Assert.AreEqual(engine.Native.EpicChain.Hash, engine.GetCoverage(engine.Native.NEO)?.Hash);
-            Assert.AreEqual(60, engine.GetCoverage(engine.Native.NEO)?.TotalLines);
-            Assert.AreEqual(3, engine.GetCoverage(engine.Native.NEO)?.CoveredLines);
-            Assert.AreEqual(3, engine.GetCoverage(engine.Native.NEO)?.CoveredLinesAll);
+            Assert.AreEqual(engine.Native.EpicChain.Hash, engine.GetCoverage(engine.Native.EpicChain)?.Hash);
+            Assert.AreEqual(60, engine.GetCoverage(engine.Native.EpicChain)?.TotalLines);
+            Assert.AreEqual(3, engine.GetCoverage(engine.Native.EpicChain)?.CoveredLines);
+            Assert.AreEqual(3, engine.GetCoverage(engine.Native.EpicChain)?.CoveredLinesAll);
 
             // Check balanceOf
 
             Assert.AreEqual(0, engine.Native.EpicChain.BalanceOf(engine.Native.EpicChain.Hash));
 
-            Assert.AreEqual(60, engine.GetCoverage(engine.Native.NEO)?.TotalLines);
-            Assert.AreEqual(6, engine.GetCoverage(engine.Native.NEO)?.CoveredLines);
-            Assert.AreEqual(6, engine.GetCoverage(engine.Native.NEO)?.CoveredLinesAll);
+            Assert.AreEqual(60, engine.GetCoverage(engine.Native.EpicChain)?.TotalLines);
+            Assert.AreEqual(6, engine.GetCoverage(engine.Native.EpicChain)?.CoveredLines);
+            Assert.AreEqual(6, engine.GetCoverage(engine.Native.EpicChain)?.CoveredLinesAll);
 
             // Check coverage by method and expression
 
             var methodCovered = engine.GetCoverage(engine.Native.Oracle, o => o.Finish());
             Assert.IsNotNull(methodCovered);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, o => o.TotalSupply);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, o => o.TotalSupply);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, o => o.RegisterPrice);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, o => o.RegisterPrice);
             Assert.AreEqual(6, methodCovered?.TotalLines);
             Assert.AreEqual(0, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, o => o.BalanceOf(It.IsAny<UInt160>()));
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, o => o.BalanceOf(It.IsAny<UInt160>()));
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, o => o.Transfer(It.IsAny<UInt160>(), It.IsAny<UInt160>(), It.IsAny<BigInteger>(), It.IsAny<object>()));
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, o => o.Transfer(It.IsAny<UInt160>(), It.IsAny<UInt160>(), It.IsAny<BigInteger>(), It.IsAny<object>()));
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(0, methodCovered?.CoveredLines);
 
@@ -116,15 +116,15 @@ EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
             methodCovered = engine.GetCoverage(engine.Native.Oracle, "finish", 0);
             Assert.IsNotNull(methodCovered);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "totalSupply", 0);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "totalSupply", 0);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "balanceOf", 1);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "balanceOf", 1);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "transfer", 4);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "transfer", 4);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(0, methodCovered?.CoveredLines);
         }
@@ -183,15 +183,15 @@ EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
             methodCovered = engine.GetCoverage(engine.Native.Oracle, "finish", 0);
             Assert.IsNotNull(methodCovered);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "totalSupply", 0);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "totalSupply", 0);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "balanceOf", 1);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "balanceOf", 1);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(3, methodCovered?.CoveredLines);
 
-            methodCovered = engine.GetCoverage(engine.Native.NEO, "transfer", 4);
+            methodCovered = engine.GetCoverage(engine.Native.EpicChain, "transfer", 4);
             Assert.AreEqual(3, methodCovered?.TotalLines);
             Assert.AreEqual(0, methodCovered?.CoveredLines);
         }

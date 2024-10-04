@@ -28,7 +28,7 @@ internal partial class MethodConvert
     /// <example>
     /// The following 4 static fields will each be converted in this method.
     /// <code>
-    /// static string[] A = { "BTC", "NEO", "GAS" };
+    /// static string[] A = { "BTC", "EpicChain", "GAS" };
     /// static int[] B = { 1, 2 };
     /// static byte[] C = { 1, 2 };
     /// static UInt160 D = UInt160.Zero;

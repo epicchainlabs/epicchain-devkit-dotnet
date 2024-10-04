@@ -25,7 +25,7 @@ namespace EpicChain.Compiler;
 internal partial class MethodConvert
 {
     /// <summary>
-    /// Converts an expression to NeoVM instructions.
+    /// Converts an expression to EpicChainVM instructions.
     /// </summary>
     /// <param name="model">The semantic model of the compilation.</param>
     /// <param name="syntax">The expression syntax to convert.</param>
@@ -192,7 +192,7 @@ internal partial class MethodConvert
                 break;
             case TypeOfExpressionSyntax expression:
                 // Example: typeof(int)
-                // Note: Neo currently does not support the Type type of C#. The typeof operator here
+                // Note: EpicChain currently does not support the Type type of C#. The typeof operator here
                 // will only return the string name of the class/type. This support is added
                 // to ensure we can process enum parse methods.
                 ConvertTypeOfExpression(model, expression);

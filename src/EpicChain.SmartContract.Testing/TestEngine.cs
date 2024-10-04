@@ -608,7 +608,7 @@ namespace EpicChain.SmartContract.Testing
 
             Transaction.Script = script;
 
-            // Execute in neo VM
+            // Execute in EpicChain VM
 
             var snapshot = Storage.Snapshot.CloneCache();
 

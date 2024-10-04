@@ -10,7 +10,7 @@ public abstract class Contract_NativeContracts(EpicChain.SmartContract.Testing.S
 {
     #region Compiled data
 
-    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_NativeContracts"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""oracleMinimumResponseFee"",""parameters"":[],""returntype"":""Integer"",""offset"":0,""safe"":false},{""name"":""nEOSymbol"",""parameters"":[],""returntype"":""String"",""offset"":6,""safe"":false},{""name"":""gASSymbol"",""parameters"":[],""returntype"":""String"",""offset"":10,""safe"":false},{""name"":""getOracleNodes"",""parameters"":[],""returntype"":""Array"",""offset"":14,""safe"":false},{""name"":""nEOHash"",""parameters"":[],""returntype"":""Hash160"",""offset"":20,""safe"":false},{""name"":""ledgerHash"",""parameters"":[],""returntype"":""Hash160"",""offset"":43,""safe"":false},{""name"":""ledgerCurrentHash"",""parameters"":[],""returntype"":""Hash256"",""offset"":66,""safe"":false},{""name"":""ledgerCurrentIndex"",""parameters"":[],""returntype"":""Integer"",""offset"":70,""safe"":false}],""events"":[]},""permissions"":[{""contract"":""0x49cf4e5378ffcd4dec034fd98a174c5491e395e2"",""methods"":[""getDesignatedByRole""]},{""contract"":""0xd2a4cff31913016155e38e474a2c06d08be276cf"",""methods"":[""symbol""]},{""contract"":""0xda65b600f7124ce6c79950c1772a36403104f2be"",""methods"":[""currentHash"",""currentIndex""]},{""contract"":""0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"",""methods"":[""symbol""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
+    public static EpicChain.SmartContract.Manifest.ContractManifest Manifest => EpicChain.SmartContract.Manifest.ContractManifest.Parse(@"{""name"":""Contract_NativeContracts"",""groups"":[],""features"":{},""supportedstandards"":[],""abi"":{""methods"":[{""name"":""oracleMinimumResponseFee"",""parameters"":[],""returntype"":""Integer"",""offset"":0,""safe"":false},{""name"":""EpicChainSymbol"",""parameters"":[],""returntype"":""String"",""offset"":6,""safe"":false},{""name"":""gASSymbol"",""parameters"":[],""returntype"":""String"",""offset"":10,""safe"":false},{""name"":""getOracleNodes"",""parameters"":[],""returntype"":""Array"",""offset"":14,""safe"":false},{""name"":""EpicChainHash"",""parameters"":[],""returntype"":""Hash160"",""offset"":20,""safe"":false},{""name"":""ledgerHash"",""parameters"":[],""returntype"":""Hash160"",""offset"":43,""safe"":false},{""name"":""ledgerCurrentHash"",""parameters"":[],""returntype"":""Hash256"",""offset"":66,""safe"":false},{""name"":""ledgerCurrentIndex"",""parameters"":[],""returntype"":""Integer"",""offset"":70,""safe"":false}],""events"":[]},""permissions"":[{""contract"":""0x49cf4e5378ffcd4dec034fd98a174c5491e395e2"",""methods"":[""getDesignatedByRole""]},{""contract"":""0xd2a4cff31913016155e38e474a2c06d08be276cf"",""methods"":[""symbol""]},{""contract"":""0xda65b600f7124ce6c79950c1772a36403104f2be"",""methods"":[""currentHash"",""currentIndex""]},{""contract"":""0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"",""methods"":[""symbol""]}],""trusts"":[],""extra"":{""nef"":{""optimization"":""All""}}}");
 
     /// <summary>
     /// Optimization: "All"
@@ -54,14 +54,14 @@ public abstract class Contract_NativeContracts(EpicChain.SmartContract.Testing.S
     /// <summary>
     /// Unsafe method
     /// </summary>
-    [DisplayName("nEOHash")]
-    public abstract UInt160? NEOHash();
+    [DisplayName("EpicChainHash")]
+    public abstract UInt160? EpicChainHash();
 
     /// <summary>
     /// Unsafe method
     /// </summary>
-    [DisplayName("nEOSymbol")]
-    public abstract string? NEOSymbol();
+    [DisplayName("EpicChainSymbol")]
+    public abstract string? EpicChainSymbol();
 
     /// <summary>
     /// Unsafe method

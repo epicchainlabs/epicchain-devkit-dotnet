@@ -26,7 +26,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             return engine;
         }
 
-        public override void TestBaseSetup(NefFile nefFile, ContractManifest manifestFile, NeoDebugInfo? debugInfo = null)
+        public override void TestBaseSetup(NefFile nefFile, ContractManifest manifestFile, EpicChainDebugInfo? debugInfo = null)
         {
             base.TestBaseSetup(nefFile, manifestFile, debugInfo);
 

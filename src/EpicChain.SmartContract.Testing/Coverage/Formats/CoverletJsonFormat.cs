@@ -9,13 +9,13 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
         /// <summary>
         /// Contract
         /// </summary>
-        public IReadOnlyList<(CoveredContract Contract, NeoDebugInfo DebugInfo)> Contracts { get; }
+        public IReadOnlyList<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)> Contracts { get; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="contracts">Contracts</param>
-        public CoverletJsonFormat(params (CoveredContract Contract, NeoDebugInfo DebugInfo)[] contracts)
+        public CoverletJsonFormat(params (CoveredContract Contract, EpicChainDebugInfo DebugInfo)[] contracts)
         {
             Contracts = contracts;
         }
@@ -41,7 +41,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             });
         }
 
-        private static void WriteReport(StreamWriter textWriter, IReadOnlyList<(CoveredContract Contract, NeoDebugInfo DebugInfo)> contracts)
+        private static void WriteReport(StreamWriter textWriter, IReadOnlyList<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)> contracts)
         {
             Modules? modules = GetModules(contracts);
             if (modules is null) return;
@@ -51,7 +51,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             textWriter.Write(modules.ToJson());
         }
 
-        private static Modules? GetModules(IReadOnlyList<(CoveredContract Contract, NeoDebugInfo DebugInfo)> contracts)
+        private static Modules? GetModules(IReadOnlyList<(CoveredContract Contract, EpicChainDebugInfo DebugInfo)> contracts)
         {
             Modules? module = null;
 
@@ -66,7 +66,7 @@ namespace EpicChain.SmartContract.Testing.Coverage.Formats
             return module;
         }
 
-        private static Modules GetModule(CoveredContract contract, NeoDebugInfo debugInfo)
+        private static Modules GetModule(CoveredContract contract, EpicChainDebugInfo debugInfo)
         {
             var module = new Modules();
             var docs = new Documents();

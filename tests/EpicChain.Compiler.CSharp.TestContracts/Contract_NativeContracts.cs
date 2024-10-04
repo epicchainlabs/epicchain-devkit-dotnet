@@ -10,7 +10,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
             return Oracle.MinimumResponseFee;
         }
 
-        public static string NEOSymbol()
+        public static string EpicChainSymbol()
         {
             return XPR.Symbol;
         }
@@ -25,7 +25,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
             return QuantumGuardNexus.GetDesignatedByRole(Role.Oracle, 0);
         }
 
-        public static UInt160 NEOHash()
+        public static UInt160 EpicChainHash()
         {
             return EpicChain.Hash;
         }

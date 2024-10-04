@@ -41,7 +41,7 @@ jobs:
         dotnet new install ./src/EpicChain.SmartContract.Template/bin/Debug/EpicChain.SmartContract.Template.*.nupkg
         dotnet new epicchaincontractxep17 -n Xep17Contract -o ./src/EpicChain.SmartContract.Template/bin/Debug/xep17/ --force
         dotnet new epicchaincontractowner -n Ownable -o ./src/EpicChain.SmartContract.Template/bin/Debug/ownable/ --force
-        dotnet new neocontractoracle -n OracleRequest -o ./src/EpicChain.SmartContract.Template/bin/Debug/oracle/ --force
+        dotnet new epicchaincontractoracle -n OracleRequest -o ./src/EpicChain.SmartContract.Template/bin/Debug/oracle/ --force
         dotnet new uninstall EpicChain.SmartContract.Template
         dotnet remove ./src/EpicChain.SmartContract.Template/bin/Debug/xep17/Xep17Contract.csproj package EpicChain.SmartContract.Framework
         dotnet add    ./src/EpicChain.SmartContract.Template/bin/Debug/xep17/Xep17Contract.csproj reference ./src/EpicChain.SmartContract.Framework/EpicChain.SmartContract.Framework.csproj
@@ -51,7 +51,7 @@ jobs:
         dotnet add    ./src/EpicChain.SmartContract.Template/bin/Debug/oracle/OracleRequest.csproj reference ./src/EpicChain.SmartContract.Framework/EpicChain.SmartContract.Framework.csproj
         dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/xep17/Xep17ContractEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/epicchaincontractxep17/Artifacts/
         dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/ownable/OwnableEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/epicchaincontractowner/Artifacts/
-        dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/oracle/OracleRequestEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/neocontractoracle/Artifacts/
+        dotnet ./src/EpicChain.Compiler.CSharp/bin/Debug/netEpicChain.SmartContractc/EpicChain.SmartContract.Template/bin/Debug/oracle/OracleRequestEpicChain.SmartContracts/EpicChain.SmartContract.Template.UnitTests/templates/epicchaincontractoracle/Artifacts/
     - name: Build Solution
       run: dotnet build ./epicchain-devkit-dotnet.sln
     - name: Add package coverlet.msbuild
@@ -110,8 +110,8 @@ jobs:
       run: git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX={}' >> $GITHUB_ENV
     - name: Set Version (EpicChain)
       run: |
-        git --git-dir=./neo/.git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX_NEO={}' >> $GITHUB_ENV
-        sed -n 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/p' ./neo/src/Directory.Build.props | xargs -I{} echo 'VERSION_NEO={}' >> $GITHUB_ENV
+        git --git-dir=./epicchain/.git rev-list --count HEAD | xargs printf 'CI%05d' | xargs -I{} echo 'VERSION_SUFFIX_NEO={}' >> $GITHUB_ENV
+        sed -n 's/.*<VersionPrefix>\(.*\)<\/VersionPrefix>.*/\1/p' ./epicchain/src/Directory.Build.props | xargs -I{} echo 'VERSION_NEO={}' >> $GITHUB_ENV
 
     - name : Pack (EpicChain.SmartContract.Framework)
       run: |

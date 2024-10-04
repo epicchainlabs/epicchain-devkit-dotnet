@@ -14,7 +14,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
     public class TestCleanup : TestCleanupBase
     {
         private static readonly Regex WhiteSpaceRegex = new("\\s");
-        public static readonly ConcurrentDictionary<Type, (CompilationContext Context, NeoDebugInfo? DbgInfo)> CachedContracts = new();
+        public static readonly ConcurrentDictionary<Type, (CompilationContext Context, EpicChainDebugInfo? DbgInfo)> CachedContracts = new();
 
         [AssemblyCleanup]
         public static void EnsureCoverage() => EnsureCoverageInternal(Assembly.GetExecutingAssembly(), CachedContracts.Select(u => (u.Key, u.Value.DbgInfo)));
@@ -42,7 +42,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
             .CompileSources(new CompilationSourceReferences() { Projects = [frameworkPath] },
                 [
                     Path.Combine(templatePath, "epicchaincontractxep17/Xep17Contract.cs"),
-                    Path.Combine(templatePath, "neocontractoracle/OracleRequest.cs"),
+                    Path.Combine(templatePath, "epicchaincontractoracle/OracleRequest.cs"),
                     Path.Combine(templatePath, "epicchaincontractowner/Ownable.cs")
                 ]);
 
@@ -61,7 +61,7 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
 
             context = result.FirstOrDefault(p => p.ContractName == "OracleRequest") ?? throw new InvalidOperationException();
             (artifact, dbg) = CreateArtifact<OracleRequestTemplate>(context, root,
-                Path.Combine(artifactsPath, "neocontractoracle/TestingArtifacts/OracleRequestTemplate.artifacts.cs"));
+                Path.Combine(artifactsPath, "epicchaincontractoracle/TestingArtifacts/OracleRequestTemplate.artifacts.cs"));
 
             CachedContracts[typeof(OracleRequestTemplate)] = (context, dbg);
 
@@ -74,10 +74,10 @@ namespace EpicChain.SmartContract.Template.UnitTests.templates
             CachedContracts[typeof(OwnableTemplate)] = (context, dbg);
         }
 
-        private static (string artifact, NeoDebugInfo debugInfo) CreateArtifact<T>(CompilationContext context, string rootDebug, string artifactsPath)
+        private static (string artifact, EpicChainDebugInfo debugInfo) CreateArtifact<T>(CompilationContext context, string rootDebug, string artifactsPath)
         {
             (var nef, var manifest, var debugInfo) = context.CreateResults(rootDebug);
-            var debug = NeoDebugInfo.FromDebugInfoJson(debugInfo);
+            var debug = EpicChainDebugInfo.FromDebugInfoJson(debugInfo);
             var artifact = manifest.GetArtifactsSource(typeof(T).Name, nef, generateProperties: true);
 
             string writtenArtifact = File.Exists(artifactsPath) ? File.ReadAllText(artifactsPath) : "";

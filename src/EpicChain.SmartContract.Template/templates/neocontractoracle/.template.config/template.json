@@ -4,7 +4,7 @@
   "classifications": [ "EpicChain", "Blockchain", "Smart Contract", "Oracle" ],
   "identity": "EpicChain.SmartContract.Template.Oracle",
   "name": "Next Generation Ecosystem - Oracle",
-  "shortName": "neocontractoracle",
+  "shortName": "epicchaincontractoracle",
   "preferNameDirectory": true,
   "tags": {
     "language": "C#",
@@ -17,10 +17,10 @@
       "datatype": "choice",
       "choices": [
         {
-          "choice": "3.7.4-*"
+          "choice": "1.0.0-*"
         }
       ],
-      "defaultValue": "3.7.4-*",
+      "defaultValue": "1.0.0-*",
       "replaces": "TemplateNeoVersion"
     }
   }
