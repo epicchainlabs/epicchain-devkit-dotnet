@@ -315,7 +315,7 @@ internal partial class MethodConvert
     /// <param name="model">The semantic model used to obtain type information of the expression.</param>
     /// <param name="expression">The expression to be converted to a string.</param>
     /// <remarks>
-    /// For integer types and BigInteger type, call the itoa method of NativeContract.StdLib.Hash for conversion.
+    /// For integer types and BigInteger type, call the itoa method of NativeContract.EssentialLib.Hash for conversion.
     /// For string type and specific types in EpicChain.SmartContract.Framework, directly perform expression conversion.
     /// </remarks>
     /// <exception cref="CompilationException">For unsupported types, throw a compilation exception.</exception>
@@ -334,7 +334,7 @@ internal partial class MethodConvert
             case "ulong":
             case "System.Numerics.BigInteger":
                 ConvertExpression(model, expression);
-                CallContractMethod(NativeContract.StdLib.Hash, "itoa", 1, true);
+                CallContractMethod(NativeContract.EssentialLib.Hash, "itoa", 1, true);
                 break;
             case "char":
                 ConvertExpression(model, expression);

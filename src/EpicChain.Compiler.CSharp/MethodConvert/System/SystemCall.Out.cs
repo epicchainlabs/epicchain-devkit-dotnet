@@ -73,7 +73,7 @@ partial class MethodConvert
         methodConvert.AddInstruction(OpCode.DROP);
 
         // Convert string to integer
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "atoi", 1, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "atoi", 1, true);
 
         // Check if the parsing was successful (not null)
         methodConvert.AddInstruction(OpCode.DUP);
@@ -113,7 +113,7 @@ partial class MethodConvert
         JumpTarget endTarget = new();
 
         // Convert string to BigInteger
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "atoi", 1, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "atoi", 1, true);
 
         // Check if the parsing was successful
         methodConvert.AddInstruction(OpCode.DUP);

@@ -4,12 +4,12 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class StdLib : SmartContract
+public abstract class EssentialLib : SmartContract
 {
     #region Compiled data
 
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.StdLib.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.EssentialLib.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
     #endregion
 
@@ -145,7 +145,7 @@ public abstract class StdLib : SmartContract
 
     #region Constructor for internal use only
 
-    protected StdLib(SmartContractInitialize initialize) : base(initialize) { }
+    protected EssentialLib(SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

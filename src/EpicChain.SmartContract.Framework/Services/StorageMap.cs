@@ -293,14 +293,14 @@ namespace EpicChain.SmartContract.Framework.Services
         {
             ByteString value = Get(key);
             if (value is null) return null;
-            return StdLib.Deserialize(value);
+            return EssentialLib.Deserialize(value);
         }
 
         public object GetObject(byte[] key)
         {
             ByteString value = Get(key);
             if (value is null) return null;
-            return StdLib.Deserialize(value);
+            return EssentialLib.Deserialize(value);
         }
 
         [CallingConvention(CallingConvention.Cdecl)]
@@ -401,12 +401,12 @@ namespace EpicChain.SmartContract.Framework.Services
 
         public void PutObject(ByteString key, object value)
         {
-            Put(key, StdLib.Serialize(value));
+            Put(key, EssentialLib.Serialize(value));
         }
 
         public void PutObject(byte[] key, object value)
         {
-            Put(key, StdLib.Serialize(value));
+            Put(key, EssentialLib.Serialize(value));
         }
 
         [CallingConvention(CallingConvention.Cdecl)]

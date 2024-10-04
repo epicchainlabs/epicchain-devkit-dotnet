@@ -45,7 +45,7 @@ internal partial class MethodConvert
             methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
         if (instanceExpression is not null)
             methodConvert.ConvertExpression(model, instanceExpression);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "memorySearch", 2, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "memorySearch", 2, true);
         methodConvert.AddInstruction(OpCode.PUSH0);
         methodConvert.AddInstruction(OpCode.GE);
     }
@@ -56,7 +56,7 @@ internal partial class MethodConvert
             methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
         if (instanceExpression is not null)
             methodConvert.ConvertExpression(model, instanceExpression);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "memorySearch", 2, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "memorySearch", 2, true);
     }
 
     private static void HandleStringEndsWith(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
@@ -187,7 +187,7 @@ internal partial class MethodConvert
     {
         if (instanceExpression is not null)
             methodConvert.ConvertExpression(model, instanceExpression);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "itoa", 1, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "itoa", 1, true);
     }
 
     private static void HandleStringToString(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
@@ -440,7 +440,7 @@ internal partial class MethodConvert
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.AddInstruction(OpCode.LDARG1);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "memorySearch", 2, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "memorySearch", 2, true);
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.AddInstruction(OpCode.PUSHM1);
         methodConvert.AddInstruction(OpCode.EQUAL);
@@ -449,7 +449,7 @@ internal partial class MethodConvert
         // Get the index of the substring
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.AddInstruction(OpCode.LDARG1);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "memorySearch", 2, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "memorySearch", 2, true);
 
         // Replace the substring with the new value
         replaceStart.Instruction = methodConvert.AddInstruction(OpCode.NOP);
@@ -479,8 +479,8 @@ internal partial class MethodConvert
         if (arguments is not null)
             methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
 
-        // Call the StdLib memorySearch method to find the index of the character
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "memorySearch", 2, true);
+        // Call the EssentialLib memorySearch method to find the index of the character
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "memorySearch", 2, true);
     }
 
 }

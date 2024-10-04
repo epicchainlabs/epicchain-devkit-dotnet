@@ -6,12 +6,12 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
     {
         public static string Serialize(object obj)
         {
-            return StdLib.JsonSerialize(obj);
+            return EssentialLib.JsonSerialize(obj);
         }
 
         public static object Deserialize(string json)
         {
-            return StdLib.JsonDeserialize(json);
+            return EssentialLib.JsonDeserialize(json);
         }
     }
 }

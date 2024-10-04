@@ -71,7 +71,7 @@ namespace NFT
         {
             ExecutionEngine.Assert(Runtime.EntryScriptHash == Runtime.CallingScriptHash);
             StorageMap tokenMap = new(Storage.CurrentContext, Prefix_Token);
-            TokenState token = (TokenState)StdLib.Deserialize(tokenMap[tokenId]);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenMap[tokenId]);
             Map<string, object> map = new()
             {
                 ["name"] = token.Name,
@@ -85,7 +85,7 @@ namespace NFT
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private TokenState GetToken(BigInteger tokenId)
         {
-            TokenState token = (TokenState)StdLib.Deserialize(TokenMap[tokenId.ToString()]);
+            TokenState token = (TokenState)EssentialLib.Deserialize(TokenMap[tokenId.ToString()]);
             ExecutionEngine.Assert(token is not null, "Token not exists");
             return token;
         }
@@ -166,7 +166,7 @@ namespace NFT
 
             string output = $"{parts[0]} {parts[1]} {parts[2]} {parts[3]} {parts[4]} {parts[5]} {parts[6]} {parts[7]} {parts[8]}";
             output = $"{output} {parts[9]} {parts[10]} {parts[11]} {parts[12]} {parts[13]} {parts[14]} {parts[15]} {parts[16]} {parts[17]} {parts[18]}";
-            //string json = StdLib.Base64Encode($"{{\"name\": \"Bag # {tokenId.ToString()}\", \"description\": \"Loot is randomized adventurer gear generated and stored on chain.Stats, images, and other functionality are intentionally omitted for others to interpret.Feel free to use Loot in any way you want.\", \"image\": \"data:image / svg + xml; base64, { StdLib.Base64Encode(output)} \"}}");
+            //string json = EssentialLib.Base64Encode($"{{\"name\": \"Bag # {tokenId.ToString()}\", \"description\": \"Loot is randomized adventurer gear generated and stored on chain.Stats, images, and other functionality are intentionally omitted for others to interpret.Feel free to use Loot in any way you want.\", \"image\": \"data:image / svg + xml; base64, { EssentialLib.Base64Encode(output)} \"}}");
             //output = $"data:application/json;base64, {json}";
             return output;
         }

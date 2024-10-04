@@ -114,7 +114,7 @@ public static class ByteStringExtension
     /// <returns>Index where it is located or -1</returns>
     public static int IndexOf(this ByteString byteString, ByteString byteToFind)
     {
-        return StdLib.MemorySearch(byteString, byteToFind);
+        return EssentialLib.MemorySearch(byteString, byteToFind);
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public static class ByteStringExtension
     /// <returns>True if start with</returns>
     public static bool StartWith(this ByteString byteString, ByteString byteToFind)
     {
-        return StdLib.MemorySearch(byteString, byteToFind) == 0;
+        return EssentialLib.MemorySearch(byteString, byteToFind) == 0;
     }
 
     /// <summary>
@@ -136,7 +136,7 @@ public static class ByteStringExtension
     /// <returns>True if ends with</returns>
     public static bool EndsWith(this ByteString byteString, ByteString byteToFind)
     {
-        return StdLib.MemorySearch(byteString, byteToFind) + byteToFind.Length == byteString.Length;
+        return EssentialLib.MemorySearch(byteString, byteToFind) + byteToFind.Length == byteString.Length;
     }
 
     /// <summary>
@@ -147,6 +147,6 @@ public static class ByteStringExtension
     /// <returns></returns>
     public static bool Contains(this ByteString byteString, ByteString byteToFind)
     {
-        return StdLib.MemorySearch(byteString, byteToFind) != -1;
+        return EssentialLib.MemorySearch(byteString, byteToFind) != -1;
     }
 }

@@ -25,7 +25,7 @@ internal partial class MethodConvert
         if (arguments is not null)
             methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
         JumpTarget endTarget = new();
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "atoi", 1, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "atoi", 1, true);
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.Push(int.MinValue);
         methodConvert.Push(new BigInteger(int.MaxValue) + 1);

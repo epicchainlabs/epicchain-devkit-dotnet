@@ -55,7 +55,7 @@ namespace Modifier
 
         public OnlyOwnerAttribute(string hex)
         {
-            _owner = (UInt160)(byte[])StdLib.Base64Decode(hex);
+            _owner = (UInt160)(byte[])EssentialLib.Base64Decode(hex);
         }
 
         public override void Enter()

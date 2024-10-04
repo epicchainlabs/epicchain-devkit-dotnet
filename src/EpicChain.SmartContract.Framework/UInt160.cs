@@ -71,7 +71,7 @@ namespace EpicChain.SmartContract.Framework
         {
             byte[] data = { version };
             data = Helper.Concat(data, this);
-            return StdLib.Base58CheckEncode((ByteString)data);
+            return EssentialLib.Base58CheckEncode((ByteString)data);
         }
 
         /// <summary>

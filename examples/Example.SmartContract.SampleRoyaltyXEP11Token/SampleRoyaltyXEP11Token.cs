@@ -183,7 +183,7 @@ namespace NonDivisibleXEP11
             {
                 ExecutionEngine.Assert(((UInt160)royaltyInfos[i]["royaltyRecipient"]).IsValid == true && (BigInteger)royaltyInfos[i]["royaltyRecipient"] >= 0 && (BigInteger)royaltyInfos[i]["royaltyRecipient"] <= 10000, "Parameter error");
             }
-            Storage.Put(PrefixRoyalty + tokenId, StdLib.Serialize(royaltyInfos));
+            Storage.Put(PrefixRoyalty + tokenId, EssentialLib.Serialize(royaltyInfos));
         }
 
         /// <summary>
@@ -208,7 +208,7 @@ namespace NonDivisibleXEP11
             }
             else
             {
-                return (Map<string, object>[])StdLib.Deserialize((ByteString)data);
+                return (Map<string, object>[])EssentialLib.Deserialize((ByteString)data);
             }
         }
         #endregion

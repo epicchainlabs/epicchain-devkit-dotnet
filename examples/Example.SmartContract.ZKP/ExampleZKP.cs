@@ -112,9 +112,9 @@ namespace ZKP
         public static bool Veify(byte[] a, byte[] b, byte[] c, byte[][] public_input)
         {
             //Equation left1: A*B
-            byte[] lt = (byte[])CryptoLib.Bls12381Pairing(a, b);
+            byte[] lt = (byte[])CryptoHive.Bls12381Pairing(a, b);
             //Equation right1: alpha*beta
-            byte[] rt1 = (byte[])CryptoLib.Bls12381Pairing(alphaPoint, betaPoint);
+            byte[] rt1 = (byte[])CryptoHive.Bls12381Pairing(alphaPoint, betaPoint);
             //Equation right2: sum(pub_input[i]*(beta*u_i(x)+alpha*v_i(x)+w_i(x))/gamma)*gamma
             int inputlen = public_input.Length;
             int iclen = ic.Length;
@@ -122,15 +122,15 @@ namespace ZKP
             byte[] acc = ic[0];
             for (int i = 0; i < inputlen; i++)
             {
-                byte[] temp = (byte[])CryptoLib.Bls12381Mul(ic[i + 1], public_input[i]/*32-bytes LE field element.*/, false);
-                acc = (byte[])CryptoLib.Bls12381Add(acc, temp);
+                byte[] temp = (byte[])CryptoHive.Bls12381Mul(ic[i + 1], public_input[i]/*32-bytes LE field element.*/, false);
+                acc = (byte[])CryptoHive.Bls12381Add(acc, temp);
             }
-            byte[] rt2 = (byte[])CryptoLib.Bls12381Pairing(acc, gamma_inversePoint);
+            byte[] rt2 = (byte[])CryptoHive.Bls12381Pairing(acc, gamma_inversePoint);
             //Equation right3: C*delta
-            byte[] rt3 = (byte[])CryptoLib.Bls12381Pairing(c, deltaPoint);
+            byte[] rt3 = (byte[])CryptoHive.Bls12381Pairing(c, deltaPoint);
             //Check equal
-            byte[] t1 = (byte[])CryptoLib.Bls12381Add(rt1, rt2);
-            byte[] t2 = (byte[])CryptoLib.Bls12381Add(t1, rt3);
+            byte[] t1 = (byte[])CryptoHive.Bls12381Add(rt1, rt2);
+            byte[] t2 = (byte[])CryptoHive.Bls12381Add(t1, rt3);
             return lt == t2;
         }
     }

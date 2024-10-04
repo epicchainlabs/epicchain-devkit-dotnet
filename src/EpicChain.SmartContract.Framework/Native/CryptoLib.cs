@@ -16,7 +16,7 @@ using EpicChain.SmartContract.Framework.Attributes;
 namespace EpicChain.SmartContract.Framework.Native
 {
     [Contract("0x494c1594ccfa500e9b1fdf567f9e55d8338f3495")]
-    public static partial class CryptoLib
+    public static partial class CryptoHive
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }

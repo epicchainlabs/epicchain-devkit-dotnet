@@ -397,7 +397,7 @@ internal partial class MethodConvert
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.AddInstruction(OpCode.ISNULL);
         methodConvert.Jump(OpCode.JMPIF, endTarget);
-        methodConvert.CallContractMethod(NativeContract.StdLib.Hash, "itoa", 1, true);
+        methodConvert.CallContractMethod(NativeContract.EssentialLib.Hash, "itoa", 1, true);
         methodConvert.Jump(OpCode.JMP_L, endTarget2);
         endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
         methodConvert.AddInstruction(OpCode.DROP);

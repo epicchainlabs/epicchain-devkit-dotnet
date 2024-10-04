@@ -16,7 +16,7 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Framework.Native
 {
     [Contract("0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0")]
-    public static class StdLib
+    public static class EssentialLib
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }

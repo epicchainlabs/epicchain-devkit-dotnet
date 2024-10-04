@@ -120,8 +120,8 @@ namespace EpicChain.SmartContract.Testing.UnitTests
             TestEngine engine = new(false);
 
             Assert.AreEqual(engine.Native.ContractManagement.Hash, EpicChain.SmartContract.Native.NativeContract.ContractManagement.Hash);
-            Assert.AreEqual(engine.Native.StdLib.Hash, EpicChain.SmartContract.Native.NativeContract.StdLib.Hash);
-            Assert.AreEqual(engine.Native.CryptoLib.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoLib.Hash);
+            Assert.AreEqual(engine.Native.EssentialLib.Hash, EpicChain.SmartContract.Native.NativeContract.EssentialLib.Hash);
+            Assert.AreEqual(engine.Native.CryptoHive.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoHive.Hash);
             Assert.AreEqual(engine.Native.EpicPulse.Hash, EpicChain.SmartContract.Native.NativeContract.EpicPulse.Hash);
             Assert.AreEqual(engine.Native.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash);
             Assert.AreEqual(engine.Native.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Hash);

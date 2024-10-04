@@ -3,11 +3,11 @@ using System.ComponentModel;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class CryptoLib : SmartContract
+public abstract class CryptoHive : SmartContract
 {
     #region Compiled data
     public static Manifest.ContractManifest Manifest { get; } =
-        NativeContract.CryptoLib.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
+        NativeContract.CryptoHive.GetContractState(ProtocolSettings.Default, uint.MaxValue).Manifest;
 
 
     #endregion
@@ -84,7 +84,7 @@ public abstract class CryptoLib : SmartContract
 
     #region Constructor for internal use only
 
-    protected CryptoLib(SmartContractInitialize initialize) : base(initialize) { }
+    protected CryptoHive(SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

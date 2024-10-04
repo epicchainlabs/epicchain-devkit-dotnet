@@ -12,7 +12,7 @@
 
 namespace EpicChain.SmartContract.Framework.Native
 {
-    public static partial class CryptoLib
+    public static partial class CryptoHive
     {
         public static extern byte[] Bls12381Serialize(object data);
 

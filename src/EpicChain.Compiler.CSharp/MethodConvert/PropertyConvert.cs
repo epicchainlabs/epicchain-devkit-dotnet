@@ -178,7 +178,7 @@ internal partial class MethodConvert
                 case "ECPoint":
                     break;
                 default:
-                    CallContractMethod(NativeContract.StdLib.Hash, "deserialize", 1, true);
+                    CallContractMethod(NativeContract.EssentialLib.Hash, "deserialize", 1, true);
                     break;
             }
             AddInstruction(OpCode.DUP);
@@ -234,7 +234,7 @@ internal partial class MethodConvert
                 case "ECPoint":
                     break;
                 default:
-                    CallContractMethod(NativeContract.StdLib.Hash, "serialize", 1, true);
+                    CallContractMethod(NativeContract.EssentialLib.Hash, "serialize", 1, true);
                     break;
             }
             Push(key);

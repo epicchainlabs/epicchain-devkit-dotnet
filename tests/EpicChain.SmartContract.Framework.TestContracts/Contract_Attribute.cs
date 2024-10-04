@@ -10,7 +10,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
 
         public OwnerOnlyAttribute(string hex)
         {
-            owner = (UInt160)(byte[])StdLib.Base64Decode(hex);
+            owner = (UInt160)(byte[])EssentialLib.Base64Decode(hex);
         }
 
         public override void Enter()

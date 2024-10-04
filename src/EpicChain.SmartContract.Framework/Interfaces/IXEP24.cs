@@ -74,7 +74,7 @@ public interface IXep24
     ///     }
     ///     else
     ///     {
-    ///         return (Map<string, object>[])StdLib.Deserialize((ByteString)data);
+    ///         return (Map<string, object>[])EssentialLib.Deserialize((ByteString)data);
     ///     }
     /// }
     /// </code></example>

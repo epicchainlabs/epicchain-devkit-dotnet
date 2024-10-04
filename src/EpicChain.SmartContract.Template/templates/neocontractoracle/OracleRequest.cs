@@ -65,7 +65,7 @@ namespace EpicChain.SmartContract.Template
             if (oracleResponse != OracleResponseCode.Success)
                 throw new Exception("Oracle response failure with code " + (byte)oracleResponse);
 
-            var jsonArrayValues = (object[])StdLib.JsonDeserialize(jsonString);
+            var jsonArrayValues = (object[])EssentialLib.JsonDeserialize(jsonString);
             var jsonFirstValue = (string)jsonArrayValues[0];
 
             Storage.Put(Storage.CurrentContext, "Response", jsonFirstValue);

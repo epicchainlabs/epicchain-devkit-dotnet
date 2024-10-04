@@ -23,7 +23,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
                 some.Add(i);
             }
 
-            return StdLib.JsonSerialize(some);
+            return EssentialLib.JsonSerialize(some);
         }
 
         public static string TestRemoveAt(int count, int removeAt)
@@ -37,7 +37,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
             }
 
             some.RemoveAt(removeAt);
-            return StdLib.JsonSerialize(some);
+            return EssentialLib.JsonSerialize(some);
         }
 
         public static string TestClear(int count)
@@ -49,7 +49,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
             }
 
             some.Clear();
-            return StdLib.JsonSerialize(some);
+            return EssentialLib.JsonSerialize(some);
         }
 
         public static int[] TestArrayConvert(int count)

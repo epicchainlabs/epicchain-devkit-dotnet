@@ -11,8 +11,8 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         [TestMethod]
         public void TestHashes()
         {
-            Assert.AreEqual(NativeContract.StdLib.Hash.ToString(), "0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0");
-            Assert.AreEqual(NativeContract.CryptoLib.Hash.ToString(), "0x726cb6e0cd8628a1350a611384688911ab75f51b");
+            Assert.AreEqual(NativeContract.EssentialLib.Hash.ToString(), "0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0");
+            Assert.AreEqual(NativeContract.CryptoHive.Hash.ToString(), "0x726cb6e0cd8628a1350a611384688911ab75f51b");
             Assert.AreEqual(NativeContract.ContractManagement.Hash.ToString(), "0xfffdc93764dbaddd97c48f252a53ea4643faa3fd");
             Assert.AreEqual(NativeContract.QuantumGuardNexus.Hash.ToString(), "0x49cf4e5378ffcd4dec034fd98a174c5491e395e2");
             Assert.AreEqual(NativeContract.Oracle.Hash.ToString(), "0xfe924b7cfe89ddd271abaf7210a80a7e11178758");

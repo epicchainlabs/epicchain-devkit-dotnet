@@ -7,7 +7,7 @@ using System.Text;
 namespace EpicChain.SmartContract.Framework.UnitTests.Services
 {
     [TestClass]
-    public class StdLibTest : DebugAndTestBase<Contract_StdLib>
+    public class EssentialLibTest : DebugAndTestBase<Contract_EssentialLib>
     {
         [TestMethod]
         public void AtoiTest()

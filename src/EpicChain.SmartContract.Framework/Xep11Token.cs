@@ -43,7 +43,7 @@ namespace EpicChain.SmartContract.Framework
             if (tokenId.Length > 64) throw new Exception("The argument \"tokenId\" should be 64 or less bytes long.");
             var tokenMap = new StorageMap(Prefix_Token);
             var tokenKey = tokenMap[tokenId] ?? throw new Exception("The token with given \"tokenId\" does not exist.");
-            TokenState token = (TokenState)StdLib.Deserialize(tokenKey);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenKey);
             return token.Owner;
         }
 
@@ -51,7 +51,7 @@ namespace EpicChain.SmartContract.Framework
         public virtual Map<string, object> Properties(ByteString tokenId)
         {
             var tokenMap = new StorageMap(Prefix_Token);
-            TokenState token = (TokenState)StdLib.Deserialize(tokenMap[tokenId]);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenMap[tokenId]);
             return new Map<string, object>()
             {
                 ["name"] = token.Name
@@ -79,13 +79,13 @@ namespace EpicChain.SmartContract.Framework
             if (to is null || !to.IsValid)
                 throw new Exception("The argument \"to\" is invalid.");
             var tokenMap = new StorageMap(Prefix_Token);
-            TokenState token = (TokenState)StdLib.Deserialize(tokenMap[tokenId]);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenMap[tokenId]);
             UInt160 from = token.Owner;
             if (!Runtime.CheckWitness(from)) return false;
             if (from != to)
             {
                 token.Owner = to;
-                tokenMap[tokenId] = StdLib.Serialize(token);
+                tokenMap[tokenId] = EssentialLib.Serialize(token);
                 UpdateBalance(from, tokenId, -1);
                 UpdateBalance(to, tokenId, +1);
             }
@@ -105,13 +105,13 @@ namespace EpicChain.SmartContract.Framework
             ByteString id = Storage.Get(context, key);
             Storage.Put(context, key, (BigInteger)id + 1);
             if (id is not null) salt += id;
-            return CryptoLib.Sha256(salt);
+            return CryptoHive.Sha256(salt);
         }
 
         protected static void Mint(ByteString tokenId, TokenState token)
         {
             StorageMap tokenMap = new(Storage.CurrentContext, Prefix_Token);
-            tokenMap[tokenId] = StdLib.Serialize(token);
+            tokenMap[tokenId] = EssentialLib.Serialize(token);
             UpdateBalance(token.Owner, tokenId, +1);
             TotalSupply++;
             PostTransfer(null, token.Owner, tokenId, null);
@@ -120,7 +120,7 @@ namespace EpicChain.SmartContract.Framework
         protected static void Burn(ByteString tokenId)
         {
             StorageMap tokenMap = new(Storage.CurrentContext, Prefix_Token);
-            TokenState token = (TokenState)StdLib.Deserialize(tokenMap[tokenId]);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenMap[tokenId]);
             tokenMap.Delete(tokenId);
             UpdateBalance(token.Owner, tokenId, -1);
             TotalSupply--;
