@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -60,3 +66,46 @@ namespace EpicChain.SmartContract.Framework
         public extern byte this[int index]
         {
             [OpCode(OpCode.PICKITEM)]
+            get;
+        }
+
+        public extern int Length
+        {
+            [OpCode(OpCode.SIZE)]
+            get;
+        }
+
+        IEnumerator<byte> IEnumerable<byte>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        [OpCode(OpCode.NOP)]
+        public static extern implicit operator string(ByteString str);
+
+        [OpCode(OpCode.NOP)]
+        public static extern implicit operator ByteString(string str);
+
+        [OpCode(OpCode.CONVERT, StackItemType.Buffer)]
+        public static extern explicit operator byte[](ByteString str);
+
+        [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
+        public static extern explicit operator ByteString(byte[] buffer);
+
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.ISNULL)]
+        [OpCode(OpCode.JMPIFNOT, "0x04")]
+        [OpCode(OpCode.DROP)]
+        [OpCode(OpCode.PUSH0)]
+        [OpCode(OpCode.CONVERT, StackItemType.Integer)]
+        public static extern explicit operator BigInteger(ByteString text);
+
+        [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
+        public static extern explicit operator ByteString(BigInteger integer);
+    }
+}

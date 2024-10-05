@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -62,3 +68,46 @@ namespace EpicChain.SmartContract.Framework
 
         public extern bool IsValid
         {
+            [OpCode(OpCode.DUP)]
+            [OpCode(OpCode.ISTYPE, "0x28")] //ByteString
+            [OpCode(OpCode.SWAP)]
+            [OpCode(OpCode.SIZE)]
+            [OpCode(OpCode.PUSHINT8, "20")] // 0x20 == 32 bytes expected array size
+            [OpCode(OpCode.NUMEQUAL)]
+            [OpCode(OpCode.BOOLAND)]
+            get;
+        }
+
+        public bool IsValidAndNotZero => IsValid && !IsZero;
+
+        [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.ISNULL)]
+        [OpCode(OpCode.JMPIF, "09")]
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.SIZE)]
+        [OpCode(OpCode.PUSHINT8, "20")] // 0x20 == 32 bytes expected array size
+        [OpCode(OpCode.JMPEQ, "03")]
+        [OpCode(OpCode.THROW)]
+        public static extern explicit operator UInt256(byte[] value);
+
+        [OpCode(OpCode.CONVERT, StackItemType.Buffer)]
+        public static extern explicit operator byte[](UInt256 value);
+
+        /// <summary>
+        /// Implicitly converts a hexadecimal string to a UInt256 object.
+        /// Assumes the string is a valid hexadecimal representation.
+        /// <example>
+        /// 32 bytes (64 characters) hexadecimal string: "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f" (no prefix)
+        /// </example>
+        /// <remarks>The input `MUST` be a valid hex string of a 32 bytes data.</remarks>
+        /// <remarks>
+        /// This is a compile time conversion, only work with constant string.
+        /// If you want to convert a runtime string, convert it to byte[] first.
+        /// </remarks>
+        /// </summary>
+#pragma warning disable CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+        public static extern implicit operator UInt256(string value);
+#pragma warning restore CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+    }
+}

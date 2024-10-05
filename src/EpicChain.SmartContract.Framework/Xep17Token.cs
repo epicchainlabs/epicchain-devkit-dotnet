@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -66,3 +72,46 @@ namespace EpicChain.SmartContract.Framework
         public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
         {
             if (from is null || !from.IsValid)
+                throw new Exception("The argument \"from\" is invalid.");
+            if (to is null || !to.IsValid)
+                throw new Exception("The argument \"to\" is invalid.");
+            if (amount < 0)
+                throw new Exception("The amount must be a positive number.");
+            if (!Runtime.CheckWitness(from)) return false;
+            if (amount != 0)
+            {
+                if (!UpdateBalance(from, -amount))
+                    return false;
+                UpdateBalance(to, +amount);
+            }
+            PostTransfer(from, to, amount, data);
+            return true;
+        }
+
+        protected static void Mint(UInt160 account, BigInteger amount)
+        {
+            if (amount.Sign < 0) throw new ArgumentOutOfRangeException(nameof(amount));
+            if (amount.IsZero) return;
+            UpdateBalance(account, +amount);
+            TotalSupply += amount;
+            PostTransfer(null, account, amount, null);
+        }
+
+        protected static void Burn(UInt160 account, BigInteger amount)
+        {
+            if (amount.Sign < 0) throw new ArgumentOutOfRangeException(nameof(amount));
+            if (amount.IsZero) return;
+            if (!UpdateBalance(account, -amount))
+                throw new InvalidOperationException();
+            TotalSupply -= amount;
+            PostTransfer(account, null, amount, null);
+        }
+
+        protected static void PostTransfer(UInt160 from, UInt160 to, BigInteger amount, object data)
+        {
+            OnTransfer(from, to, amount);
+            if (to is not null && ContractManagement.GetContract(to) is not null)
+                Contract.Call(to, Method.onXEP17Payment, CallFlags.All, from, amount, data);
+        }
+    }
+}

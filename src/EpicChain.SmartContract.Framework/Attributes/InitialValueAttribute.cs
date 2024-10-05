@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -60,3 +66,46 @@ namespace EpicChain.SmartContract.Framework.Attributes
     /// complex type conversions, leading to additional overhead during contract
     /// execution as the conversion operation is called each time.
     /// By using the <see cref="InitialValueAttribute"/>, variables can be assigned
+    /// an initial value, allowing for compile-time initialization and avoiding runtime
+    /// conversion overhead.
+    ///
+    /// <para>Examples:</para>
+    /// <code>
+    /// // Example of initializing a UInt160 field with a Hash160 address
+    /// [InitialValue("NXV7ZhHiyM1aHXwpVsRZC6BwNFP2jghXAq")]
+    /// private static readonly UInt160 validUInt160 = default;
+    ///
+    /// // Example of initializing a byte array field with a hex string representing a UInt256 value
+    /// [InitialValue("edcf8679104ec2911a4fe29ad7db232a493e5b990fb1da7af0c7b989948c8925")]
+    /// private static readonly byte[] validUInt256 = default;
+    /// </code>
+    ///
+    /// Currently supported types are:
+    ///     <see cref="ContractParameterType.String"/>
+    ///     <see cref="ContractParameterType.ByteArray"/>
+    ///     <see cref="ContractParameterType.Hash160"/>
+    ///     <see cref="ContractParameterType.PublicKey"/>
+    ///     <see cref="ContractParameterType.Integer"/>
+    /// </remarks>
+    [AttributeUsage(AttributeTargets.Field)]
+    public class InitialValueAttribute : Attribute
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InitialValueAttribute"/> class
+        /// with the specified initial value and contract parameter type.
+        /// </summary>
+        /// <param name="value">The initial value to assign to the field, represented
+        /// as a string.
+        /// </param>
+        /// <param name="type">The <see cref="ContractParameterType"/> indicating the
+        /// type of the field being initialized.
+        /// </param>
+        public InitialValueAttribute(string value, ContractParameterType type)
+        {
+        }
+
+        public InitialValueAttribute(string value)
+        {
+        }
+    }
+}

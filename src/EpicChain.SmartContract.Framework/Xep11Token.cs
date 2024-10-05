@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -140,3 +146,46 @@ namespace EpicChain.SmartContract.Framework
             StorageContext context = Storage.CurrentContext;
             byte[] key = new byte[] { Prefix_TokenId };
             ByteString id = Storage.Get(context, key);
+            Storage.Put(context, key, (BigInteger)id + 1);
+            if (id is not null) salt += id;
+            return CryptoHive.Sha256(salt);
+        }
+
+        protected static void Mint(ByteString tokenId, TokenState token)
+        {
+            StorageMap tokenMap = new(Storage.CurrentContext, Prefix_Token);
+            tokenMap[tokenId] = EssentialLib.Serialize(token);
+            UpdateBalance(token.Owner, tokenId, +1);
+            TotalSupply++;
+            PostTransfer(null, token.Owner, tokenId, null);
+        }
+
+        protected static void Burn(ByteString tokenId)
+        {
+            StorageMap tokenMap = new(Storage.CurrentContext, Prefix_Token);
+            TokenState token = (TokenState)EssentialLib.Deserialize(tokenMap[tokenId]);
+            tokenMap.Delete(tokenId);
+            UpdateBalance(token.Owner, tokenId, -1);
+            TotalSupply--;
+            PostTransfer(token.Owner, null, tokenId, null);
+        }
+
+        protected static void UpdateBalance(UInt160 owner, ByteString tokenId, int increment)
+        {
+            UpdateBalance(owner, increment);
+            StorageMap accountMap = new(Storage.CurrentContext, Prefix_AccountToken);
+            ByteString key = owner + tokenId;
+            if (increment > 0)
+                accountMap.Put(key, 0);
+            else
+                accountMap.Delete(key);
+        }
+
+        protected static void PostTransfer(UInt160 from, UInt160 to, ByteString tokenId, object data)
+        {
+            OnTransfer(from, to, 1, tokenId);
+            if (to is not null && ContractManagement.GetContract(to) is not null)
+                Contract.Call(to, "OnXEP11Payment", CallFlags.All, from, 1, tokenId, data);
+        }
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -225,3 +231,46 @@ namespace EpicChain.SmartContract.Framework
         public extern static byte[] Concat(this byte[] first, ByteString second);
 
         [OpCode(OpCode.CAT)]
+        [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
+        public extern static ByteString Concat(this ByteString first, ByteString second);
+
+        [OpCode(OpCode.SUBSTR)]
+        public extern static byte[] Range(this byte[] source, int index, int count);
+
+        /// <summary>
+        /// Returns byte[] with first 'count' elements from 'source'. Faults if count < 0
+        /// </summary>
+        [OpCode(OpCode.LEFT)]
+        public extern static byte[] Take(this byte[] source, int count);
+
+        /// <summary>
+        /// Returns byte[] with last 'count' elements from 'source'. Faults if count < 0
+        /// </summary>
+        [OpCode(OpCode.RIGHT)]
+        public extern static byte[] Last(this byte[] source, int count);
+
+        /// <summary>
+        /// Returns a reversed copy of parameter 'source'.
+        /// Example: [0a,0b,0c,0d,0e] -> [0e,0d,0c,0b,0a]
+        /// </summary>
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.REVERSEITEMS)]
+        public extern static byte[] Reverse(this Array source);
+
+        /// <summary>
+        /// Returns the square root of number x
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        [OpCode(OpCode.SQRT)]
+        public extern static BigInteger Sqrt(this BigInteger x);
+
+        [OpCode(OpCode.MODMUL)]
+        public extern static BigInteger ModMultiply(this BigInteger x, BigInteger y, BigInteger modulus);
+
+        public static BigInteger ModInverse(this BigInteger value, BigInteger modulus)
+        {
+            return BigInteger.ModPow(value, -1, modulus);
+        }
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -37,3 +43,46 @@
 // By choosing to use the EpicChain Lab's Project, you acknowledge that you have read and understood the terms of the MIT License.
 // You agree to abide by these terms and recognize that this software is provided without warranty of any kind, express or implied, including
 // but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Should any legal issues or
+// disputes arise as a result of using this software, the authors and contributors disclaim all liability and responsibility.
+//
+// Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
+// bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+using EpicChain.SmartContract.Framework.Attributes;
+
+namespace EpicChain.SmartContract.Framework
+{
+    public static class ExecutionEngine
+    {
+        /// <summary>
+        /// Faults if `condition` is false
+        /// </summary>
+        /// <param name="condition">Condition that MUST meet</param>
+        [OpCode(OpCode.ASSERT)]
+        public static extern void Assert(bool condition);
+
+        /// <summary>
+        /// Faults if `condition` is false
+        /// </summary>
+        /// <param name="condition">Condition that MUST meet</param>
+        /// <param name="message">The error message</param>
+        [OpCode(OpCode.ASSERTMSG)]
+        public static extern void Assert(bool condition, string message);
+
+        /// <summary>
+        /// Abort the execution
+        /// </summary>
+        [OpCode(OpCode.ABORT)]
+        public static extern void Abort();
+
+        /// <summary>
+        /// Abort the execution
+        /// </summary>
+        /// <param name="message">The error message</param>
+        [OpCode(OpCode.ABORTMSG)]
+        public static extern void Abort(string message);
+    }
+}

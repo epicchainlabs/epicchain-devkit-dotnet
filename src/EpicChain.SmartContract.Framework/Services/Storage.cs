@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -108,3 +114,46 @@ namespace EpicChain.SmartContract.Framework.Services
 
         /// <summary>
         /// Writes the key/value pair for the given Storage context (faster: generates opcode directly)
+        /// </summary>
+        [Syscall("System.Storage.Put")]
+        public static extern void Put(StorageContext context, byte[] key, BigInteger value);
+
+        /// <summary>
+        /// Deletes the entry from the given Storage context (faster: generates opcode directly)
+        /// </summary>
+        [Syscall("System.Storage.Delete")]
+        public static extern void Delete(StorageContext context, ByteString key);
+
+        /// <summary>
+        /// Deletes the entry from the given Storage context (faster: generates opcode directly)
+        /// </summary>
+        [Syscall("System.Storage.Delete")]
+        public static extern void Delete(StorageContext context, byte[] key);
+
+        /// <summary>
+        /// Returns a byte[] to byte[] iterator for a byte[] prefix on a given Storage context (faster: generates opcode directly)
+        /// </summary>
+        [Syscall("System.Storage.Find")]
+        public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
+
+        /// <summary>
+        /// Returns a byte[] to byte[] iterator for a byte[] prefix on a given Storage context (faster: generates opcode directly)
+        /// </summary>
+        [Syscall("System.Storage.Find")]
+        public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
+
+        #region Interface with default Context
+        public static ByteString Get(ByteString key) => Get(CurrentReadOnlyContext, key);
+        public static ByteString Get(byte[] key) => Get(CurrentReadOnlyContext, key);
+        public static void Put(ByteString key, ByteString value) => Put(CurrentContext, key, value);
+        public static void Put(byte[] key, ByteString value) => Put(CurrentContext, key, value);
+        public static void Put(byte[] key, byte[] value) => Put(CurrentContext, key, value);
+        public static void Put(ByteString key, BigInteger value) => Put(CurrentContext, key, value);
+        public static void Put(byte[] key, BigInteger value) => Put(CurrentContext, key, value);
+        public static void Delete(ByteString key) => Delete(CurrentContext, key);
+        public static void Delete(byte[] key) => Delete(CurrentContext, key);
+        public static Iterator Find(ByteString prefix, FindOptions options = FindOptions.None) => Find(CurrentReadOnlyContext, prefix, options);
+        public static Iterator Find(byte[] prefix, FindOptions options = FindOptions.None) => Find(CurrentReadOnlyContext, prefix, options);
+        #endregion
+    }
+}

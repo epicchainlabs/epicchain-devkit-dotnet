@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -423,3 +429,46 @@ namespace EpicChain.Compiler
             {
                 switch (assets["libraries"]![name]!["type"]!.GetString())
                 {
+                    case "package":
+                        string packagesPath = assets["project"]!["restore"]!["packagesPath"]!.GetString();
+                        string namePath = assets["libraries"]![name]!["path"]!.GetString();
+                        string[] files = ((JArray)assets["libraries"]![name]!["files"]!)
+                            .Select(p => p!.GetString())
+                            .Where(p => p.StartsWith("src/"))
+                            .ToArray();
+                        if (files.Length == 0)
+                        {
+                            JObject? dllFiles = (JObject?)(package["compile"] ?? package["runtime"]);
+                            if (dllFiles is null) return null;
+                            foreach (var (file, _) in dllFiles.Properties)
+                            {
+                                if (file.EndsWith("_._")) continue;
+                                string path = Path.Combine(packagesPath, namePath, file);
+                                if (!File.Exists(path)) continue;
+                                reference = MetadataReference.CreateFromFile(path);
+                                break;
+                            }
+                            if (reference is null) return null;
+                        }
+                        else
+                        {
+                            string assemblyName = Path.GetDirectoryName(name)!;
+                            IEnumerable<SyntaxTree> st = files.OrderBy(p => p).Select(p => Path.Combine(packagesPath, namePath, p)).Select(p => CSharpSyntaxTree.ParseText(File.ReadAllText(p), path: p));
+                            CSharpCompilation cr = CSharpCompilation.Create(assemblyName, st, CommonReferences, compilationOptions);
+                            reference = cr.ToMetadataReference();
+                        }
+                        break;
+                    case "project":
+                        string msbuildProject = assets["libraries"]![name]!["msbuildProject"]!.GetString();
+                        msbuildProject = Path.GetFullPath(msbuildProject, folder);
+                        reference = GetCompilation(msbuildProject).ToMetadataReference();
+                        break;
+                    default:
+                        throw new NotSupportedException();
+                }
+                MetaReferences.Add(name, reference);
+            }
+            return reference;
+        }
+    }
+}

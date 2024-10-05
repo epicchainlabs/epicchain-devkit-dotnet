@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -38,3 +44,46 @@
 // You agree to abide by these terms and recognize that this software is provided without warranty of any kind, express or implied, including
 // but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Should any legal issues or
 // disputes arise as a result of using this software, the authors and contributors disclaim all liability and responsibility.
+//
+// Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
+// bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+#pragma warning disable CS0626
+
+using EpicChain.SmartContract.Framework.Attributes;
+using EpicChain.SmartContract.Framework.Services;
+using System.Numerics;
+
+namespace EpicChain.SmartContract.Framework.Native
+{
+    [Contract("0x6dc3bff7b2e6061f3cad5744edf307c14823328e")]
+    public class EpicChain
+    {
+        [ContractHash]
+        public static extern UInt160 Hash { get; }
+        public static extern string Symbol { get; }
+        public static extern byte Decimals { get; }
+        public static extern BigInteger TotalSupply();
+        public static extern BigInteger BalanceOf(UInt160 account);
+        public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null);
+
+        public static extern BigInteger GetEpicPulsePerBlock();
+        public static extern long GetRegisterPrice();
+        public static extern BigInteger UnclaimedEpicPulse(UInt160 account, uint end);
+
+        public static extern bool RegisterCandidate(ECPoint pubkey);
+        public static extern bool UnRegisterCandidate(ECPoint pubkey);
+        public static extern bool Vote(UInt160 account, ECPoint voteTo);
+        public static bool Unvote(UInt160 account) => Vote(account, null);
+        public static extern (ECPoint, BigInteger)[] GetCandidates();
+        public static extern Iterator<(ECPoint, BigInteger)> GetAllCandidates();
+        public static extern BigInteger GetCandidateVote(ECPoint pubkey);
+        public static extern ECPoint[] GetCommittee();
+        public static extern UInt160 GetCommitteeAddress();
+        public static extern ECPoint[] GetNextBlockValidators();
+        public static extern EpicChainAccountState GetAccountState(UInt160 account);
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -57,3 +63,46 @@ namespace EpicChain.SmartContract.Framework.Native
         /// <summary>
         /// Indicates that the protocol of the request is not supported.
         /// </summary>
+        ProtocolNotSupported = 0x10,
+
+        /// <summary>
+        /// Indicates that the oracle nodes cannot reach a consensus on the result of the request.
+        /// </summary>
+        ConsensusUnreachable = 0x12,
+
+        /// <summary>
+        /// Indicates that the requested Uri does not exist.
+        /// </summary>
+        NotFound = 0x14,
+
+        /// <summary>
+        /// Indicates that the request was not completed within the specified time.
+        /// </summary>
+        Timeout = 0x16,
+
+        /// <summary>
+        /// Indicates that there is no permission to request the resource.
+        /// </summary>
+        Forbidden = 0x18,
+
+        /// <summary>
+        /// Indicates that the data for the response is too large.
+        /// </summary>
+        ResponseTooLarge = 0x1a,
+
+        /// <summary>
+        /// Indicates that the request failed due to insufficient balance.
+        /// </summary>
+        InsufficientFunds = 0x1c,
+
+        /// <summary>
+        /// Indicates that the content-type of the request is not supported.
+        /// </summary>
+        ContentTypeNotSupported = 0x1f,
+
+        /// <summary>
+        /// Indicates that the request failed due to other errors.
+        /// </summary>
+        Error = 0xff
+    }
+}

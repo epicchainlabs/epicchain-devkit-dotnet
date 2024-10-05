@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -386,3 +392,46 @@ namespace EpicChain.Compiler
         public static void RebuildOperands(this IReadOnlyList<Instruction> instructions)
         {
             foreach (Instruction instruction in instructions)
+            {
+                if (instruction.Target is null) continue;
+                bool isLong;
+                if (instruction.OpCode >= OpCode.JMP && instruction.OpCode <= OpCode.CALL_L)
+                    isLong = (instruction.OpCode - OpCode.JMP) % 2 != 0;
+                else
+                    isLong = instruction.OpCode == OpCode.PUSHA || instruction.OpCode == OpCode.CALLA || instruction.OpCode == OpCode.TRY_L || instruction.OpCode == OpCode.ENDTRY_L;
+                if (instruction.OpCode == OpCode.TRY || instruction.OpCode == OpCode.TRY_L)
+                {
+                    int offset1 = (instruction.Target.Instruction?.Offset - instruction.Offset) ?? 0;
+                    int offset2 = (instruction.Target2!.Instruction?.Offset - instruction.Offset) ?? 0;
+                    if (isLong)
+                    {
+                        instruction.Operand = new byte[sizeof(int) + sizeof(int)];
+                        BinaryPrimitives.WriteInt32LittleEndian(instruction.Operand, offset1);
+                        BinaryPrimitives.WriteInt32LittleEndian(instruction.Operand.AsSpan(sizeof(int)), offset2);
+                    }
+                    else
+                    {
+                        instruction.Operand = new byte[sizeof(sbyte) + sizeof(sbyte)];
+                        sbyte sbyte1 = checked((sbyte)offset1);
+                        sbyte sbyte2 = checked((sbyte)offset2);
+                        instruction.Operand[0] = unchecked((byte)sbyte1);
+                        instruction.Operand[1] = unchecked((byte)sbyte2);
+                    }
+                }
+                else
+                {
+                    int offset = instruction.Target.Instruction!.Offset - instruction.Offset;
+                    if (isLong)
+                    {
+                        instruction.Operand = BitConverter.GetBytes(offset);
+                    }
+                    else
+                    {
+                        sbyte sbyte1 = checked((sbyte)offset);
+                        instruction.Operand = new[] { unchecked((byte)sbyte1) };
+                    }
+                }
+            }
+        }
+    }
+}

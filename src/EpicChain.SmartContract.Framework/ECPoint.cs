@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -52,3 +58,46 @@ namespace EpicChain.SmartContract.Framework
 {
     public abstract class ECPoint : ByteString
     {
+        public extern bool IsValid
+        {
+            [OpCode(OpCode.DUP)]
+            [OpCode(OpCode.ISTYPE, "0x28")] //ByteString
+            [OpCode(OpCode.SWAP)]
+            [OpCode(OpCode.SIZE)]
+            [OpCode(OpCode.PUSHINT8, "21")] // 0x21 == 33 bytes expected array size
+            [OpCode(OpCode.NUMEQUAL)]
+            [OpCode(OpCode.BOOLAND)]
+            get;
+        }
+
+        [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.ISNULL)]
+        [OpCode(OpCode.JMPIF, "09")]
+        [OpCode(OpCode.DUP)]
+        [OpCode(OpCode.SIZE)]
+        [OpCode(OpCode.PUSHINT8, "21")] // 0x21 == 33 bytes expected array size
+        [OpCode(OpCode.JMPEQ, "03")]
+        [OpCode(OpCode.THROW)]
+        public static extern explicit operator ECPoint(byte[] value);
+
+        [OpCode(OpCode.CONVERT, StackItemType.Buffer)]
+        public static extern explicit operator byte[](ECPoint value);
+
+        /// <summary>
+        /// Implicitly converts a hexadecimal string to a PublicKey object.
+        /// Assumes the string is a valid hexadecimal representation.
+        /// </summary>
+        /// <example>
+        /// PublicKey from a 33 bytes (66 characters) hexadecimal string:
+        ///     "024700db2e90d9f02c4f9fc862abaca92725f95b4fddcc8d7ffa538693ecf463a9"
+        /// </example>
+        /// <remarks>
+        /// This is a compile time conversion, only work with constant string.
+        /// If you want to convert a runtime string, convert it to byte[] first.
+        /// </remarks>
+#pragma warning disable CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+        public static extern implicit operator ECPoint(string value);
+#pragma warning restore CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+    }
+}

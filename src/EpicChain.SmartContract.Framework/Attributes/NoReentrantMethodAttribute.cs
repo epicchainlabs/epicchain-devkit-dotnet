@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -41,3 +47,46 @@
 //
 // Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
 // bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+using System;
+using System.Runtime.CompilerServices;
+using EpicChain.SmartContract.Framework.Services;
+
+namespace EpicChain.SmartContract.Framework.Attributes
+{
+    /// <summary>
+    /// Global no Reentrancy protection. This no reentrant attribute by default take as a key the method name
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    public class NoReentrantMethodAttribute : ModifierAttribute
+    {
+        private readonly StorageMap _context;
+        private readonly string _key;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="prefix">Storage prefix</param>
+        /// <param name="key">Storage key (the method name as default)</param>
+        public NoReentrantMethodAttribute(byte prefix = 0xFF, [CallerMemberName] string key = "noReentrant")
+        {
+            _key = key;
+            _context = new(Storage.CurrentContext, prefix);
+        }
+
+        public override void Enter()
+        {
+            var data = _context.Get(_key);
+            ExecutionEngine.Assert(data == null, "Already entered");
+            _context.Put(_key, 1);
+        }
+
+        public override void Exit()
+        {
+            _context.Delete(_key);
+        }
+    }
+}

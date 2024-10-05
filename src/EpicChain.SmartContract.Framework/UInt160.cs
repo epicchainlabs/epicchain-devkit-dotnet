@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -85,3 +91,46 @@ namespace EpicChain.SmartContract.Framework
         [OpCode(OpCode.PUSHINT8, "14")] // 0x14 == 20 bytes expected array size
         [OpCode(OpCode.JMPEQ, "03")]
         [OpCode(OpCode.THROW)]
+        public static extern explicit operator UInt160(byte[] value);
+
+        [OpCode(OpCode.CONVERT, StackItemType.Buffer)]
+        public static extern explicit operator byte[](UInt160 value);
+
+        /// <summary>
+        /// Converts the specified script hash to an address, using the current blockchain AddressVersion value.
+        /// </summary>
+        /// <returns>The converted address.</returns>
+        public string ToAddress()
+        {
+            return ToAddress(Runtime.AddressVersion);
+        }
+
+        /// <summary>
+        /// Converts the specified script hash to an address.
+        /// </summary>
+        /// <param name="version">The address version.</param>
+        /// <returns>The converted address.</returns>
+        public string ToAddress(byte version)
+        {
+            byte[] data = { version };
+            data = Helper.Concat(data, this);
+            return EssentialLib.Base58CheckEncode((ByteString)data);
+        }
+
+        /// <summary>
+        /// Implicitly converts a hexadecimal string to a UInt160 object.
+        /// This can be a 20 bytes hex string or a EpicChain address.
+        /// <example>
+        /// 20 bytes hex string: "01ff00ff00ff00ff00ff00ff00ff00ff00ff00a4" (no prefix)
+        ///             Address: "NZNosnRn6FpRjwGKx8VdXv5Sn7BvzrjZVb"
+        /// </example>
+        /// <remarks>
+        /// This is a compile time conversion, only work with constant string.
+        /// If you want to convert a runtime string, convert it to byte[] first.
+        /// </remarks>
+        /// </summary>
+#pragma warning disable CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+        public static extern implicit operator UInt160(string value);
+#pragma warning restore CS0626 // Method, operator, or accessor is marked external and has no attributes on it
+    }
+}

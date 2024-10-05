@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -817,3 +823,46 @@ namespace EpicChain.SmartContract.Framework
         /// <summary>
         /// An input index n (or key) and an array (or map) are removed from the top of the main stack. Element array[n] (or map[n]) is removed.
         /// </summary>
+        REMOVE = 0xD2,
+        /// <summary>
+        /// Remove all the items from the compound-type.
+        /// </summary>
+        CLEARITEMS = 0xD3,
+        /// <summary>
+        /// Remove the last element from an array, and push it onto the stack.
+        /// </summary>
+        POPITEM = 0xD4,
+
+        #endregion
+
+        #region Types
+
+        /// <summary>
+        /// Returns true if the input is null. Returns false otherwise.
+        /// </summary>
+        ISNULL = 0xD8,
+        /// <summary>
+        /// Returns true if the top item is of the specified type.
+        /// </summary>
+        ISTYPE = 0xD9,
+        /// <summary>
+        /// Converts the top item to the specified type.
+        /// </summary>
+        CONVERT = 0xDB,
+
+        #endregion
+
+        #region Extensions
+
+        /// <summary>
+        /// Turns the vm state to FAULT immediately, and cannot be caught. Includes a reason
+        /// </summary>
+        ABORTMSG = 0xE0,
+        /// <summary>
+        /// Pop the top value of the stack, if it false, then exit vm execution and set vm state to FAULT. Includes a reason
+        /// </summary>
+        ASSERTMSG = 0xE1
+
+        #endregion
+    }
+}

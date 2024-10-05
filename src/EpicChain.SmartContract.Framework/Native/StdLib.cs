@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -80,3 +86,46 @@ namespace EpicChain.SmartContract.Framework.Native
 
         public static extern string Itoa(BigInteger value, int @base = 10);
 
+        public static extern string Itoa(int value, int @base = 10);
+
+        public static extern string Itoa(uint value, int @base = 10);
+
+        public static extern string Itoa(long value, int @base = 10);
+
+        public static extern string Itoa(ulong value, int @base = 10);
+
+        public static extern string Itoa(short value, int @base = 10);
+
+        public static extern string Itoa(ushort value, int @base = 10);
+
+        public static extern string Itoa(byte value, int @base = 10);
+
+        public static extern string Itoa(sbyte value, int @base = 10);
+
+        public static extern BigInteger Atoi(string value, int @base = 10);
+
+        public static extern int MemoryCompare(ByteString str1, ByteString str2);
+
+        public static extern int MemorySearch(ByteString mem, ByteString value);
+
+        public static extern int MemorySearch(ByteString mem, ByteString value, int start);
+
+        public static extern int MemorySearch(ByteString mem, ByteString value, int start, bool backward);
+
+        public static extern string[] StringSplit(string str, string separator);
+
+        public static extern string[] StringSplit(string str, string separator, bool removeEmptyEntries);
+
+        /// <summary>
+        /// Get the string length by elements
+        /// </summary>
+        /// <param name="str">String value</param>
+        /// <returns>Number of elements in the string</returns>
+        /// <example>
+        ///        string a = "A"; // return 1
+        ///        string tilde = "ã"; // return 1
+        ///        string duck = "🦆"; //return 1
+        /// </example>
+        public static extern int StrLen(string str);
+    }
+}

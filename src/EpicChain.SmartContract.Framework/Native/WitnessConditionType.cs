@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.SmartContract.Framework is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -55,3 +61,46 @@ namespace EpicChain.SmartContract.Framework.Native
         /// <summary>
         /// Indicates that the condition will always be met or not met.
         /// </summary>
+        Boolean = 0x00,
+
+        /// <summary>
+        /// Reverse another condition.
+        /// </summary>
+        Not = 0x01,
+
+        /// <summary>
+        /// Indicates that all conditions must be met.
+        /// </summary>
+        And = 0x02,
+
+        /// <summary>
+        /// Indicates that any of the conditions meets.
+        /// </summary>
+        Or = 0x03,
+
+        /// <summary>
+        /// Indicates that the condition is met when the current context has the specified script hash.
+        /// </summary>
+        ScriptHash = 0x18,
+
+        /// <summary>
+        /// Indicates that the condition is met when the current context has the specified group.
+        /// </summary>
+        Group = 0x19,
+
+        /// <summary>
+        /// Indicates that the condition is met when the current context is the entry point or is called by the entry point.
+        /// </summary>
+        CalledByEntry = 0x20,
+
+        /// <summary>
+        /// Indicates that the condition is met when the current context is called by the specified contract.
+        /// </summary>
+        CalledByContract = 0x28,
+
+        /// <summary>
+        /// Indicates that the condition is met when the current context is called by the specified group.
+        /// </summary>
+        CalledByGroup = 0x29
+    }
+}
