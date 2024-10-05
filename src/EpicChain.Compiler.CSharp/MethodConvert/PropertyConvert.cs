@@ -215,7 +215,7 @@ internal partial class MethodConvert
                 case "ECPoint":
                     break;
                 default:
-                    CallContractMethod(NativeContract.EssentialLib.Hash, "deserialize", 1, true);
+                    CallContractMethod(NativeContract.StdLib.Hash, "deserialize", 1, true);
                     break;
             }
             AddInstruction(OpCode.DUP);
@@ -237,3 +237,46 @@ internal partial class MethodConvert
             endTarget.Instruction = AddInstruction(OpCode.NOP);
         }
         else
+        {
+            if (Symbol.IsStatic)
+                AccessSlot(OpCode.LDARG, 0);
+            else
+                AccessSlot(OpCode.LDARG, 1);
+            switch (property.Type.Name)
+            {
+                case "byte":
+                case "sbyte":
+                case "Byte":
+                case "SByte":
+
+                case "short":
+                case "ushort":
+                case "Int16":
+                case "UInt16":
+
+                case "int":
+                case "uint":
+                case "Int32":
+                case "UInt32":
+
+                case "long":
+                case "ulong":
+                case "Int64":
+                case "UInt64":
+                case "BigInteger":
+                case "String":
+                case "ByteString":
+                case "UInt160":
+                case "UInt256":
+                case "ECPoint":
+                    break;
+                default:
+                    CallContractMethod(NativeContract.StdLib.Hash, "serialize", 1, true);
+                    break;
+            }
+            Push(key);
+            CallInteropMethod(ApplicationEngine.System_Storage_GetContext);
+            CallInteropMethod(ApplicationEngine.System_Storage_Put);
+        }
+    }
+}

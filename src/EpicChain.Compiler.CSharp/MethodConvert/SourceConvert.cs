@@ -136,3 +136,46 @@ internal partial class MethodConvert
     }
 
     private void ConvertDefaultRecordConstruct(RecordDeclarationSyntax recordDeclarationSyntax)
+    {
+        if (Symbol.MethodKind == MethodKind.Constructor && Symbol.ContainingType.IsRecord)
+        {
+            _initSlot = true;
+            IFieldSymbol[] fields = Symbol.ContainingType.GetFields();
+            for (byte i = 1; i <= fields.Length; i++)
+            {
+                AddInstruction(OpCode.LDARG0);
+                Push(i - 1);
+                AccessSlot(OpCode.LDARG, i);
+                AddInstruction(OpCode.SETITEM);
+            }
+        }
+    }
+
+    private void ConvertRecordPropertyInitMethod(ParameterSyntax parameter)
+    {
+        IPropertySymbol property = (IPropertySymbol)Symbol.AssociatedSymbol!;
+        ConvertFieldBackedProperty(property);
+    }
+
+    private static bool IsExpressionReturningValue(SemanticModel semanticModel, MethodDeclarationSyntax methodDeclaration)
+    {
+        // Check if it's a method declaration with an expression body
+        if (methodDeclaration is { ExpressionBody: not null })
+        {
+            // Retrieve the expression from the expression body
+            var expression = methodDeclaration.ExpressionBody.Expression;
+
+            // Use the semantic model to get the type information of the expression
+            var typeInfo = semanticModel.GetTypeInfo(expression);
+
+            // Check if the expression's type is not void, meaning the expression has a return value
+            return typeInfo.ConvertedType?.SpecialType != SpecialType.System_Void;
+        }
+
+        // For other types of BaseMethodDeclarationSyntax or cases without an expression body, default to no return value
+        return false;
+    }
+
+    private bool IsInstanceMethod(IMethodSymbol symbol) => !symbol.IsStatic && symbol.MethodKind != MethodKind.AnonymousFunction;
+
+}

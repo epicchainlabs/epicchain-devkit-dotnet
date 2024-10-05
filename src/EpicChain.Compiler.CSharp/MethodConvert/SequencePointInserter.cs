@@ -48,3 +48,46 @@
 using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
+
+namespace EpicChain.Compiler
+{
+    class SequencePointInserter : IDisposable
+    {
+        private readonly IReadOnlyList<Instruction> instructions;
+        private readonly Location? location;
+        private readonly int position;
+
+        public SequencePointInserter(IReadOnlyList<Instruction> instructions, SyntaxNodeOrToken? syntax) :
+            this(instructions, syntax?.GetLocation())
+        { }
+
+        public SequencePointInserter(IReadOnlyList<Instruction> instructions, SyntaxReference? syntax) :
+           this(instructions, syntax?.SyntaxTree.GetLocation(syntax.Span))
+        { }
+
+        public SequencePointInserter(IReadOnlyList<Instruction> instructions, Location? location)
+        {
+            this.instructions = instructions;
+            this.location = location;
+            this.position = instructions.Count;
+
+            // No location must be removed
+
+            if (this.location?.SourceTree is null)
+                this.location = null;
+        }
+
+        void IDisposable.Dispose()
+        {
+            if (location == null) return;
+
+            for (int x = position; x < instructions.Count; x++)
+            {
+                if (instructions[x].SourceLocation is null)
+                {
+                    instructions[x].SourceLocation = location;
+                }
+            }
+        }
+    }
+}

@@ -93,3 +93,46 @@ internal partial class MethodConvert
                             _callingConvention = CallingConvention.Cdecl;
                         }
                         AddInstruction(new Instruction
+                        {
+                            OpCode = OpCode.SYSCALL,
+                            Operand = Encoding.ASCII.GetBytes((string)attribute.ConstructorArguments[0].Value!).Sha256()[..4]
+                        });
+                        break;
+                    case nameof(CallingConventionAttribute):
+                        emitted = true;
+                        _callingConvention = (CallingConvention)attribute.ConstructorArguments[0].Value!;
+                        break;
+                }
+            }
+            if (Symbol.ToString()?.StartsWith("System.Array.Empty") == true)
+            {
+                emitted = true;
+                AddInstruction(OpCode.NEWARRAY0);
+            }
+            else if (Symbol.ToString()?.Equals("EpicChain.SmartContract.Framework.Services.Runtime.Debug(string)") == true)
+            {
+                _context.AddEvent(new AbiEvent(Symbol, "Debug", new SmartContract.Manifest.ContractParameterDefinition() { Name = "message", Type = ContractParameterType.String }), false);
+            }
+            if (!emitted) throw new CompilationException(Symbol, DiagnosticId.ExternMethod, $"Unknown method: {Symbol}");
+        }
+        else
+        {
+            using var sequencePoint = InsertSequencePoint(contractAttribute.ApplicationSyntaxReference);
+
+            UInt160 hash = UInt160.Parse((string)contractAttribute.ConstructorArguments[0].Value!);
+            if (Symbol.MethodKind == MethodKind.PropertyGet)
+            {
+                AttributeData? attribute = Symbol.AssociatedSymbol!.GetAttributes().FirstOrDefault(p => p.AttributeClass!.Name == nameof(ContractHashAttribute));
+                if (attribute is not null)
+                {
+                    Push(hash.ToArray());
+                    return;
+                }
+            }
+            string method = Symbol.GetDisplayName(true);
+            ushort parametersCount = (ushort)Symbol.Parameters.Length;
+            bool hasReturnValue = !Symbol.ReturnsVoid || Symbol.MethodKind == MethodKind.Constructor;
+            CallContractMethod(hash, method, parametersCount, hasReturnValue);
+        }
+    }
+}

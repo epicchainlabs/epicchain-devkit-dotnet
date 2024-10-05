@@ -54,7 +54,7 @@ using EpicChain.Cryptography.ECC;
 using EpicChain.IO;
 using EpicChain.SmartContract;
 using EpicChain.VM;
-using EpicChain.Wallets;
+using Neo.Wallets;
 using scfx::EpicChain.SmartContract.Framework.Attributes;
 using System;
 using System.Collections.Generic;
@@ -75,12 +75,12 @@ namespace EpicChain.Compiler
         private bool _internalInline;
         // _initSlot is a boolean flag that determines whether an INITSLOT instruction
         // should be added at the beginning of the method's bytecode.
-        // It's used to allocate space for local variables and parameters in the EpicChain VM.
+        // It's used to allocate space for local variables and parameters in the Neo VM.
         // The _initSlot flag allows the compiler to avoid adding unnecessary INITSLOT
         // instructions for methods that don't need local variables or parameters.
         // It's typically set to false for inline methods or external method calls.
         // By using this flag, the compiler can efficiently manage stack space allocation
-        // for method execution in the EpicChain VM, only allocating space when necessary.
+        // for method execution in the Neo VM, only allocating space when necessary.
         private bool _initSlot;
         private readonly Dictionary<IParameterSymbol, byte> _parameters = new(SymbolEqualityComparer.Default);
         private readonly List<(ILocalSymbol, byte)> _variableSymbols = new();
@@ -131,7 +131,7 @@ namespace EpicChain.Compiler
         #region Convert
 
         /// <summary>
-        /// This method is responsible for converting a method into a EpicChain VM bytecode.
+        /// This method is responsible for converting a method into a Neo VM bytecode.
         /// </summary>
         /// <param name="model">The semantic model of the method</param>
         public void Convert(SemanticModel model)
@@ -302,3 +302,46 @@ namespace EpicChain.Compiler
                     nameof(PublicKeyAttribute) => ContractParameterType.PublicKey,
                     nameof(ByteArrayAttribute) => ContractParameterType.ByteArray,
                     nameof(StringAttribute) => ContractParameterType.String,
+                    _ => throw new CompilationException(field, DiagnosticId.InvalidInitialValueType, $"Unsupported initial value type: {attributeName}"),
+                };
+
+                try
+                {
+                    switch (parameterType)
+                    {
+                        case ContractParameterType.String:
+                            Push(value);
+                            break;
+                        case ContractParameterType.Integer:
+                            Push(BigInteger.Parse(value));
+                            break;
+                        case ContractParameterType.ByteArray:
+                            Push(value.HexToBytes(true));
+                            break;
+                        case ContractParameterType.Hash160:
+                            Push((UInt160.TryParse(value, out var hash) ? hash : value.ToScriptHash(_context.Options.AddressVersion)).ToArray());
+                            break;
+                        case ContractParameterType.PublicKey:
+                            Push(ECPoint.Parse(value, ECCurve.Secp256r1).EncodePoint(true));
+                            break;
+                        default:
+                            throw new CompilationException(field, DiagnosticId.InvalidInitialValueType, $"Unsupported initial value type: {parameterType}");
+                    }
+                }
+                catch (Exception ex) when (ex is not CompilationException)
+                {
+                    throw new CompilationException(field, DiagnosticId.InvalidInitialValue, $"Invalid initial value: {value} of type: {parameterType}");
+                }
+                postInitialize?.Invoke();
+            }
+        }
+
+
+        #endregion
+    }
+
+    class MethodConvertCollection : KeyedCollection<IMethodSymbol, MethodConvert>
+    {
+        protected override IMethodSymbol GetKeyForItem(MethodConvert item) => item.Symbol;
+    }
+}

@@ -88,3 +88,46 @@ internal partial class MethodConvert
                 return;
             CallMethodWithInstanceExpression(model, baseConstructor, null);
         }
+        else
+        {
+            IMethodSymbol baseConstructor = (IMethodSymbol)model.GetSymbolInfo(initializer).Symbol!;
+            using (InsertSequencePoint(initializer))
+                CallMethodWithInstanceExpression(model, baseConstructor, null, initializer.ArgumentList.Arguments.ToArray());
+        }
+    }
+
+    private void ProcessStaticFields(SemanticModel model)
+    {
+        foreach (INamedTypeSymbol @class in _context.StaticFieldSymbols.Select(p => p.ContainingType).Distinct<INamedTypeSymbol>(SymbolEqualityComparer.Default).ToArray())
+        {
+            foreach (IFieldSymbol field in @class.GetAllMembers().OfType<IFieldSymbol>())
+            {
+                if (field.IsConst || !field.IsStatic) continue;
+                ProcessFieldInitializer(model, field, null, () =>
+                {
+                    byte index = _context.AddStaticField(field);
+                    AccessSlot(OpCode.STSFLD, index);
+                });
+            }
+        }
+        foreach (var (fieldIndex, type) in _context.VTables)
+        {
+            IMethodSymbol[] virtualMethods = type.GetAllMembers().OfType<IMethodSymbol>().Where(p => p.IsVirtualMethod()).ToArray();
+            for (int i = virtualMethods.Length - 1; i >= 0; i--)
+            {
+                IMethodSymbol method = virtualMethods[i];
+                if (method.IsAbstract)
+                {
+                    Push((object?)null);
+                }
+                else
+                {
+                    InvokeMethod(model, method);
+                }
+            }
+            Push(virtualMethods.Length);
+            AddInstruction(OpCode.PACK);
+            AccessSlot(OpCode.STSFLD, fieldIndex);
+        }
+    }
+}

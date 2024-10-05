@@ -396,3 +396,46 @@ namespace EpicChain.Compiler
                     builder.Append(OpCode - OpCode.STLOC0);
                     break;
                 case OpCode.LDARG0:
+                case OpCode.LDARG1:
+                case OpCode.LDARG2:
+                case OpCode.LDARG3:
+                case OpCode.LDARG4:
+                case OpCode.LDARG5:
+                case OpCode.LDARG6:
+                    builder.Append(OpCode - OpCode.LDARG0);
+                    break;
+                case OpCode.STARG0:
+                case OpCode.STARG1:
+                case OpCode.STARG2:
+                case OpCode.STARG3:
+                case OpCode.STARG4:
+                case OpCode.STARG5:
+                case OpCode.STARG6:
+                    builder.Append(OpCode - OpCode.STARG0);
+                    break;
+                case OpCode.NEWARRAY_T:
+                case OpCode.ISTYPE:
+                case OpCode.CONVERT:
+                    builder.Append($"<{(StackItemType)Operand![0]}>");
+                    break;
+                default:
+                    builder.Append(Operand!.ToHexString());
+                    break;
+            }
+        }
+
+        private static bool TryGetString(Span<byte> span, [NotNullWhen(true)] out string? s)
+        {
+            try
+            {
+                s = Utility.StrictUTF8.GetString(span);
+                return true;
+            }
+            catch
+            {
+                s = null;
+                return false;
+            }
+        }
+    }
+}
