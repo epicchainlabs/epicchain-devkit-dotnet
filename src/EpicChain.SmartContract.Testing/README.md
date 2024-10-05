@@ -1,6 +1,6 @@
 # EpicChain.SmartContract.Testing
 
-The **EpicChain.SmartContract.Testing** project is designed to facilitate the development of unit tests for smart contract developers in neo, it does not require the project to be done in C#, as it is possible to export artifacts from an `Abi`.
+The **EpicChain.SmartContract.Testing** project is designed to facilitate the development of unit tests for smart contract developers in epicchain, it does not require the project to be done in C#, as it is possible to export artifacts from an `Abi`.
 
 ## Table of Contents
 
@@ -95,7 +95,7 @@ And for read and write, we have:
 
 It has four methods:
 
-- **Execute(script)**: Executes a script on the neo virtual machine and returns the execution result.
+- **Execute(script)**: Executes a script on the epicchain virtual machine and returns the execution result.
 - **Deploy(nef, manifest, data, customMock)**: Deploys the smart contract by calling the native method `ContractManagement.deploy`. It allows setting [custom mocks](#custom-mocks), which will be detailed later. And returns the instance of the contract that has been deployed.
 - **FromHash(hash, customMocks, checkExistence)**: Creates an instance without needing a `NefFile` or `Manifest`, only requiring the contract's hash. It does not consider whether the contract exists on the chain unless `checkExistence` is set to `true`.
 - **SetTransactionSigners(signers)**: Set the `Signer` of the `Transaction`.
@@ -110,7 +110,7 @@ It has four methods:
 
 var engine = new TestEngine(true);
 
-// Instantiate epicchain contract from native hash, (not necessary if we use engine.Native.NEO)
+// Instantiate epicchain contract from native hash, (not necessary if we use engine.Native.EpicChain)
 
 var epicchain = engine.FromHash<EpicChain>(engine.Native.EpicChain.Hash, false);
 

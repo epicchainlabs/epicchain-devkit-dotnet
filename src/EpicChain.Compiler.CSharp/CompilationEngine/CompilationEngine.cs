@@ -341,7 +341,7 @@ namespace EpicChain.Compiler
             Process.Start(new ProcessStartInfo
             {
                 FileName = "dotnet",
-                Arguments = $"restore \"{csproj}\" --source \"https://www.myget.org/F/neo/api/v3/index.json\"",
+                Arguments = $"restore \"{csproj}\" --source \"https://www.myget.org/F/epicchain/api/v3/index.json\"",
                 WorkingDirectory = folder
             })!.WaitForExit();
 

@@ -2,7 +2,7 @@
 
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// ContractManifestExtensions.cs file belongs to neo-express project and is free
+// ContractManifestExtensions.cs file belongs to epicchain-trace-visualizer project and is free
 // software distributed under the MIT software license, see the
 // accompanying file LICENSE in the main directory of the
 // repository or http://www.opensource.org/licenses/mit-license.php

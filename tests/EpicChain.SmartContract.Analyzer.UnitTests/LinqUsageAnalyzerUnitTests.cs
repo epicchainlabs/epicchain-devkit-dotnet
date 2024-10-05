@@ -34,7 +34,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
         }
 
         [TestMethod]
-        public async Task LinqUsage_ShouldChangeTo_NeoLinq()
+        public async Task LinqUsage_ShouldChangeTo_EpicChainLinq()
         {
             var test = """
                        using System;

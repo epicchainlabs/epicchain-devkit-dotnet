@@ -18,7 +18,7 @@ namespace EpicChain.Compiler
         /// <summary>
         /// Converts a break statement into the corresponding jump instruction. This method handles
         /// the parsing and translation of a break statement within loop or switch constructs, converting
-        /// it to an appropriate jump instruction in the neo vm language.
+        /// it to an appropriate jump instruction in the epicchain vm language.
         /// </summary>
         /// <param name="syntax">The syntax of the break statement to be converted.</param>
         /// <remarks>
