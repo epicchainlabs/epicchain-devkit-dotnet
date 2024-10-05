@@ -19,7 +19,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
 
             Contract.OnRuntimeLog += method;
             Contract.TestSubstring();
-            AssertGasConsumed(3075900);
+            AssertEpicPulseConsumed(3075900);
             Contract.OnRuntimeLog -= method;
 
             Assert.AreEqual(2, log.Count);
@@ -38,7 +38,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
 
             Contract.OnRuntimeLog += method;
             Contract.TestMain();
-            AssertGasConsumed(7625310);
+            AssertEpicPulseConsumed(7625310);
             Contract.OnRuntimeLog -= method;
 
             Assert.AreEqual(1, log.Count);
@@ -56,7 +56,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
 
             Contract.OnRuntimeLog += method;
             Contract.TestEqual();
-            AssertGasConsumed(1970970);
+            AssertEpicPulseConsumed(1970970);
             Contract.OnRuntimeLog -= method;
 
             Assert.AreEqual(1, log.Count);
@@ -67,53 +67,53 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_TestEmpty()
         {
             Assert.AreEqual("", Contract.TestEmpty());
-            AssertGasConsumed(984270);
+            AssertEpicPulseConsumed(984270);
         }
 
         [TestMethod]
         public void Test_TestIsNullOrEmpty()
         {
             Assert.IsTrue(Contract.TestIsNullOrEmpty(""));
-            AssertGasConsumed(1047810);
+            AssertEpicPulseConsumed(1047810);
 
             Assert.IsTrue(Contract.TestIsNullOrEmpty(null));
-            AssertGasConsumed(1047300);
+            AssertEpicPulseConsumed(1047300);
 
             Assert.IsFalse(Contract.TestIsNullOrEmpty("hello world"));
-            AssertGasConsumed(1047810);
+            AssertEpicPulseConsumed(1047810);
         }
 
         [TestMethod]
         public void Test_TestEndWith()
         {
             Assert.IsTrue(Contract.TestEndWith("hello world"));
-            AssertGasConsumed(1357650);
+            AssertEpicPulseConsumed(1357650);
 
             Assert.IsFalse(Contract.TestEndWith("hel"));
-            AssertGasConsumed(1049190);
+            AssertEpicPulseConsumed(1049190);
 
             Assert.IsFalse(Contract.TestEndWith("hello"));
-            AssertGasConsumed(1049190);
+            AssertEpicPulseConsumed(1049190);
         }
 
         [TestMethod]
         public void Test_TestContains()
         {
             Assert.IsTrue(Contract.TestContains("hello world"));
-            AssertGasConsumed(2032740);
+            AssertEpicPulseConsumed(2032740);
 
             Assert.IsFalse(Contract.TestContains("hello"));
-            AssertGasConsumed(2032740);
+            AssertEpicPulseConsumed(2032740);
         }
 
         [TestMethod]
         public void Test_TestIndexOf()
         {
             Assert.AreEqual(6, Contract.TestIndexOf("hello world"));
-            AssertGasConsumed(2032470);
+            AssertEpicPulseConsumed(2032470);
 
             Assert.AreEqual(-1, Contract.TestIndexOf("hello"));
-            AssertGasConsumed(2032470);
+            AssertEpicPulseConsumed(2032470);
         }
 
         [TestMethod]

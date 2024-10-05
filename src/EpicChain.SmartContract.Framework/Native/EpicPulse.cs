@@ -16,7 +16,7 @@ using System.Numerics;
 namespace EpicChain.SmartContract.Framework.Native
 {
     [Contract("0xbc8459660544656355b4f60861c22f544341e828")]
-    public class GAS
+    public class EpicPulse
     {
         [ContractHash]
         public static extern UInt160 Hash { get; }

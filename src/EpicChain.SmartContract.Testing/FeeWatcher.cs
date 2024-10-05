@@ -10,12 +10,12 @@ namespace EpicChain.SmartContract.Testing
         private readonly TestEngine _testEngine;
 
         /// <summary>
-        /// Fee Consumed (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Fee Consumed (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public long Value { get; set; } = 0;
 
         /// <summary>
-        /// Set gas consumed to 0
+        /// Set epicpulse consumed to 0
         /// </summary>
         public void Reset()
         {

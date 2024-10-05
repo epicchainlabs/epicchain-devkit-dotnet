@@ -18,14 +18,14 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_ContractCall()
         {
             CollectionAssert.AreEqual(new byte[] { 1, 2, 3, 4 }, Contract.TestContractCall());
-            AssertGasConsumed(2461230);
+            AssertEpicPulseConsumed(2461230);
         }
 
         [TestMethod]
         public void Test_ContractCall_Void()
         {
             Contract.TestContractCallVoid(); // No error
-            AssertGasConsumed(2215050);
+            AssertEpicPulseConsumed(2215050);
         }
     }
 }

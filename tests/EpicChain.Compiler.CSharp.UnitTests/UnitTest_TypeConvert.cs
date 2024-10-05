@@ -11,7 +11,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void UnitTest_TestTypeConvert()
         {
             var arr = (Array)Contract.TestType()!;
-            AssertGasConsumed(4207710);
+            AssertEpicPulseConsumed(4207710);
 
             //test 0,1,2
             Assert.IsTrue(arr[0].Type == StackItemType.Integer);

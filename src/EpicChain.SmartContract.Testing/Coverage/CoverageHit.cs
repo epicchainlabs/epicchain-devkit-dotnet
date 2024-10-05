@@ -13,7 +13,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
     /// <param name="offset">Offset</param>
     /// <param name="description">Decription</param>
     /// <param name="outOfScript">Out of script</param>
-    [DebuggerDisplay("Offset:{Offset}, Description:{Description}, OutOfScript:{OutOfScript}, Hits:{Hits}, GasTotal:{GasTotal}, GasMin:{GasMin}, GasMax:{GasMax}, GasAvg:{GasAvg}")]
+    [DebuggerDisplay("Offset:{Offset}, Description:{Description}, OutOfScript:{OutOfScript}, Hits:{Hits}, EpicPulseTotal:{EpicPulseTotal}, EpicPulseMin:{EpicPulseMin}, EpicPulseMax:{EpicPulseMax}, EpicPulseAvg:{EpicPulseAvg}")]
     public class CoverageHit(int offset, string description, bool outOfScript = false)
     {
         /// <summary>
@@ -37,17 +37,17 @@ namespace EpicChain.SmartContract.Testing.Coverage
         public int Hits { get; private set; }
 
         /// <summary>
-        /// Minimum used fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Minimum used fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public long FeeMin { get; private set; }
 
         /// <summary>
-        /// Minimum used fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Minimum used fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public long FeeMax { get; private set; }
 
         /// <summary>
-        /// Total used fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Total used fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public long FeeTotal { get; private set; }
 
@@ -59,7 +59,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
         /// <summary>
         /// Hits
         /// </summary>
-        /// <param name="fee">Fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)</param>
+        /// <param name="fee">Fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)</param>
         public void Hit(long fee)
         {
             Hits++;

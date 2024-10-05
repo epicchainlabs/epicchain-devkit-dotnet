@@ -305,7 +305,7 @@ namespace EpicChain.SmartContract.Testing.Coverage
         /// </summary>
         /// <param name="instructionPointer">Instruction pointer</param>
         /// <param name="instruction">Instruction</param>
-        /// <param name="fee">Fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)</param>
+        /// <param name="fee">Fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)</param>
         /// <param name="branchPath">Branch path</param>
         public void Hit(int instructionPointer, Instruction instruction, long fee, bool? branchPath)
         {

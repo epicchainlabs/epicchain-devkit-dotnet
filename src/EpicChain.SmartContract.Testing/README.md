@@ -265,7 +265,7 @@ It is possible to check the fee being used between multiple calls using the `Fee
 ```csharp
 using var fee = engine.CreateFeeWatcher();
 {
-    Assert.AreEqual("GAS", engine.Native.EpicPulse.Symbol);
+    Assert.AreEqual("EpicPulse", engine.Native.EpicPulse.Symbol);
     Assert.AreEqual(984060L, fee);
 }
 ```

@@ -172,7 +172,7 @@ namespace EpicChain.SmartContract.Testing
         public IStringInterpreter StringInterpreter { get; set; } = Interpreters.StringInterpreter.StrictUTF8;
 
         /// <summary>
-        /// Fee (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Fee (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public long Fee
         {
@@ -181,7 +181,7 @@ namespace EpicChain.SmartContract.Testing
         }
 
         /// <summary>
-        /// Fee Consumed (In the unit of datoshi, 1 datoshi = 1e-8 GAS)
+        /// Fee Consumed (In the unit of datoshi, 1 datoshi = 1e-8 EpicPulse)
         /// </summary>
         public FeeWatcher FeeConsumed { get; }
 
@@ -345,9 +345,9 @@ namespace EpicChain.SmartContract.Testing
         #endregion
 
         /// <summary>
-        /// Create gas watcher
+        /// Create epicpulse watcher
         /// </summary>
-        /// <returns>Gas watcher</returns>
+        /// <returns>EpicPulse watcher</returns>
         public FeeWatcher CreateEpicPulseWatcher()
         {
             return new FeeWatcher(this);
@@ -612,7 +612,7 @@ namespace EpicChain.SmartContract.Testing
 
             var snapshot = Storage.Snapshot.CloneCache();
 
-            // Create persisting block, required for GasRewards
+            // Create persisting block, required for EpicPulseRewards
 
             using var engine = new TestingApplicationEngine(this, Trigger, Transaction, snapshot, PersistingBlock.UnderlyingBlock);
 

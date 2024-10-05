@@ -28,7 +28,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             // Minimum Response Fee
 
             Assert.AreEqual(new BigInteger(0_10000000u), Contract.OracleMinimumResponseFee());
-            AssertGasConsumed(984060);
+            AssertEpicPulseConsumed(984060);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             // getOracleNodes
 
             Assert.AreEqual(0, Contract.GetOracleNodes()!.Count);
-            AssertGasConsumed(2950200);
+            AssertEpicPulseConsumed(2950200);
         }
 
         [TestMethod]
@@ -46,19 +46,19 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             // EpicChainSymbol
 
             Assert.AreEqual("EpicChain", Contract.EpicChainSymbol());
-            AssertGasConsumed(1967100);
+            AssertEpicPulseConsumed(1967100);
 
             // EpicChainHash
 
             Assert.AreEqual(NativeContract.EpicChain.Hash, Contract.EpicChainHash());
-            AssertGasConsumed(984270);
+            AssertEpicPulseConsumed(984270);
         }
 
         [TestMethod]
-        public void Test_GAS()
+        public void Test_EPICPULSE()
         {
             Assert.AreEqual("XPP", Contract.GASSymbol());
-            AssertGasConsumed(1967100);
+            AssertEpicPulseConsumed(1967100);
         }
 
         [TestMethod]
@@ -66,11 +66,11 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             var genesisBlock = NativeContract.Ledger.GetBlock(Engine.Storage.Snapshot, 0);
             Assert.AreEqual(NativeContract.Ledger.Hash, Contract.LedgerHash());
-            AssertGasConsumed(984270);
+            AssertEpicPulseConsumed(984270);
             Assert.AreEqual(0, Contract.LedgerCurrentIndex());
-            AssertGasConsumed(2950140);
+            AssertEpicPulseConsumed(2950140);
             Assert.AreEqual(genesisBlock.Hash, Contract.LedgerCurrentHash());
-            AssertGasConsumed(2950140);
+            AssertEpicPulseConsumed(2950140);
         }
     }
 }

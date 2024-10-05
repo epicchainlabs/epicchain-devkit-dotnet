@@ -10,46 +10,46 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         public void TestStartWith()
         {
             Assert.IsTrue(Contract.TestStartWith());
-            AssertGasConsumed(1987890);
+            AssertEpicPulseConsumed(1987890);
         }
 
         [TestMethod]
         public void TestIndexOf()
         {
             Assert.AreEqual(4, Contract.TestIndexOf());
-            AssertGasConsumed(1986900);
+            AssertEpicPulseConsumed(1986900);
         }
 
         [TestMethod]
         public void TestEndWith()
         {
             Assert.IsTrue(Contract.TestEndWith());
-            AssertGasConsumed(1988760);
+            AssertEpicPulseConsumed(1988760);
         }
 
         [TestMethod]
         public void TestContains()
         {
             Assert.IsTrue(Contract.TestContains());
-            AssertGasConsumed(1987890);
+            AssertEpicPulseConsumed(1987890);
         }
 
         [TestMethod]
         public void TestNumberOnly()
         {
             Assert.IsTrue(Contract.TestNumberOnly());
-            AssertGasConsumed(1036470);
+            AssertEpicPulseConsumed(1036470);
         }
 
         [TestMethod]
         public void TestAlphabetOnly()
         {
             Assert.IsTrue(Contract.TestAlphabetOnly());
-            AssertGasConsumed(1204290);
+            AssertEpicPulseConsumed(1204290);
             Assert.IsTrue(Contract.TestLowerAlphabetOnly());
-            AssertGasConsumed(1111470);
+            AssertEpicPulseConsumed(1111470);
             Assert.IsTrue(Contract.TestUpperAlphabetOnly());
-            AssertGasConsumed(1095090);
+            AssertEpicPulseConsumed(1095090);
         }
     }
 }

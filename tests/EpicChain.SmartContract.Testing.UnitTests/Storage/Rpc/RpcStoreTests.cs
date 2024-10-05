@@ -31,7 +31,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests.Storage
 
             // check with Seek (RPC doesn't support Backward, it could be slow)
 
-            Assert.IsTrue(engine.Native.EpicChain.GasPerBlock == 5_0000_0000);
+            Assert.IsTrue(engine.Native.EpicChain.EpicPulsePerBlock == 5_0000_0000);
 
             // check deploy
 

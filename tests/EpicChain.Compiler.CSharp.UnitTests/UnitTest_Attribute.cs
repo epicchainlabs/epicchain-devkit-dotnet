@@ -11,7 +11,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             Assert.AreEqual(Contract_AttributeChanged.Manifest.Name, "Contract_AttributeChanged");
             Assert.IsTrue(Contract.Test());
-            AssertGasConsumed(984060);
+            AssertEpicPulseConsumed(984060);
         }
     }
 }

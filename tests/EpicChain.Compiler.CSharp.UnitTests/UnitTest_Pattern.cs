@@ -12,13 +12,13 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Between_Test()
         {
             Assert.AreEqual(true, Contract.Between(50));
-            AssertGasConsumed(1083030);
+            AssertEpicPulseConsumed(1083030);
             Assert.AreEqual(false, Contract.Between(1));
-            AssertGasConsumed(1082730);
+            AssertEpicPulseConsumed(1082730);
             Assert.AreEqual(false, Contract.Between(100));
-            AssertGasConsumed(1083030);
+            AssertEpicPulseConsumed(1083030);
             Assert.AreEqual(false, Contract.Between(200));
-            AssertGasConsumed(1083030);
+            AssertEpicPulseConsumed(1083030);
         }
 
         [TestMethod]

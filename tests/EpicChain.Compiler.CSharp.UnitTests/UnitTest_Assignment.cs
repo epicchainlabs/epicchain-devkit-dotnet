@@ -12,14 +12,14 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_Assignment()
         {
             Contract.TestAssignment();
-            AssertGasConsumed(989490);
+            AssertEpicPulseConsumed(989490);
         }
 
         [TestMethod]
         public void Test_CoalesceAssignment()
         {
             Contract.TestCoalesceAssignment();
-            AssertGasConsumed(988950);
+            AssertEpicPulseConsumed(988950);
         }
     }
 }

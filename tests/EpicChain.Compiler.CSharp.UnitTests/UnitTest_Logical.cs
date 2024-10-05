@@ -11,19 +11,19 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             var result = Contract.TestConditionalLogicalAnd(true, true);
             Assert.AreEqual(true && true, result);
-            AssertGasConsumed(1047180);
+            AssertEpicPulseConsumed(1047180);
 
             result = Contract.TestConditionalLogicalAnd(true, false);
             Assert.AreEqual(true && false, result);
-            AssertGasConsumed(1047180);
+            AssertEpicPulseConsumed(1047180);
 
             result = Contract.TestConditionalLogicalAnd(false, true);
             Assert.AreEqual(false && true, result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
 
             result = Contract.TestConditionalLogicalAnd(false, false);
             Assert.AreEqual(false && false, result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
         }
 
         [TestMethod]
@@ -31,19 +31,19 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             var result = Contract.TestConditionalLogicalOr(true, true);
             Assert.AreEqual(true || true, result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
 
             result = Contract.TestConditionalLogicalOr(true, false);
             Assert.AreEqual(true || false, result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
 
             result = Contract.TestConditionalLogicalOr(false, true);
             Assert.AreEqual(false || true, result);
-            AssertGasConsumed(1047180);
+            AssertEpicPulseConsumed(1047180);
 
             result = Contract.TestConditionalLogicalOr(false, false);
             Assert.AreEqual(false || false, result);
-            AssertGasConsumed(1047180);
+            AssertEpicPulseConsumed(1047180);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
                 {
                     var result = Contract.TestLogicalExclusiveOr(x, y);
                     Assert.AreEqual(x ^ y, result);
-                    AssertGasConsumed(1047360);
+                    AssertEpicPulseConsumed(1047360);
                 }
         }
 
@@ -63,10 +63,10 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             var result = Contract.TestLogicalNegation(true);
             Assert.IsFalse(result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
             result = Contract.TestLogicalNegation(false);
             Assert.IsTrue(result);
-            AssertGasConsumed(1047150);
+            AssertEpicPulseConsumed(1047150);
         }
 
         [TestMethod]
@@ -77,7 +77,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
                 {
                     var result = Contract.TestLogicalAnd(x, y);
                     Assert.AreEqual(x & y, result);
-                    AssertGasConsumed(1047360);
+                    AssertEpicPulseConsumed(1047360);
                 }
         }
 
@@ -89,7 +89,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
                 {
                     var result = Contract.TestLogicalOr(x, y);
                     Assert.AreEqual(x | y, result);
-                    AssertGasConsumed(1047360);
+                    AssertEpicPulseConsumed(1047360);
                 }
         }
     }

@@ -38,7 +38,7 @@ EpicChain [0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5] [5.00 % - 100.00 %]
 │ getNextBlockValidators()        │   0.00 % │ 100.00 % │
 │ getRegisterPrice()              │   0.00 % │ 100.00 % │
 │ registerCandidate(pubkey)       │   0.00 % │ 100.00 % │
-│ setGasPerBlock(gasPerBlock)     │   0.00 % │ 100.00 % │
+│ setEpicPulsePerBlock(epicpulsePerBlock)     │   0.00 % │ 100.00 % │
 │ setRegisterPrice(registerPrice) │   0.00 % │ 100.00 % │
 │ symbol()                        │   0.00 % │ 100.00 % │
 │ transfer(from,to,amount,data)   │   0.00 % │ 100.00 % │

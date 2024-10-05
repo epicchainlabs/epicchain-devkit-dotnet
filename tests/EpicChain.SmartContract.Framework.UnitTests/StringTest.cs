@@ -11,22 +11,22 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         {
             // ab => 3
             Assert.AreEqual(3, Contract.TestStringAdd("a", "b"));
-            AssertGasConsumed(1357590);
+            AssertEpicPulseConsumed(1357590);
 
             // hello => 4
             Assert.AreEqual(4, Contract.TestStringAdd("he", "llo"));
-            AssertGasConsumed(1356420);
+            AssertEpicPulseConsumed(1356420);
 
             // world => 5
             Assert.AreEqual(5, Contract.TestStringAdd("wo", "rld"));
-            AssertGasConsumed(1357680);
+            AssertEpicPulseConsumed(1357680);
         }
 
         [TestMethod]
         public void TestStringAddInt()
         {
             Assert.AreEqual("EpicChain", Contract.TestStringAddInt("EpicChain", 3));
-            AssertGasConsumed(2460480);
+            AssertEpicPulseConsumed(2460480);
         }
     }
 }

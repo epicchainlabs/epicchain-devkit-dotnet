@@ -10,9 +10,9 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test()
         {
             Assert.AreEqual(3, Contract.Test());
-            AssertGasConsumed(989700);
+            AssertEpicPulseConsumed(989700);
             Assert.AreEqual(3, Contract.TestTry());
-            AssertGasConsumed(990180);
+            AssertEpicPulseConsumed(990180);
         }
     }
 }

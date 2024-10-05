@@ -35,7 +35,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
         }
 
         [TestMethod]
-        public void Test_GAS()
+        public void Test_EPICPULSE()
         {
             Assert.AreEqual(8, Contract.EpicPulse_Decimals());
         }

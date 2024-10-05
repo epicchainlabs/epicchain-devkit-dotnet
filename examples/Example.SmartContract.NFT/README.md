@@ -37,7 +37,7 @@ This also solves the random issue in loot.
     "result": {
         "script": "AVseEcAfDAVjbGFpbQwU3NK/0dU0EbsF4MULh6Z6vUbxirdBYn1bUg==",
         "state": "HALT",
-        "gasconsumed": "19857460",
+        "epicchainconsumed": "19857460",
         "exception": null,
         "stack": [
             {
@@ -77,7 +77,7 @@ copy the `tx` filed and send  the transaction with `sendrawtranaction` API
     "result": {
         "script": "AVweEcAfDAh0b2tlblVSSQwU3NK/0dU0EbsF4MULh6Z6vUbxirdBYn1bUg==",
         "state": "HALT",
-        "gasconsumed": "6995805",
+        "epicchainconsumed": "6995805",
         "exception": null,
         "stack": [
             {

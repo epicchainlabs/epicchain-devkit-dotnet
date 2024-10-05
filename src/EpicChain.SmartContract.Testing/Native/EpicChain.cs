@@ -67,7 +67,7 @@ public abstract class EpicChain : SmartContract, TestingStandards.IXep17Standard
     /// <summary>
     /// Safe property
     /// </summary>
-    public abstract BigInteger GasPerBlock { [DisplayName("GetEpicPulsePerBlock")] get; [DisplayName("setGasPerBlock")] set; }
+    public abstract BigInteger EpicPulsePerBlock { [DisplayName("GetEpicPulsePerBlock")] get; [DisplayName("setEpicPulsePerBlock")] set; }
 
     /// <summary>
     /// Safe property

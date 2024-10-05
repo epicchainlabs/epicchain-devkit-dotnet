@@ -28,32 +28,32 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_SwitchLongLong()
         {
             Assert.AreEqual(2, ((VM.Types.Integer)Contract.SwitchLongLong("a")!).GetInteger());
-            AssertGasConsumed(1049490);
+            AssertEpicPulseConsumed(1049490);
             Assert.AreEqual(0, ((VM.Types.Integer)Contract.SwitchLongLong("b")!).GetInteger());
-            AssertGasConsumed(1052130);
+            AssertEpicPulseConsumed(1052130);
             Assert.AreEqual(2, ((VM.Types.Integer)Contract.SwitchLongLong("c")!).GetInteger());
-            AssertGasConsumed(1050840);
+            AssertEpicPulseConsumed(1050840);
             Assert.AreEqual(-1, ((VM.Types.Integer)Contract.SwitchLongLong("d")!).GetInteger());
-            AssertGasConsumed(1053480);
+            AssertEpicPulseConsumed(1053480);
             Assert.AreEqual(1, ((VM.Types.Integer)Contract.SwitchLongLong("e")!).GetInteger());
-            AssertGasConsumed(1054830);
+            AssertEpicPulseConsumed(1054830);
             Assert.AreEqual(3, ((VM.Types.Integer)Contract.SwitchLongLong("f")!).GetInteger());
-            AssertGasConsumed(1056120);
+            AssertEpicPulseConsumed(1056120);
             Assert.AreEqual(3, ((VM.Types.Integer)Contract.SwitchLongLong("g")!).GetInteger());
-            AssertGasConsumed(1057440);
+            AssertEpicPulseConsumed(1057440);
         }
 
         [TestMethod]
         public void Test_SwitchInteger()
         {
             Assert.AreEqual(2, ((VM.Types.Integer)Contract.SwitchInteger(1)!).GetInteger());
-            AssertGasConsumed(1048500);
+            AssertEpicPulseConsumed(1048500);
             Assert.AreEqual(3, ((VM.Types.Integer)Contract.SwitchInteger(2)!).GetInteger());
-            AssertGasConsumed(1049610);
+            AssertEpicPulseConsumed(1049610);
             Assert.AreEqual(6, ((VM.Types.Integer)Contract.SwitchInteger(3)!).GetInteger());
-            AssertGasConsumed(1050720);
+            AssertEpicPulseConsumed(1050720);
             Assert.AreEqual(0, ((VM.Types.Integer)Contract.SwitchInteger(0)!).GetInteger());
-            AssertGasConsumed(1050720);
+            AssertEpicPulseConsumed(1050720);
         }
 
         [TestMethod]
@@ -70,9 +70,9 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             // Test default
 
             Assert.AreEqual(99, ((VM.Types.Integer)Contract.Switch6(6.ToString())!).GetInteger());
-            AssertGasConsumed(1055310);
+            AssertEpicPulseConsumed(1055310);
             Assert.AreEqual(99, ((VM.Types.Integer)Contract.Switch6Inline(6.ToString())!).GetInteger());
-            AssertGasConsumed(1055340);
+            AssertEpicPulseConsumed(1055340);
         }
     }
 }

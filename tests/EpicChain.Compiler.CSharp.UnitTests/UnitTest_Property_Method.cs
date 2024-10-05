@@ -12,7 +12,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void TestPropertyMethod()
         {
             var arr = Contract.TestProperty()!;
-            AssertGasConsumed(2053500);
+            AssertEpicPulseConsumed(2053500);
 
             Assert.AreEqual(2, arr.Count);
             Assert.AreEqual((arr[0] as StackItem)!.GetString(), "EpicChain");
@@ -23,7 +23,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void TestPropertyMethod2()
         {
             Contract.TestProperty2();
-            AssertGasConsumed(1557360);
+            AssertEpicPulseConsumed(1557360);
             // No errors
         }
     }

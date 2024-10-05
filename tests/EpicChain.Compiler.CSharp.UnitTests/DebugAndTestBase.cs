@@ -72,9 +72,9 @@ public class DebugAndTestBase<T> : TestBase<T>
             }
     }
 
-    protected void AssertGasConsumed(long gasConsumed)
+    protected void AssertEpicPulseConsumed(long epicpulseConsumed)
     {
         if (TestGasConsume)
-            Assert.AreEqual(gasConsumed, Engine.FeeConsumed.Value);
+            Assert.AreEqual(epicpulseConsumed, Engine.FeeConsumed.Value);
     }
 }

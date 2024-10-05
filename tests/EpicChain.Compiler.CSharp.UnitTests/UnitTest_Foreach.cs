@@ -14,46 +14,46 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void IntForeachTest()
         {
             Assert.AreEqual(10, Contract.IntForeach());
-            AssertGasConsumed(1124070);
+            AssertEpicPulseConsumed(1124070);
             Assert.AreEqual(6, Contract.IntForeachBreak(3));
-            AssertGasConsumed(1187970);
+            AssertEpicPulseConsumed(1187970);
         }
 
         [TestMethod]
         public void IntForloopTest()
         {
             Assert.AreEqual(10, Contract.IntForloop());
-            AssertGasConsumed(1126710);
+            AssertEpicPulseConsumed(1126710);
             Assert.AreEqual(6, Contract.IntForeachBreak(3));
-            AssertGasConsumed(1187970);
+            AssertEpicPulseConsumed(1187970);
         }
 
         [TestMethod]
         public void StringForeachTest()
         {
             Assert.AreEqual("abcdefhij", Contract.StringForeach());
-            AssertGasConsumed(2041620);
+            AssertEpicPulseConsumed(2041620);
         }
 
         [TestMethod]
         public void ByteStringEmptyTest()
         {
             Assert.AreEqual(0, Contract.ByteStringEmpty());
-            AssertGasConsumed(1049100);
+            AssertEpicPulseConsumed(1049100);
         }
 
         [TestMethod]
         public void BytestringForeachTest()
         {
             Assert.AreEqual("abcdefhij", Encoding.ASCII.GetString(Contract.ByteStringForeach()!));
-            AssertGasConsumed(2661900);
+            AssertEpicPulseConsumed(2661900);
         }
 
         [TestMethod]
         public void StructForeachTest()
         {
             var map = Contract.StructForeach()!;
-            AssertGasConsumed(3620220);
+            AssertEpicPulseConsumed(3620220);
 
             Assert.AreEqual(map[(ByteString)"test1"], new BigInteger(1));
             Assert.AreEqual(map[(ByteString)"test2"], new BigInteger(2));
@@ -63,7 +63,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void ByteArrayForeachTest()
         {
             var array = Contract.ByteArrayForeach()!;
-            AssertGasConsumed(2041170);
+            AssertEpicPulseConsumed(2041170);
 
             Assert.AreEqual(array[0], new BigInteger(1));
             Assert.AreEqual(array[1], new BigInteger(10));
@@ -74,7 +74,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Uint160ForeachTest()
         {
             var array = Contract.UInt160Foreach()!;
-            AssertGasConsumed(1608720);
+            AssertEpicPulseConsumed(1608720);
 
             Assert.AreEqual(array.Count, 2);
             Assert.AreEqual((array[0] as ByteString)!.GetSpan().ToHexString(), "0000000000000000000000000000000000000000");
@@ -85,7 +85,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Uint256ForeachTest()
         {
             var array = Contract.UInt256Foreach()!;
-            AssertGasConsumed(1608720);
+            AssertEpicPulseConsumed(1608720);
 
             Assert.AreEqual(array.Count, 2);
             Assert.AreEqual((array[0] as ByteString)!.GetSpan().ToHexString(), "0000000000000000000000000000000000000000000000000000000000000000");
@@ -96,7 +96,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void EcpointForeachTest()
         {
             var array = Contract.ECPointForeach()!;
-            AssertGasConsumed(2100780);
+            AssertEpicPulseConsumed(2100780);
 
             Assert.AreEqual(array.Count, 2);
             Assert.AreEqual((array[0] as ByteString)!.GetSpan().ToHexString(), "024700db2e90d9f02c4f9fc862abaca92725f95b4fddcc8d7ffa538693ecf463a9");
@@ -107,7 +107,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void BigintegerForeachTest()
         {
             var array = Contract.BigIntegerForeach()!;
-            AssertGasConsumed(2105160);
+            AssertEpicPulseConsumed(2105160);
             BigInteger[] expected = [10_000, 1000_000, 1000_000_000, 1000_000_000_000_000_000];
 
             Assert.AreEqual(array.Count, 4);
@@ -121,7 +121,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void ObjectarrayForeachTest()
         {
             var array = Contract.ObjectArrayForeach()!;
-            AssertGasConsumed(2102910);
+            AssertEpicPulseConsumed(2102910);
 
             Assert.AreEqual(array.Count, 3);
             CollectionAssert.AreEqual(array[0] as byte[], new byte[] { 0x01, 0x02 });

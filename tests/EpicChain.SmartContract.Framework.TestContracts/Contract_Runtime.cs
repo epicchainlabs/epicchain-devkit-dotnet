@@ -20,9 +20,9 @@ namespace EpicChain.SmartContract.Framework.UnitTests.TestClasses
             return Runtime.GetRandom();
         }
 
-        public static long GetGasLeft()
+        public static long GetEpicPulseLeft()
         {
-            return Runtime.GasLeft;
+            return Runtime.EpicPulseLeft;
         }
 
         public static string GetPlatform()

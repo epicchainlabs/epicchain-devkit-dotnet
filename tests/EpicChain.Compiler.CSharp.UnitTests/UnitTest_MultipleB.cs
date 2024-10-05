@@ -10,7 +10,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test()
         {
             Assert.IsFalse(Contract.Test());
-            AssertGasConsumed(984060);
+            AssertEpicPulseConsumed(984060);
         }
     }
 }

@@ -91,9 +91,9 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
         }
 
         [TestMethod]
-        public void Test_GasLeft()
+        public void Test_EpicPulseLeft()
         {
-            Assert.AreEqual(1999015490, Contract.GetGasLeft());
+            Assert.AreEqual(1999015490, Contract.GetEpicPulseLeft());
         }
 
         [TestMethod]

@@ -13,7 +13,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var logs = new Queue<string>();
             Contract.OnRuntimeLog += (sender, log) => logs.Enqueue(log);
             Contract.TestMain();
-            AssertGasConsumed(34062420);
+            AssertEpicPulseConsumed(34062420);
 
             // Check logs
             Assert.AreEqual(18, logs.Count);

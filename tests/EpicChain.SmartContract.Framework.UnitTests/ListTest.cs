@@ -12,7 +12,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         public void TestCount()
         {
             Assert.AreEqual(4, Contract.TestCount(4));
-            AssertGasConsumed(2036100);
+            AssertEpicPulseConsumed(2036100);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         public void TestRemoveAt()
         {
             var item = Contract.TestRemoveAt(5, 2);
-            AssertGasConsumed(3389940);
+            AssertEpicPulseConsumed(3389940);
             var json = ParseJson(item);
 
             Assert.IsTrue(json is JArray);
@@ -50,7 +50,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         public void TestClear()
         {
             var item = Contract.TestClear(4);
-            AssertGasConsumed(3142470);
+            AssertEpicPulseConsumed(3142470);
             var json = ParseJson(item);
 
             Assert.IsTrue(json is JArray);
@@ -62,7 +62,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         public void TestArrayConvert()
         {
             var array = Contract.TestArrayConvert(4)!;
-            AssertGasConsumed(2035980);
+            AssertEpicPulseConsumed(2035980);
             Assert.AreEqual(4, array.Count);
             for (int i = 0; i < 4; i++)
             {

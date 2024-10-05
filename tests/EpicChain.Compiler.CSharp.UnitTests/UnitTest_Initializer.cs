@@ -10,11 +10,11 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Initializer_Test()
         {
             Assert.AreEqual(3, Contract.Sum());
-            AssertGasConsumed(1596420);
+            AssertEpicPulseConsumed(1596420);
             Assert.AreEqual(12, Contract.Sum1(5, 7));
-            AssertGasConsumed(2149290);
+            AssertEpicPulseConsumed(2149290);
             Assert.AreEqual(12, Contract.Sum2(5, 7));
-            AssertGasConsumed(2149650);
+            AssertEpicPulseConsumed(2149650);
         }
     }
 }

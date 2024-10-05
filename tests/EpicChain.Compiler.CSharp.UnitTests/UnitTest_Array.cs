@@ -26,7 +26,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_GetTreeByteLengthPrefix2()
         {
             var result = Contract.GetTreeByteLengthPrefix2();
-            AssertGasConsumed(1784760);
+            AssertEpicPulseConsumed(1784760);
 
             CollectionAssert.AreEqual(new byte[] { 0x01, 0x03 }, result);
         }
@@ -35,7 +35,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_JaggedArray()
         {
             var arr = Contract.TestJaggedArray();
-            AssertGasConsumed(2094930);
+            AssertEpicPulseConsumed(2094930);
 
             Assert.AreEqual(4, arr?.Count);
             var element0 = (Array?)arr?[0];
@@ -46,7 +46,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_JaggedByteArray()
         {
             var arr = Contract.TestJaggedByteArray();
-            AssertGasConsumed(2832570);
+            AssertEpicPulseConsumed(2832570);
 
             Assert.AreEqual(4, arr?.Count);
             var element0 = (byte[]?)arr?[0];
@@ -57,7 +57,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_EmptyArray()
         {
             var arr = Contract.TestEmptyArray();
-            AssertGasConsumed(1787220);
+            AssertEpicPulseConsumed(1787220);
 
             Assert.AreEqual(0, arr?.Count);
         }
@@ -66,7 +66,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_IntArray()
         {
             var arr = Contract.TestIntArray();
-            AssertGasConsumed(2540310);
+            AssertEpicPulseConsumed(2540310);
 
             //test 0,1,2
             CollectionAssert.AreEqual(new BigInteger[] { 0, 1, 2 }, arr?.ToArray());
@@ -77,18 +77,18 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             //test 1,4,5
             var arr = Contract.TestIntArrayInit();
-            AssertGasConsumed(2340420);
+            AssertEpicPulseConsumed(2340420);
             CollectionAssert.AreEqual(new BigInteger[] { 1, 4, 5 }, arr?.ToArray());
 
 
             //test 1,4,5
             arr = Contract.TestIntArrayInit2();
-            AssertGasConsumed(2340420);
+            AssertEpicPulseConsumed(2340420);
             CollectionAssert.AreEqual(new BigInteger[] { 1, 4, 5 }, arr?.ToArray());
 
             //test 1,4,5
             arr = Contract.TestIntArrayInit3();
-            AssertGasConsumed(2340420);
+            AssertEpicPulseConsumed(2340420);
             CollectionAssert.AreEqual(new BigInteger[] { 1, 4, 5 }, arr?.ToArray());
         }
 
@@ -96,7 +96,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_StructArray()
         {
             var result = Contract.TestStructArray();
-            AssertGasConsumed(3543240);
+            AssertEpicPulseConsumed(3543240);
 
             //test (1+5)*7 == 42
             var bequal = result as Struct != null;
@@ -114,14 +114,14 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             Assert.IsInstanceOfType(state[1], typeof(VM.Types.Null));
             Assert.IsInstanceOfType(state[2], typeof(VM.Types.Integer));
             Assert.AreEqual(0, state[2]);
-            AssertGasConsumed(3279750);
+            AssertEpicPulseConsumed(3279750);
         }
 
         [TestMethod]
         public void Test_StructArrayInit()
         {
             var result = Contract.TestStructArrayInit();
-            AssertGasConsumed(3343410);
+            AssertEpicPulseConsumed(3343410);
 
             //test (1+5)*7 == 42
             var bequal = result as Struct != null;
@@ -132,7 +132,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_ByteArrayOwner()
         {
             var bts = Contract.TestByteArrayOwner();
-            AssertGasConsumed(1784760);
+            AssertEpicPulseConsumed(1784760);
 
             CollectionAssert.AreEqual(new byte[] { 0xf6, 0x64, 0x43, 0x49, 0x8d, 0x38, 0x78, 0xd3, 0x2b, 0x99, 0x4e, 0x4e, 0x12, 0x83, 0xc6, 0x93, 0x44, 0x21, 0xda, 0xfe }, bts);
         }
@@ -141,7 +141,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_DynamicArrayInit()
         {
             var arr = Contract.TestDynamicArrayInit(3);
-            AssertGasConsumed(2605350);
+            AssertEpicPulseConsumed(2605350);
 
             Assert.AreEqual(3, arr?.Count);
             Assert.AreEqual(new BigInteger(0), arr?[0]);
@@ -149,7 +149,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             Assert.AreEqual(new BigInteger(2), arr?[2]);
 
             arr = Contract.TestDynamicArrayInit(0);
-            AssertGasConsumed(1863750);
+            AssertEpicPulseConsumed(1863750);
             Assert.AreEqual(0, arr?.Count);
             Assert.ThrowsException<TestException>(() => Contract.TestDynamicArrayInit(-1));
             Assert.ThrowsException<TestException>(() => Contract.TestDynamicArrayInit(int.MaxValue));
@@ -159,7 +159,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_DefaultArray()
         {
             var arr = Contract.TestDefaultArray();
-            AssertGasConsumed(1805160);
+            AssertEpicPulseConsumed(1805160);
             Assert.IsTrue(arr!.Value);
         }
 
@@ -167,7 +167,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_DynamicArrayStringInit()
         {
             var arr = Contract.TestDynamicArrayStringInit("hello");
-            AssertGasConsumed(1855710);
+            AssertEpicPulseConsumed(1855710);
 
             Assert.AreEqual(5, arr?.Length);
             Assert.IsTrue(arr?.All(a => a == 0));
@@ -177,7 +177,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_ByteArrayOwnerCall()
         {
             var bts = Contract.TestByteArrayOwnerCall();
-            AssertGasConsumed(2048100);
+            AssertEpicPulseConsumed(2048100);
 
             CollectionAssert.AreEqual(new byte[] { 0xf6, 0x64, 0x43, 0x49, 0x8d, 0x38, 0x78, 0xd3, 0x2b, 0x99, 0x4e, 0x4e, 0x12, 0x83, 0xc6, 0x93, 0x44, 0x21, 0xda, 0xfe }, bts);
         }
@@ -186,7 +186,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_StringArray()
         {
             var items = Contract.TestSupportedStandards();
-            AssertGasConsumed(1784760);
+            AssertEpicPulseConsumed(1784760);
 
             Assert.AreEqual((ByteString)"XEP-5", items?[0]);
             Assert.AreEqual((ByteString)"XEP-10", items?[1]);
@@ -196,7 +196,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_Collectionexpressions()
         {
             var arr = Contract.TestCollectionexpressions();
-            AssertGasConsumed(3387420);
+            AssertEpicPulseConsumed(3387420);
 
             Assert.AreEqual(4, arr?.Count);
 
@@ -225,7 +225,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_ElementBinding()
         {
             Contract.TestElementBinding();
-            AssertGasConsumed(5907840);
+            AssertEpicPulseConsumed(5907840);
         }
     }
 }

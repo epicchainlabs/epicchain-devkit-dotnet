@@ -10,14 +10,14 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void TestFunc()
         {
             Assert.AreEqual(5, Contract.SumFunc(2, 3));
-            AssertGasConsumed(1065180);
+            AssertEpicPulseConsumed(1065180);
         }
 
         [TestMethod]
         public void TestDelegate()
         {
             Contract.TestDelegate();
-            AssertGasConsumed(3435960);
+            AssertEpicPulseConsumed(3435960);
         }
     }
 }

@@ -10,9 +10,9 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_Partial()
         {
             Assert.AreEqual(1, Contract.Test1());
-            AssertGasConsumed(984060);
+            AssertEpicPulseConsumed(984060);
             Assert.AreEqual(2, Contract.Test2());
-            AssertGasConsumed(984060);
+            AssertEpicPulseConsumed(984060);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             int src = 100, aux = 200, dst = 300;
             var result = Contract.HanoiTower(1, src, aux, dst)!;
-            AssertGasConsumed(2788260);
+            AssertEpicPulseConsumed(2788260);
             Assert.AreEqual(result.Count, 1);
             List<(BigInteger rodId, BigInteger src, BigInteger dst)> expectedResult = [(1, src, dst)];
             for (int i = 0; i < expectedResult.Count; ++i)
@@ -62,15 +62,15 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_MutualRecursion()
         {
             Assert.IsTrue(Contract.Odd(7));
-            AssertGasConsumed(1181880);
+            AssertEpicPulseConsumed(1181880);
             Assert.IsFalse(Contract.Even(9));
-            AssertGasConsumed(1220100);
+            AssertEpicPulseConsumed(1220100);
             Assert.IsTrue(Contract.Odd(-11));
-            AssertGasConsumed(1258980);
+            AssertEpicPulseConsumed(1258980);
             Assert.IsTrue(Contract.Even(-10));
-            AssertGasConsumed(1239810);
+            AssertEpicPulseConsumed(1239810);
             Assert.IsFalse(Contract.Even(-9));
-            AssertGasConsumed(1220640);
+            AssertEpicPulseConsumed(1220640);
         }
     }
 }

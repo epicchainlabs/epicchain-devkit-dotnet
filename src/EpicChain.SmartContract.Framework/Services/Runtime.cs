@@ -72,9 +72,9 @@ namespace EpicChain.SmartContract.Framework.Services
             get;
         }
 
-        public static extern long GasLeft
+        public static extern long EpicPulseLeft
         {
-            [Syscall("System.Runtime.GasLeft")]
+            [Syscall("System.Runtime.EpicPulseLeft")]
             get;
         }
 
@@ -114,8 +114,8 @@ namespace EpicChain.SmartContract.Framework.Services
         [Syscall("System.Runtime.Notify")]
         public static extern void Debug(string message);
 
-        [Syscall("System.Runtime.BurnGas")]
-        public static extern void BurnGas(long gas);
+        [Syscall("System.Runtime.BurnEpicPulse")]
+        public static extern void BurnEpicPulse(long epicpulse);
 
         [Syscall("System.Runtime.GetRandom")]
         public static extern BigInteger GetRandom();

@@ -18,18 +18,18 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             // True
 
             Assert.IsTrue(Contract.ValidateAddress(address));
-            AssertGasConsumed(1049340);
+            AssertEpicPulseConsumed(1049340);
 
             // False
 
             Assert.IsFalse(Contract.ValidateAddress(InvalidUInt160.InvalidType));
-            AssertGasConsumed(1048710);
+            AssertEpicPulseConsumed(1048710);
             Assert.ThrowsException<TestException>(() => Contract.ValidateAddress(InvalidUInt160.Null));
-            AssertGasConsumed(1048110);
+            AssertEpicPulseConsumed(1048110);
             Assert.IsFalse(Contract.ValidateAddress(InvalidUInt160.InvalidType));
-            AssertGasConsumed(1048710);
+            AssertEpicPulseConsumed(1048710);
             Assert.IsFalse(Contract.ValidateAddress(InvalidUInt160.InvalidLength));
-            AssertGasConsumed(1048920);
+            AssertEpicPulseConsumed(1048920);
         }
 
         [TestMethod]
@@ -39,9 +39,9 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var notOwner = "NYjzhdekseMYWvYpSoAeypqMiwMuEUDhKB".ToScriptHash(ProtocolSettings.Default.AddressVersion);
 
             Assert.IsTrue(Contract.CheckOwner(owner));
-            AssertGasConsumed(1049040);
+            AssertEpicPulseConsumed(1049040);
             Assert.IsFalse(Contract.CheckOwner(notOwner));
-            AssertGasConsumed(1049040);
+            AssertEpicPulseConsumed(1049040);
         }
 
         [TestMethod]
@@ -51,9 +51,9 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var notZero = "NYjzhdekseMYWvYpSoAeypqMiwMuEUDhKB".ToScriptHash(ProtocolSettings.Default.AddressVersion);
 
             Assert.IsTrue(Contract.CheckZeroStatic(zero));
-            AssertGasConsumed(1049220);
+            AssertEpicPulseConsumed(1049220);
             Assert.IsFalse(Contract.CheckZeroStatic(notZero));
-            AssertGasConsumed(1049220);
+            AssertEpicPulseConsumed(1049220);
         }
 
         [TestMethod]
@@ -62,7 +62,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var notZero = "NYjzhdekseMYWvYpSoAeypqMiwMuEUDhKB".ToScriptHash(ProtocolSettings.Default.AddressVersion);
 
             Assert.AreEqual(notZero, Contract.ConstructUInt160(notZero.ToArray()));
-            AssertGasConsumed(1294230);
+            AssertEpicPulseConsumed(1294230);
         }
     }
 }
