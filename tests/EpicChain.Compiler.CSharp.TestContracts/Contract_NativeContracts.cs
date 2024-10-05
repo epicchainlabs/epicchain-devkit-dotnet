@@ -12,7 +12,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
 
         public static string EpicChainSymbol()
         {
-            return XPR.Symbol;
+            return EpicChain.Symbol;
         }
 
         public static string GASSymbol()

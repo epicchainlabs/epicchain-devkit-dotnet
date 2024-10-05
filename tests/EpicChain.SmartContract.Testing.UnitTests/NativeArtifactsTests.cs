@@ -26,12 +26,12 @@ namespace EpicChain.SmartContract.Testing.UnitTests
             // Check symbols
 
             using var fee = engine.CreateEpicPulseWatcher();
-            Assert.AreEqual("EpicChain", engine.Native.XPR.Symbol);
+            Assert.AreEqual("EpicChain", engine.Native.EpicChain.Symbol);
             Assert.AreEqual(984060L, fee.Value);
 
             using var epicpulse = engine.CreateEpicPulseWatcher();
             {
-                Assert.AreEqual("EpicPulse", engine.Native.XPP.Symbol);
+                Assert.AreEqual("EpicPulse", engine.Native.EpicPulse.Symbol);
                 Assert.AreEqual(984060L, epicpulse);
             }
 
