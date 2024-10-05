@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -116,3 +122,46 @@ internal partial class MethodConvert
             case SpecialType.System_Boolean:
                 {
                     AddInstruction(OpCode.PUSHF);
+                    break;
+                }
+            case SpecialType.System_Byte:
+            case SpecialType.System_SByte:
+            case SpecialType.System_Int16:
+            case SpecialType.System_UInt16:
+            case SpecialType.System_Int32:
+            case SpecialType.System_UInt32:
+            case SpecialType.System_Int64:
+            case SpecialType.System_UInt64:
+            case SpecialType.System_Decimal:
+            case SpecialType.System_Single:
+            case SpecialType.System_Double:
+            case SpecialType.System_Char:
+                AddInstruction(OpCode.PUSH0);
+                break;
+            case SpecialType.System_String:
+            case SpecialType.System_Object:
+                AddInstruction(OpCode.PUSHNULL);
+                break;
+            default:
+                if (type.ToString() == "System.Numerics.BigInteger")
+                {
+                    // BigInteger's default value is 0
+                    AddInstruction(OpCode.PUSH0);
+                }
+                else if (type.IsReferenceType)
+                {
+                    AddInstruction(OpCode.PUSHNULL);
+                }
+                else if (type.IsValueType)
+                {
+                    // For structs and other value types, we need to create a default instance
+                    AddInstruction(OpCode.NEWSTRUCT0);
+                }
+                else
+                {
+                    throw new CompilationException(expression, DiagnosticId.SyntaxNotSupported, $"Unsupported type for default expression: {type}");
+                }
+                break;
+        }
+    }
+}

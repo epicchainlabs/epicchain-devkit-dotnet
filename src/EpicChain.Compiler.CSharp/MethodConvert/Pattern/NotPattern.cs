@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -36,3 +42,46 @@
 //
 // By choosing to use the EpicChain Lab's Project, you acknowledge that you have read and understood the terms of the MIT License.
 // You agree to abide by these terms and recognize that this software is provided without warranty of any kind, express or implied, including
+// but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Should any legal issues or
+// disputes arise as a result of using this software, the authors and contributors disclaim all liability and responsibility.
+//
+// Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
+// bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+extern alias scfx;
+
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// Convet a "not" pattern to OpCodes.
+    /// </summary>
+    /// <remarks>
+    /// Negation "not" pattern that matches an expression when the negated pattern doesn't match the expression.
+    /// </remarks>
+    /// <param name="model">The semantic model providing context and information about "not" pattern.</param>
+    /// <param name="pattern">The "not" pattern to be converted.</param>
+    /// <param name="localIndex">The index of the local variable.</param>
+    /// <example>
+    /// The following example shows how you can negate a constant null pattern to check if an expression is non-null:
+    /// <code>
+    /// if (input is not null)
+    /// {
+    ///     // ...
+    /// }
+    /// </code>
+    /// </example>
+    private void ConvertNotPattern(SemanticModel model, UnaryPatternSyntax pattern, byte localIndex)
+    {
+        ConvertPattern(model, pattern.Pattern, localIndex);
+        AddInstruction(OpCode.NOT);
+    }
+}

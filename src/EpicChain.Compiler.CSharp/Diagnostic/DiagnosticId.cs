@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -34,3 +40,46 @@
 // under your own brand or as part of a larger project, you must clearly indicate the changes you have made, and the original authors
 // cannot be held liable for any issues resulting from your modifications.
 //
+// By choosing to use the EpicChain Lab's Project, you acknowledge that you have read and understood the terms of the MIT License.
+// You agree to abide by these terms and recognize that this software is provided without warranty of any kind, express or implied, including
+// but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. Should any legal issues or
+// disputes arise as a result of using this software, the authors and contributors disclaim all liability and responsibility.
+//
+// Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
+// bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+namespace EpicChain.Compiler
+{
+    static class DiagnosticId
+    {
+        public const string NoEntryPoint = "NC1001";
+        public const string ExternMethod = "NC1002";
+        public const string NoParameterlessConstructor = "NC1003";
+        public const string MultipleContracts = "NC1004";
+        public const string SyntaxNotSupported = "NC2001";
+        public const string EventReturns = "NC2002";
+        public const string NonStaticDelegate = "NC2003";
+        public const string FloatingPointNumber = "NC2004";
+        public const string MultiplyThrows = "NC2005";
+        public const string MultiplyCatches = "NC2006";
+        public const string CatchFilter = "NC2007";
+        public const string MultidimensionalArray = "NC2008";
+        public const string InterfaceCall = "NC2009";
+        public const string ArrayRange = "NC2010";
+        public const string InvalidToStringType = "NC2011";
+        public const string AlignmentClause = "NC2012";
+        public const string FormatClause = "NC2013";
+        public const string InvalidInitialValueType = "NC3001";
+        public const string InvalidMethodName = "NC3002";
+        public const string MethodNameConflict = "NC3003";
+        public const string EventNameConflict = "NC3004";
+        public const string InvalidInitialValue = "NC3005";
+        public const string IncorrectXepStandard = "NC3006";
+        public const string CapturedStaticFieldNotFound = "NC3007";
+        public const string InvalidType = "NC3008";
+        public const string InvalidArgument = "NC3009";
+    }
+}

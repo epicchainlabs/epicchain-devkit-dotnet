@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -698,3 +704,46 @@ internal partial class MethodConvert
 
         if (enumTypeSymbol is not { TypeKind: TypeKind.Enum })
         {
+            throw new CompilationException(arguments![0], DiagnosticId.InvalidType, "Unable to determine enum type from first argument");
+        }
+
+        var enumMembers = enumTypeSymbol.GetMembers().OfType<IFieldSymbol>()
+            .Where(field => field is { HasConstantValue: true, IsImplicitlyDeclared: false }).ToArray();
+
+        var valueType = model.GetTypeInfo((arguments[1] as ArgumentSyntax)?.Expression).Type;
+
+        // We need to compare the input value against the enum values
+        var endLabel = new JumpTarget();
+        // here add check logic to verify if valueType is string
+        var isName = valueType is INamedTypeSymbol { Name: "String" };
+
+        foreach (var t in enumMembers)
+        {
+            methodConvert.Dup();                      // Duplicate value to compare
+            if (isName)
+            {
+                methodConvert.Push(t.Name);
+            }
+            else
+            {
+                methodConvert.Push(t.ConstantValue);
+            }
+
+            // Equal comparison
+            methodConvert.Equal();                    // Stack: [..., isEqual]
+
+            var nextCheck = new JumpTarget();
+            methodConvert.JumpIfNot(nextCheck);
+
+            // If equal, set result to true
+            methodConvert.Drop();
+            methodConvert.Drop();                     // Remove the false
+            methodConvert.Push(true);                 // Set result to true
+            methodConvert.Ret();
+            nextCheck.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+        }
+        methodConvert.Drop();
+        methodConvert.Drop(); // Remove the duplicated value
+        methodConvert.Push(false);
+    }
+}

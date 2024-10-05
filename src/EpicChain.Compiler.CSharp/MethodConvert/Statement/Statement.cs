@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -117,3 +123,46 @@ namespace EpicChain.Compiler
                     ConvertIfStatement(model, syntax);
                     break;
                 // Converts a labeled statement, used as a target for goto statements.
+                // Example: myLabel: /* actions */
+                case LabeledStatementSyntax syntax:
+                    ConvertLabeledStatement(model, syntax);
+                    break;
+                // Converts a local variable declaration statement.
+                // Example: int x = 5;
+                case LocalDeclarationStatementSyntax syntax:
+                    ConvertLocalDeclarationStatement(model, syntax);
+                    break;
+                // Currently, local function statements are not supported in this context.
+                case LocalFunctionStatementSyntax:
+                    break;
+                // Converts a return statement, used to exit a method and optionally return a value.
+                // Example: return x + y;
+                case ReturnStatementSyntax syntax:
+                    ConvertReturnStatement(model, syntax);
+                    break;
+                // Converts a switch statement, including its cases and default case.
+                // Example: switch (variable) { case 1: /* actions */ break; default: /* actions */
+                case SwitchStatementSyntax syntax:
+                    ConvertSwitchStatement(model, syntax);
+                    break;
+                // Converts a throw statement, used for exception handling.
+                // Example: throw new Exception("Error");
+                case ThrowStatementSyntax syntax:
+                    ConvertThrowStatement(model, syntax);
+                    break;
+                // Converts a try-catch-finally statement, used for exception handling.
+                // Example: try { /* actions */ } catch (Exception e) { /* actions */ } finally { /* actions */ }
+                case TryStatementSyntax syntax:
+                    ConvertTryStatement(model, syntax);
+                    break;
+                // Converts a while loop statement.
+                // Example: while (condition) { /* actions */ }
+                case WhileStatementSyntax syntax:
+                    ConvertWhileStatement(model, syntax);
+                    break;
+                default:
+                    throw new CompilationException(statement, DiagnosticId.SyntaxNotSupported, $"Unsupported syntax: {statement}");
+            }
+        }
+    }
+}

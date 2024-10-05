@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -89,3 +95,46 @@ internal partial class MethodConvert
             //Example: if (greeting2 is string _)
             case DiscardPatternSyntax:
                 Push(true);
+                break;
+            //Convet relational pattern to OpCodes.
+            //Example: return value is > 1;
+            case RelationalPatternSyntax relationalPattern:
+                ConvertRelationalPattern(model, relationalPattern, localIndex);
+                break;
+            //Convert type pattern to OpCodes.
+            //Example:
+            //switch (o1)
+            //{
+            //    case byte[]: break;
+            //    case string: break;
+            //}
+            case TypePatternSyntax typePattern:
+                ConvertTypePattern(model, typePattern, localIndex);
+                break;
+            //Convet "not" pattern  to OpCodes.
+            //Example: return value is not null;
+            case UnaryPatternSyntax unaryPattern when unaryPattern.OperatorToken.ValueText == "not":
+                ConvertNotPattern(model, unaryPattern, localIndex);
+                break;
+            //Convet parenthesized to OpCodes.
+            //Example: return value is (> 1 and < 100);
+            case ParenthesizedPatternSyntax parenthesizedPattern:
+                ConvertParenthesizedPatternSyntax(model, parenthesizedPattern, localIndex);
+                break;
+            case RecursivePatternSyntax recursivePattern:
+                ConvertRecursivePattern(model, recursivePattern, localIndex);
+                break;
+            default:
+                //Example:
+                //object greeting = "Hello, World!";
+                //if (greeting3 is var message) { }
+                //Example:
+                //public static void M(object o1, object o2)
+                //{
+                //  var t = (o1, o2);
+                //  if (t is (int, string)) { }
+                //}
+                throw new CompilationException(pattern, DiagnosticId.SyntaxNotSupported, $"Unsupported pattern: {pattern}");
+        }
+    }
+}

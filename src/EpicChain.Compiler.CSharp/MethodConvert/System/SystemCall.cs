@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -272,3 +278,46 @@ internal partial class MethodConvert
         switch (symbol.ToString())
         {
             //For the BigInteger(byte[]) constructor, prepares method arguments and changes the return type to integer.
+            case "System.Numerics.BigInteger.BigInteger(byte[])":
+                PrepareArgumentsForMethod(model, symbol, arguments);
+                ChangeType(VM.Types.StackItemType.Integer);
+                return true;
+            //For other constructors, such as List<T>(), return processing failure.
+            default:
+                return false;
+        }
+    }
+
+    /// <summary>
+    /// Attempts to process system methods. Performs different processing operations based on the method symbol.
+    /// </summary>
+    /// <param name="model">The semantic model used to obtain detailed information about the symbol.</param>
+    /// <param name="symbol">The method symbol to be processed.</param>
+    /// <param name="instanceExpression">The instance expression representing the instance of method invocation, if any.</param>
+    /// <param name="arguments">A list of syntax nodes representing the arguments of the method.</param>
+    /// <returns>True if system methods are successfully processed; otherwise, false.</returns>
+    private bool TryProcessSystemMethods(SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        //If the method belongs to a delegate and the method name is "Invoke",
+        //calls the PrepareArgumentsForMethod method with CallingConvention.Cdecl convention and changes the return type to integer.
+        //Example: Func<int, int, int>(privateSum).Invoke(a, b);
+        //see ~/tests/EpicChain.Compiler.CSharp.TestContracts/Contract_Delegate.cs
+        if (symbol.ContainingType.TypeKind == TypeKind.Delegate && symbol.Name == "Invoke")
+        {
+            if (arguments is not null)
+                PrepareArgumentsForMethod(model, symbol, arguments, CallingConvention.Cdecl);
+            ConvertExpression(model, instanceExpression!);
+            AddInstruction(OpCode.CALLA);
+            return true;
+        }
+
+        var key = symbol.ToString()!.Replace("out ", "");
+        key = (from parameter in symbol.Parameters let parameterType = parameter.Type.ToString() where !parameter.Type.IsValueType && parameterType!.EndsWith('?') select parameterType).Aggregate(key, (current, parameterType) => current.Replace(parameterType, parameterType[..^1]));
+        if (key == "string.ToString()") key = "object.ToString()";
+        if (key.StartsWith("System.Enum.GetName<")) key = "System.Enum.GetName<>()";
+        if (key.StartsWith("System.Enum.GetName(")) key = "System.Enum.GetName()";
+        if (!SystemCallHandlers.TryGetValue(key, out var handler)) return false;
+        handler(this, model, symbol, instanceExpression, arguments);
+        return true;
+    }
+}

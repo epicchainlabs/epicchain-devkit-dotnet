@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -88,3 +94,46 @@ internal partial class MethodConvert
             case IFieldSymbol field:
                 if (field.IsConst)
                 {
+                    Push(field.ConstantValue);
+                }
+                else if (field.IsStatic)
+                {
+                    byte index = _context.AddStaticField(field);
+                    AccessSlot(OpCode.LDSFLD, index);
+                }
+                else
+                {
+                    int index = Array.IndexOf(field.ContainingType.GetFields(), field);
+                    AddInstruction(OpCode.LDARG0);
+                    Push(index);
+                    AddInstruction(OpCode.PICKITEM);
+                }
+                break;
+            case ILocalSymbol local:
+                if (local.IsConst)
+                    Push(local.ConstantValue);
+                else
+                    LdLocSlot(local);
+                break;
+            case IMethodSymbol method:
+                if (!method.IsStatic)
+                    throw new CompilationException(expression, DiagnosticId.NonStaticDelegate, $"Unsupported delegate: {method}");
+                InvokeMethod(model, method);
+                break;
+            case IParameterSymbol parameter:
+                if (!_internalInline) LdArgSlot(parameter);
+                break;
+            case IPropertySymbol property:
+                if (!property.IsStatic)
+                    AddInstruction(OpCode.LDARG0);
+                CallMethodWithConvention(model, property.GetMethod!);
+                break;
+            case ITypeSymbol type:
+                IsType(type.GetPatternType());
+                Push(true);
+                break;
+            default:
+                throw new CompilationException(expression, DiagnosticId.SyntaxNotSupported, $"Unsupported symbol: {symbol}");
+        }
+    }
+}

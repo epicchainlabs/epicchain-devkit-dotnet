@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -108,3 +114,46 @@ namespace EpicChain.Compiler
                         {
                             JumpTarget endTarget = new();
                             ConvertPattern(model, casePatternSwitchLabel.Pattern, anonymousIndex);
+                            Jump(OpCode.JMPIFNOT_L, endTarget);
+                            if (casePatternSwitchLabel.WhenClause is not null)
+                            {
+                                ConvertExpression(model, casePatternSwitchLabel.WhenClause.Condition);
+                                Jump(OpCode.JMPIFNOT_L, endTarget);
+                            }
+                            Jump(OpCode.JMP_L, target);
+                            endTarget.Instruction = AddInstruction(OpCode.NOP);
+                        }
+                        break;
+                    case CaseSwitchLabelSyntax caseSwitchLabel:
+                        using (InsertSequencePoint(caseSwitchLabel))
+                        {
+                            AccessSlot(OpCode.LDLOC, anonymousIndex);
+                            ConvertExpression(model, caseSwitchLabel.Value);
+                            AddInstruction(OpCode.EQUAL);
+                            Jump(OpCode.JMPIF_L, target);
+                        }
+                        break;
+                    case DefaultSwitchLabelSyntax defaultSwitchLabel:
+                        using (InsertSequencePoint(defaultSwitchLabel))
+                        {
+                            Jump(OpCode.JMP_L, target);
+                        }
+                        break;
+                    default:
+                        throw new CompilationException(label, DiagnosticId.SyntaxNotSupported, $"Unsupported syntax: {label}");
+                }
+            }
+            RemoveAnonymousVariable(anonymousIndex);
+            Jump(OpCode.JMP_L, breakTarget);
+            foreach (var (_, statements, target) in sections)
+            {
+                target.Instruction = AddInstruction(OpCode.NOP);
+                foreach (StatementSyntax statement in statements)
+                    ConvertStatement(model, statement);
+            }
+            breakTarget.Instruction = AddInstruction(OpCode.NOP);
+            PopSwitchLabels();
+            PopBreakTarget();
+        }
+    }
+}

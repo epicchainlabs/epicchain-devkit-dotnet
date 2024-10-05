@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -71,3 +77,46 @@ internal partial class MethodConvert
     /// </remarks>
     /// <example>
     /// The switch statement selects the appropriate case branch based on the value of day.
+    /// <code>
+    /// int day = 4;
+    /// string dayName = day switch
+    /// {
+    ///     1 => "Monday",
+    ///     2 => "Tuesday",
+    ///     3 => "Wednesday",
+    ///     4 => "Thursday",
+    ///     5 => "Friday",
+    ///     6 => "Saturday",
+    ///     7 => "Sunday",
+    ///     _ => "Unknown",
+    /// };
+    /// Runtime.Log($"Today is {dayName}");
+    /// </code>
+    /// </example>
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression">switch expression - pattern matching expressions using the switch keyword</seealso>
+    private void ConvertSwitchExpression(SemanticModel model, SwitchExpressionSyntax expression)
+    {
+        var arms = expression.Arms.Select(p => (p, new JumpTarget())).ToArray();
+        JumpTarget breakTarget = new();
+        byte anonymousIndex = AddAnonymousVariable();
+        ConvertExpression(model, expression.GoverningExpression);
+        AccessSlot(OpCode.STLOC, anonymousIndex);
+        foreach (var (arm, nextTarget) in arms)
+        {
+            ConvertPattern(model, arm.Pattern, anonymousIndex);
+            Jump(OpCode.JMPIFNOT_L, nextTarget);
+            if (arm.WhenClause is not null)
+            {
+                ConvertExpression(model, arm.WhenClause.Condition);
+                Jump(OpCode.JMPIFNOT_L, nextTarget);
+            }
+            ConvertExpression(model, arm.Expression);
+            Jump(OpCode.JMP_L, breakTarget);
+            nextTarget.Instruction = AddInstruction(OpCode.NOP);
+        }
+        AccessSlot(OpCode.LDLOC, anonymousIndex);
+        AddInstruction(OpCode.THROW);
+        breakTarget.Instruction = AddInstruction(OpCode.NOP);
+        RemoveAnonymousVariable(anonymousIndex);
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -228,3 +234,46 @@ internal partial class MethodConvert
             foreach (var e in initializer.Expressions)
             {
                 if (e is not AssignmentExpressionSyntax ae)
+                    throw new CompilationException(initializer, DiagnosticId.SyntaxNotSupported, $"Unsupported initializer: {initializer}");
+                if (SymbolEqualityComparer.Default.Equals(field, model.GetSymbolInfo(ae.Left).Symbol))
+                {
+                    expression = ae.Right;
+                    break;
+                }
+            }
+        }
+        if (expression is null)
+            PushDefault(field.Type);
+        else
+            ConvertExpression(model, expression);
+    }
+
+    private void CreateObject(SemanticModel model, ITypeSymbol type, InitializerExpressionSyntax? initializer)
+    {
+        var members = type.GetAllMembers().Where(p => !p.IsStatic).ToArray();
+        var fields = members.OfType<IFieldSymbol>().ToArray();
+        if (fields.Length == 0 || type.IsValueType || type.IsRecord)
+        {
+            AddInstruction(type.IsValueType || type.IsRecord ? OpCode.NEWSTRUCT0 : OpCode.NEWARRAY0);
+            foreach (var field in fields)
+            {
+                AddInstruction(OpCode.DUP);
+                InitializeFieldForObject(model, field, initializer);
+                AddInstruction(OpCode.APPEND);
+            }
+        }
+        else
+        {
+            for (int i = fields.Length - 1; i >= 0; i--)
+                InitializeFieldForObject(model, fields[i], initializer);
+            Push(fields.Length);
+            AddInstruction(OpCode.PACK);
+        }
+        var virtualMethods = members.OfType<IMethodSymbol>().Where(p => p.IsVirtualMethod()).ToArray();
+        if (type.IsRecord || virtualMethods.Length <= 0) return;
+        var index = _context.AddVTable(type);
+        AddInstruction(OpCode.DUP);
+        AccessSlot(OpCode.LDSFLD, index);
+        AddInstruction(OpCode.APPEND);
+    }
+}

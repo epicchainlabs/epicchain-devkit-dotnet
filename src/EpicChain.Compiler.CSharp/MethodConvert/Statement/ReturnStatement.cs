@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -45,3 +51,46 @@
 // EpicChain ecosystem.
 
 
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a 'return' statement into the corresponding jump instructions.
+        /// This method handles the conversion of return statements, including those with a return value,
+        /// within the context of try blocks and normal execution flow.
+        /// </summary>
+        /// <param name="model">The semantic model providing context and information about the return statement.</param>
+        /// <param name="syntax">The syntax representation of the return statement being converted.</param>
+        /// <remarks>
+        /// If the return statement includes an expression, the method converts this expression.
+        /// Depending on whether the return is within a try block, it generates different jump
+        /// instructions to handle the control flow properly. This ensures that the function exits
+        /// correctly, either by leaving the try block first or by jumping directly to the return target.
+        /// </remarks>
+        /// <example>
+        /// Example of a return statement syntax:
+        /// <code>
+        /// return x + y;
+        /// </code>
+        /// In this example, the method will convert the expression 'x + y' and then jump to
+        /// the return target, handling any try block logic if necessary.
+        /// </example>
+        private void ConvertReturnStatement(SemanticModel model, ReturnStatementSyntax syntax)
+        {
+            using (InsertSequencePoint(syntax))
+            {
+                if (syntax.Expression is not null)
+                    ConvertExpression(model, syntax.Expression);
+                if (_tryStack.Count > 0)
+                    Jump(OpCode.ENDTRY_L, _returnTarget);
+                else
+                    Jump(OpCode.JMP_L, _returnTarget);
+            }
+        }
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -130,3 +136,46 @@ internal partial class MethodConvert
     /// </summary>
     /// <remarks>
     /// Disjunctive "or" pattern that matches an expression when either pattern matches the expression.
+    /// </remarks>
+    /// <param name="model">The semantic model providing context and information about "or" pattern.</param>
+    /// <param name="left">The left pattern to be converted.</param>
+    /// <param name="right">The right pattern to be converted.</param>
+    /// <param name="localIndex">The index of the local variable.</param>
+    /// <example>
+    /// As the following example shows:
+    /// <code>
+    /// public static string GetCalendarSeason(int month) => month switch
+    /// {
+    ///     3 or 4 or 5 => "spring",
+    ///     6 or 7 or 8 => "summer",
+    ///     9 or 10 or 11 => "autumn",
+    ///     12 or 1 or 2 => "winter",
+    ///     _ => throw new Exception($"Unexpected month: {month}."),
+    /// };
+    /// </code>
+    /// As the preceding example shows, you can repeatedly use the pattern combinators in a pattern.
+    /// </example>
+    private void ConvertOrPattern(SemanticModel model, PatternSyntax left, PatternSyntax right, byte localIndex)
+    {
+        // Define jump targets for the right pattern and the end of the conversion process
+        JumpTarget rightTarget = new();
+        JumpTarget endTarget = new();
+
+        // Convert the left pattern
+        ConvertPattern(model, left, localIndex);
+
+        // Jump to the right pattern if the left pattern does not match
+        Jump(OpCode.JMPIFNOT_L, rightTarget);
+
+        // Push 'true' onto the evaluation stack and jump to the end if the left pattern matches
+        Push(true);
+        Jump(OpCode.JMP_L, endTarget);
+
+        // Define an instruction for the right pattern and convert it
+        rightTarget.Instruction = AddInstruction(OpCode.NOP);
+        ConvertPattern(model, right, localIndex);
+
+        // Define an instruction for the end of the conversion process
+        endTarget.Instruction = AddInstruction(OpCode.NOP);
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -40,3 +46,46 @@
 // disputes arise as a result of using this software, the authors and contributors disclaim all liability and responsibility.
 //
 // Finally, we encourage all users of the EpicChain Lab's Project to consider contributing back to the community. Whether through
+// bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
+// thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
+// EpicChain ecosystem.
+
+
+extern alias scfx;
+
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// Converts the code for tuple type into OpCodes.
+    /// Tuple types expressions are a new feature introduced in C# 7.0(Released March, 2017).
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about the tuple type.</param>
+    /// <param name="expression">The syntax representation of the tuple type statement being converted.</param>
+    /// <example>
+    /// The tuples feature provides concise syntax to group multiple data elements in a lightweight data structure.
+    /// The following example shows how you can declare a tuple variable, initialize it, and access its data members:
+    /// <code>
+    /// (string, int) t1 = ("chris", 3);
+    /// Runtime.Log($"Tuple with elements {t1.Item1} and {t1.Item2}.");
+    /// (string Name, int Count) t2 = ("chris", 3);
+    /// Runtime.Log($"Sum of {t2.Name} elements is {t2.Count}.");
+    /// </code>
+    /// </example>
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples">Tuple types</seealso>
+    private void ConvertTupleExpression(SemanticModel model, TupleExpressionSyntax expression)
+    {
+        AddInstruction(OpCode.NEWSTRUCT0);
+        foreach (ArgumentSyntax argument in expression.Arguments)
+        {
+            AddInstruction(OpCode.DUP);
+            ConvertExpression(model, argument.Expression);
+            AddInstruction(OpCode.APPEND);
+        }
+    }
+}

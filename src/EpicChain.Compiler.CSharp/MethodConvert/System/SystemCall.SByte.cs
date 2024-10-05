@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -263,3 +269,46 @@ internal partial class MethodConvert
         methodConvert.AddInstruction(OpCode.AND);    // (8 - rotateAmount) & 7
         methodConvert.AddInstruction(OpCode.SHR);    // (byte)value >> ((8 - rotateAmount) & 7)
         methodConvert.AddInstruction(OpCode.OR);
+        methodConvert.AddInstruction(OpCode.DUP);    // Duplicate the result
+        methodConvert.Push(BigInteger.One << (bitWidth - 1)); // Push BigInteger.One << 7 (0x80)
+        var endTarget = new JumpTarget();
+        methodConvert.Jump(OpCode.JMPLT, endTarget);
+        methodConvert.Push(BigInteger.One << bitWidth); // BigInteger.One << 8 (0x100)
+        methodConvert.AddInstruction(OpCode.SUB);
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+
+    private static void HandleSBytePopCount(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (instanceExpression is not null)
+            methodConvert.ConvertExpression(model, instanceExpression);
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+        // Determine bit width of int
+        var bitWidth = sizeof(sbyte) * 8;
+
+        // Mask to ensure the value is treated as a 8-bit unsigned integer
+        methodConvert.Push((BigInteger.One << bitWidth) - 1); // 0xFF
+        methodConvert.And(); // value = value & 0xFF
+                             // Initialize count to 0
+        methodConvert.Push(0); // value count
+        methodConvert.Swap(); // count value
+        // Loop to count the number of 1 bits
+        JumpTarget loopStart = new();
+        JumpTarget endLoop = new();
+        loopStart.Instruction = methodConvert.Dup(); // count value value
+        methodConvert.Push0(); // count value value 0
+        methodConvert.Jump(OpCode.JMPEQ, endLoop); // count value
+        methodConvert.Dup(); // count value value
+        methodConvert.Push1(); // count value value 1
+        methodConvert.And(); // count value (value & 1)
+        methodConvert.Rot(); // value (value & 1) count
+        methodConvert.Add(); // value count += (value & 1)
+        methodConvert.Swap(); // count value
+        methodConvert.Push1(); // count value 1
+        methodConvert.ShR(); // count value >>= 1
+        methodConvert.Jump(OpCode.JMP, loopStart);
+
+        endLoop.Instruction = methodConvert.Drop(); // Drop the remaining value
+    }
+}

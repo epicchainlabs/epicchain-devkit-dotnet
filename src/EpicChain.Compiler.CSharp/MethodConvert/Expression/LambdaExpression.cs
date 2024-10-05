@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -82,3 +88,46 @@ internal partial class MethodConvert
     /// <param name="expression">The lambda expression to convert</param>
     /// <example>
     /// <code>
+    /// public void MyMethod()
+    /// {
+    ///     var lambda = (int x, int y) => x + y;
+    ///     var result = lambda(1, 2);
+    ///     Console.WriteLine(result);
+    /// }
+    /// </code>
+    /// </example>
+    private void ConvertParenthesizedLambdaExpression(SemanticModel model, ParenthesizedLambdaExpressionSyntax expression)
+    {
+        var symbol = (IMethodSymbol)model.GetSymbolInfo(expression).Symbol!;
+        var mc = _context.ConvertMethod(model, symbol);
+        ConvertLocalToStaticFields(mc);
+        InvokeMethod(mc);
+    }
+
+    /// <summary>
+    /// Convert captured local variables/parameters to static fields
+    /// Assign values of captured local variables/parameters to related static fields
+    /// </summary>
+    /// <param name="mc">The method convert context</param>
+    private void ConvertLocalToStaticFields(MethodConvert mc)
+    {
+        if (mc.CapturedLocalSymbols.Count <= 0) return;
+        foreach (var local in mc.CapturedLocalSymbols)
+        {
+            // copy captured local variable/parameter value to related static fields
+            var staticFieldIndex = _context.GetOrAddCapturedStaticField(local);
+            switch (local)
+            {
+                case ILocalSymbol localSymbol:
+                    var localIndex = _localVariables[localSymbol];
+                    AccessSlot(OpCode.LDLOC, localIndex);
+                    break;
+                case IParameterSymbol parameterSymbol:
+                    var paraIndex = _parameters[parameterSymbol];
+                    AccessSlot(OpCode.LDARG, paraIndex);
+                    break;
+            }
+            AccessSlot(OpCode.STSFLD, staticFieldIndex);
+        }
+    }
+}

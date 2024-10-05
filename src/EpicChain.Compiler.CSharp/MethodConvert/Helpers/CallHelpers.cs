@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -384,3 +390,46 @@ internal partial class MethodConvert
 
     private void EmitCall(MethodConvert target)
     {
+        if (target._inline && !_context.Options.NoInline)
+            EmitInlineInstructions(target);
+        else
+            Jump(OpCode.CALL_L, target._startTarget);
+    }
+
+    // Helper method to emit inline instructions
+    private void EmitInlineInstructions(MethodConvert target)
+    {
+        for (int i = 0; i < target._instructions.Count - 1; i++)
+            AddInstruction(target._instructions[i].Clone());
+    }
+
+    private void CallVirtual(IMethodSymbol symbol)
+    {
+        if (symbol.ContainingType.TypeKind == TypeKind.Interface)
+            throw new CompilationException(symbol.ContainingType, DiagnosticId.InterfaceCall, "Interfaces are not supported.");
+
+        var members = symbol.ContainingType.GetAllMembers().Where(p => !p.IsStatic).ToArray();
+        var fields = members.OfType<IFieldSymbol>().ToArray();
+        var virtualMethods = members.OfType<IMethodSymbol>().Where(p => p.IsVirtualMethod()).ToArray();
+
+        int index = Array.IndexOf(virtualMethods, symbol);
+        if (index < 0)
+            throw new CompilationException(symbol, DiagnosticId.SyntaxNotSupported, $"Unsupported syntax: {symbol.OriginalDefinition}.");
+
+        AddInstruction(OpCode.DUP);
+        Push(fields.Length);
+        AddInstruction(OpCode.PICKITEM);
+        Push(index);
+        AddInstruction(OpCode.PICKITEM);
+        AddInstruction(OpCode.CALLA);
+    }
+
+    private void InvokeMethod(SemanticModel model, IMethodSymbol method)
+    {
+        var convert = _context.ConvertMethod(model, method);
+        Jump(OpCode.PUSHA, convert._startTarget);
+    }
+
+    private void InvokeMethod(MethodConvert convert)
+        => Jump(OpCode.PUSHA, convert._startTarget);
+}

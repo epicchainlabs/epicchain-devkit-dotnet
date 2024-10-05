@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -232,3 +238,46 @@ internal partial class MethodConvert
                 }
                 break;
             case IPropertySymbol property:
+                if (!property.IsStatic) ConvertExpression(model, left.Expression);
+                CallMethodWithConvention(model, property.SetMethod!, CallingConvention.Cdecl);
+                break;
+            default:
+                throw new CompilationException(left, DiagnosticId.SyntaxNotSupported, $"Unsupported symbol: {symbol}");
+        }
+    }
+
+    private void ConvertTupleAssignment(SemanticModel model, TupleExpressionSyntax left)
+    {
+        AddInstruction(OpCode.UNPACK);
+        AddInstruction(OpCode.DROP);
+        foreach (ArgumentSyntax argument in left.Arguments)
+        {
+            switch (argument.Expression)
+            {
+                case DeclarationExpressionSyntax declaration:
+                    switch (declaration.Designation)
+                    {
+                        case SingleVariableDesignationSyntax singleVariableDesignation:
+                            ILocalSymbol local = (ILocalSymbol)model.GetDeclaredSymbol(singleVariableDesignation)!;
+                            byte index = AddLocalVariable(local);
+                            AccessSlot(OpCode.STLOC, index);
+                            break;
+                        case DiscardDesignationSyntax:
+                            AddInstruction(OpCode.DROP);
+                            break;
+                        default:
+                            throw new CompilationException(argument, DiagnosticId.SyntaxNotSupported, $"Unsupported designation: {argument}");
+                    }
+                    break;
+                case IdentifierNameSyntax identifier:
+                    ConvertIdentifierNameAssignment(model, identifier);
+                    break;
+                case MemberAccessExpressionSyntax memberAccess:
+                    ConvertMemberAccessAssignment(model, memberAccess);
+                    break;
+                default:
+                    throw new CompilationException(argument, DiagnosticId.SyntaxNotSupported, $"Unsupported assignment: {argument}");
+            }
+        }
+    }
+}

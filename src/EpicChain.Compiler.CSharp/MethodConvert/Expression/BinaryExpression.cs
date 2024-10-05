@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -150,3 +156,46 @@ internal partial class MethodConvert
 
     private void ConvertLogicalAndExpression(SemanticModel model, ExpressionSyntax left, ExpressionSyntax right)
     {
+        JumpTarget rightTarget = new();
+        JumpTarget endTarget = new();
+        ConvertExpression(model, left);
+        Jump(OpCode.JMPIF_L, rightTarget);
+        Push(false);
+        Jump(OpCode.JMP_L, endTarget);
+        rightTarget.Instruction = AddInstruction(OpCode.NOP);
+        ConvertExpression(model, right);
+        endTarget.Instruction = AddInstruction(OpCode.NOP);
+    }
+
+    private void ConvertIsExpression(SemanticModel model, ExpressionSyntax left, ExpressionSyntax right)
+    {
+        ITypeSymbol type = model.GetTypeInfo(right).Type!;
+        ConvertExpression(model, left);
+        IsType(type.GetPatternType());
+    }
+
+    private void ConvertAsExpression(SemanticModel model, ExpressionSyntax left, ExpressionSyntax right)
+    {
+        JumpTarget endTarget = new();
+        ITypeSymbol type = model.GetTypeInfo(right).Type!;
+        ConvertExpression(model, left);
+        AddInstruction(OpCode.DUP);
+        IsType(type.GetPatternType());
+        Jump(OpCode.JMPIF_L, endTarget);
+        AddInstruction(OpCode.DROP);
+        Push((object?)null);
+        endTarget.Instruction = AddInstruction(OpCode.NOP);
+    }
+
+    private void ConvertCoalesceExpression(SemanticModel model, ExpressionSyntax left, ExpressionSyntax right)
+    {
+        JumpTarget endTarget = new();
+        ConvertExpression(model, left);
+        AddInstruction(OpCode.DUP);
+        AddInstruction(OpCode.ISNULL);
+        Jump(OpCode.JMPIFNOT_L, endTarget);
+        AddInstruction(OpCode.DROP);
+        ConvertExpression(model, right);
+        endTarget.Instruction = AddInstruction(OpCode.NOP);
+    }
+}

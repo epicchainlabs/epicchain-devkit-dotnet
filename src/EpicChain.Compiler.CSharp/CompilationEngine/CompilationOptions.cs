@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -55,3 +61,46 @@ namespace EpicChain.Compiler
 {
     public class CompilationOptions
     {
+        [Flags]
+        public enum OptimizationType : byte
+        {
+            None = 0,
+            Basic = 1,
+            Experimental = 2,
+
+            All = Basic | Experimental
+        }
+
+        public NullableContextOptions Nullable { get; set; }
+        public bool Debug { get; set; }
+        public OptimizationType Optimize { get; set; } = OptimizationType.Basic;
+        public bool Checked { get; set; }
+        public bool NoInline { get; set; }
+        public byte AddressVersion { get; set; } = 0x35;
+        public string? BaseName { get; set; }
+        public string CompilerVersion { get; set; }
+        private CSharpParseOptions? parseOptions = null;
+        public CSharpParseOptions GetParseOptions()
+        {
+            if (parseOptions is null)
+            {
+                List<string> preprocessorSymbols = new();
+                if (Debug) preprocessorSymbols.Add("DEBUG");
+                parseOptions = new CSharpParseOptions(preprocessorSymbols: preprocessorSymbols);
+            }
+            return parseOptions;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public CompilationOptions()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            var titleAttribute = assembly.GetCustomAttribute<AssemblyTitleAttribute>()!;
+            var versionAttribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()!;
+
+            CompilerVersion = $"{titleAttribute.Title} {versionAttribute.InformationalVersion}";
+        }
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -574,3 +580,46 @@ internal partial class MethodConvert
         if (instanceExpression is not null)
             methodConvert.ConvertExpression(model, instanceExpression);
         if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+
+        JumpTarget nullTarget = new(), endTarget = new();
+
+        methodConvert.AddInstruction(OpCode.DUP);// x y
+        methodConvert.AddInstruction(OpCode.ISNULL);
+        methodConvert.Jump(OpCode.JMPIF_L, nullTarget);
+
+        // y is not null
+        methodConvert.AddInstruction(OpCode.NUMEQUAL);
+        methodConvert.Jump(OpCode.JMP_L, endTarget);
+
+        // y is null, then return false
+        nullTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+        methodConvert.AddInstruction(OpCode.DROP); // drop x
+        methodConvert.Push(false); // y is null
+
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+
+    private static void HandleNullableBoolEqualsWithNonNullable(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (instanceExpression is not null)
+            methodConvert.ConvertExpression(model, instanceExpression);
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+
+        JumpTarget nullTarget = new(), endTarget = new();
+
+        methodConvert.AddInstruction(OpCode.DUP);
+        methodConvert.AddInstruction(OpCode.ISNULL);
+        methodConvert.Jump(OpCode.JMPIF_L, nullTarget);
+
+        methodConvert.AddInstruction(OpCode.EQUAL);
+        methodConvert.Jump(OpCode.JMP_L, endTarget);
+
+        nullTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+        methodConvert.AddInstruction(OpCode.DROP);
+        methodConvert.Push(false);
+
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+}

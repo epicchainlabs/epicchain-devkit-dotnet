@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -267,3 +273,46 @@ partial class MethodConvert
         methodConvert.AddInstruction(OpCode.DUP);
         methodConvert.Push("no"); // x x "no"
         methodConvert.AddInstruction(OpCode.EQUAL); // x
+        methodConvert.Jump(OpCode.JMPIF_L, falseTarget); // x
+
+        methodConvert.AddInstruction(OpCode.DUP); // x x
+        methodConvert.Push("NO"); // x x "NO"
+        methodConvert.AddInstruction(OpCode.EQUAL); // x
+        methodConvert.Jump(OpCode.JMPIF_L, falseTarget); // x
+
+        methodConvert.AddInstruction(OpCode.DUP); // x x
+        methodConvert.Push("n"); // x x "n"
+        methodConvert.AddInstruction(OpCode.EQUAL); // x
+        methodConvert.Jump(OpCode.JMPIF_L, falseTarget); // x
+
+        methodConvert.AddInstruction(OpCode.DUP); // x x
+        methodConvert.Push("N"); // x x "N"
+        methodConvert.AddInstruction(OpCode.EQUAL); // x
+        methodConvert.Jump(OpCode.JMPIF_L, falseTarget); // x
+
+        // If parsing failed, clean up stack and push false
+        methodConvert.AddInstruction(OpCode.DROP); //
+        methodConvert.Push(false); // false
+        methodConvert.AccessSlot(OpCode.STSFLD, index); // false
+        methodConvert.Push(false); // false
+        methodConvert.Jump(OpCode.JMP_L, endTarget); // false
+
+        // True case
+        trueTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP); // x
+        methodConvert.AddInstruction(OpCode.DROP); //
+        methodConvert.Push(true); //  true
+        methodConvert.AccessSlot(OpCode.STSFLD, index); // true
+        methodConvert.Push(true); // true
+        methodConvert.Jump(OpCode.JMP_L, endTarget); // true
+
+        // False case
+        falseTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP); // x
+        methodConvert.AddInstruction(OpCode.DROP); //
+        methodConvert.Push(false); // false
+        methodConvert.AccessSlot(OpCode.STSFLD, index); // false
+        methodConvert.Push(true); // true
+
+        // End target
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+}

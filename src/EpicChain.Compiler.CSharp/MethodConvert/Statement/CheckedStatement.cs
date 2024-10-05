@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -46,3 +52,46 @@
 
 
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a checked statement to the corresponding operations. This method is used for parsing
+        /// the syntax of checked statements within the context of a semantic model. Checked statements
+        /// in C# are used to explicitly enable overflow checking for arithmetic operations and conversions.
+        /// </summary>
+        /// <param name="model">The semantic model that provides information about the checked statement.</param>
+        /// <param name="syntax">The syntax of the checked statement to be converted.</param>
+        /// <remarks>
+        /// This method begins by pushing the current state (checked or unchecked) onto a stack to keep
+        /// track of the context. It then processes the block of code within the checked statement.
+        /// After the block is processed, the previous state is restored by popping from the stack.
+        /// This ensures that arithmetic operations within the block are correctly handled according
+        /// to the overflow checking rules specified by the checked statement.
+        /// </remarks>
+        /// <example>
+        /// Here is an example of a checked statement syntax:
+        ///
+        /// <code>
+        /// checked
+        /// {
+        ///     int x = int.MaxValue;
+        ///     int y = x + 1; // This will cause an overflow exception
+        /// }
+        /// </code>
+        ///
+        /// In this example, arithmetic operations inside the checked block are performed with
+        /// overflow checking enabled.
+        /// </example>
+        private void ConvertCheckedStatement(SemanticModel model, CheckedStatementSyntax syntax)
+        {
+            _checkedStack.Push(syntax.Keyword.IsKind(SyntaxKind.CheckedKeyword));
+            ConvertBlockStatement(model, syntax.Block);
+            _checkedStack.Pop();
+        }
+    }
+}

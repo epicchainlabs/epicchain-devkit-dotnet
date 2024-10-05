@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -44,3 +50,46 @@
 // thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
 // EpicChain ecosystem.
 
+
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts an expression statement into OpCodes.
+        /// This method handles the translation of a given expression within a statement,
+        /// considering the type of the expression to determine the necessary instructions.
+        /// </summary>
+        /// <param name="model">The semantic model providing context and information about the expression.</param>
+        /// <param name="syntax">The syntax representation of the expression statement being converted.</param>
+        /// <remarks>
+        /// The method evaluates the type of the expression to decide if a 'DROP' instruction
+        /// is needed. This is particularly important for expressions that leave a value on the stack,
+        /// which might not be needed. For example, a method call that returns a value but
+        /// whose return value is not used in the surrounding code.
+        /// </remarks>
+        /// <example>
+        /// Example of an expression statement syntax:
+        /// <code>
+        /// CalculateSum(10, 20);
+        /// </code>
+        /// In this example, the expression is a method call to 'CalculateSum'.
+        /// If 'CalculateSum' returns a value, and it is not used, a 'DROP' instruction will be added.
+        /// </example>
+        private void ConvertExpressionStatement(SemanticModel model, ExpressionStatementSyntax syntax)
+        {
+            ITypeSymbol type = model.GetTypeInfo(syntax.Expression).Type!;
+            using (InsertSequencePoint(syntax.Expression))
+            {
+                ConvertExpression(model, syntax.Expression);
+                if (type.SpecialType != SpecialType.System_Void)
+                    AddInstruction(OpCode.DROP);
+            }
+        }
+    }
+}

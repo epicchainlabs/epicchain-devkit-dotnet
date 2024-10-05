@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -150,3 +156,46 @@ internal partial class MethodConvert
         //methodConvert.AddInstruction(OpCode.RET);
         // Alternatively, a slightly cheaper way at runtime; 10 to 16 Datoshi
         //methodConvert.AddInstruction(OpCode.OVER);  // 10 0 5 0
+        //methodConvert.AddInstruction(OpCode.OVER);  // 10 0 5 0 5
+        //methodConvert.Jump(OpCode.JMPGE, minTarget);  // 10 0 5; should return 0 if JMPed
+        //methodConvert.AddInstruction(OpCode.NIP);  // 10 5
+        //methodConvert.AddInstruction(OpCode.OVER);  // 10 5 10
+        //methodConvert.AddInstruction(OpCode.OVER);  // 10 5 10 5
+        //methodConvert.Jump(OpCode.JMPLE, maxTarget);  // 10 5; should return 10 if JMPed
+        //methodConvert.AddInstruction(OpCode.NIP);  // 5; should return 5
+        //methodConvert.AddInstruction(OpCode.RET);
+        //minTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);  // 10 0 5; should return 0
+        //methodConvert.AddInstruction(OpCode.DROP);  // 10 0; should return 0
+        //methodConvert.AddInstruction(OpCode.NIP);  // 0; should return 0
+        //methodConvert.AddInstruction(OpCode.RET);
+        //maxTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);  // 10 5; should return 10
+        //methodConvert.AddInstruction(OpCode.DROP);  // 10; should return 10
+        //methodConvert.AddInstruction(OpCode.RET);
+    }
+
+    private static void HandleMathBigMul(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol, ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (instanceExpression is not null)
+            methodConvert.ConvertExpression(model, instanceExpression);
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+        JumpTarget endTarget = new();
+        methodConvert.AddInstruction(OpCode.MUL);
+        methodConvert.AddInstruction(OpCode.DUP);
+        methodConvert.Push(long.MinValue);
+        methodConvert.Push(new BigInteger(long.MaxValue) + 1);
+        methodConvert.AddInstruction(OpCode.WITHIN);
+        methodConvert.Jump(OpCode.JMPIF, endTarget);
+        methodConvert.AddInstruction(OpCode.THROW);
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+
+    // RegisterHandler((double x) => Math.Ceiling(x), HandleMathCeiling);
+    // RegisterHandler((double x) => Math.Floor(x), HandleMathFloor);
+    // RegisterHandler((double x) => Math.Round(x), HandleMathRound);
+    // RegisterHandler((double x) => Math.Truncate(x), HandleMathTruncate);
+    // RegisterHandler((double x, double y) => Math.Pow(x, y), HandleMathPow);
+    // RegisterHandler((double x) => Math.Sqrt(x), HandleMathSqrt);
+    // RegisterHandler((double x) => Math.Log(x), HandleMathLog);
+    // RegisterHandler((double x, double y) => Math.Log(x, y), HandleMathLogBase);
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -274,3 +280,46 @@ internal partial class MethodConvert
     {
         if (property.IsStatic)
         {
+            CallMethodWithConvention(model, property.GetMethod!);
+            ConvertExpression(model, right);
+            EmitComplexAssignmentOperator(type, operatorToken);
+            AddInstruction(OpCode.DUP);
+            CallMethodWithConvention(model, property.SetMethod!);
+        }
+        else
+        {
+            ConvertExpression(model, left.Expression);
+            AddInstruction(OpCode.DUP);
+            CallMethodWithConvention(model, property.GetMethod!);
+            ConvertExpression(model, right);
+            EmitComplexAssignmentOperator(type, operatorToken);
+            AddInstruction(OpCode.TUCK);
+            CallMethodWithConvention(model, property.SetMethod!, CallingConvention.StdCall);
+        }
+    }
+
+    private void EmitComplexAssignmentOperator(ITypeSymbol type, SyntaxToken operatorToken)
+    {
+        var itemType = type.GetStackItemType();
+        bool isBoolean = itemType == VM.Types.StackItemType.Boolean;
+        bool isString = itemType == VM.Types.StackItemType.ByteString;
+
+        var (opcode, checkResult) = operatorToken.ValueText switch
+        {
+            "+=" => isString ? (OpCode.CAT, false) : (OpCode.ADD, true),
+            "-=" => (OpCode.SUB, true),
+            "*=" => (OpCode.MUL, true),
+            "/=" => (OpCode.DIV, true),
+            "%=" => (OpCode.MOD, true),
+            "&=" => isBoolean ? (OpCode.BOOLAND, false) : (OpCode.AND, true),
+            "^=" when !isBoolean => (OpCode.XOR, true),
+            "|=" => isBoolean ? (OpCode.BOOLOR, false) : (OpCode.OR, true),
+            "<<=" => (OpCode.SHL, true),
+            ">>=" => (OpCode.SHR, true),
+            _ => throw new CompilationException(operatorToken, DiagnosticId.SyntaxNotSupported, $"Unsupported operator: {operatorToken}")
+        };
+        AddInstruction(opcode);
+        if (isString) ChangeType(VM.Types.StackItemType.ByteString);
+        if (checkResult) EnsureIntegerInRange(type);
+    }
+}

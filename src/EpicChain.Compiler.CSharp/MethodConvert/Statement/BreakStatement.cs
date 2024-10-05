@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -45,3 +51,46 @@
 // EpicChain ecosystem.
 
 
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a break statement into the corresponding jump instruction. This method handles
+        /// the parsing and translation of a break statement within loop or switch constructs, converting
+        /// it to an appropriate jump instruction in the epicchain vm language.
+        /// </summary>
+        /// <param name="syntax">The syntax of the break statement to be converted.</param>
+        /// <remarks>
+        /// This method determines the target of the break statement based on the current context. If the
+        /// break statement is within a try block with no specific break target, it generates an `ENDTRY_L`
+        /// jump instruction to exit the try block. Otherwise, it generates a `JMP_L` instruction to jump
+        /// to the standard break target. This ensures that break statements behave correctly in both
+        /// normal loops/switches and those within try-catch blocks.
+        /// </remarks>
+        /// <example>
+        /// An example of a break statement syntax in a loop:
+        ///
+        /// <code>
+        /// for (int i = 0; i < 10; i++)
+        /// {
+        ///     if (i == 5)
+        ///         break;
+        /// }
+        /// </code>
+        ///
+        /// In this example, the break statement exits the loop when `i` equals 5.
+        /// </example>
+        private void ConvertBreakStatement(BreakStatementSyntax syntax)
+        {
+            using (InsertSequencePoint(syntax))
+                if (_tryStack.TryPeek(out ExceptionHandling? result) && result.BreakTargetCount == 0)
+                    Jump(OpCode.ENDTRY_L, _breakTargets.Peek());
+                else
+                    Jump(OpCode.JMP_L, _breakTargets.Peek());
+        }
+    }
+}

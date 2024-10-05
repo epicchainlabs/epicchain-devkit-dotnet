@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -43,3 +49,46 @@
 // bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
 // thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
 // EpicChain ecosystem.
+
+
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a 'continue' statement into a corresponding jump instruction in the intermediate language.
+        /// This method handles the conversion of the 'continue' keyword within loops, particularly
+        /// considering its behavior in try-catch blocks.
+        /// </summary>
+        /// <param name="syntax">The syntax representation of the 'continue' statement being converted.</param>
+        /// <remarks>
+        /// The method checks if the 'continue' statement is within a try-catch block. If it is and the
+        /// continue target count is zero, it generates an `ENDTRY_L` opcode to properly handle the loop
+        /// continuation within the try block. Otherwise, a standard jump (`JMP_L`) is used to continue
+        /// the loop.
+        /// </remarks>
+        /// <example>
+        /// Example of a 'continue' statement in a loop:
+        /// <code>
+        /// for (int i = 0; i < 10; i++)
+        /// {
+        ///     if (i % 2 == 0)
+        ///         continue; // Skips the current iteration for even numbers
+        ///     // Other processing
+        /// }
+        /// </code>
+        /// In this example, 'continue' is used to skip the current iteration for even values of 'i'.
+        /// </example>
+        private void ConvertContinueStatement(ContinueStatementSyntax syntax)
+        {
+            using (InsertSequencePoint(syntax))
+                if (_tryStack.TryPeek(out ExceptionHandling? result) && result.ContinueTargetCount == 0)
+                    Jump(OpCode.ENDTRY_L, _continueTargets.Peek());
+                else
+                    Jump(OpCode.JMP_L, _continueTargets.Peek());
+        }
+    }
+}

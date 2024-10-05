@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -340,3 +346,46 @@ internal partial class MethodConvert
         try
         {
             LdArgSlot(parameter);
+        }
+        catch
+        {
+            // check if the argument is a discard
+            var argument = arguments[parameter.Ordinal] as ArgumentSyntax;
+            if (argument.Expression is not IdentifierNameSyntax { Identifier.ValueText: "_" })
+                throw new CompilationException(arguments[parameter.Ordinal], DiagnosticId.SyntaxNotSupported,
+                    $"In method {Symbol.Name}, unsupported out argument: {arguments[parameter.Ordinal]}");
+            LdArgSlot(parameter);
+        }
+    }
+
+    private void ProcessRegularArgument(SemanticModel model, IReadOnlyList<SyntaxNode> arguments, IParameterSymbol parameter)
+    {
+        if (arguments.Count > parameter.Ordinal)
+        {
+            var argument = arguments[parameter.Ordinal];
+            switch (argument)
+            {
+                case ArgumentSyntax { NameColon: null } arg:
+                    ConvertExpression(model, arg.Expression);
+                    return;
+                case ExpressionSyntax ex:
+                    ConvertExpression(model, ex);
+                    return;
+                default:
+                    throw new CompilationException(argument, DiagnosticId.SyntaxNotSupported, $"Unsupported argument: {argument}");
+            }
+        }
+        Push(parameter.ExplicitDefaultValue);
+    }
+
+    private static ExpressionSyntax ExtractExpression(SyntaxNode node)
+    {
+        return node switch
+        {
+            ArgumentSyntax argument => argument.Expression,
+            ExpressionSyntax exp => exp,
+            _ => throw new CompilationException(node, DiagnosticId.SyntaxNotSupported, $"Unsupported argument: {node}"),
+        };
+    }
+    #endregion
+}

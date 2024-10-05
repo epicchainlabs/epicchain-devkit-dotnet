@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -379,3 +385,46 @@ internal partial class MethodConvert
             }
         }
         switch (exception)
+        {
+            case ObjectCreationExpressionSyntax expression:
+                switch (expression.ArgumentList?.Arguments.Count)
+                {
+                    case null:
+                    case 0:
+                        Push("exception");
+                        break;
+                    case 1:
+                        ConvertExpression(model, expression.ArgumentList.Arguments[0].Expression);
+                        break;
+                    default:
+                        throw new CompilationException(expression, DiagnosticId.MultiplyThrows, "Only a single parameter is supported for exceptions.");
+                }
+                break;
+            case null:
+                AccessSlot(OpCode.LDLOC, _exceptionStack.Peek());
+                break;
+            default:
+                ConvertExpression(model, exception);
+                break;
+        }
+        AddInstruction(OpCode.THROW);
+    }
+
+    private Instruction IsType(VM.Types.StackItemType type)
+    {
+        return AddInstruction(new Instruction
+        {
+            OpCode = OpCode.ISTYPE,
+            Operand = [(byte)type]
+        });
+    }
+
+    private Instruction ChangeType(VM.Types.StackItemType type)
+    {
+        return AddInstruction(new Instruction
+        {
+            OpCode = OpCode.CONVERT,
+            Operand = [(byte)type]
+        });
+    }
+}

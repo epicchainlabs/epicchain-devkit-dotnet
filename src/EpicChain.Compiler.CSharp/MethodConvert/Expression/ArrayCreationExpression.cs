@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -52,3 +58,46 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.VM;
 
+namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// Converts the code for constructing arrays and initializing arrays into OpCodes.
+    /// This method includes analyzing the array length, array type, array dimension and initial data.
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about the array creation.</param>
+    /// <param name="expression">The syntax representation of the array creation statement being converted.</param>
+    /// <exception cref="CompilationException">Only one-dimensional arrays are supported, otherwise an exception is thrown.</exception>
+    /// <remarks>
+    /// When the array is initialized to null, this code converts it to "array length" + OpCode.NEWBUFFER (only for byte[]) or  OpCode.NEWARRAY_T.
+    /// When the array is not initialized to null, this code converts the initialized constants one by one in reverse order, then adds the "array length" and OpCode.PACK
+    /// </remarks>
+    /// <example>
+    /// Example of a array creation syntax:
+    /// <c>var array = new byte[4];</c>
+    /// The compilation result of the example code is: OpCode.PUSH4, OpCode.NEWBUFFER
+    /// <c>var array = new int[4] { 5, 6, 7, 8};</c>
+    /// The compilation result of the example code is: OpCode.PUSH8, OpCode.PUSH7, OpCode.PUSH6, OpCode.PUSH5, OpCode.PUSH4, OpCode.PACK
+    /// </example>
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays">Arrays</seealso>
+    private void ConvertArrayCreationExpression(SemanticModel model, ArrayCreationExpressionSyntax expression)
+    {
+        ArrayRankSpecifierSyntax specifier = expression.Type.RankSpecifiers[0];
+        if (specifier.Rank != 1)
+            throw new CompilationException(specifier, DiagnosticId.MultidimensionalArray, $"Unsupported array rank: {specifier}");
+        IArrayTypeSymbol type = (IArrayTypeSymbol)model.GetTypeInfo(expression.Type).Type!;
+        if (expression.Initializer is null)
+        {
+            ConvertExpression(model, specifier.Sizes[0]);
+            if (type.ElementType.SpecialType == SpecialType.System_Byte)
+                AddInstruction(OpCode.NEWBUFFER);
+            else
+                AddInstruction(new Instruction { OpCode = OpCode.NEWARRAY_T, Operand = new[] { (byte)type.ElementType.GetStackItemType() } });
+        }
+        else
+        {
+            ConvertInitializerExpression(model, type, expression.Initializer);
+        }
+    }
+}

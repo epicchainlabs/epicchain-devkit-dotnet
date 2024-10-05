@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -143,3 +149,46 @@ internal partial class MethodConvert
 
     /// <summary>
     /// Converts a single element of a collection expression to EpicChainVM instructions.
+    /// </summary>
+    /// <param name="model">The semantic model of the code being analyzed.</param>
+    /// <param name="element">The collection element syntax to convert.</param>
+    private void ConvertElement(SemanticModel model, CollectionElementSyntax element)
+    {
+        if (element is ExpressionElementSyntax exprElement)
+        {
+            ConvertExpression(model, exprElement.Expression);
+        }
+        else
+        {
+            throw new NotSupportedException($"Unsupported collection element type: {element.GetType()}");
+        }
+    }
+
+    /// <summary>
+    /// Converts a constant byte array to EpicChainVM instructions.
+    /// Creates a buffer directly from the constant values.
+    /// </summary>
+    /// <param name="values">An array of optional objects representing the constant byte values.</param>
+    private void ConvertConstantByteArray(Optional<object?>[] values)
+    {
+        var data = values.Select(p => (byte)System.Convert.ChangeType(p.Value, typeof(byte))!).ToArray();
+        Push(data);
+        ChangeType(VM.Types.StackItemType.Buffer);
+    }
+
+    /// <summary>
+    /// Converts a generic collection expression to EpicChainVM instructions.
+    /// Creates an array by pushing elements onto the stack and then packing them.
+    /// </summary>
+    /// <param name="model">The semantic model of the code being analyzed.</param>
+    /// <param name="expression">The collection expression syntax to convert.</param>
+    private void ConvertGenericCollectionExpression(SemanticModel model, CollectionExpressionSyntax expression)
+    {
+        for (var i = expression.Elements.Count - 1; i >= 0; i--)
+        {
+            ConvertElement(model, expression.Elements[i]);
+        }
+        Push(expression.Elements.Count);
+        AddInstruction(OpCode.PACK);
+    }
+}

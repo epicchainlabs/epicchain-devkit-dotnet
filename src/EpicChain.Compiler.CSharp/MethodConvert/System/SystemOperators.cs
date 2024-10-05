@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -64,3 +70,46 @@ internal partial class MethodConvert
     /// <returns>True if system operators are successfully processed; otherwise, false.</returns>
     private bool TryProcessSystemOperators(SemanticModel model, IMethodSymbol symbol, params ExpressionSyntax[] arguments)
     {
+        switch (symbol.ToString())
+        {
+            //Handles cases of equality operator (==), comparing whether two objects or strings are equal.
+            case "object.operator ==(object, object)":
+            case "string.operator ==(string, string)":
+                ConvertExpression(model, arguments[0]);
+                ConvertExpression(model, arguments[1]);
+                AddInstruction(OpCode.EQUAL);
+                return true;
+            //Handles cases of inequality operator (!=), comparing whether two objects are not equal.
+            case "object.operator !=(object, object)":
+                ConvertExpression(model, arguments[0]);
+                ConvertExpression(model, arguments[1]);
+                AddInstruction(OpCode.NOTEQUAL);
+                return true;
+            //Handles cases of string concatenation operator (+), concatenating two strings into one.
+            case "string.operator +(string, string)":
+                ConvertExpression(model, arguments[0]);
+                ConvertExpression(model, arguments[1]);
+                AddInstruction(OpCode.CAT);
+                ChangeType(VM.Types.StackItemType.ByteString);
+                return true;
+            //Handles cases of string concatenation operator (+), concatenating a string with an object.
+            //Unsupported interpolation: object
+            case "string.operator +(string, object)":
+                ConvertExpression(model, arguments[0]);
+                ConvertObjectToString(model, arguments[1]);
+                AddInstruction(OpCode.CAT);
+                ChangeType(VM.Types.StackItemType.ByteString);
+                return true;
+            //Handles cases of string concatenation operator (+), concatenating an object with a string.
+            //Unsupported interpolation: object
+            case "string.operator +(object, string)":
+                ConvertObjectToString(model, arguments[0]);
+                ConvertExpression(model, arguments[1]);
+                AddInstruction(OpCode.CAT);
+                ChangeType(VM.Types.StackItemType.ByteString);
+                return true;
+            default:
+                return false;
+        }
+    }
+}

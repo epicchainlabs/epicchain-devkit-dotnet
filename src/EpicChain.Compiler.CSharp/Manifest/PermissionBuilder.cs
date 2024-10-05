@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -90,3 +96,46 @@ namespace EpicChain.Compiler
                         normalItems.RemoveWhere(p => p.Hash == hash);
                 }
                 else
+                {
+                    if (!wildcardHashes.Contains(hash) && !wildcardMethods.Contains(method))
+                        normalItems.Add((hash, method));
+                }
+            }
+        }
+
+        public JArray ToJson()
+        {
+            JArray permissions = new();
+            if (isWildcard)
+            {
+                permissions.Add(new JObject
+                {
+                    ["contract"] = "*",
+                    ["methods"] = "*"
+                });
+            }
+            else
+            {
+                foreach (var group in normalItems.GroupBy(p => p.Hash, p => p.Method).OrderBy(p => p.Key))
+                    permissions.Add(new JObject
+                    {
+                        ["contract"] = group.Key,
+                        ["methods"] = new JArray(group.OrderBy(p => p).Select(p => (JString)p!))
+                    });
+                foreach (string hash in wildcardHashes.OrderBy(p => p))
+                    permissions.Add(new JObject
+                    {
+                        ["contract"] = hash,
+                        ["methods"] = "*"
+                    });
+                if (wildcardMethods.Count > 0)
+                    permissions.Add(new JObject
+                    {
+                        ["contract"] = "*",
+                        ["methods"] = new JArray(wildcardMethods.OrderBy(p => p).Select(p => (JString)p!))
+                    });
+            }
+            return permissions;
+        }
+    }
+}

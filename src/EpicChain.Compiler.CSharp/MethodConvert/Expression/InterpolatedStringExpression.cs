@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -70,3 +76,46 @@ internal partial class MethodConvert
     /// If the interpolated string contains no segments, it pushes an empty string onto the evaluation stack.
     /// If the interpolated string contains two or more segments, it changes the type of the resulting string to ByteString.
     /// </remarks>
+    /// <example>
+    /// The following interpolated string will be divided into 5 parts and concatenated via OpCode.CAT
+    /// <code>
+    /// var name = "Mark";
+    /// var timestamp = Ledger.GetBlock(Ledger.CurrentHash).Timestamp;
+    /// Runtime.Log($"Hello, {name}! Current timestamp is {timestamp}.");
+    /// </code>
+    /// </example>
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated">String interpolation using $</seealso>
+    private void ConvertInterpolatedStringExpression(SemanticModel model, InterpolatedStringExpressionSyntax expression)
+    {
+        if (expression.Contents.Count == 0)
+        {
+            Push(string.Empty);
+            return;
+        }
+        ConvertInterpolatedStringContent(model, expression.Contents[0]);
+        for (int i = 1; i < expression.Contents.Count; i++)
+        {
+            ConvertInterpolatedStringContent(model, expression.Contents[i]);
+            AddInstruction(OpCode.CAT);
+        }
+        if (expression.Contents.Count >= 2)
+            ChangeType(VM.Types.StackItemType.ByteString);
+    }
+
+    private void ConvertInterpolatedStringContent(SemanticModel model, InterpolatedStringContentSyntax content)
+    {
+        switch (content)
+        {
+            case InterpolatedStringTextSyntax syntax:
+                Push(syntax.TextToken.ValueText);
+                break;
+            case InterpolationSyntax syntax:
+                if (syntax.AlignmentClause is not null)
+                    throw new CompilationException(syntax.AlignmentClause, DiagnosticId.AlignmentClause, $"Alignment clause is not supported: {syntax.AlignmentClause}");
+                if (syntax.FormatClause is not null)
+                    throw new CompilationException(syntax.FormatClause, DiagnosticId.FormatClause, $"Format clause is not supported: {syntax.FormatClause}");
+                ConvertObjectToString(model, syntax.Expression);
+                break;
+        }
+    }
+}

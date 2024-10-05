@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -165,3 +171,46 @@ internal partial class MethodConvert
     /// </remarks>
     private void ConvertIndexOrRange(SemanticModel model, ITypeSymbol type, ExpressionSyntax indexOrRange)
     {
+        if (indexOrRange is RangeExpressionSyntax range)
+        {
+            if (range.RightOperand is null)
+            {
+                AddInstruction(OpCode.DUP);
+                AddInstruction(OpCode.SIZE);
+            }
+            else
+            {
+                ConvertExpression(model, range.RightOperand);
+            }
+            AddInstruction(OpCode.SWAP);
+            if (range.LeftOperand is null)
+            {
+                Push(0);
+            }
+            else
+            {
+                ConvertExpression(model, range.LeftOperand);
+            }
+            AddInstruction(OpCode.ROT);
+            AddInstruction(OpCode.OVER);
+            AddInstruction(OpCode.SUB);
+            switch (type.ToString())
+            {
+                case "byte[]":
+                    AddInstruction(OpCode.SUBSTR);
+                    break;
+                case "string":
+                    AddInstruction(OpCode.SUBSTR);
+                    ChangeType(VM.Types.StackItemType.ByteString);
+                    break;
+                default:
+                    throw new CompilationException(indexOrRange, DiagnosticId.ArrayRange, $"The type {type} does not support range access.");
+            }
+        }
+        else
+        {
+            ConvertExpression(model, indexOrRange);
+            AddInstruction(OpCode.PICKITEM);
+        }
+    }
+}

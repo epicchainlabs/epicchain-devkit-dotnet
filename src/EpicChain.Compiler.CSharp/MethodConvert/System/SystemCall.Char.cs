@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -371,3 +377,46 @@ internal partial class MethodConvert
     }
 
     private static void HandleCharToUpperInvariant(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol,
+        ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        methodConvert.AddInstruction(OpCode.DUP);
+        methodConvert.Push((ushort)'a');
+        methodConvert.Push((ushort)'z' + 1);
+        methodConvert.AddInstruction(OpCode.WITHIN);
+    }
+
+    private static void HandleCharIsAscii(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol,
+        ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+        methodConvert.Push(128);
+        methodConvert.AddInstruction(OpCode.LT);
+    }
+
+    private static void HandleCharIsAsciiDigit(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol,
+        ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+        methodConvert.Push((ushort)'0');
+        methodConvert.Push((ushort)'9' + 1);
+        methodConvert.AddInstruction(OpCode.WITHIN);
+    }
+
+    private static void HandleCharIsAsciiLetter(MethodConvert methodConvert, SemanticModel model, IMethodSymbol symbol,
+        ExpressionSyntax? instanceExpression, IReadOnlyList<SyntaxNode>? arguments)
+    {
+        if (arguments is not null)
+            methodConvert.PrepareArgumentsForMethod(model, symbol, arguments);
+        methodConvert.Push((ushort)'A');
+        methodConvert.Push((ushort)'Z' + 1);
+        methodConvert.AddInstruction(OpCode.WITHIN);
+        var endTarget = new JumpTarget();
+        methodConvert.Jump(OpCode.JMPIF, endTarget);
+        methodConvert.Push((ushort)'a');
+        methodConvert.Push((ushort)'z' + 1);
+        methodConvert.AddInstruction(OpCode.WITHIN);
+        endTarget.Instruction = methodConvert.AddInstruction(OpCode.NOP);
+    }
+}

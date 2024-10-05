@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -53,3 +59,46 @@ namespace EpicChain.Compiler
 {
     internal partial class MethodConvert
     {
+        /// <summary>
+        /// Converts a 'do-while' loop statement into a corresponding set of instructions.
+        /// This method handles the parsing and translation of the 'do-while' loop construct,
+        /// creating the necessary control flow for the loop's execution.
+        /// </summary>
+        /// <param name="model">The semantic model providing context and information about the 'do-while' statement.</param>
+        /// <param name="syntax">The syntax representation of the 'do-while' statement being converted.</param>
+        /// <remarks>
+        /// The method sets up jump targets for the start, continue, and break points of the loop.
+        /// It then converts the loop's statement body and condition. The loop continues if the condition
+        /// is true, jumping back to the start. If the condition is false, the loop exits, and the control
+        /// flow moves to the break target.
+        /// </remarks>
+        /// <example>
+        /// Example of a 'do-while' loop syntax:
+        /// <code>
+        /// do
+        /// {
+        ///     // Loop body
+        /// }
+        /// while (condition);
+        /// </code>
+        /// This example shows a 'do-while' loop where the loop body is executed at least once
+        /// before evaluating the condition.
+        /// </example>
+        private void ConvertDoStatement(SemanticModel model, DoStatementSyntax syntax)
+        {
+            JumpTarget startTarget = new();
+            JumpTarget continueTarget = new();
+            JumpTarget breakTarget = new();
+            PushContinueTarget(continueTarget);
+            PushBreakTarget(breakTarget);
+            startTarget.Instruction = AddInstruction(OpCode.NOP);
+            ConvertStatement(model, syntax.Statement);
+            continueTarget.Instruction = AddInstruction(OpCode.NOP);
+            ConvertExpression(model, syntax.Condition);
+            Jump(OpCode.JMPIF_L, startTarget);
+            breakTarget.Instruction = AddInstruction(OpCode.NOP);
+            PopContinueTarget();
+            PopBreakTarget();
+        }
+    }
+}

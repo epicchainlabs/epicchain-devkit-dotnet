@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -269,3 +275,46 @@ internal partial class MethodConvert
         else
         {
             int index = Array.IndexOf(symbol.ContainingType.GetFields(), symbol);
+            ConvertExpression(model, operand.Expression);
+            AddInstruction(OpCode.DUP);
+            Push(index);
+            AddInstruction(OpCode.PICKITEM);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            AddInstruction(OpCode.TUCK);
+            Push(index);
+            AddInstruction(OpCode.SWAP);
+            AddInstruction(OpCode.SETITEM);
+        }
+    }
+
+    private void ConvertPropertyMemberAccessPreIncrementOrDecrementExpression(SemanticModel model, SyntaxToken operatorToken, MemberAccessExpressionSyntax operand, IPropertySymbol symbol)
+    {
+        if (symbol.IsStatic)
+        {
+            CallMethodWithConvention(model, symbol.GetMethod!);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            AddInstruction(OpCode.DUP);
+            CallMethodWithConvention(model, symbol.SetMethod!);
+        }
+        else
+        {
+            ConvertExpression(model, operand.Expression);
+            AddInstruction(OpCode.DUP);
+            CallMethodWithConvention(model, symbol.GetMethod!);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            AddInstruction(OpCode.TUCK);
+            CallMethodWithConvention(model, symbol.SetMethod!, CallingConvention.StdCall);
+        }
+    }
+
+    private void EmitIncrementOrDecrement(SyntaxToken operatorToken, ITypeSymbol? typeSymbol)
+    {
+        AddInstruction(operatorToken.ValueText switch
+        {
+            "++" => OpCode.INC,
+            "--" => OpCode.DEC,
+            _ => throw new CompilationException(operatorToken, DiagnosticId.SyntaxNotSupported, $"Unsupported operator: {operatorToken}")
+        });
+        if (typeSymbol != null) EnsureIntegerInRange(typeSymbol);
+    }
+}

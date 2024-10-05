@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -43,3 +49,46 @@
 // bug reports, feature suggestions, or code contributions, your involvement helps improve the framework for everyone. Open-source projects
 // thrive when developers collaborate and share their knowledge, and we welcome your input as we continue to develop and refine the
 // EpicChain ecosystem.
+
+
+extern alias scfx;
+
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// Convet type pattern to OpCodes.
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about type pattern.</param>
+    /// <param name="pattern">The type pattern to be converted.</param>
+    /// <param name="localIndex">The index of the local variable.</param>
+    /// <example>
+    /// <code>
+    /// public void M(object o1)
+    /// {
+    ///     switch (o1)
+    ///     {
+    ///         case byte[]: break;
+    ///         case string: break;
+    ///     }
+    /// }
+    /// </code>
+    /// <c>byte[]</c> and <c>string</c> is TypePatternSyntax.
+    /// </example>
+    /// <remarks>
+    /// Only few type judgments are supported, such as: bool, byte[], string,
+    /// Not supported ByteString, BigInteger.
+    /// <see cref="Helper.GetPatternType(ITypeSymbol)"/>
+    /// </remarks>
+    private void ConvertTypePattern(SemanticModel model, TypePatternSyntax pattern, byte localIndex)
+    {
+        ITypeSymbol type = model.GetTypeInfo(pattern.Type).Type!;
+        AccessSlot(OpCode.LDLOC, localIndex);
+        IsType(type.GetPatternType());
+    }
+}

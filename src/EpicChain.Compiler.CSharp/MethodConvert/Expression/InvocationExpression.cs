@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -120,3 +126,46 @@ internal partial class MethodConvert
                 CallMethodWithInstanceExpression(model, symbol, null, arguments);
                 break;
             case MemberAccessExpressionSyntax syntax:
+                CallMethodWithInstanceExpression(model, symbol, symbol.IsStatic ? null : syntax.Expression, arguments);
+                break;
+            case MemberBindingExpressionSyntax:
+                CallInstanceMethod(model, symbol, true, arguments);
+                break;
+            default:
+                throw new CompilationException(expression, DiagnosticId.SyntaxNotSupported, $"Unsupported expression: {expression}");
+        }
+    }
+
+    /// <summary>
+    /// Convert the delegate invocation expression to OpCodes.
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about delegate invocation expression.</param>
+    /// <param name="expression">The syntax representation of the delegate invocation expression statement being converted.</param>
+    /// <param name="arguments">Arguments of the delegate</param>
+    /// <example>
+    /// <code>
+    /// public delegate int MyDelegate(int x, int y);
+    ///
+    /// static int CalculateSum(int x, int y)
+    /// {
+    ///     return x + y;
+    /// }
+    ///
+    /// public void MyMethod()
+    /// {
+    ///     MyDelegate myDelegate = CalculateSum;
+    ///     int result = myDelegate(5, 6);
+    ///     Runtime.Log($"Sum: {result}");
+    /// }
+    /// </code>
+    /// <c>myDelegate(5, 6)</c> This line will be converted by the following method.
+    /// The  IdentifierNameSyntax is "myDelegate" the "type" is "MyDelegate".
+    /// </example>
+    private void ConvertDelegateInvocationExpression(SemanticModel model, ExpressionSyntax expression, ArgumentSyntax[] arguments)
+    {
+        INamedTypeSymbol type = (INamedTypeSymbol)model.GetTypeInfo(expression).Type!;
+        PrepareArgumentsForMethod(model, type.DelegateInvokeMethod!, arguments);
+        ConvertExpression(model, expression);
+        AddInstruction(OpCode.CALLA);
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -52,3 +58,46 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// The checked and unchecked statements specify the overflow-checking context for integral-type arithmetic operations and conversions.
+    /// When integer arithmetic overflow occurs, the overflow-checking context defines what happens.
+    /// In a checked context, a System.OverflowException is thrown;
+    /// if overflow happens in a constant expression, a compile-time error occurs.
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about checked and unchecked statement.</param>
+    /// <param name="expression">The syntax representation of the checked and unchecked statement being converted.</param>
+    /// <example>
+    /// Use the checked keyword to qualify the result of the temp*2 calculation and use a try catch to handle the overflow if it occurs.
+    /// <code>
+    /// try
+    /// {
+    ///     int temp = int.MaxValue;
+    ///     int a = checked(temp * 2);
+    /// }
+    /// catch (OverflowException)
+    /// {
+    ///     Runtime.Log("Overflow");
+    /// }
+    /// </code>
+    /// </example>
+    /// <remarks>
+    /// This code is not called when the checked keyword modifies a block of statements, for example.
+    /// <code>
+    /// checked
+    /// {
+    ///     int a = temp * 2;
+    /// }
+    /// </code>
+    /// For a checked statement, see <see cref="ConvertCheckedStatement(SemanticModel, CheckedStatementSyntax)"/>
+    /// </remarks>
+    /// <seealso href="https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/arithmetic-operators#integer-arithmetic-overflow">Integer arithmetic overflow</seealso>
+    private void ConvertCheckedExpression(SemanticModel model, CheckedExpressionSyntax expression)
+    {
+        _checkedStack.Push(expression.Keyword.IsKind(SyntaxKind.CheckedKeyword));
+        ConvertExpression(model, expression.Expression);
+        _checkedStack.Pop();
+    }
+}

@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -65,3 +71,46 @@ internal partial class MethodConvert
     /// The method evaluates the expression and checks if it is null.
     /// If the expression is not null, it converts the 'WhenNotNull' part of the expression.
     /// If the resulting type of the expression is 'System.Void', it handles the case differently by dropping the result.
+    /// A null-conditional operator applies a member access (?.) or element access (?[]) operation to its operand only if that operand evaluates to non-null;
+    /// otherwise, it returns null.
+    /// It will jump to <see cref="ConvertMemberBindingExpression"/> and <see cref="ConvertElementBindingExpression"/> to handle the case where the variable or array is not null.
+    /// </remarks>
+    /// <example>
+    /// If Block is not null, get the block's timestamp; otherwise, it returns null.
+    /// <code>
+    /// var block = Ledger.GetBlock(10000);
+    /// var timestamp = block?.Timestamp;
+    /// Runtime.Log(timestamp.ToString());
+    /// </code>
+    /// If array is not null, get the array's element; otherwise, it returns null.
+    /// <code>
+    /// var a = Ledger.GetBlock(10000);
+    /// var b = Ledger.GetBlock(10001);
+    /// var array = new[] { a, b };
+    /// var firstItem = array?[0];
+    /// Runtime.Log(firstItem?.Timestamp.ToString());
+    /// </code>
+    /// </example>
+    /// <seealso href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-">Null-conditional operators ?. and ?[]</seealso>
+    private void ConvertConditionalAccessExpression(SemanticModel model, ConditionalAccessExpressionSyntax expression)
+    {
+        ITypeSymbol type = model.GetTypeInfo(expression).Type!;
+        JumpTarget nullTarget = new();
+        ConvertExpression(model, expression.Expression);
+        AddInstruction(OpCode.DUP);
+        AddInstruction(OpCode.ISNULL);
+        Jump(OpCode.JMPIF_L, nullTarget);
+        ConvertExpression(model, expression.WhenNotNull);
+        if (type.SpecialType == SpecialType.System_Void)
+        {
+            JumpTarget endTarget = new();
+            Jump(OpCode.JMP_L, endTarget);
+            nullTarget.Instruction = AddInstruction(OpCode.DROP);
+            endTarget.Instruction = AddInstruction(OpCode.NOP);
+        }
+        else
+        {
+            nullTarget.Instruction = AddInstruction(OpCode.NOP);
+        }
+    }
+}

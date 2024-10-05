@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -50,3 +56,46 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.VM;
 using System.Collections.Generic;
 
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a block statement to OpCodes. This method is used for parsing
+        /// the syntax of block statements within the context of a semantic model. A block statement
+        /// typically consists of a series of statements enclosed in braces `{}`.
+        /// </summary>
+        /// <param name="model">The semantic model that provides information about the block statement.</param>
+        /// <param name="syntax">The syntax of the block statement to be converted.</param>
+        /// <remarks>
+        /// This method starts by initializing a new list of local symbols for the current block.
+        /// It then iterates through each statement within the block, converting each to the appropriate
+        /// set of instructions. Local symbols are tracked and removed once the block is fully converted.
+        /// </remarks>
+        /// <example>
+        /// Here is an example of a block statement syntax:
+        ///
+        /// <code>
+        /// {
+        ///     string x = "Hello world.";
+        ///     Runtime.Log(x);
+        /// }
+        /// </code>
+        ///
+        /// In this example, the block contains two statements: a variable declaration and
+        /// a method call.
+        /// </example>
+        private void ConvertBlockStatement(SemanticModel model, BlockSyntax syntax)
+        {
+            _blockSymbols.Push(new List<ILocalSymbol>());
+            using (InsertSequencePoint(syntax.OpenBraceToken))
+                AddInstruction(OpCode.NOP);
+            foreach (StatementSyntax child in syntax.Statements)
+                ConvertStatement(model, child);
+            using (InsertSequencePoint(syntax.CloseBraceToken))
+                AddInstruction(OpCode.NOP);
+            foreach (ILocalSymbol symbol in _blockSymbols.Pop())
+                RemoveLocalVariable(symbol);
+        }
+    }
+}

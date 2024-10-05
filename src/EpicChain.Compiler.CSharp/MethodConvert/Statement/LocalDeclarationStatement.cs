@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -48,3 +54,46 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using EpicChain.VM;
+
+namespace EpicChain.Compiler
+{
+    internal partial class MethodConvert
+    {
+        /// <summary>
+        /// Converts a local variable declaration statement into a series of instructions.
+        /// This method is used for processing variable declarations, excluding those marked as 'const'.
+        /// </summary>
+        /// <param name="model">The semantic model providing context and information about the local declaration statement.</param>
+        /// <param name="syntax">The syntax representation of the local declaration statement being converted.</param>
+        /// <remarks>
+        /// For each variable in the declaration, the method checks if it has an initializer. If it does,
+        /// the method converts the initializer expression and stores the result in the newly declared
+        /// variable. This process involves adding a local variable to the current context and
+        /// generating the necessary instructions to initialize it. Constants are not processed by this method.
+        /// </remarks>
+        /// <example>
+        /// Example of a local variable declaration statement syntax:
+        /// <code>
+        /// int x = 5;
+        /// long y;
+        /// </code>
+        /// In this example, 'x' is initialized with the value 5, while 'y' is declared without an initializer.
+        /// </example>
+        private void ConvertLocalDeclarationStatement(SemanticModel model, LocalDeclarationStatementSyntax syntax)
+        {
+            if (syntax.IsConst) return;
+            foreach (VariableDeclaratorSyntax variable in syntax.Declaration.Variables)
+            {
+                ILocalSymbol symbol = (ILocalSymbol)model.GetDeclaredSymbol(variable)!;
+                byte variableIndex = AddLocalVariable(symbol);
+                if (variable.Initializer is not null)
+                    using (InsertSequencePoint(variable))
+                    {
+                        ConvertExpression(model, variable.Initializer.Value);
+                        AccessSlot(OpCode.STLOC, variableIndex);
+                    }
+            }
+        }
+    }
+}

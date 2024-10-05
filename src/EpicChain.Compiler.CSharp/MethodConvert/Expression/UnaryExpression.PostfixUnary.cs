@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -242,3 +248,46 @@ internal partial class MethodConvert
 
     private void ConvertFieldMemberAccessPostIncrementOrDecrementExpression(SemanticModel model, SyntaxToken operatorToken, MemberAccessExpressionSyntax operand, IFieldSymbol symbol)
     {
+        if (symbol.IsStatic)
+        {
+            byte index = _context.AddStaticField(symbol);
+            AccessSlot(OpCode.LDSFLD, index);
+            AddInstruction(OpCode.DUP);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            AccessSlot(OpCode.STSFLD, index);
+        }
+        else
+        {
+            int index = Array.IndexOf(symbol.ContainingType.GetFields(), symbol);
+            ConvertExpression(model, operand.Expression);
+            AddInstruction(OpCode.DUP);
+            Push(index);
+            AddInstruction(OpCode.PICKITEM);
+            AddInstruction(OpCode.TUCK);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            Push(index);
+            AddInstruction(OpCode.SWAP);
+            AddInstruction(OpCode.SETITEM);
+        }
+    }
+
+    private void ConvertPropertyMemberAccessPostIncrementOrDecrementExpression(SemanticModel model, SyntaxToken operatorToken, MemberAccessExpressionSyntax operand, IPropertySymbol symbol)
+    {
+        if (symbol.IsStatic)
+        {
+            CallMethodWithConvention(model, symbol.GetMethod!);
+            AddInstruction(OpCode.DUP);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            CallMethodWithConvention(model, symbol.SetMethod!);
+        }
+        else
+        {
+            ConvertExpression(model, operand.Expression);
+            AddInstruction(OpCode.DUP);
+            CallMethodWithConvention(model, symbol.GetMethod!);
+            AddInstruction(OpCode.TUCK);
+            EmitIncrementOrDecrement(operatorToken, symbol.Type);
+            CallMethodWithConvention(model, symbol.SetMethod!, CallingConvention.StdCall);
+        }
+    }
+}

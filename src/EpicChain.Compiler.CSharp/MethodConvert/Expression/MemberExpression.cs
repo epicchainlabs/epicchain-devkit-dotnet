@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -123,3 +129,46 @@ internal partial class MethodConvert
                 break;
             default:
                 throw new CompilationException(expression, DiagnosticId.SyntaxNotSupported, $"Unsupported symbol: {symbol}");
+        }
+    }
+
+    /// <summary>
+    /// Further conversion of the ?. statement in the <see cref="ConvertConditionalAccessExpression"/> method
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about member binding expression.</param>
+    /// <param name="expression">The syntax representation of the member binding expression statement being converted.</param>
+    /// <exception cref="CompilationException">Only attributes and fields are supported, otherwise an exception is thrown.</exception>
+    /// <example>
+    /// <code>
+    /// public class Person
+    /// {
+    ///     public string Name;
+    ///     public int Age { get; set; }
+    /// }
+    /// </code>
+    /// <code>
+    /// Person person = null;
+    /// Runtime.Log(person?.Name);
+    /// Runtime.Log(person?.Age.ToString());
+    /// </code>
+    /// <c>person?.Name</c> code executes the <c>case IFieldSymbol field</c> branch;
+    /// <c>person?.Age</c> code executes the <c>case IPropertySymbol property</c> branch.
+    /// </example>
+    private void ConvertMemberBindingExpression(SemanticModel model, MemberBindingExpressionSyntax expression)
+    {
+        ISymbol symbol = model.GetSymbolInfo(expression).Symbol!;
+        switch (symbol)
+        {
+            case IFieldSymbol field:
+                int index = Array.IndexOf(field.ContainingType.GetFields(), field);
+                Push(index);
+                AddInstruction(OpCode.PICKITEM);
+                break;
+            case IPropertySymbol property:
+                CallMethodWithConvention(model, property.GetMethod!);
+                break;
+            default:
+                throw new CompilationException(expression, DiagnosticId.SyntaxNotSupported, $"Unsupported symbol: {symbol}");
+        }
+    }
+}

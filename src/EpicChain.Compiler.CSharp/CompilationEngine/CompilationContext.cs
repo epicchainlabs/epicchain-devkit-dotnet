@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -569,3 +575,46 @@ namespace EpicChain.Compiler
                 index = (byte)StaticFieldCount;
                 _staticFields.Add(symbol, index);
             }
+            return index;
+        }
+
+        internal byte AddAnonymousStaticField()
+        {
+            byte index = (byte)StaticFieldCount;
+            _anonymousStaticFields.Add(index);
+            return index;
+        }
+
+        internal byte GetOrAddCapturedStaticField(ISymbol symbol)
+        {
+            if (_capturedStaticFields.TryGetValue(symbol, out var field))
+            {
+                return field;
+            }
+            byte index = (byte)StaticFieldCount;
+            _anonymousStaticFields.Add(index);
+            _capturedStaticFields.TryAdd(symbol, index);
+            return index;
+        }
+
+        internal bool TryGetCapturedStaticField(ISymbol local, out byte staticFieldIndex)
+        {
+            return _capturedStaticFields.TryGetValue(local, out staticFieldIndex);
+        }
+
+        internal byte AddVTable(ITypeSymbol type)
+        {
+            if (!_vtables.TryGetValue(type, out byte index))
+            {
+                index = (byte)StaticFieldCount;
+                _vtables.Add(type, index);
+            }
+            return index;
+        }
+
+        internal void AssociateCapturedStaticField(ISymbol symbol, byte index)
+        {
+            _capturedStaticFields[symbol] = index;
+        }
+    }
+}

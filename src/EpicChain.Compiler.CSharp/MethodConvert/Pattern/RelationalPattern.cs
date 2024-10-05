@@ -1,6 +1,12 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.Compiler.CSharp  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// The EpicChain.Compiler.CSharp is open-source software that is distributed under the widely recognized and permissive MIT License.
+// This software is intended to provide developers with a powerful framework to create and deploy smart contracts on the EpicChain blockchain,
+// and it is made freely available to all individuals and organizations. Whether you are building for personal, educational, or commercial
+// purposes, you are welcome to utilize this framework with minimal restrictions, promoting the spirit of open innovation and collaborative
+// development within the blockchain ecosystem.
+//
+// As a permissive license, the MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
 // source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
 // projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
 // modifications open-source, though doing so contributes to the overall growth of the open-source community.
@@ -52,3 +58,46 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using EpicChain.VM;
 
 namespace EpicChain.Compiler;
+
+internal partial class MethodConvert
+{
+    /// <summary>
+    /// Convet relational pattern to OpCodes.
+    /// </summary>
+    /// <param name="model">The semantic model providing context and information about convert pattern.</param>
+    /// <param name="pattern">The convert pattern to be converted.</param>
+    /// <param name="localIndex">The index of the local variable.</param>
+    /// <exception cref="CompilationException"></exception>
+    /// <remarks>
+    /// In a relational pattern, you can use any of the relational operators <![CDATA[<, >, <=, or >=]]>.
+    /// The right-hand part of a relational pattern must be a constant expression.
+    /// The constant expression can be of an integer, char, or enum type.
+    /// To check if an expression result is in a certain range, match it against a <see cref="ConvertBinaryPattern(SemanticModel, BinaryPatternSyntax, byte)">conjunctive and pattern</see>.
+    /// </remarks>
+    /// <example>
+    /// You use a relational pattern to compare an expression result with a constant,
+    /// as the following example shows:
+    /// <code>
+    /// int a = 1;
+    /// var b = a switch
+    /// {
+    ///     > 1 => true,
+    ///     <= 1 => false
+    /// };
+    /// </code>
+    /// <c>> 1</c> and <c><= 1</c> is RelationalPatternSyntax;
+    /// </example>
+    private void ConvertRelationalPattern(SemanticModel model, RelationalPatternSyntax pattern, byte localIndex)
+    {
+        AccessSlot(OpCode.LDLOC, localIndex);
+        ConvertExpression(model, pattern.Expression);
+        AddInstruction(pattern.OperatorToken.ValueText switch
+        {
+            "<" => OpCode.LT,
+            "<=" => OpCode.LE,
+            ">" => OpCode.GT,
+            ">=" => OpCode.GE,
+            _ => throw new CompilationException(pattern, DiagnosticId.SyntaxNotSupported, $"Unsupported pattern: {pattern}")
+        });
+    }
+}
