@@ -30,13 +30,13 @@ namespace EpicChain.SmartContract.Framework
         public extern static byte[] ToByteArray(this sbyte source);
 
         /// <summary>
-        /// Converts string to byte[]. Examples: "hello" -> [0x68656c6c6f]; "" -> []; "Neo" -> [0x4e656f]
+        /// Converts string to byte[]. Examples: "hello" -> [0x68656c6c6f]; "" -> []; "EpicChain" -> [0x4e656f]
         /// </summary>
         [OpCode(OpCode.CONVERT, StackItemType.Buffer)]
         public extern static byte[] ToByteArray(this string source);
 
         /// <summary>
-        /// Converts byte[] to string. Examples: [0x68656c6c6f] -> "hello"; [] -> ""; [0x4e656f] -> "Neo"
+        /// Converts byte[] to string. Examples: [0x68656c6c6f] -> "hello"; [] -> ""; [0x4e656f] -> "EpicChain"
         /// </summary>
         [OpCode(OpCode.CONVERT, StackItemType.ByteString)]
         public extern static string ToByteString(this byte[] source);

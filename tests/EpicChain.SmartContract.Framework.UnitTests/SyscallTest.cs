@@ -61,11 +61,11 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         [TestMethod]
         public void TestAllSyscalls()
         {
-            HashSet<string> neoSyscalls = ApplicationEngine.Services.Values.Select(p => p.Name).ToHashSet();
-            neoSyscalls.Remove("System.Contract.NativeOnPersist");
-            neoSyscalls.Remove("System.Contract.NativePostPersist");
-            neoSyscalls.Remove("System.Contract.CallNative");
-            neoSyscalls.Remove("EpicChain.SmartContract.Testing.Invoke");
+            HashSet<string> epicchainSyscalls = ApplicationEngine.Services.Values.Select(p => p.Name).ToHashSet();
+            epicchainSyscalls.Remove("System.Contract.NativeOnPersist");
+            epicchainSyscalls.Remove("System.Contract.NativePostPersist");
+            epicchainSyscalls.Remove("System.Contract.CallNative");
+            epicchainSyscalls.Remove("EpicChain.SmartContract.Testing.Invoke");
 
             string coreDir = Path.GetDirectoryName(typeof(object).Assembly.Location)!;
             MetadataReference[] references =
@@ -81,7 +81,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
             MySymbolVisitor visitor = new("EpicChain.SmartContract.Framework", nameof(SyscallAttribute));
             HashSet<string> fwSyscalls = visitor.Visit(compilation.GlobalNamespace)!.ToHashSet();
 
-            fwSyscalls.SymmetricExceptWith(neoSyscalls);
+            fwSyscalls.SymmetricExceptWith(epicchainSyscalls);
             if (fwSyscalls.Count > 0 && fwSyscalls.All(p => !p.Equals("System.Runtime.Notify")))
             {
                 Assert.Fail($"Unknown or unimplemented syscalls: {string.Join("\n", fwSyscalls)}");

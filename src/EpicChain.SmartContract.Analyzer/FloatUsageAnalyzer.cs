@@ -22,7 +22,7 @@ namespace EpicChain.SmartContract.Analyzer
 
         private static readonly DiagnosticDescriptor Rule = new(
             DiagnosticId,
-            "Usage of float is not allowed in neo contract",
+            "Usage of float is not allowed in EpicChain contract",
             "EpicChain contract does not support float data type: {0}",
             "Type",
             DiagnosticSeverity.Error,

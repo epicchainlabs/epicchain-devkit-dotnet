@@ -15,7 +15,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             AssertGasConsumed(2053500);
 
             Assert.AreEqual(2, arr.Count);
-            Assert.AreEqual((arr[0] as StackItem)!.GetString(), "NEO3");
+            Assert.AreEqual((arr[0] as StackItem)!.GetString(), "EpicChain");
             Assert.AreEqual(arr[1], new BigInteger(10));
         }
 

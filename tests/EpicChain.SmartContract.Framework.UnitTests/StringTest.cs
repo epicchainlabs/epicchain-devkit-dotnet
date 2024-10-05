@@ -25,7 +25,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests
         [TestMethod]
         public void TestStringAddInt()
         {
-            Assert.AreEqual("Neo3", Contract.TestStringAddInt("Neo", 3));
+            Assert.AreEqual("EpicChain", Contract.TestStringAddInt("EpicChain", 3));
             AssertGasConsumed(2460480);
         }
     }

@@ -143,11 +143,11 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         [TestMethod]
         public void String_Test()
         {
-            Assert.AreEqual("neo", Contract.CheckString());
+            Assert.AreEqual("epicchain", Contract.CheckString());
             AssertGasConsumed(984270);
-            Assert.AreEqual(new BigInteger('e'), Contract.CheckStringIndex("neo", 1));
+            Assert.AreEqual(new BigInteger('e'), Contract.CheckStringIndex("epicchain", 1));
             AssertGasConsumed(1049250);
-            Assert.AreEqual(new BigInteger('o'), Contract.CheckStringIndex("neo", 2));
+            Assert.AreEqual(new BigInteger('o'), Contract.CheckStringIndex("epicchain", 2));
             AssertGasConsumed(1049250);
         }
 
@@ -158,7 +158,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             AssertGasConsumed(1045740);
 
             Assert.AreEqual(1, item.Count);
-            Assert.AreEqual("neo", (item[0] as ByteString)?.GetString());
+            Assert.AreEqual("epicchain", (item[0] as ByteString)?.GetString());
         }
 
         [TestMethod]
@@ -175,7 +175,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             AssertGasConsumed(1557060);
             Assert.IsInstanceOfType(item, typeof(Array));
             Assert.AreEqual(1, ((Array)item).Count);
-            Assert.AreEqual("neo", (((Array)item)[0] as ByteString)?.GetString());
+            Assert.AreEqual("epicchain", (((Array)item)[0] as ByteString)?.GetString());
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             AssertGasConsumed(1496010);
             Assert.IsInstanceOfType(item, typeof(Struct));
             Assert.AreEqual(1, ((Struct)item).Count);
-            Assert.AreEqual("neo", (((Struct)item)[0] as ByteString)?.GetString());
+            Assert.AreEqual("epicchain", (((Struct)item)[0] as ByteString)?.GetString());
         }
 
         [TestMethod]
@@ -194,8 +194,8 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var item = Contract.CheckTuple()!;
             AssertGasConsumed(1476630);
             Assert.AreEqual(2, item.Count);
-            Assert.AreEqual("neo", (item[0] as ByteString)?.GetString());
-            Assert.AreEqual("smart economy", (item[1] as ByteString)?.GetString());
+            Assert.AreEqual("epicchain", (item[0] as ByteString)?.GetString());
+            Assert.AreEqual("Next Generation Ecosystem", (item[1] as ByteString)?.GetString());
         }
 
         [TestMethod]
@@ -204,8 +204,8 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             var item = Contract.CheckTuple2()!;
             AssertGasConsumed(1478670);
             Assert.AreEqual(2, item.Count);
-            Assert.AreEqual("neo", (item[0] as ByteString)?.GetString());
-            Assert.AreEqual("smart economy", (item[1] as ByteString)?.GetString());
+            Assert.AreEqual("epicchain", (item[0] as ByteString)?.GetString());
+            Assert.AreEqual("Next Generation", (item[1] as ByteString)?.GetString());
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
 
             Assert.IsNull(result);
             Assert.AreEqual(1, notifications.Count);
-            Assert.AreEqual("neo", notifications.Last());
+            Assert.AreEqual("epicchain", notifications.Last());
         }
 
         [TestMethod]
@@ -268,7 +268,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             Contract.CheckEvent();
             Contract.OnDummyEvent -= delEvent;
             Assert.AreEqual(1, notifications.Count);
-            Assert.AreEqual("neo", notifications.Last());
+            Assert.AreEqual("epicchain", notifications.Last());
             AssertGasConsumed(2213850);
         }
     }

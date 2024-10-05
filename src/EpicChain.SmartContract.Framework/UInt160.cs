@@ -76,7 +76,7 @@ namespace EpicChain.SmartContract.Framework
 
         /// <summary>
         /// Implicitly converts a hexadecimal string to a UInt160 object.
-        /// This can be a 20 bytes hex string or a neo address.
+        /// This can be a 20 bytes hex string or a EpicChain address.
         /// <example>
         /// 20 bytes hex string: "01ff00ff00ff00ff00ff00ff00ff00ff00ff00a4" (no prefix)
         ///             Address: "NZNosnRn6FpRjwGKx8VdXv5Sn7BvzrjZVb"

@@ -4,13 +4,13 @@ public class Contract_PropertyMethod : SmartContract.Framework.SmartContract
 {
     public static (string, int) testProperty()
     {
-        var p = new Person("NEO3", 10);
+        var p = new Person("EpicChain", 10);
         return (p.Name, p.Age);
     }
 
     public static void testProperty2()
     {
-        var p = new Person("NEO3", 10);
+        var p = new Person("EpicChain", 10);
     }
 
     public class Person

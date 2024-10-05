@@ -4,7 +4,7 @@ namespace EpicChain.Compiler.CSharp.TestContracts
     {
         private static string privateMethod()
         {
-            return "NEO3";
+            return "EpicChain";
         }
 
         public static byte[] unitTest_001()

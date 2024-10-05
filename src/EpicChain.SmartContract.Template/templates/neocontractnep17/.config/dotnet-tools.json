@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "EpicChain.Compiler.CSharp": {
-      "version": "TemplateNeoVersion",
+      "version": "TemplateEpicChainVersion",
       "commands": [
         "nccs"
       ]

@@ -258,7 +258,7 @@ namespace EpicChain.Compiler
             }
 
             // Verify if there is any valid smart contract class
-            if (classDependencies.Count == 0) throw new FormatException("No valid neo SmartContract found. Please make sure your contract is subclass of SmartContract and is not abstract.");
+            if (classDependencies.Count == 0) throw new FormatException("No valid EpicChain SmartContract found. Please make sure your contract is subclass of SmartContract and is not abstract.");
             // Check contract dependencies, make sure there is no cycle in the dependency graph
             var sortedClasses = TopologicalSort(classDependencies);
 

@@ -26,7 +26,7 @@ namespace EpicChain.SmartContract.Framework.Native
         Oracle = 8,
 
         /// <summary>
-        /// NeoFS Alphabet nodes.
+        /// EpicChain Alphabet nodes.
         /// </summary>
         NeoFSAlphabetNode = 16,
 

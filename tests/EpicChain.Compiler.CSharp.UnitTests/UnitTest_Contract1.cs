@@ -13,7 +13,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         public void Test_PrivateMethod()
         {
             // Optimizer will remove this method
-            Assert.IsFalse(Encoding.ASCII.GetString(Contract1.Nef.Script.Span).Contains("NEO3"));
+            Assert.IsFalse(Encoding.ASCII.GetString(Contract1.Nef.Script.Span).Contains("EpicChain"));
 
             // Compile without optimizations
 
@@ -31,7 +31,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             Assert.IsTrue(results[0].Success);
 
             var nef = results[0].CreateExecutable();
-            Assert.IsTrue(Encoding.ASCII.GetString(nef.Script.Span).Contains("NEO3"));
+            Assert.IsTrue(Encoding.ASCII.GetString(nef.Script.Span).Contains("EpicChain"));
         }
 
         [TestMethod]

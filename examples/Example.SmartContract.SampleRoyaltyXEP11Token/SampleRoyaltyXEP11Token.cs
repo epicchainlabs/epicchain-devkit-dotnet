@@ -187,7 +187,6 @@ namespace NonDivisibleXEP11
         }
 
         /// <summary>
-        /// This implements Royalty Standard: https://github.com/neo-project/proposals/pull/155/
         /// This method returns a map of EpicChainVM Array stack item with single or multi array, each array includes royaltyRecipient and royaltyAmount
         /// </summary>
         /// <param name="tokenId">tokenId</param>

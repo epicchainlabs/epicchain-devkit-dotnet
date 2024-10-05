@@ -8,7 +8,7 @@ namespace EpicChain.SmartContract.Testing.UnitTests
     [TestClass]
     public class SmartContractStorageTests
     {
-        // Defines the prefix used to store the registration price in neo
+        // Defines the prefix used to store the registration price in EpicChain
 
         private readonly byte[] _registerPricePrefix = new byte[] { 13 };
 

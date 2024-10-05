@@ -26,7 +26,7 @@ namespace EpicChain.SmartContract.Framework.Native
         /// <summary>
         /// Indicates that the calling contract must be the entry contract.
         /// The witness/permission/signature given on first invocation will automatically expire if entering deeper internal invokes.
-        /// This can be the default safe choice for native NEO/GAS (previously used on Neo 2 as "attach" mode).
+        /// This can be the default safe choice for native EpicChain/EpicPulse (previously used on EpicChain as "attach" mode).
         /// </summary>
         CalledByEntry = 0x01,
 
@@ -46,7 +46,7 @@ namespace EpicChain.SmartContract.Framework.Native
         WitnessRules = 0x40,
 
         /// <summary>
-        /// This allows the witness in all contexts (default Neo2 behavior).
+        /// This allows the witness in all contexts (default EpicChain behavior).
         /// </summary>
         /// <remarks>Note: It cannot be combined with other flags.</remarks>
         Global = 0x80

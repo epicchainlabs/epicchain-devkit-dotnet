@@ -25,12 +25,12 @@ namespace EpicChain.SmartContract.Testing.Native
         /// <summary>
         /// EpicPulse
         /// </summary>
-        public GAS GAS { get; }
+        public EpicPulse EpicPulse { get; }
 
         /// <summary>
         /// EpicChain
         /// </summary>
-        public NEO NEO { get; }
+        public EpicChain EpicChain { get; }
 
         /// <summary>
         /// LedgerContract
@@ -67,8 +67,8 @@ namespace EpicChain.SmartContract.Testing.Native
 
             ContractManagement = _engine.FromHash<ContractManagement>(EpicChain.SmartContract.Native.NativeContract.ContractManagement.Hash, EpicChain.SmartContract.Native.NativeContract.ContractManagement.Id);
             CryptoHive = _engine.FromHash<CryptoHive>(EpicChain.SmartContract.Native.NativeContract.CryptoHive.Hash, EpicChain.SmartContract.Native.NativeContract.CryptoHive.Id);
-            GAS = _engine.FromHash<GAS>(EpicChain.SmartContract.Native.NativeContract.EpicPulse.Hash, EpicChain.SmartContract.Native.NativeContract.EpicPulse.Id);
-            NEO = _engine.FromHash<NEO>(EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Id);
+            EpicChain = _engine.FromHash<EpicPulse>(EpicChain.SmartContract.Native.NativeContract.EpicPulse.Hash, EpicChain.SmartContract.Native.NativeContract.EpicPulse.Id);
+            EpicChain = _engine.FromHash<EpicChain>(EpicChain.SmartContract.Native.NativeContract.EpicChain.Hash, EpicChain.SmartContract.Native.NativeContract.EpicChain.Id);
             Ledger = _engine.FromHash<Ledger>(EpicChain.SmartContract.Native.NativeContract.Ledger.Hash, EpicChain.SmartContract.Native.NativeContract.Ledger.Id);
             Oracle = _engine.FromHash<Oracle>(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash, EpicChain.SmartContract.Native.NativeContract.Oracle.Id);
             Policy = _engine.FromHash<Policy>(EpicChain.SmartContract.Native.NativeContract.Policy.Hash, EpicChain.SmartContract.Native.NativeContract.Policy.Id);

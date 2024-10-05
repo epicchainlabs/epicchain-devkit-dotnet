@@ -12,7 +12,7 @@
   },
   "sourceName": "Xep17Contract",
   "symbols": {
-    "NeoVersion": {
+    "EpicChainVersion": {
       "type": "parameter",
       "datatype": "choice",
       "choices": [
@@ -21,7 +21,7 @@
         }
       ],
       "defaultValue": "1.0.0-*",
-      "replaces": "TemplateNeoVersion"
+      "replaces": "TemplateEpicChainVersion"
     }
   }
 }

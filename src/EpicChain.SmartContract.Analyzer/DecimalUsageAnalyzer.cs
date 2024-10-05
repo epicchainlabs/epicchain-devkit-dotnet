@@ -21,7 +21,7 @@ namespace EpicChain.SmartContract.Analyzer
 
         private static readonly DiagnosticDescriptor Rule = new(
             DiagnosticId,
-            "Usage of decimal or double is not allowed in neo contract",
+            "Usage of decimal or double is not allowed in EpicChain contract",
             "EpicChain contract does not support the {0} data type: {1}",
             "Type",
             DiagnosticSeverity.Error,

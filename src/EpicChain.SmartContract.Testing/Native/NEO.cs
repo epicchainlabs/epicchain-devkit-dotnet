@@ -6,7 +6,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
+public abstract class EpicChain : SmartContract, TestingStandards.IXep17Standard
 {
     #region Compiled data
 
@@ -149,7 +149,7 @@ public abstract class NEO : SmartContract, TestingStandards.IXep17Standard
 
     #region Constructor for internal use only
 
-    protected NEO(SmartContractInitialize initialize) : base(initialize) { }
+    protected EpicChain(SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }

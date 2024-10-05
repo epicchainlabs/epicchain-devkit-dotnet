@@ -60,7 +60,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
         [TestMethod]
         public void Test_Platform()
         {
-            Assert.AreEqual("NEO", Contract.GetPlatform());
+            Assert.AreEqual("EpicChain", Contract.GetPlatform());
         }
 
         [TestMethod]
@@ -122,7 +122,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
         [TestMethod]
         public void Test_GetNotificationsCount()
         {
-            // We need the validator sign because we will transfer NEO
+            // We need the validator sign because we will transfer EpicChain
 
             Engine.SetTransactionSigners(Engine.ValidatorsAddress);
 
@@ -165,7 +165,7 @@ namespace EpicChain.SmartContract.Framework.UnitTests.Services
         [TestMethod]
         public void Test_GetNotifications()
         {
-            // We need the validator sign because we will transfer NEO
+            // We need the validator sign because we will transfer EpicChain
 
             Engine.SetTransactionSigners(Engine.ValidatorsAddress);
 

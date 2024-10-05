@@ -15,12 +15,7 @@ namespace EpicChain.SmartContract.Analyzer.UnitTests
 
                                              public enum XepStandard
                                              {
-                                                 // The XEP-11 standard is used for non-fungible tokens (NFTs).
-                                                 // Defined at https://github.com/neo-project/proposals/blob/master/XEP-11.mediawiki
-                                                 XEP11,
-                                                 // The XEP-17 standard is used for fungible tokens.
-                                                 // Defined at https://github.com/neo-project/proposals/blob/master/XEP-17.mediawiki
-                                                 Xep17
+
                                              }
 
                                              [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]

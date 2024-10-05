@@ -766,7 +766,7 @@ internal partial class MethodConvert
         // RegisterHandler((Enum value) => Enum.Format(value.GetType(), value, "G"), HandleEnumFormat);
         // RegisterHandler((Type enumType, object value, string format) => Enum.Format(enumType, value, format), HandleEnumFormatWithType);
 
-        // these two methods will not be supported, since we don't have `Type` class support in neo csharp.
+        // these two methods will not be supported, since we don't have `Type` class support in EpicChain csharp.
         // RegisterHandler((Enum value) => Enum.GetUnderlyingType(value.GetType()), HandleEnumGetUnderlyingType);
         // RegisterHandler((Type enumType) => Enum.GetUnderlyingType(enumType), HandleEnumGetUnderlyingTypeWithType);
     }

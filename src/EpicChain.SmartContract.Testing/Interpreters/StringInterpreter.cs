@@ -11,7 +11,7 @@ namespace EpicChain.SmartContract.Testing.Interpreters
         public Encoding Encoding { get; }
 
         /// <summary>
-        /// A strict UTF8 encoding used in NEO system.
+        /// A strict UTF8 encoding used in EpicChain system.
         /// </summary>
         public static readonly StringInterpreter StrictUTF8 = new(Encoding.UTF8, true);
 

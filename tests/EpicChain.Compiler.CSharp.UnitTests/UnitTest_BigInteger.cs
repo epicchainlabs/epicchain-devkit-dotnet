@@ -142,7 +142,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
             Assert.ThrowsException<TestException>(() => Contract.Testchar(-1));
             Assert.ThrowsException<TestException>(() => Contract.Testchar(65536));
 
-            // char.MaxValue is not a UTF-8 character, thus can not convert to string in neo
+            // char.MaxValue is not a UTF-8 character, thus can not convert to string in EpicChain
             Assert.ThrowsException<DecoderFallbackException>(() => Contract.Testchartostring(char.MaxValue));
             Assert.AreEqual("A", Contract.Testchartostring('A'));
         }

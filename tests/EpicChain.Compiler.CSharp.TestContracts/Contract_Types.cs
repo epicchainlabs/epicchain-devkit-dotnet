@@ -42,9 +42,9 @@ namespace EpicChain.Compiler.CSharp.TestContracts
         public static long checkLong() { return 5; }
         public static ulong checkUlong() { return 5; }
         public static char checkChar() { return 'n'; }
-        public static string checkString() { return "neo"; }
+        public static string checkString() { return "epicchain"; }
         public static char checkStringIndex(string input, int index) => input[index];
-        public static object[] checkArrayObj() { return new object[] { "neo" }; }
+        public static object[] checkArrayObj() { return new object[] { "epicchain" }; }
         public static BigInteger checkBigInteger() { return (BigInteger)5; }
         public static byte[] checkByteArray() { return new byte[] { 1, 2, 3 }; }
         public static object checkEnum() { return EDummy.test; }
@@ -61,27 +61,27 @@ namespace EpicChain.Compiler.CSharp.TestContracts
         }
         public static void checkEvent()
         {
-            DummyEvent("neo");
+            DummyEvent("epicchain");
         }
         public static object checkClass()
         {
             var ret = new DummyClass();
-            ret.Value = "neo";
+            ret.Value = "epicchain";
             return ret;
         }
         public static object checkStruct()
         {
             var ret = new DummyStruct();
-            ret.Value = "neo";
+            ret.Value = "epicchain";
             return ret;
         }
         public static (string value1, string value2) checkTuple()
         {
-            return ("neo", "smart economy");
+            return ("epicchain", "Next Generation Ecosystem");
         }
         public static (string value1, string value2) checkTuple2()
         {
-            var tuple = ("neo", "smart economy");
+            var tuple = ("epicchain", "Next Generation Ecosystem");
             return tuple;
         }
         public static string concatByteString(ByteString a, ByteString b)
