@@ -8,7 +8,7 @@ public class DebugAndTestBase<T> : TestBase<T>
     where T : SmartContract.Testing.SmartContract, IContractInfo
 {
 
-    internal bool TestGasConsume { set; get; } = true;
+    internal bool TestEpicPulseConsume { set; get; } = true;
 
     static DebugAndTestBase()
     {
@@ -17,7 +17,7 @@ public class DebugAndTestBase<T> : TestBase<T>
 
     protected void AssertEpicPulseConsumed(long epicpulseConsumed)
     {
-        if (TestGasConsume)
+        if (TestEpicPulseConsume)
             Assert.AreEqual(epicpulseConsumed, Engine.FeeConsumed.Value);
     }
 }

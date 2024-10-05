@@ -4,7 +4,7 @@ using System.Numerics;
 
 namespace EpicChain.SmartContract.Testing.Native;
 
-public abstract class GAS : SmartContract, TestingStandards.IXep17Standard
+public abstract class EpicPulse : SmartContract, TestingStandards.IXep17Standard
 {
     #region Compiled data
 
@@ -61,7 +61,7 @@ public abstract class GAS : SmartContract, TestingStandards.IXep17Standard
 
     #region Constructor for internal use only
 
-    protected GAS(SmartContractInitialize initialize) : base(initialize) { }
+    protected EpicPulse(SmartContractInitialize initialize) : base(initialize) { }
 
     #endregion
 }
