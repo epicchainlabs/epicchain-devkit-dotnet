@@ -1,37 +1,31 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework is free software distributed under the MIT
-// software license, see the accompanying file LICENSE in the main directory
-// of the project or http://www.opensource.org/licenses/mit-license.php
-// for more details.
+// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
+// projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
+// modifications open-source, though doing so contributes to the overall growth of the open-source community.
 //
-// Redistribution and use in source and binary forms with or without
-// modifications are permitted.
-
-#pragma warning disable CS0626
-
-using System;
-using EpicChain.SmartContract.Framework.Attributes;
-
-namespace EpicChain.SmartContract.Framework.Native
-{
-    [Contract("0x494c1594ccfa500e9b1fdf567f9e55d8338f3495")]
-    public static partial class CryptoHive
-    {
-        [ContractHash]
-        public static extern UInt160 Hash { get; }
-
-        public static extern ByteString Sha256(ByteString value);
-
-        public static extern ByteString Ripemd160(ByteString value);
-
-        public static extern ByteString keccak256(ByteString value);
-
-        public static extern ByteString Murmur32(ByteString value, uint seed);
-
-        [Obsolete("VerifyWithECDsa has changed its signature. Please, use a compatible version of VerifyWithECDsa with NamedCurveHash curveHash argument instead.")]
-        public static extern bool VerifyWithECDsa(ByteString message, ECPoint pubkey, ByteString signature, NamedCurve curve);
-
-        public static extern bool VerifyWithECDsa(ByteString message, ECPoint pubkey, ByteString signature, NamedCurveHash curveHash);
-    }
-}
+// To comply with the terms of the MIT License, we kindly ask that you include a copy of the original copyright notice, this permission
+// notice, and the license itself in all substantial portions of the software that you redistribute, whether in source code form or as
+// compiled binaries. The purpose of this requirement is to ensure that future users and developers are aware of the origin of the software,
+// the freedoms granted to them, and the limitations of liability that apply.
+//
+// The complete terms and conditions of the MIT License are documented in the LICENSE file that accompanies this project. This file can be
+// found in the main directory of the source code repository. Alternatively, you may access the license text online at the following URL:
+// http://www.opensource.org/licenses/mit-license.php. We encourage you to review these terms in detail to fully understand your rights
+// and responsibilities when using this software.
+//
+// Redistribution and use of the EpicChain Lab's Project, whether in source or binary forms, with or without modification, are
+// permitted as long as the following conditions are met:
+//
+// 1. The original copyright notice, along with this permission notice, must be retained in all copies or significant portions of the software.
+// 2. The software is provided "as-is," without any express or implied warranty. This means that the authors and contributors are not
+//    responsible for any issues that may arise from the use of the software, including but not limited to damages caused by defects or
+//    performance issues. Users assume all responsibility for determining the suitability of the software for their specific needs.
+//
+// In addition to the above terms, the authors of the EpicChain Lab's Project encourage developers to explore and experiment
+// with the framework's capabilities. Whether you are an individual developer, a startup, or a large organization, you are invited to
+// leverage the power of blockchain technology to create decentralized applications, smart contracts, and more. We believe that by fostering
+// a robust ecosystem of developers and contributors, we can help drive innovation in the blockchain space and unlock new opportunities
+// for distributed ledger technology.
+//

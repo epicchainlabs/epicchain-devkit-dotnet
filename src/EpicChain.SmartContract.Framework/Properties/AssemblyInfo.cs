@@ -1,14 +1,8 @@
 // Copyright (C) 2021-2024 EpicChain Lab's
 //
-// The EpicChain.SmartContract.Framework is free software distributed under the MIT
-// software license, see the accompanying file LICENSE in the main directory
-// of the project or http://www.opensource.org/licenses/mit-license.php
-// for more details.
+// The EpicChain.SmartContract.Framework  MIT License allows for broad usage rights, granting you the freedom to redistribute, modify, and adapt the
+// source code or its binary versions as needed. You are permitted to incorporate the EpicChain Lab's Project into your own
+// projects, whether for profit or non-profit, and may make changes to suit your specific needs. There is no requirement to make your
+// modifications open-source, though doing so contributes to the overall growth of the open-source community.
 //
-// Redistribution and use in source and binary forms with or without
-// modifications are permitted.
-
-using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("nccs")]
-[assembly: InternalsVisibleTo("EpicChain.SmartContract.Framework.UnitTests")]
+// To comply with the terms of the MIT License, we kindly ask that you include a copy of the original copyright notice, this permission
