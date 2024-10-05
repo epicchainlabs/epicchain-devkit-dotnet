@@ -2,10 +2,10 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <Copyright>2021-2024 TEpicChain Lab's/Copyright>
-    <Company>TEpicChain Lab's/Company>
+    <Copyright>2021-2024 TEpicChain Lab's</Copyright>
+    <Company>EpicChain Lab's</Company>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <Authors>TEpicChain Lab's/Authors>
+    <Authors>EpicChain Lab's</Authors>
     <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-devkit-dotnet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
