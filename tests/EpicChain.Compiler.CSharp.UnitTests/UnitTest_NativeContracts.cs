@@ -45,7 +45,7 @@ namespace EpicChain.Compiler.CSharp.UnitTests
         {
             // EpicChainSymbol
 
-            Assert.AreEqual("EpicChain", Contract.EpicChainSymbol());
+            Assert.AreEqual("XPR", Contract.EpicChainSymbol());
             AssertEpicPulseConsumed(1967100);
 
             // EpicChainHash
